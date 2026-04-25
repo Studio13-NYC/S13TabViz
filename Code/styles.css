@@ -50,7 +50,7 @@ input {
 .topbar {
   min-height: 86px;
   display: grid;
-  grid-template-columns: minmax(260px, 0.9fr) minmax(280px, 0.75fr) minmax(260px, 0.7fr) minmax(360px, 0.95fr);
+  grid-template-columns: minmax(210px, 0.62fr) minmax(250px, 0.76fr) minmax(230px, 0.65fr) minmax(250px, 0.72fr) minmax(340px, 0.95fr);
   align-items: center;
   gap: 18px;
   padding: 14px 16px;
@@ -70,17 +70,27 @@ input {
   text-transform: uppercase;
 }
 
+.brand-link {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.brand-link:hover,
+.brand-link:focus-visible {
+  color: var(--accent);
+}
+
 .identity h1 {
   margin: 2px 0 0;
-  font-size: clamp(28px, 4vw, 54px);
-  line-height: 0.95;
+  font-size: clamp(26px, 2.7vw, 38px);
+  line-height: 1;
   letter-spacing: 0;
 }
 
 .file-panel,
 .metronome-panel,
+.mixer-panel,
 .transport,
-.status-row,
 .reading-card {
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.04);
@@ -102,6 +112,58 @@ input {
   align-items: center;
   gap: 14px;
   padding: 10px;
+}
+
+.mixer-panel {
+  min-height: 58px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  align-items: center;
+  gap: 6px 12px;
+  padding: 8px 10px;
+}
+
+.backing-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.backing-toggle input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent);
+}
+
+.mix-control {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.mix-control input {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+.mixer-panel strong {
+  grid-column: 1 / -1;
+  overflow: hidden;
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.15;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .file-button {
@@ -146,7 +208,6 @@ svg {
 }
 
 .file-meta strong,
-.status-row strong,
 .reading-card strong {
   display: block;
   overflow: hidden;
@@ -236,14 +297,7 @@ svg {
   min-width: 0;
   min-height: 0;
   display: grid;
-  grid-template-rows: 1fr auto;
-  gap: 12px;
-}
-
-.status-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  grid-template-rows: 1fr;
 }
 
 .highway {
@@ -271,6 +325,7 @@ svg {
 
 .string {
   position: absolute;
+  z-index: 1;
   top: 7%;
   bottom: 12%;
   width: 3px;
@@ -331,6 +386,7 @@ svg {
 
 .beat-lines {
   position: absolute;
+  z-index: 1;
   inset: 7% 8% 12%;
   background:
     repeating-linear-gradient(
@@ -347,6 +403,7 @@ svg {
 .notes-layer {
   position: absolute;
   inset: 0;
+  z-index: 2;
   transform-style: preserve-3d;
 }
 
@@ -354,9 +411,10 @@ svg {
   --lane-color: var(--cyan);
   --note-height: 46px;
   position: absolute;
+  z-index: 2;
   left: var(--x);
   top: var(--y);
-  width: clamp(52px, var(--size), 112px);
+  width: clamp(34px, var(--size), 86px);
   min-height: 12px;
   height: var(--note-height);
   display: grid;
@@ -366,7 +424,7 @@ svg {
     linear-gradient(180deg, rgba(255, 255, 255, 0.3), transparent 36%),
     color-mix(in srgb, var(--lane-color) 78%, black);
   color: #101010;
-  font-size: clamp(12px, min(calc(var(--size) * 0.28), calc(var(--note-height) * 0.72)), 27px);
+  font-size: clamp(12px, min(calc(var(--size) * 0.3), calc(var(--note-height) * 0.74)), 24px);
   font-weight: 900;
   font-variant-numeric: tabular-nums;
   box-shadow:
@@ -485,6 +543,7 @@ svg {
 
 .strike-line {
   position: absolute;
+  z-index: 5;
   left: 0;
   right: 0;
   bottom: 54px;
@@ -526,14 +585,15 @@ svg {
 
 .strike-line span {
   position: absolute;
+  z-index: 2;
   top: 50%;
   left: var(--hit-x);
   width: clamp(48px, 7vw, 78px);
   height: 52px;
   transform: translate(-50%, -50%);
   border: 2px solid rgba(247, 229, 164, 0.82);
-  background: rgba(247, 229, 164, 0.08);
-  box-shadow: inset 0 0 18px rgba(247, 229, 164, 0.1);
+  background: transparent;
+  box-shadow: 0 0 14px rgba(247, 229, 164, 0.18);
 }
 
 .strike-line span:nth-of-type(1) {
@@ -563,10 +623,10 @@ svg {
 .strike-line span.is-active {
   animation: hit-zone-flash 520ms ease-out infinite;
   border-color: rgba(255, 244, 190, 1);
-  background: rgba(247, 229, 164, 0.2);
+  background: transparent;
   box-shadow:
     0 0 24px rgba(247, 229, 164, 0.78),
-    inset 0 0 22px rgba(247, 229, 164, 0.24);
+    inset 0 0 0 rgba(247, 229, 164, 0);
 }
 
 @keyframes hit-zone-flash {
@@ -578,11 +638,6 @@ svg {
   45% {
     transform: translate(-50%, -50%) scale(1.12);
   }
-}
-
-.status-row {
-  grid-template-columns: repeat(4, 1fr);
-  padding: 12px;
 }
 
 .sync-debug {
@@ -689,8 +744,8 @@ svg {
 @media (max-width: 620px) {
   .file-panel,
   .metronome-panel,
+  .mixer-panel,
   .transport,
-  .status-row,
   .debug-grid,
   .debug-events {
     grid-template-columns: 1fr;

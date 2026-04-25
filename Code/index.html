@@ -3,20 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tab Highway Prototype</title>
+    <title>Lukas+S13</title>
+    <link rel="icon" href="data:," />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <main class="app-shell">
       <header class="topbar">
         <section class="identity" aria-label="Project">
-          <p class="eyebrow">Modern Guitar Course</p>
-          <h1>Tab Highway</h1>
+          <a class="eyebrow brand-link" href="http://S13.NYC" target="_blank" rel="noopener noreferrer">http://S13.NYC</a>
+          <h1>Lukas+S13</h1>
         </section>
 
         <section class="file-panel" aria-label="Guitar Pro source selection">
           <label class="file-button">
-            <input id="tabFile" type="file" accept=".gp,.gpif,.json" />
+            <input id="tabFile" type="file" accept=".gp,.gpif,.json,.pdf,application/pdf" />
             <span class="file-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" focusable="false">
                 <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
@@ -25,7 +26,7 @@
                 <path d="M9 17h4" />
               </svg>
             </span>
-            <span>Select GP file</span>
+            <span>Select source</span>
           </label>
           <div class="file-meta">
             <span class="meta-label">Loaded</span>
@@ -50,6 +51,19 @@
             <span class="meta-label">Click</span>
             <strong id="metronomeName">Built-in click</strong>
           </div>
+        </section>
+
+        <section class="mixer-panel" aria-label="Audio mixer">
+          <label class="backing-toggle">
+            <input id="backingToggle" type="checkbox" checked />
+            <span>Backing</span>
+          </label>
+          <div class="mix-control">
+            <span>Click</span>
+            <input id="mixSlider" type="range" min="0" max="100" value="50" />
+            <span>Backing</span>
+          </div>
+          <strong id="backingStatus">No backing track</strong>
         </section>
 
         <section class="transport" aria-label="Playback controls">
@@ -90,25 +104,6 @@
               <span></span>
               <span></span>
               <span></span>
-            </div>
-          </div>
-
-          <div class="status-row">
-            <div>
-              <span class="meta-label">Now</span>
-              <strong id="nowPlaying">Count-in 1</strong>
-            </div>
-            <div>
-              <span class="meta-label">Mode</span>
-              <strong>Clean note read</strong>
-            </div>
-            <div>
-              <span class="meta-label">Input source</span>
-              <strong>Guitar Pro notes only</strong>
-            </div>
-            <div>
-              <span class="meta-label">Next step</span>
-              <strong>Map parsed notes to time</strong>
             </div>
           </div>
         </section>

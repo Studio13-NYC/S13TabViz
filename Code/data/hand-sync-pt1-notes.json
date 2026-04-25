@@ -5,19 +5,23 @@
     "subtitle": "Eight notes",
     "tempo": 120,
     "timeSignature": "4/4",
-    "ignoredBackingTrack": true,
-    "ignoredGpifSections": [
-      "BackingTrack",
-      "Assets",
-      "Content/Assets/*.mp3"
-    ]
+    "backingTrack": {
+      "available": true,
+      "url": "./data/hand-sync-pt1-backing.mp3",
+      "embeddedPath": "Content/Assets/7c1e060d-4e1e-5dd2-ac93-b26b66fd17f2.mp3",
+      "label": "Audio Track",
+      "nativeTempo": 120,
+      "startOffsetUnits": 1,
+      "startOffsetSeconds": 2.0
+    },
+    "scoreTimingSource": "GPIF notes"
   },
   "summary": {
     "measures": 48,
     "notes": 384,
     "firstPlayableSourceMeasure": 2,
     "durationValues": [
-      0.5
+      0.125
     ],
     "allEighthNotes": true,
     "allMeasuresEightNotes": true
@@ -69,432 +73,432 @@
       "measure": 1,
       "sourceMeasure": 2,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 2,
       "sourceMeasure": 3,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 3,
       "sourceMeasure": 4,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 4,
       "sourceMeasure": 5,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 5,
       "sourceMeasure": 6,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 6,
       "sourceMeasure": 7,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 7,
       "sourceMeasure": 8,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 8,
       "sourceMeasure": 9,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 9,
       "sourceMeasure": 10,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 10,
       "sourceMeasure": 11,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 11,
       "sourceMeasure": 12,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 12,
       "sourceMeasure": 13,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 13,
       "sourceMeasure": 14,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 14,
       "sourceMeasure": 15,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 15,
       "sourceMeasure": 16,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 16,
       "sourceMeasure": 17,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 17,
       "sourceMeasure": 18,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 18,
       "sourceMeasure": 19,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 19,
       "sourceMeasure": 20,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 20,
       "sourceMeasure": 21,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 21,
       "sourceMeasure": 22,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 22,
       "sourceMeasure": 23,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 23,
       "sourceMeasure": 24,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 24,
       "sourceMeasure": 25,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 25,
       "sourceMeasure": 26,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 26,
       "sourceMeasure": 27,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 27,
       "sourceMeasure": 28,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 28,
       "sourceMeasure": 29,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 29,
       "sourceMeasure": 30,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 30,
       "sourceMeasure": 31,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 31,
       "sourceMeasure": 32,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 32,
       "sourceMeasure": 33,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 33,
       "sourceMeasure": 34,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 34,
       "sourceMeasure": 35,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 35,
       "sourceMeasure": 36,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 36,
       "sourceMeasure": 37,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 37,
       "sourceMeasure": 38,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 38,
       "sourceMeasure": 39,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 39,
       "sourceMeasure": 40,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 40,
       "sourceMeasure": 41,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 41,
       "sourceMeasure": 42,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 42,
       "sourceMeasure": 43,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 43,
       "sourceMeasure": 44,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 44,
       "sourceMeasure": 45,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 45,
       "sourceMeasure": 46,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 46,
       "sourceMeasure": 47,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 47,
       "sourceMeasure": 48,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     },
     {
       "measure": 48,
       "sourceMeasure": 49,
       "noteCount": 8,
-      "durationBeats": 4.0,
+      "durationUnits": 1.0,
       "durations": [
-        0.5
+        0.125
       ]
     }
   ],
@@ -502,11 +506,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 0.0,
-      "durationBeats": 0.5,
+      "position": 0.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 2,
       "measure": 1,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "down"
@@ -514,11 +518,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 0.5,
-      "durationBeats": 0.5,
+      "position": 0.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 2,
       "measure": 1,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "up"
@@ -526,11 +530,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 1.0,
-      "durationBeats": 0.5,
+      "position": 0.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 2,
       "measure": 1,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "down"
@@ -538,11 +542,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 1.5,
-      "durationBeats": 0.5,
+      "position": 0.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 2,
       "measure": 1,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "up"
@@ -550,11 +554,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 2.0,
-      "durationBeats": 0.5,
+      "position": 0.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 2,
       "measure": 1,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "down"
@@ -562,11 +566,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 2.5,
-      "durationBeats": 0.5,
+      "position": 0.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 2,
       "measure": 1,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "up"
@@ -574,11 +578,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 3.0,
-      "durationBeats": 0.5,
+      "position": 0.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 2,
       "measure": 1,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "down"
@@ -586,11 +590,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 3.5,
-      "durationBeats": 0.5,
+      "position": 0.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 2,
       "measure": 1,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "up"
@@ -598,11 +602,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 4.0,
-      "durationBeats": 0.5,
+      "position": 1.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 3,
       "measure": 2,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "down"
@@ -610,11 +614,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 4.5,
-      "durationBeats": 0.5,
+      "position": 1.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 3,
       "measure": 2,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "up"
@@ -622,11 +626,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 5.0,
-      "durationBeats": 0.5,
+      "position": 1.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 3,
       "measure": 2,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "down"
@@ -634,11 +638,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 5.5,
-      "durationBeats": 0.5,
+      "position": 1.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 3,
       "measure": 2,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "up"
@@ -646,11 +650,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 6.0,
-      "durationBeats": 0.5,
+      "position": 1.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 3,
       "measure": 2,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "down"
@@ -658,11 +662,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 6.5,
-      "durationBeats": 0.5,
+      "position": 1.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 3,
       "measure": 2,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "up"
@@ -670,11 +674,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 7.0,
-      "durationBeats": 0.5,
+      "position": 1.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 3,
       "measure": 2,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "down"
@@ -682,11 +686,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 7.5,
-      "durationBeats": 0.5,
+      "position": 1.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 3,
       "measure": 2,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "up"
@@ -694,11 +698,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 8.0,
-      "durationBeats": 0.5,
+      "position": 2.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 4,
       "measure": 3,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "down"
@@ -706,11 +710,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 8.5,
-      "durationBeats": 0.5,
+      "position": 2.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 4,
       "measure": 3,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "up"
@@ -718,11 +722,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 9.0,
-      "durationBeats": 0.5,
+      "position": 2.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 4,
       "measure": 3,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "down"
@@ -730,11 +734,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 9.5,
-      "durationBeats": 0.5,
+      "position": 2.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 4,
       "measure": 3,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "up"
@@ -742,11 +746,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 10.0,
-      "durationBeats": 0.5,
+      "position": 2.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 4,
       "measure": 3,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "down"
@@ -754,11 +758,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 10.5,
-      "durationBeats": 0.5,
+      "position": 2.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 4,
       "measure": 3,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "up"
@@ -766,11 +770,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 11.0,
-      "durationBeats": 0.5,
+      "position": 2.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 4,
       "measure": 3,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "down"
@@ -778,11 +782,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 11.5,
-      "durationBeats": 0.5,
+      "position": 2.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 4,
       "measure": 3,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "up"
@@ -790,11 +794,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 12.0,
-      "durationBeats": 0.5,
+      "position": 3.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 5,
       "measure": 4,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "down"
@@ -802,11 +806,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 12.5,
-      "durationBeats": 0.5,
+      "position": 3.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 5,
       "measure": 4,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "up"
@@ -814,11 +818,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 13.0,
-      "durationBeats": 0.5,
+      "position": 3.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 5,
       "measure": 4,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "down"
@@ -826,11 +830,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 13.5,
-      "durationBeats": 0.5,
+      "position": 3.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 5,
       "measure": 4,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "up"
@@ -838,11 +842,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 14.0,
-      "durationBeats": 0.5,
+      "position": 3.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 5,
       "measure": 4,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "down"
@@ -850,11 +854,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 14.5,
-      "durationBeats": 0.5,
+      "position": 3.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 5,
       "measure": 4,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "up"
@@ -862,11 +866,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 15.0,
-      "durationBeats": 0.5,
+      "position": 3.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 5,
       "measure": 4,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "down"
@@ -874,11 +878,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 15.5,
-      "durationBeats": 0.5,
+      "position": 3.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 5,
       "measure": 4,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "up"
@@ -886,11 +890,11 @@
     {
       "string": 3,
       "fret": 5,
-      "beat": 16.0,
-      "durationBeats": 0.5,
+      "position": 4.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 6,
       "measure": 5,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 3,
       "midi": 60,
       "pickStroke": "down"
@@ -898,11 +902,11 @@
     {
       "string": 3,
       "fret": 5,
-      "beat": 16.5,
-      "durationBeats": 0.5,
+      "position": 4.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 6,
       "measure": 5,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 3,
       "midi": 60,
       "pickStroke": "up"
@@ -910,11 +914,11 @@
     {
       "string": 2,
       "fret": 5,
-      "beat": 17.0,
-      "durationBeats": 0.5,
+      "position": 4.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 6,
       "measure": 5,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 4,
       "midi": 64,
       "pickStroke": "down"
@@ -922,11 +926,11 @@
     {
       "string": 2,
       "fret": 5,
-      "beat": 17.5,
-      "durationBeats": 0.5,
+      "position": 4.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 6,
       "measure": 5,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 4,
       "midi": 64,
       "pickStroke": "up"
@@ -934,11 +938,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 18.0,
-      "durationBeats": 0.5,
+      "position": 4.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 6,
       "measure": 5,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "down"
@@ -946,11 +950,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 18.5,
-      "durationBeats": 0.5,
+      "position": 4.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 6,
       "measure": 5,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "up"
@@ -958,11 +962,11 @@
     {
       "string": 2,
       "fret": 8,
-      "beat": 19.0,
-      "durationBeats": 0.5,
+      "position": 4.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 6,
       "measure": 5,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 4,
       "midi": 67,
       "pickStroke": "down"
@@ -970,11 +974,11 @@
     {
       "string": 2,
       "fret": 8,
-      "beat": 19.5,
-      "durationBeats": 0.5,
+      "position": 4.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 6,
       "measure": 5,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 4,
       "midi": 67,
       "pickStroke": "up"
@@ -982,11 +986,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 20.0,
-      "durationBeats": 0.5,
+      "position": 5.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 7,
       "measure": 6,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "down"
@@ -994,11 +998,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 20.5,
-      "durationBeats": 0.5,
+      "position": 5.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 7,
       "measure": 6,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "up"
@@ -1006,11 +1010,11 @@
     {
       "string": 2,
       "fret": 10,
-      "beat": 21.0,
-      "durationBeats": 0.5,
+      "position": 5.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 7,
       "measure": 6,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 4,
       "midi": 69,
       "pickStroke": "down"
@@ -1018,11 +1022,11 @@
     {
       "string": 2,
       "fret": 10,
-      "beat": 21.5,
-      "durationBeats": 0.5,
+      "position": 5.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 7,
       "measure": 6,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 4,
       "midi": 69,
       "pickStroke": "up"
@@ -1030,11 +1034,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 22.0,
-      "durationBeats": 0.5,
+      "position": 5.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 7,
       "measure": 6,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "down"
@@ -1042,11 +1046,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 22.5,
-      "durationBeats": 0.5,
+      "position": 5.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 7,
       "measure": 6,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "up"
@@ -1054,11 +1058,11 @@
     {
       "string": 2,
       "fret": 8,
-      "beat": 23.0,
-      "durationBeats": 0.5,
+      "position": 5.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 7,
       "measure": 6,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 4,
       "midi": 67,
       "pickStroke": "down"
@@ -1066,11 +1070,11 @@
     {
       "string": 2,
       "fret": 8,
-      "beat": 23.5,
-      "durationBeats": 0.5,
+      "position": 5.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 7,
       "measure": 6,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 4,
       "midi": 67,
       "pickStroke": "up"
@@ -1078,11 +1082,11 @@
     {
       "string": 3,
       "fret": 5,
-      "beat": 24.0,
-      "durationBeats": 0.5,
+      "position": 6.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 8,
       "measure": 7,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 3,
       "midi": 60,
       "pickStroke": "down"
@@ -1090,11 +1094,11 @@
     {
       "string": 3,
       "fret": 5,
-      "beat": 24.5,
-      "durationBeats": 0.5,
+      "position": 6.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 8,
       "measure": 7,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 3,
       "midi": 60,
       "pickStroke": "up"
@@ -1102,11 +1106,11 @@
     {
       "string": 2,
       "fret": 5,
-      "beat": 25.0,
-      "durationBeats": 0.5,
+      "position": 6.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 8,
       "measure": 7,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 4,
       "midi": 64,
       "pickStroke": "down"
@@ -1114,11 +1118,11 @@
     {
       "string": 2,
       "fret": 5,
-      "beat": 25.5,
-      "durationBeats": 0.5,
+      "position": 6.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 8,
       "measure": 7,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 4,
       "midi": 64,
       "pickStroke": "up"
@@ -1126,11 +1130,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 26.0,
-      "durationBeats": 0.5,
+      "position": 6.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 8,
       "measure": 7,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "down"
@@ -1138,11 +1142,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 26.5,
-      "durationBeats": 0.5,
+      "position": 6.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 8,
       "measure": 7,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "up"
@@ -1150,11 +1154,11 @@
     {
       "string": 2,
       "fret": 8,
-      "beat": 27.0,
-      "durationBeats": 0.5,
+      "position": 6.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 8,
       "measure": 7,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 4,
       "midi": 67,
       "pickStroke": "down"
@@ -1162,11 +1166,11 @@
     {
       "string": 2,
       "fret": 8,
-      "beat": 27.5,
-      "durationBeats": 0.5,
+      "position": 6.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 8,
       "measure": 7,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 4,
       "midi": 67,
       "pickStroke": "up"
@@ -1174,11 +1178,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 28.0,
-      "durationBeats": 0.5,
+      "position": 7.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 9,
       "measure": 8,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "down"
@@ -1186,11 +1190,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 28.5,
-      "durationBeats": 0.5,
+      "position": 7.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 9,
       "measure": 8,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "up"
@@ -1198,11 +1202,11 @@
     {
       "string": 2,
       "fret": 10,
-      "beat": 29.0,
-      "durationBeats": 0.5,
+      "position": 7.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 9,
       "measure": 8,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 4,
       "midi": 69,
       "pickStroke": "down"
@@ -1210,11 +1214,11 @@
     {
       "string": 2,
       "fret": 10,
-      "beat": 29.5,
-      "durationBeats": 0.5,
+      "position": 7.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 9,
       "measure": 8,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 4,
       "midi": 69,
       "pickStroke": "up"
@@ -1222,11 +1226,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 30.0,
-      "durationBeats": 0.5,
+      "position": 7.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 9,
       "measure": 8,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "down"
@@ -1234,11 +1238,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 30.5,
-      "durationBeats": 0.5,
+      "position": 7.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 9,
       "measure": 8,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "up"
@@ -1246,11 +1250,11 @@
     {
       "string": 2,
       "fret": 8,
-      "beat": 31.0,
-      "durationBeats": 0.5,
+      "position": 7.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 9,
       "measure": 8,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 4,
       "midi": 67,
       "pickStroke": "down"
@@ -1258,11 +1262,11 @@
     {
       "string": 2,
       "fret": 8,
-      "beat": 31.5,
-      "durationBeats": 0.5,
+      "position": 7.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 9,
       "measure": 8,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 4,
       "midi": 67,
       "pickStroke": "up"
@@ -1270,11 +1274,11 @@
     {
       "string": 4,
       "fret": 7,
-      "beat": 32.0,
-      "durationBeats": 0.5,
+      "position": 8.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 10,
       "measure": 9,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 2,
       "midi": 57,
       "pickStroke": "down"
@@ -1282,11 +1286,11 @@
     {
       "string": 4,
       "fret": 7,
-      "beat": 32.5,
-      "durationBeats": 0.5,
+      "position": 8.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 10,
       "measure": 9,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 2,
       "midi": 57,
       "pickStroke": "up"
@@ -1294,11 +1298,11 @@
     {
       "string": 3,
       "fret": 5,
-      "beat": 33.0,
-      "durationBeats": 0.5,
+      "position": 8.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 10,
       "measure": 9,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 3,
       "midi": 60,
       "pickStroke": "down"
@@ -1306,11 +1310,11 @@
     {
       "string": 3,
       "fret": 5,
-      "beat": 33.5,
-      "durationBeats": 0.5,
+      "position": 8.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 10,
       "measure": 9,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 3,
       "midi": 60,
       "pickStroke": "up"
@@ -1318,11 +1322,11 @@
     {
       "string": 2,
       "fret": 5,
-      "beat": 34.0,
-      "durationBeats": 0.5,
+      "position": 8.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 10,
       "measure": 9,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 4,
       "midi": 64,
       "pickStroke": "down"
@@ -1330,11 +1334,11 @@
     {
       "string": 2,
       "fret": 5,
-      "beat": 34.5,
-      "durationBeats": 0.5,
+      "position": 8.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 10,
       "measure": 9,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 4,
       "midi": 64,
       "pickStroke": "up"
@@ -1342,11 +1346,11 @@
     {
       "string": 3,
       "fret": 5,
-      "beat": 35.0,
-      "durationBeats": 0.5,
+      "position": 8.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 10,
       "measure": 9,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 3,
       "midi": 60,
       "pickStroke": "down"
@@ -1354,11 +1358,11 @@
     {
       "string": 3,
       "fret": 5,
-      "beat": 35.5,
-      "durationBeats": 0.5,
+      "position": 8.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 10,
       "measure": 9,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 3,
       "midi": 60,
       "pickStroke": "up"
@@ -1366,11 +1370,11 @@
     {
       "string": 4,
       "fret": 9,
-      "beat": 36.0,
-      "durationBeats": 0.5,
+      "position": 9.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 11,
       "measure": 10,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 2,
       "midi": 59,
       "pickStroke": "down"
@@ -1378,11 +1382,11 @@
     {
       "string": 4,
       "fret": 9,
-      "beat": 36.5,
-      "durationBeats": 0.5,
+      "position": 9.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 11,
       "measure": 10,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 2,
       "midi": 59,
       "pickStroke": "up"
@@ -1390,11 +1394,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 37.0,
-      "durationBeats": 0.5,
+      "position": 9.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 11,
       "measure": 10,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "down"
@@ -1402,11 +1406,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 37.5,
-      "durationBeats": 0.5,
+      "position": 9.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 11,
       "measure": 10,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "up"
@@ -1414,11 +1418,11 @@
     {
       "string": 2,
       "fret": 8,
-      "beat": 38.0,
-      "durationBeats": 0.5,
+      "position": 9.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 11,
       "measure": 10,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 4,
       "midi": 67,
       "pickStroke": "down"
@@ -1426,11 +1430,11 @@
     {
       "string": 2,
       "fret": 8,
-      "beat": 38.5,
-      "durationBeats": 0.5,
+      "position": 9.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 11,
       "measure": 10,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 4,
       "midi": 67,
       "pickStroke": "up"
@@ -1438,11 +1442,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 39.0,
-      "durationBeats": 0.5,
+      "position": 9.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 11,
       "measure": 10,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "down"
@@ -1450,11 +1454,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 39.5,
-      "durationBeats": 0.5,
+      "position": 9.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 11,
       "measure": 10,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "up"
@@ -1462,11 +1466,11 @@
     {
       "string": 4,
       "fret": 10,
-      "beat": 40.0,
-      "durationBeats": 0.5,
+      "position": 10.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 12,
       "measure": 11,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 2,
       "midi": 60,
       "pickStroke": "down"
@@ -1474,11 +1478,11 @@
     {
       "string": 4,
       "fret": 10,
-      "beat": 40.5,
-      "durationBeats": 0.5,
+      "position": 10.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 12,
       "measure": 11,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 2,
       "midi": 60,
       "pickStroke": "up"
@@ -1486,11 +1490,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 41.0,
-      "durationBeats": 0.5,
+      "position": 10.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 12,
       "measure": 11,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "down"
@@ -1498,11 +1502,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 41.5,
-      "durationBeats": 0.5,
+      "position": 10.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 12,
       "measure": 11,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "up"
@@ -1510,11 +1514,11 @@
     {
       "string": 2,
       "fret": 10,
-      "beat": 42.0,
-      "durationBeats": 0.5,
+      "position": 10.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 12,
       "measure": 11,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 4,
       "midi": 69,
       "pickStroke": "down"
@@ -1522,11 +1526,11 @@
     {
       "string": 2,
       "fret": 10,
-      "beat": 42.5,
-      "durationBeats": 0.5,
+      "position": 10.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 12,
       "measure": 11,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 4,
       "midi": 69,
       "pickStroke": "up"
@@ -1534,11 +1538,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 43.0,
-      "durationBeats": 0.5,
+      "position": 10.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 12,
       "measure": 11,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "down"
@@ -1546,11 +1550,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 43.5,
-      "durationBeats": 0.5,
+      "position": 10.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 12,
       "measure": 11,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "up"
@@ -1558,11 +1562,11 @@
     {
       "string": 4,
       "fret": 9,
-      "beat": 44.0,
-      "durationBeats": 0.5,
+      "position": 11.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 13,
       "measure": 12,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 2,
       "midi": 59,
       "pickStroke": "down"
@@ -1570,11 +1574,11 @@
     {
       "string": 4,
       "fret": 9,
-      "beat": 44.5,
-      "durationBeats": 0.5,
+      "position": 11.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 13,
       "measure": 12,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 2,
       "midi": 59,
       "pickStroke": "up"
@@ -1582,11 +1586,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 45.0,
-      "durationBeats": 0.5,
+      "position": 11.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 13,
       "measure": 12,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "down"
@@ -1594,11 +1598,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 45.5,
-      "durationBeats": 0.5,
+      "position": 11.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 13,
       "measure": 12,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "up"
@@ -1606,11 +1610,11 @@
     {
       "string": 2,
       "fret": 8,
-      "beat": 46.0,
-      "durationBeats": 0.5,
+      "position": 11.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 13,
       "measure": 12,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 4,
       "midi": 67,
       "pickStroke": "down"
@@ -1618,11 +1622,11 @@
     {
       "string": 2,
       "fret": 8,
-      "beat": 46.5,
-      "durationBeats": 0.5,
+      "position": 11.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 13,
       "measure": 12,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 4,
       "midi": 67,
       "pickStroke": "up"
@@ -1630,11 +1634,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 47.0,
-      "durationBeats": 0.5,
+      "position": 11.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 13,
       "measure": 12,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "down"
@@ -1642,11 +1646,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 47.5,
-      "durationBeats": 0.5,
+      "position": 11.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 13,
       "measure": 12,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "up"
@@ -1654,11 +1658,11 @@
     {
       "string": 4,
       "fret": 7,
-      "beat": 48.0,
-      "durationBeats": 0.5,
+      "position": 12.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 14,
       "measure": 13,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 2,
       "midi": 57,
       "pickStroke": "down"
@@ -1666,11 +1670,11 @@
     {
       "string": 4,
       "fret": 7,
-      "beat": 48.5,
-      "durationBeats": 0.5,
+      "position": 12.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 14,
       "measure": 13,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 2,
       "midi": 57,
       "pickStroke": "up"
@@ -1678,11 +1682,11 @@
     {
       "string": 3,
       "fret": 5,
-      "beat": 49.0,
-      "durationBeats": 0.5,
+      "position": 12.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 14,
       "measure": 13,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 3,
       "midi": 60,
       "pickStroke": "down"
@@ -1690,11 +1694,11 @@
     {
       "string": 3,
       "fret": 5,
-      "beat": 49.5,
-      "durationBeats": 0.5,
+      "position": 12.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 14,
       "measure": 13,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 3,
       "midi": 60,
       "pickStroke": "up"
@@ -1702,11 +1706,11 @@
     {
       "string": 2,
       "fret": 5,
-      "beat": 50.0,
-      "durationBeats": 0.5,
+      "position": 12.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 14,
       "measure": 13,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 4,
       "midi": 64,
       "pickStroke": "down"
@@ -1714,11 +1718,11 @@
     {
       "string": 2,
       "fret": 5,
-      "beat": 50.5,
-      "durationBeats": 0.5,
+      "position": 12.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 14,
       "measure": 13,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 4,
       "midi": 64,
       "pickStroke": "up"
@@ -1726,11 +1730,11 @@
     {
       "string": 3,
       "fret": 5,
-      "beat": 51.0,
-      "durationBeats": 0.5,
+      "position": 12.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 14,
       "measure": 13,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 3,
       "midi": 60,
       "pickStroke": "down"
@@ -1738,11 +1742,11 @@
     {
       "string": 3,
       "fret": 5,
-      "beat": 51.5,
-      "durationBeats": 0.5,
+      "position": 12.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 14,
       "measure": 13,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 3,
       "midi": 60,
       "pickStroke": "up"
@@ -1750,11 +1754,11 @@
     {
       "string": 4,
       "fret": 9,
-      "beat": 52.0,
-      "durationBeats": 0.5,
+      "position": 13.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 15,
       "measure": 14,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 2,
       "midi": 59,
       "pickStroke": "down"
@@ -1762,11 +1766,11 @@
     {
       "string": 4,
       "fret": 9,
-      "beat": 52.5,
-      "durationBeats": 0.5,
+      "position": 13.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 15,
       "measure": 14,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 2,
       "midi": 59,
       "pickStroke": "up"
@@ -1774,11 +1778,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 53.0,
-      "durationBeats": 0.5,
+      "position": 13.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 15,
       "measure": 14,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "down"
@@ -1786,11 +1790,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 53.5,
-      "durationBeats": 0.5,
+      "position": 13.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 15,
       "measure": 14,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "up"
@@ -1798,11 +1802,11 @@
     {
       "string": 2,
       "fret": 8,
-      "beat": 54.0,
-      "durationBeats": 0.5,
+      "position": 13.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 15,
       "measure": 14,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 4,
       "midi": 67,
       "pickStroke": "down"
@@ -1810,11 +1814,11 @@
     {
       "string": 2,
       "fret": 8,
-      "beat": 54.5,
-      "durationBeats": 0.5,
+      "position": 13.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 15,
       "measure": 14,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 4,
       "midi": 67,
       "pickStroke": "up"
@@ -1822,11 +1826,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 55.0,
-      "durationBeats": 0.5,
+      "position": 13.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 15,
       "measure": 14,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "down"
@@ -1834,11 +1838,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 55.5,
-      "durationBeats": 0.5,
+      "position": 13.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 15,
       "measure": 14,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "up"
@@ -1846,11 +1850,11 @@
     {
       "string": 4,
       "fret": 10,
-      "beat": 56.0,
-      "durationBeats": 0.5,
+      "position": 14.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 16,
       "measure": 15,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 2,
       "midi": 60,
       "pickStroke": "down"
@@ -1858,11 +1862,11 @@
     {
       "string": 4,
       "fret": 10,
-      "beat": 56.5,
-      "durationBeats": 0.5,
+      "position": 14.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 16,
       "measure": 15,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 2,
       "midi": 60,
       "pickStroke": "up"
@@ -1870,11 +1874,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 57.0,
-      "durationBeats": 0.5,
+      "position": 14.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 16,
       "measure": 15,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "down"
@@ -1882,11 +1886,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 57.5,
-      "durationBeats": 0.5,
+      "position": 14.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 16,
       "measure": 15,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "up"
@@ -1894,11 +1898,11 @@
     {
       "string": 2,
       "fret": 10,
-      "beat": 58.0,
-      "durationBeats": 0.5,
+      "position": 14.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 16,
       "measure": 15,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 4,
       "midi": 69,
       "pickStroke": "down"
@@ -1906,11 +1910,11 @@
     {
       "string": 2,
       "fret": 10,
-      "beat": 58.5,
-      "durationBeats": 0.5,
+      "position": 14.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 16,
       "measure": 15,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 4,
       "midi": 69,
       "pickStroke": "up"
@@ -1918,11 +1922,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 59.0,
-      "durationBeats": 0.5,
+      "position": 14.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 16,
       "measure": 15,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "down"
@@ -1930,11 +1934,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 59.5,
-      "durationBeats": 0.5,
+      "position": 14.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 16,
       "measure": 15,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "up"
@@ -1942,11 +1946,11 @@
     {
       "string": 4,
       "fret": 9,
-      "beat": 60.0,
-      "durationBeats": 0.5,
+      "position": 15.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 17,
       "measure": 16,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 2,
       "midi": 59,
       "pickStroke": "down"
@@ -1954,11 +1958,11 @@
     {
       "string": 4,
       "fret": 9,
-      "beat": 60.5,
-      "durationBeats": 0.5,
+      "position": 15.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 17,
       "measure": 16,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 2,
       "midi": 59,
       "pickStroke": "up"
@@ -1966,11 +1970,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 61.0,
-      "durationBeats": 0.5,
+      "position": 15.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 17,
       "measure": 16,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "down"
@@ -1978,11 +1982,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 61.5,
-      "durationBeats": 0.5,
+      "position": 15.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 17,
       "measure": 16,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "up"
@@ -1990,11 +1994,11 @@
     {
       "string": 2,
       "fret": 8,
-      "beat": 62.0,
-      "durationBeats": 0.5,
+      "position": 15.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 17,
       "measure": 16,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 4,
       "midi": 67,
       "pickStroke": "down"
@@ -2002,11 +2006,11 @@
     {
       "string": 2,
       "fret": 8,
-      "beat": 62.5,
-      "durationBeats": 0.5,
+      "position": 15.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 17,
       "measure": 16,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 4,
       "midi": 67,
       "pickStroke": "up"
@@ -2014,11 +2018,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 63.0,
-      "durationBeats": 0.5,
+      "position": 15.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 17,
       "measure": 16,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "down"
@@ -2026,11 +2030,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 63.5,
-      "durationBeats": 0.5,
+      "position": 15.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 17,
       "measure": 16,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "up"
@@ -2038,11 +2042,11 @@
     {
       "string": 4,
       "fret": 14,
-      "beat": 64.0,
-      "durationBeats": 0.5,
+      "position": 16.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 18,
       "measure": 17,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 2,
       "midi": 64,
       "pickStroke": "down"
@@ -2050,11 +2054,11 @@
     {
       "string": 4,
       "fret": 14,
-      "beat": 64.5,
-      "durationBeats": 0.5,
+      "position": 16.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 18,
       "measure": 17,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 2,
       "midi": 64,
       "pickStroke": "up"
@@ -2062,11 +2066,11 @@
     {
       "string": 3,
       "fret": 14,
-      "beat": 65.0,
-      "durationBeats": 0.5,
+      "position": 16.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 18,
       "measure": 17,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 3,
       "midi": 69,
       "pickStroke": "down"
@@ -2074,11 +2078,11 @@
     {
       "string": 3,
       "fret": 14,
-      "beat": 65.5,
-      "durationBeats": 0.5,
+      "position": 16.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 18,
       "measure": 17,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 3,
       "midi": 69,
       "pickStroke": "up"
@@ -2086,11 +2090,11 @@
     {
       "string": 2,
       "fret": 13,
-      "beat": 66.0,
-      "durationBeats": 0.5,
+      "position": 16.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 18,
       "measure": 17,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 4,
       "midi": 72,
       "pickStroke": "down"
@@ -2098,11 +2102,11 @@
     {
       "string": 2,
       "fret": 13,
-      "beat": 66.5,
-      "durationBeats": 0.5,
+      "position": 16.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 18,
       "measure": 17,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 4,
       "midi": 72,
       "pickStroke": "up"
@@ -2110,11 +2114,11 @@
     {
       "string": 1,
       "fret": 12,
-      "beat": 67.0,
-      "durationBeats": 0.5,
+      "position": 16.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 18,
       "measure": 17,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 5,
       "midi": 76,
       "pickStroke": "down"
@@ -2122,11 +2126,11 @@
     {
       "string": 1,
       "fret": 12,
-      "beat": 67.5,
-      "durationBeats": 0.5,
+      "position": 16.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 18,
       "measure": 17,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 5,
       "midi": 76,
       "pickStroke": "up"
@@ -2134,11 +2138,11 @@
     {
       "string": 1,
       "fret": 10,
-      "beat": 68.0,
-      "durationBeats": 0.5,
+      "position": 17.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 19,
       "measure": 18,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 5,
       "midi": 74,
       "pickStroke": "down"
@@ -2146,11 +2150,11 @@
     {
       "string": 1,
       "fret": 10,
-      "beat": 68.5,
-      "durationBeats": 0.5,
+      "position": 17.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 19,
       "measure": 18,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 5,
       "midi": 74,
       "pickStroke": "up"
@@ -2158,11 +2162,11 @@
     {
       "string": 2,
       "fret": 12,
-      "beat": 69.0,
-      "durationBeats": 0.5,
+      "position": 17.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 19,
       "measure": 18,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 4,
       "midi": 71,
       "pickStroke": "down"
@@ -2170,11 +2174,11 @@
     {
       "string": 2,
       "fret": 12,
-      "beat": 69.5,
-      "durationBeats": 0.5,
+      "position": 17.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 19,
       "measure": 18,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 4,
       "midi": 71,
       "pickStroke": "up"
@@ -2182,11 +2186,11 @@
     {
       "string": 3,
       "fret": 12,
-      "beat": 70.0,
-      "durationBeats": 0.5,
+      "position": 17.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 19,
       "measure": 18,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 3,
       "midi": 67,
       "pickStroke": "down"
@@ -2194,11 +2198,11 @@
     {
       "string": 3,
       "fret": 12,
-      "beat": 70.5,
-      "durationBeats": 0.5,
+      "position": 17.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 19,
       "measure": 18,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 3,
       "midi": 67,
       "pickStroke": "up"
@@ -2206,11 +2210,11 @@
     {
       "string": 4,
       "fret": 12,
-      "beat": 71.0,
-      "durationBeats": 0.5,
+      "position": 17.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 19,
       "measure": 18,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 2,
       "midi": 62,
       "pickStroke": "down"
@@ -2218,11 +2222,11 @@
     {
       "string": 4,
       "fret": 12,
-      "beat": 71.5,
-      "durationBeats": 0.5,
+      "position": 17.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 19,
       "measure": 18,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 2,
       "midi": 62,
       "pickStroke": "up"
@@ -2230,11 +2234,11 @@
     {
       "string": 4,
       "fret": 10,
-      "beat": 72.0,
-      "durationBeats": 0.5,
+      "position": 18.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 20,
       "measure": 19,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 2,
       "midi": 60,
       "pickStroke": "down"
@@ -2242,11 +2246,11 @@
     {
       "string": 4,
       "fret": 10,
-      "beat": 72.5,
-      "durationBeats": 0.5,
+      "position": 18.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 20,
       "measure": 19,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 2,
       "midi": 60,
       "pickStroke": "up"
@@ -2254,11 +2258,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 73.0,
-      "durationBeats": 0.5,
+      "position": 18.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 20,
       "measure": 19,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "down"
@@ -2266,11 +2270,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 73.5,
-      "durationBeats": 0.5,
+      "position": 18.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 20,
       "measure": 19,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "up"
@@ -2278,11 +2282,11 @@
     {
       "string": 2,
       "fret": 10,
-      "beat": 74.0,
-      "durationBeats": 0.5,
+      "position": 18.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 20,
       "measure": 19,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 4,
       "midi": 69,
       "pickStroke": "down"
@@ -2290,11 +2294,11 @@
     {
       "string": 2,
       "fret": 10,
-      "beat": 74.5,
-      "durationBeats": 0.5,
+      "position": 18.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 20,
       "measure": 19,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 4,
       "midi": 69,
       "pickStroke": "up"
@@ -2302,11 +2306,11 @@
     {
       "string": 1,
       "fret": 8,
-      "beat": 75.0,
-      "durationBeats": 0.5,
+      "position": 18.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 20,
       "measure": 19,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 5,
       "midi": 72,
       "pickStroke": "down"
@@ -2314,11 +2318,11 @@
     {
       "string": 1,
       "fret": 8,
-      "beat": 75.5,
-      "durationBeats": 0.5,
+      "position": 18.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 20,
       "measure": 19,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 5,
       "midi": 72,
       "pickStroke": "up"
@@ -2326,11 +2330,11 @@
     {
       "string": 1,
       "fret": 7,
-      "beat": 76.0,
-      "durationBeats": 0.5,
+      "position": 19.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 21,
       "measure": 20,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 5,
       "midi": 71,
       "pickStroke": "down"
@@ -2338,11 +2342,11 @@
     {
       "string": 1,
       "fret": 7,
-      "beat": 76.5,
-      "durationBeats": 0.5,
+      "position": 19.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 21,
       "measure": 20,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 5,
       "midi": 71,
       "pickStroke": "up"
@@ -2350,11 +2354,11 @@
     {
       "string": 2,
       "fret": 8,
-      "beat": 77.0,
-      "durationBeats": 0.5,
+      "position": 19.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 21,
       "measure": 20,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 4,
       "midi": 67,
       "pickStroke": "down"
@@ -2362,11 +2366,11 @@
     {
       "string": 2,
       "fret": 8,
-      "beat": 77.5,
-      "durationBeats": 0.5,
+      "position": 19.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 21,
       "measure": 20,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 4,
       "midi": 67,
       "pickStroke": "up"
@@ -2374,11 +2378,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 78.0,
-      "durationBeats": 0.5,
+      "position": 19.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 21,
       "measure": 20,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "down"
@@ -2386,11 +2390,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 78.5,
-      "durationBeats": 0.5,
+      "position": 19.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 21,
       "measure": 20,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "up"
@@ -2398,11 +2402,11 @@
     {
       "string": 4,
       "fret": 9,
-      "beat": 79.0,
-      "durationBeats": 0.5,
+      "position": 19.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 21,
       "measure": 20,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 2,
       "midi": 59,
       "pickStroke": "down"
@@ -2410,11 +2414,11 @@
     {
       "string": 4,
       "fret": 9,
-      "beat": 79.5,
-      "durationBeats": 0.5,
+      "position": 19.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 21,
       "measure": 20,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 2,
       "midi": 59,
       "pickStroke": "up"
@@ -2422,11 +2426,11 @@
     {
       "string": 4,
       "fret": 14,
-      "beat": 80.0,
-      "durationBeats": 0.5,
+      "position": 20.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 22,
       "measure": 21,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 2,
       "midi": 64,
       "pickStroke": "down"
@@ -2434,11 +2438,11 @@
     {
       "string": 4,
       "fret": 14,
-      "beat": 80.5,
-      "durationBeats": 0.5,
+      "position": 20.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 22,
       "measure": 21,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 2,
       "midi": 64,
       "pickStroke": "up"
@@ -2446,11 +2450,11 @@
     {
       "string": 3,
       "fret": 14,
-      "beat": 81.0,
-      "durationBeats": 0.5,
+      "position": 20.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 22,
       "measure": 21,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 3,
       "midi": 69,
       "pickStroke": "down"
@@ -2458,11 +2462,11 @@
     {
       "string": 3,
       "fret": 14,
-      "beat": 81.5,
-      "durationBeats": 0.5,
+      "position": 20.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 22,
       "measure": 21,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 3,
       "midi": 69,
       "pickStroke": "up"
@@ -2470,11 +2474,11 @@
     {
       "string": 2,
       "fret": 13,
-      "beat": 82.0,
-      "durationBeats": 0.5,
+      "position": 20.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 22,
       "measure": 21,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 4,
       "midi": 72,
       "pickStroke": "down"
@@ -2482,11 +2486,11 @@
     {
       "string": 2,
       "fret": 13,
-      "beat": 82.5,
-      "durationBeats": 0.5,
+      "position": 20.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 22,
       "measure": 21,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 4,
       "midi": 72,
       "pickStroke": "up"
@@ -2494,11 +2498,11 @@
     {
       "string": 1,
       "fret": 12,
-      "beat": 83.0,
-      "durationBeats": 0.5,
+      "position": 20.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 22,
       "measure": 21,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 5,
       "midi": 76,
       "pickStroke": "down"
@@ -2506,11 +2510,11 @@
     {
       "string": 1,
       "fret": 12,
-      "beat": 83.5,
-      "durationBeats": 0.5,
+      "position": 20.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 22,
       "measure": 21,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 5,
       "midi": 76,
       "pickStroke": "up"
@@ -2518,11 +2522,11 @@
     {
       "string": 1,
       "fret": 10,
-      "beat": 84.0,
-      "durationBeats": 0.5,
+      "position": 21.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 23,
       "measure": 22,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 5,
       "midi": 74,
       "pickStroke": "down"
@@ -2530,11 +2534,11 @@
     {
       "string": 1,
       "fret": 10,
-      "beat": 84.5,
-      "durationBeats": 0.5,
+      "position": 21.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 23,
       "measure": 22,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 5,
       "midi": 74,
       "pickStroke": "up"
@@ -2542,11 +2546,11 @@
     {
       "string": 2,
       "fret": 12,
-      "beat": 85.0,
-      "durationBeats": 0.5,
+      "position": 21.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 23,
       "measure": 22,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 4,
       "midi": 71,
       "pickStroke": "down"
@@ -2554,11 +2558,11 @@
     {
       "string": 2,
       "fret": 12,
-      "beat": 85.5,
-      "durationBeats": 0.5,
+      "position": 21.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 23,
       "measure": 22,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 4,
       "midi": 71,
       "pickStroke": "up"
@@ -2566,11 +2570,11 @@
     {
       "string": 3,
       "fret": 12,
-      "beat": 86.0,
-      "durationBeats": 0.5,
+      "position": 21.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 23,
       "measure": 22,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 3,
       "midi": 67,
       "pickStroke": "down"
@@ -2578,11 +2582,11 @@
     {
       "string": 3,
       "fret": 12,
-      "beat": 86.5,
-      "durationBeats": 0.5,
+      "position": 21.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 23,
       "measure": 22,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 3,
       "midi": 67,
       "pickStroke": "up"
@@ -2590,11 +2594,11 @@
     {
       "string": 4,
       "fret": 12,
-      "beat": 87.0,
-      "durationBeats": 0.5,
+      "position": 21.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 23,
       "measure": 22,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 2,
       "midi": 62,
       "pickStroke": "down"
@@ -2602,11 +2606,11 @@
     {
       "string": 4,
       "fret": 12,
-      "beat": 87.5,
-      "durationBeats": 0.5,
+      "position": 21.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 23,
       "measure": 22,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 2,
       "midi": 62,
       "pickStroke": "up"
@@ -2614,11 +2618,11 @@
     {
       "string": 4,
       "fret": 10,
-      "beat": 88.0,
-      "durationBeats": 0.5,
+      "position": 22.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 24,
       "measure": 23,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 2,
       "midi": 60,
       "pickStroke": "down"
@@ -2626,11 +2630,11 @@
     {
       "string": 4,
       "fret": 10,
-      "beat": 88.5,
-      "durationBeats": 0.5,
+      "position": 22.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 24,
       "measure": 23,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 2,
       "midi": 60,
       "pickStroke": "up"
@@ -2638,11 +2642,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 89.0,
-      "durationBeats": 0.5,
+      "position": 22.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 24,
       "measure": 23,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "down"
@@ -2650,11 +2654,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 89.5,
-      "durationBeats": 0.5,
+      "position": 22.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 24,
       "measure": 23,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "up"
@@ -2662,11 +2666,11 @@
     {
       "string": 2,
       "fret": 10,
-      "beat": 90.0,
-      "durationBeats": 0.5,
+      "position": 22.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 24,
       "measure": 23,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 4,
       "midi": 69,
       "pickStroke": "down"
@@ -2674,11 +2678,11 @@
     {
       "string": 2,
       "fret": 10,
-      "beat": 90.5,
-      "durationBeats": 0.5,
+      "position": 22.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 24,
       "measure": 23,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 4,
       "midi": 69,
       "pickStroke": "up"
@@ -2686,11 +2690,11 @@
     {
       "string": 1,
       "fret": 8,
-      "beat": 91.0,
-      "durationBeats": 0.5,
+      "position": 22.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 24,
       "measure": 23,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 5,
       "midi": 72,
       "pickStroke": "down"
@@ -2698,11 +2702,11 @@
     {
       "string": 1,
       "fret": 8,
-      "beat": 91.5,
-      "durationBeats": 0.5,
+      "position": 22.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 24,
       "measure": 23,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 5,
       "midi": 72,
       "pickStroke": "up"
@@ -2710,11 +2714,11 @@
     {
       "string": 1,
       "fret": 7,
-      "beat": 92.0,
-      "durationBeats": 0.5,
+      "position": 23.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 25,
       "measure": 24,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 5,
       "midi": 71,
       "pickStroke": "down"
@@ -2722,11 +2726,11 @@
     {
       "string": 1,
       "fret": 7,
-      "beat": 92.5,
-      "durationBeats": 0.5,
+      "position": 23.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 25,
       "measure": 24,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 5,
       "midi": 71,
       "pickStroke": "up"
@@ -2734,11 +2738,11 @@
     {
       "string": 2,
       "fret": 8,
-      "beat": 93.0,
-      "durationBeats": 0.5,
+      "position": 23.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 25,
       "measure": 24,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 4,
       "midi": 67,
       "pickStroke": "down"
@@ -2746,11 +2750,11 @@
     {
       "string": 2,
       "fret": 8,
-      "beat": 93.5,
-      "durationBeats": 0.5,
+      "position": 23.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 25,
       "measure": 24,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 4,
       "midi": 67,
       "pickStroke": "up"
@@ -2758,11 +2762,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 94.0,
-      "durationBeats": 0.5,
+      "position": 23.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 25,
       "measure": 24,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "down"
@@ -2770,11 +2774,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 94.5,
-      "durationBeats": 0.5,
+      "position": 23.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 25,
       "measure": 24,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "up"
@@ -2782,11 +2786,11 @@
     {
       "string": 4,
       "fret": 9,
-      "beat": 95.0,
-      "durationBeats": 0.5,
+      "position": 23.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 25,
       "measure": 24,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 2,
       "midi": 59,
       "pickStroke": "down"
@@ -2794,11 +2798,11 @@
     {
       "string": 4,
       "fret": 9,
-      "beat": 95.5,
-      "durationBeats": 0.5,
+      "position": 23.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 25,
       "measure": 24,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 2,
       "midi": 59,
       "pickStroke": "up"
@@ -2806,11 +2810,11 @@
     {
       "string": 5,
       "fret": 7,
-      "beat": 96.0,
-      "durationBeats": 0.5,
+      "position": 24.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 26,
       "measure": 25,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 1,
       "midi": 52,
       "pickStroke": "down"
@@ -2818,11 +2822,11 @@
     {
       "string": 5,
       "fret": 7,
-      "beat": 96.5,
-      "durationBeats": 0.5,
+      "position": 24.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 26,
       "measure": 25,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 1,
       "midi": 52,
       "pickStroke": "up"
@@ -2830,11 +2834,11 @@
     {
       "string": 5,
       "fret": 12,
-      "beat": 97.0,
-      "durationBeats": 0.5,
+      "position": 24.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 26,
       "measure": 25,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 1,
       "midi": 57,
       "pickStroke": "down"
@@ -2842,11 +2846,11 @@
     {
       "string": 5,
       "fret": 12,
-      "beat": 97.5,
-      "durationBeats": 0.5,
+      "position": 24.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 26,
       "measure": 25,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 1,
       "midi": 57,
       "pickStroke": "up"
@@ -2854,11 +2858,11 @@
     {
       "string": 4,
       "fret": 10,
-      "beat": 98.0,
-      "durationBeats": 0.5,
+      "position": 24.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 26,
       "measure": 25,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 2,
       "midi": 60,
       "pickStroke": "down"
@@ -2866,11 +2870,11 @@
     {
       "string": 4,
       "fret": 10,
-      "beat": 98.5,
-      "durationBeats": 0.5,
+      "position": 24.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 26,
       "measure": 25,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 2,
       "midi": 60,
       "pickStroke": "up"
@@ -2878,11 +2882,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 99.0,
-      "durationBeats": 0.5,
+      "position": 24.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 26,
       "measure": 25,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "down"
@@ -2890,11 +2894,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 99.5,
-      "durationBeats": 0.5,
+      "position": 24.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 26,
       "measure": 25,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "up"
@@ -2902,11 +2906,11 @@
     {
       "string": 2,
       "fret": 10,
-      "beat": 100.0,
-      "durationBeats": 0.5,
+      "position": 25.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 27,
       "measure": 26,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 4,
       "midi": 69,
       "pickStroke": "down"
@@ -2914,11 +2918,11 @@
     {
       "string": 2,
       "fret": 10,
-      "beat": 100.5,
-      "durationBeats": 0.5,
+      "position": 25.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 27,
       "measure": 26,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 4,
       "midi": 69,
       "pickStroke": "up"
@@ -2926,11 +2930,11 @@
     {
       "string": 1,
       "fret": 8,
-      "beat": 101.0,
-      "durationBeats": 0.5,
+      "position": 25.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 27,
       "measure": 26,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 5,
       "midi": 72,
       "pickStroke": "down"
@@ -2938,11 +2942,11 @@
     {
       "string": 1,
       "fret": 8,
-      "beat": 101.5,
-      "durationBeats": 0.5,
+      "position": 25.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 27,
       "measure": 26,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 5,
       "midi": 72,
       "pickStroke": "up"
@@ -2950,11 +2954,11 @@
     {
       "string": 1,
       "fret": 10,
-      "beat": 102.0,
-      "durationBeats": 0.5,
+      "position": 25.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 27,
       "measure": 26,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 5,
       "midi": 74,
       "pickStroke": "down"
@@ -2962,11 +2966,11 @@
     {
       "string": 1,
       "fret": 10,
-      "beat": 102.5,
-      "durationBeats": 0.5,
+      "position": 25.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 27,
       "measure": 26,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 5,
       "midi": 74,
       "pickStroke": "up"
@@ -2974,11 +2978,11 @@
     {
       "string": 1,
       "fret": 12,
-      "beat": 103.0,
-      "durationBeats": 0.5,
+      "position": 25.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 27,
       "measure": 26,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 5,
       "midi": 76,
       "pickStroke": "down"
@@ -2986,11 +2990,11 @@
     {
       "string": 1,
       "fret": 12,
-      "beat": 103.5,
-      "durationBeats": 0.5,
+      "position": 25.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 27,
       "measure": 26,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 5,
       "midi": 76,
       "pickStroke": "up"
@@ -2998,11 +3002,11 @@
     {
       "string": 1,
       "fret": 15,
-      "beat": 104.0,
-      "durationBeats": 0.5,
+      "position": 26.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 28,
       "measure": 27,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 5,
       "midi": 79,
       "pickStroke": "down"
@@ -3010,11 +3014,11 @@
     {
       "string": 1,
       "fret": 15,
-      "beat": 104.5,
-      "durationBeats": 0.5,
+      "position": 26.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 28,
       "measure": 27,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 5,
       "midi": 79,
       "pickStroke": "up"
@@ -3022,11 +3026,11 @@
     {
       "string": 1,
       "fret": 12,
-      "beat": 105.0,
-      "durationBeats": 0.5,
+      "position": 26.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 28,
       "measure": 27,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 5,
       "midi": 76,
       "pickStroke": "down"
@@ -3034,11 +3038,11 @@
     {
       "string": 1,
       "fret": 12,
-      "beat": 105.5,
-      "durationBeats": 0.5,
+      "position": 26.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 28,
       "measure": 27,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 5,
       "midi": 76,
       "pickStroke": "up"
@@ -3046,11 +3050,11 @@
     {
       "string": 2,
       "fret": 13,
-      "beat": 106.0,
-      "durationBeats": 0.5,
+      "position": 26.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 28,
       "measure": 27,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 4,
       "midi": 72,
       "pickStroke": "down"
@@ -3058,11 +3062,11 @@
     {
       "string": 2,
       "fret": 13,
-      "beat": 106.5,
-      "durationBeats": 0.5,
+      "position": 26.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 28,
       "measure": 27,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 4,
       "midi": 72,
       "pickStroke": "up"
@@ -3070,11 +3074,11 @@
     {
       "string": 3,
       "fret": 14,
-      "beat": 107.0,
-      "durationBeats": 0.5,
+      "position": 26.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 28,
       "measure": 27,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 3,
       "midi": 69,
       "pickStroke": "down"
@@ -3082,11 +3086,11 @@
     {
       "string": 3,
       "fret": 14,
-      "beat": 107.5,
-      "durationBeats": 0.5,
+      "position": 26.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 28,
       "measure": 27,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 3,
       "midi": 69,
       "pickStroke": "up"
@@ -3094,11 +3098,11 @@
     {
       "string": 3,
       "fret": 12,
-      "beat": 108.0,
-      "durationBeats": 0.5,
+      "position": 27.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 29,
       "measure": 28,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 3,
       "midi": 67,
       "pickStroke": "down"
@@ -3106,11 +3110,11 @@
     {
       "string": 3,
       "fret": 12,
-      "beat": 108.5,
-      "durationBeats": 0.5,
+      "position": 27.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 29,
       "measure": 28,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 3,
       "midi": 67,
       "pickStroke": "up"
@@ -3118,11 +3122,11 @@
     {
       "string": 4,
       "fret": 14,
-      "beat": 109.0,
-      "durationBeats": 0.5,
+      "position": 27.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 29,
       "measure": 28,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 2,
       "midi": 64,
       "pickStroke": "down"
@@ -3130,11 +3134,11 @@
     {
       "string": 4,
       "fret": 14,
-      "beat": 109.5,
-      "durationBeats": 0.5,
+      "position": 27.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 29,
       "measure": 28,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 2,
       "midi": 64,
       "pickStroke": "up"
@@ -3142,11 +3146,11 @@
     {
       "string": 5,
       "fret": 15,
-      "beat": 110.0,
-      "durationBeats": 0.5,
+      "position": 27.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 29,
       "measure": 28,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 1,
       "midi": 60,
       "pickStroke": "down"
@@ -3154,11 +3158,11 @@
     {
       "string": 5,
       "fret": 15,
-      "beat": 110.5,
-      "durationBeats": 0.5,
+      "position": 27.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 29,
       "measure": 28,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 1,
       "midi": 60,
       "pickStroke": "up"
@@ -3166,11 +3170,11 @@
     {
       "string": 5,
       "fret": 12,
-      "beat": 111.0,
-      "durationBeats": 0.5,
+      "position": 27.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 29,
       "measure": 28,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 1,
       "midi": 57,
       "pickStroke": "down"
@@ -3178,11 +3182,11 @@
     {
       "string": 5,
       "fret": 12,
-      "beat": 111.5,
-      "durationBeats": 0.5,
+      "position": 27.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 29,
       "measure": 28,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 1,
       "midi": 57,
       "pickStroke": "up"
@@ -3190,11 +3194,11 @@
     {
       "string": 5,
       "fret": 7,
-      "beat": 112.0,
-      "durationBeats": 0.5,
+      "position": 28.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 30,
       "measure": 29,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 1,
       "midi": 52,
       "pickStroke": "down"
@@ -3202,11 +3206,11 @@
     {
       "string": 5,
       "fret": 7,
-      "beat": 112.5,
-      "durationBeats": 0.5,
+      "position": 28.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 30,
       "measure": 29,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 1,
       "midi": 52,
       "pickStroke": "up"
@@ -3214,11 +3218,11 @@
     {
       "string": 5,
       "fret": 12,
-      "beat": 113.0,
-      "durationBeats": 0.5,
+      "position": 28.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 30,
       "measure": 29,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 1,
       "midi": 57,
       "pickStroke": "down"
@@ -3226,11 +3230,11 @@
     {
       "string": 5,
       "fret": 12,
-      "beat": 113.5,
-      "durationBeats": 0.5,
+      "position": 28.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 30,
       "measure": 29,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 1,
       "midi": 57,
       "pickStroke": "up"
@@ -3238,11 +3242,11 @@
     {
       "string": 4,
       "fret": 10,
-      "beat": 114.0,
-      "durationBeats": 0.5,
+      "position": 28.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 30,
       "measure": 29,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 2,
       "midi": 60,
       "pickStroke": "down"
@@ -3250,11 +3254,11 @@
     {
       "string": 4,
       "fret": 10,
-      "beat": 114.5,
-      "durationBeats": 0.5,
+      "position": 28.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 30,
       "measure": 29,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 2,
       "midi": 60,
       "pickStroke": "up"
@@ -3262,11 +3266,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 115.0,
-      "durationBeats": 0.5,
+      "position": 28.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 30,
       "measure": 29,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "down"
@@ -3274,11 +3278,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 115.5,
-      "durationBeats": 0.5,
+      "position": 28.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 30,
       "measure": 29,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "up"
@@ -3286,11 +3290,11 @@
     {
       "string": 2,
       "fret": 10,
-      "beat": 116.0,
-      "durationBeats": 0.5,
+      "position": 29.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 31,
       "measure": 30,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 4,
       "midi": 69,
       "pickStroke": "down"
@@ -3298,11 +3302,11 @@
     {
       "string": 2,
       "fret": 10,
-      "beat": 116.5,
-      "durationBeats": 0.5,
+      "position": 29.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 31,
       "measure": 30,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 4,
       "midi": 69,
       "pickStroke": "up"
@@ -3310,11 +3314,11 @@
     {
       "string": 1,
       "fret": 8,
-      "beat": 117.0,
-      "durationBeats": 0.5,
+      "position": 29.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 31,
       "measure": 30,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 5,
       "midi": 72,
       "pickStroke": "down"
@@ -3322,11 +3326,11 @@
     {
       "string": 1,
       "fret": 8,
-      "beat": 117.5,
-      "durationBeats": 0.5,
+      "position": 29.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 31,
       "measure": 30,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 5,
       "midi": 72,
       "pickStroke": "up"
@@ -3334,11 +3338,11 @@
     {
       "string": 1,
       "fret": 10,
-      "beat": 118.0,
-      "durationBeats": 0.5,
+      "position": 29.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 31,
       "measure": 30,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 5,
       "midi": 74,
       "pickStroke": "down"
@@ -3346,11 +3350,11 @@
     {
       "string": 1,
       "fret": 10,
-      "beat": 118.5,
-      "durationBeats": 0.5,
+      "position": 29.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 31,
       "measure": 30,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 5,
       "midi": 74,
       "pickStroke": "up"
@@ -3358,11 +3362,11 @@
     {
       "string": 1,
       "fret": 12,
-      "beat": 119.0,
-      "durationBeats": 0.5,
+      "position": 29.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 31,
       "measure": 30,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 5,
       "midi": 76,
       "pickStroke": "down"
@@ -3370,11 +3374,11 @@
     {
       "string": 1,
       "fret": 12,
-      "beat": 119.5,
-      "durationBeats": 0.5,
+      "position": 29.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 31,
       "measure": 30,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 5,
       "midi": 76,
       "pickStroke": "up"
@@ -3382,11 +3386,11 @@
     {
       "string": 1,
       "fret": 15,
-      "beat": 120.0,
-      "durationBeats": 0.5,
+      "position": 30.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 32,
       "measure": 31,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 5,
       "midi": 79,
       "pickStroke": "down"
@@ -3394,11 +3398,11 @@
     {
       "string": 1,
       "fret": 15,
-      "beat": 120.5,
-      "durationBeats": 0.5,
+      "position": 30.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 32,
       "measure": 31,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 5,
       "midi": 79,
       "pickStroke": "up"
@@ -3406,11 +3410,11 @@
     {
       "string": 1,
       "fret": 12,
-      "beat": 121.0,
-      "durationBeats": 0.5,
+      "position": 30.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 32,
       "measure": 31,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 5,
       "midi": 76,
       "pickStroke": "down"
@@ -3418,11 +3422,11 @@
     {
       "string": 1,
       "fret": 12,
-      "beat": 121.5,
-      "durationBeats": 0.5,
+      "position": 30.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 32,
       "measure": 31,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 5,
       "midi": 76,
       "pickStroke": "up"
@@ -3430,11 +3434,11 @@
     {
       "string": 2,
       "fret": 13,
-      "beat": 122.0,
-      "durationBeats": 0.5,
+      "position": 30.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 32,
       "measure": 31,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 4,
       "midi": 72,
       "pickStroke": "down"
@@ -3442,11 +3446,11 @@
     {
       "string": 2,
       "fret": 13,
-      "beat": 122.5,
-      "durationBeats": 0.5,
+      "position": 30.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 32,
       "measure": 31,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 4,
       "midi": 72,
       "pickStroke": "up"
@@ -3454,11 +3458,11 @@
     {
       "string": 3,
       "fret": 14,
-      "beat": 123.0,
-      "durationBeats": 0.5,
+      "position": 30.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 32,
       "measure": 31,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 3,
       "midi": 69,
       "pickStroke": "down"
@@ -3466,11 +3470,11 @@
     {
       "string": 3,
       "fret": 14,
-      "beat": 123.5,
-      "durationBeats": 0.5,
+      "position": 30.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 32,
       "measure": 31,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 3,
       "midi": 69,
       "pickStroke": "up"
@@ -3478,11 +3482,11 @@
     {
       "string": 3,
       "fret": 12,
-      "beat": 124.0,
-      "durationBeats": 0.5,
+      "position": 31.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 33,
       "measure": 32,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 3,
       "midi": 67,
       "pickStroke": "down"
@@ -3490,11 +3494,11 @@
     {
       "string": 3,
       "fret": 12,
-      "beat": 124.5,
-      "durationBeats": 0.5,
+      "position": 31.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 33,
       "measure": 32,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 3,
       "midi": 67,
       "pickStroke": "up"
@@ -3502,11 +3506,11 @@
     {
       "string": 4,
       "fret": 14,
-      "beat": 125.0,
-      "durationBeats": 0.5,
+      "position": 31.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 33,
       "measure": 32,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 2,
       "midi": 64,
       "pickStroke": "down"
@@ -3514,11 +3518,11 @@
     {
       "string": 4,
       "fret": 14,
-      "beat": 125.5,
-      "durationBeats": 0.5,
+      "position": 31.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 33,
       "measure": 32,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 2,
       "midi": 64,
       "pickStroke": "up"
@@ -3526,11 +3530,11 @@
     {
       "string": 5,
       "fret": 15,
-      "beat": 126.0,
-      "durationBeats": 0.5,
+      "position": 31.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 33,
       "measure": 32,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 1,
       "midi": 60,
       "pickStroke": "down"
@@ -3538,11 +3542,11 @@
     {
       "string": 5,
       "fret": 15,
-      "beat": 126.5,
-      "durationBeats": 0.5,
+      "position": 31.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 33,
       "measure": 32,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 1,
       "midi": 60,
       "pickStroke": "up"
@@ -3550,11 +3554,11 @@
     {
       "string": 5,
       "fret": 12,
-      "beat": 127.0,
-      "durationBeats": 0.5,
+      "position": 31.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 33,
       "measure": 32,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 1,
       "midi": 57,
       "pickStroke": "down"
@@ -3562,11 +3566,11 @@
     {
       "string": 5,
       "fret": 12,
-      "beat": 127.5,
-      "durationBeats": 0.5,
+      "position": 31.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 33,
       "measure": 32,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 1,
       "midi": 57,
       "pickStroke": "up"
@@ -3574,11 +3578,11 @@
     {
       "string": 6,
       "fret": 5,
-      "beat": 128.0,
-      "durationBeats": 0.5,
+      "position": 32.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 34,
       "measure": 33,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 0,
       "midi": 45,
       "pickStroke": "down"
@@ -3586,11 +3590,11 @@
     {
       "string": 6,
       "fret": 5,
-      "beat": 128.5,
-      "durationBeats": 0.5,
+      "position": 32.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 34,
       "measure": 33,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 0,
       "midi": 45,
       "pickStroke": "up"
@@ -3598,11 +3602,11 @@
     {
       "string": 6,
       "fret": 8,
-      "beat": 129.0,
-      "durationBeats": 0.5,
+      "position": 32.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 34,
       "measure": 33,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 0,
       "midi": 48,
       "pickStroke": "down"
@@ -3610,11 +3614,11 @@
     {
       "string": 6,
       "fret": 8,
-      "beat": 129.5,
-      "durationBeats": 0.5,
+      "position": 32.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 34,
       "measure": 33,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 0,
       "midi": 48,
       "pickStroke": "up"
@@ -3622,11 +3626,11 @@
     {
       "string": 5,
       "fret": 7,
-      "beat": 130.0,
-      "durationBeats": 0.5,
+      "position": 32.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 34,
       "measure": 33,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 1,
       "midi": 52,
       "pickStroke": "down"
@@ -3634,11 +3638,11 @@
     {
       "string": 5,
       "fret": 7,
-      "beat": 130.5,
-      "durationBeats": 0.5,
+      "position": 32.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 34,
       "measure": 33,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 1,
       "midi": 52,
       "pickStroke": "up"
@@ -3646,11 +3650,11 @@
     {
       "string": 4,
       "fret": 7,
-      "beat": 131.0,
-      "durationBeats": 0.5,
+      "position": 32.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 34,
       "measure": 33,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 2,
       "midi": 57,
       "pickStroke": "down"
@@ -3658,11 +3662,11 @@
     {
       "string": 4,
       "fret": 7,
-      "beat": 131.5,
-      "durationBeats": 0.5,
+      "position": 32.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 34,
       "measure": 33,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 2,
       "midi": 57,
       "pickStroke": "up"
@@ -3670,11 +3674,11 @@
     {
       "string": 3,
       "fret": 5,
-      "beat": 132.0,
-      "durationBeats": 0.5,
+      "position": 33.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 35,
       "measure": 34,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 3,
       "midi": 60,
       "pickStroke": "down"
@@ -3682,11 +3686,11 @@
     {
       "string": 3,
       "fret": 5,
-      "beat": 132.5,
-      "durationBeats": 0.5,
+      "position": 33.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 35,
       "measure": 34,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 3,
       "midi": 60,
       "pickStroke": "up"
@@ -3694,11 +3698,11 @@
     {
       "string": 2,
       "fret": 5,
-      "beat": 133.0,
-      "durationBeats": 0.5,
+      "position": 33.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 35,
       "measure": 34,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 4,
       "midi": 64,
       "pickStroke": "down"
@@ -3706,11 +3710,11 @@
     {
       "string": 2,
       "fret": 5,
-      "beat": 133.5,
-      "durationBeats": 0.5,
+      "position": 33.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 35,
       "measure": 34,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 4,
       "midi": 64,
       "pickStroke": "up"
@@ -3718,11 +3722,11 @@
     {
       "string": 1,
       "fret": 5,
-      "beat": 134.0,
-      "durationBeats": 0.5,
+      "position": 33.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 35,
       "measure": 34,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 5,
       "midi": 69,
       "pickStroke": "down"
@@ -3730,11 +3734,11 @@
     {
       "string": 1,
       "fret": 5,
-      "beat": 134.5,
-      "durationBeats": 0.5,
+      "position": 33.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 35,
       "measure": 34,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 5,
       "midi": 69,
       "pickStroke": "up"
@@ -3742,11 +3746,11 @@
     {
       "string": 1,
       "fret": 8,
-      "beat": 135.0,
-      "durationBeats": 0.5,
+      "position": 33.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 35,
       "measure": 34,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 5,
       "midi": 72,
       "pickStroke": "down"
@@ -3754,11 +3758,11 @@
     {
       "string": 1,
       "fret": 8,
-      "beat": 135.5,
-      "durationBeats": 0.5,
+      "position": 33.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 35,
       "measure": 34,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 5,
       "midi": 72,
       "pickStroke": "up"
@@ -3766,11 +3770,11 @@
     {
       "string": 1,
       "fret": 7,
-      "beat": 136.0,
-      "durationBeats": 0.5,
+      "position": 34.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 36,
       "measure": 35,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 5,
       "midi": 71,
       "pickStroke": "down"
@@ -3778,11 +3782,11 @@
     {
       "string": 1,
       "fret": 7,
-      "beat": 136.5,
-      "durationBeats": 0.5,
+      "position": 34.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 36,
       "measure": 35,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 5,
       "midi": 71,
       "pickStroke": "up"
@@ -3790,11 +3794,11 @@
     {
       "string": 1,
       "fret": 3,
-      "beat": 137.0,
-      "durationBeats": 0.5,
+      "position": 34.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 36,
       "measure": 35,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 5,
       "midi": 67,
       "pickStroke": "down"
@@ -3802,11 +3806,11 @@
     {
       "string": 1,
       "fret": 3,
-      "beat": 137.5,
-      "durationBeats": 0.5,
+      "position": 34.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 36,
       "measure": 35,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 5,
       "midi": 67,
       "pickStroke": "up"
@@ -3814,11 +3818,11 @@
     {
       "string": 2,
       "fret": 3,
-      "beat": 138.0,
-      "durationBeats": 0.5,
+      "position": 34.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 36,
       "measure": 35,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 4,
       "midi": 62,
       "pickStroke": "down"
@@ -3826,11 +3830,11 @@
     {
       "string": 2,
       "fret": 3,
-      "beat": 138.5,
-      "durationBeats": 0.5,
+      "position": 34.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 36,
       "measure": 35,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 4,
       "midi": 62,
       "pickStroke": "up"
@@ -3838,11 +3842,11 @@
     {
       "string": 3,
       "fret": 4,
-      "beat": 139.0,
-      "durationBeats": 0.5,
+      "position": 34.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 36,
       "measure": 35,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 3,
       "midi": 59,
       "pickStroke": "down"
@@ -3850,11 +3854,11 @@
     {
       "string": 3,
       "fret": 4,
-      "beat": 139.5,
-      "durationBeats": 0.5,
+      "position": 34.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 36,
       "measure": 35,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 3,
       "midi": 59,
       "pickStroke": "up"
@@ -3862,11 +3866,11 @@
     {
       "string": 4,
       "fret": 5,
-      "beat": 140.0,
-      "durationBeats": 0.5,
+      "position": 35.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 37,
       "measure": 36,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 2,
       "midi": 55,
       "pickStroke": "down"
@@ -3874,11 +3878,11 @@
     {
       "string": 4,
       "fret": 5,
-      "beat": 140.5,
-      "durationBeats": 0.5,
+      "position": 35.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 37,
       "measure": 36,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 2,
       "midi": 55,
       "pickStroke": "up"
@@ -3886,11 +3890,11 @@
     {
       "string": 5,
       "fret": 5,
-      "beat": 141.0,
-      "durationBeats": 0.5,
+      "position": 35.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 37,
       "measure": 36,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 1,
       "midi": 50,
       "pickStroke": "down"
@@ -3898,11 +3902,11 @@
     {
       "string": 5,
       "fret": 5,
-      "beat": 141.5,
-      "durationBeats": 0.5,
+      "position": 35.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 37,
       "measure": 36,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 1,
       "midi": 50,
       "pickStroke": "up"
@@ -3910,11 +3914,11 @@
     {
       "string": 6,
       "fret": 7,
-      "beat": 142.0,
-      "durationBeats": 0.5,
+      "position": 35.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 37,
       "measure": 36,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 0,
       "midi": 47,
       "pickStroke": "down"
@@ -3922,11 +3926,11 @@
     {
       "string": 6,
       "fret": 7,
-      "beat": 142.5,
-      "durationBeats": 0.5,
+      "position": 35.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 37,
       "measure": 36,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 0,
       "midi": 47,
       "pickStroke": "up"
@@ -3934,11 +3938,11 @@
     {
       "string": 6,
       "fret": 3,
-      "beat": 143.0,
-      "durationBeats": 0.5,
+      "position": 35.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 37,
       "measure": 36,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 0,
       "midi": 43,
       "pickStroke": "down"
@@ -3946,11 +3950,11 @@
     {
       "string": 6,
       "fret": 3,
-      "beat": 143.5,
-      "durationBeats": 0.5,
+      "position": 35.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 37,
       "measure": 36,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 0,
       "midi": 43,
       "pickStroke": "up"
@@ -3958,11 +3962,11 @@
     {
       "string": 6,
       "fret": 5,
-      "beat": 144.0,
-      "durationBeats": 0.5,
+      "position": 36.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 38,
       "measure": 37,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 0,
       "midi": 45,
       "pickStroke": "down"
@@ -3970,11 +3974,11 @@
     {
       "string": 6,
       "fret": 5,
-      "beat": 144.5,
-      "durationBeats": 0.5,
+      "position": 36.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 38,
       "measure": 37,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 0,
       "midi": 45,
       "pickStroke": "up"
@@ -3982,11 +3986,11 @@
     {
       "string": 6,
       "fret": 8,
-      "beat": 145.0,
-      "durationBeats": 0.5,
+      "position": 36.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 38,
       "measure": 37,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 0,
       "midi": 48,
       "pickStroke": "down"
@@ -3994,11 +3998,11 @@
     {
       "string": 6,
       "fret": 8,
-      "beat": 145.5,
-      "durationBeats": 0.5,
+      "position": 36.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 38,
       "measure": 37,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 0,
       "midi": 48,
       "pickStroke": "up"
@@ -4006,11 +4010,11 @@
     {
       "string": 5,
       "fret": 7,
-      "beat": 146.0,
-      "durationBeats": 0.5,
+      "position": 36.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 38,
       "measure": 37,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 1,
       "midi": 52,
       "pickStroke": "down"
@@ -4018,11 +4022,11 @@
     {
       "string": 5,
       "fret": 7,
-      "beat": 146.5,
-      "durationBeats": 0.5,
+      "position": 36.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 38,
       "measure": 37,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 1,
       "midi": 52,
       "pickStroke": "up"
@@ -4030,11 +4034,11 @@
     {
       "string": 4,
       "fret": 7,
-      "beat": 147.0,
-      "durationBeats": 0.5,
+      "position": 36.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 38,
       "measure": 37,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 2,
       "midi": 57,
       "pickStroke": "down"
@@ -4042,11 +4046,11 @@
     {
       "string": 4,
       "fret": 7,
-      "beat": 147.5,
-      "durationBeats": 0.5,
+      "position": 36.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 38,
       "measure": 37,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 2,
       "midi": 57,
       "pickStroke": "up"
@@ -4054,11 +4058,11 @@
     {
       "string": 3,
       "fret": 5,
-      "beat": 148.0,
-      "durationBeats": 0.5,
+      "position": 37.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 39,
       "measure": 38,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 3,
       "midi": 60,
       "pickStroke": "down"
@@ -4066,11 +4070,11 @@
     {
       "string": 3,
       "fret": 5,
-      "beat": 148.5,
-      "durationBeats": 0.5,
+      "position": 37.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 39,
       "measure": 38,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 3,
       "midi": 60,
       "pickStroke": "up"
@@ -4078,11 +4082,11 @@
     {
       "string": 2,
       "fret": 5,
-      "beat": 149.0,
-      "durationBeats": 0.5,
+      "position": 37.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 39,
       "measure": 38,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 4,
       "midi": 64,
       "pickStroke": "down"
@@ -4090,11 +4094,11 @@
     {
       "string": 2,
       "fret": 5,
-      "beat": 149.5,
-      "durationBeats": 0.5,
+      "position": 37.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 39,
       "measure": 38,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 4,
       "midi": 64,
       "pickStroke": "up"
@@ -4102,11 +4106,11 @@
     {
       "string": 1,
       "fret": 5,
-      "beat": 150.0,
-      "durationBeats": 0.5,
+      "position": 37.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 39,
       "measure": 38,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 5,
       "midi": 69,
       "pickStroke": "down"
@@ -4114,11 +4118,11 @@
     {
       "string": 1,
       "fret": 5,
-      "beat": 150.5,
-      "durationBeats": 0.5,
+      "position": 37.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 39,
       "measure": 38,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 5,
       "midi": 69,
       "pickStroke": "up"
@@ -4126,11 +4130,11 @@
     {
       "string": 1,
       "fret": 8,
-      "beat": 151.0,
-      "durationBeats": 0.5,
+      "position": 37.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 39,
       "measure": 38,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 5,
       "midi": 72,
       "pickStroke": "down"
@@ -4138,11 +4142,11 @@
     {
       "string": 1,
       "fret": 8,
-      "beat": 151.5,
-      "durationBeats": 0.5,
+      "position": 37.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 39,
       "measure": 38,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 5,
       "midi": 72,
       "pickStroke": "up"
@@ -4150,11 +4154,11 @@
     {
       "string": 1,
       "fret": 7,
-      "beat": 152.0,
-      "durationBeats": 0.5,
+      "position": 38.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 40,
       "measure": 39,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 5,
       "midi": 71,
       "pickStroke": "down"
@@ -4162,11 +4166,11 @@
     {
       "string": 1,
       "fret": 7,
-      "beat": 152.5,
-      "durationBeats": 0.5,
+      "position": 38.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 40,
       "measure": 39,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 5,
       "midi": 71,
       "pickStroke": "up"
@@ -4174,11 +4178,11 @@
     {
       "string": 1,
       "fret": 3,
-      "beat": 153.0,
-      "durationBeats": 0.5,
+      "position": 38.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 40,
       "measure": 39,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 5,
       "midi": 67,
       "pickStroke": "down"
@@ -4186,11 +4190,11 @@
     {
       "string": 1,
       "fret": 3,
-      "beat": 153.5,
-      "durationBeats": 0.5,
+      "position": 38.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 40,
       "measure": 39,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 5,
       "midi": 67,
       "pickStroke": "up"
@@ -4198,11 +4202,11 @@
     {
       "string": 2,
       "fret": 3,
-      "beat": 154.0,
-      "durationBeats": 0.5,
+      "position": 38.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 40,
       "measure": 39,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 4,
       "midi": 62,
       "pickStroke": "down"
@@ -4210,11 +4214,11 @@
     {
       "string": 2,
       "fret": 3,
-      "beat": 154.5,
-      "durationBeats": 0.5,
+      "position": 38.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 40,
       "measure": 39,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 4,
       "midi": 62,
       "pickStroke": "up"
@@ -4222,11 +4226,11 @@
     {
       "string": 3,
       "fret": 4,
-      "beat": 155.0,
-      "durationBeats": 0.5,
+      "position": 38.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 40,
       "measure": 39,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 3,
       "midi": 59,
       "pickStroke": "down"
@@ -4234,11 +4238,11 @@
     {
       "string": 3,
       "fret": 4,
-      "beat": 155.5,
-      "durationBeats": 0.5,
+      "position": 38.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 40,
       "measure": 39,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 3,
       "midi": 59,
       "pickStroke": "up"
@@ -4246,11 +4250,11 @@
     {
       "string": 4,
       "fret": 5,
-      "beat": 156.0,
-      "durationBeats": 0.5,
+      "position": 39.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 41,
       "measure": 40,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 2,
       "midi": 55,
       "pickStroke": "down"
@@ -4258,11 +4262,11 @@
     {
       "string": 4,
       "fret": 5,
-      "beat": 156.5,
-      "durationBeats": 0.5,
+      "position": 39.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 41,
       "measure": 40,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 2,
       "midi": 55,
       "pickStroke": "up"
@@ -4270,11 +4274,11 @@
     {
       "string": 5,
       "fret": 5,
-      "beat": 157.0,
-      "durationBeats": 0.5,
+      "position": 39.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 41,
       "measure": 40,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 1,
       "midi": 50,
       "pickStroke": "down"
@@ -4282,11 +4286,11 @@
     {
       "string": 5,
       "fret": 5,
-      "beat": 157.5,
-      "durationBeats": 0.5,
+      "position": 39.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 41,
       "measure": 40,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 1,
       "midi": 50,
       "pickStroke": "up"
@@ -4294,11 +4298,11 @@
     {
       "string": 6,
       "fret": 7,
-      "beat": 158.0,
-      "durationBeats": 0.5,
+      "position": 39.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 41,
       "measure": 40,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 0,
       "midi": 47,
       "pickStroke": "down"
@@ -4306,11 +4310,11 @@
     {
       "string": 6,
       "fret": 7,
-      "beat": 158.5,
-      "durationBeats": 0.5,
+      "position": 39.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 41,
       "measure": 40,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 0,
       "midi": 47,
       "pickStroke": "up"
@@ -4318,11 +4322,11 @@
     {
       "string": 6,
       "fret": 3,
-      "beat": 159.0,
-      "durationBeats": 0.5,
+      "position": 39.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 41,
       "measure": 40,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 0,
       "midi": 43,
       "pickStroke": "down"
@@ -4330,11 +4334,11 @@
     {
       "string": 6,
       "fret": 3,
-      "beat": 159.5,
-      "durationBeats": 0.5,
+      "position": 39.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 41,
       "measure": 40,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 0,
       "midi": 43,
       "pickStroke": "up"
@@ -4342,11 +4346,11 @@
     {
       "string": 4,
       "fret": 5,
-      "beat": 160.0,
-      "durationBeats": 0.5,
+      "position": 40.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 42,
       "measure": 41,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 2,
       "midi": 55,
       "pickStroke": "down"
@@ -4354,11 +4358,11 @@
     {
       "string": 4,
       "fret": 7,
-      "beat": 160.5,
-      "durationBeats": 0.5,
+      "position": 40.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 42,
       "measure": 41,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 2,
       "midi": 57,
       "pickStroke": "up"
@@ -4366,11 +4370,11 @@
     {
       "string": 3,
       "fret": 5,
-      "beat": 161.0,
-      "durationBeats": 0.5,
+      "position": 40.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 42,
       "measure": 41,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 3,
       "midi": 60,
       "pickStroke": "down"
@@ -4378,11 +4382,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 161.5,
-      "durationBeats": 0.5,
+      "position": 40.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 42,
       "measure": 41,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "up"
@@ -4390,11 +4394,11 @@
     {
       "string": 4,
       "fret": 7,
-      "beat": 162.0,
-      "durationBeats": 0.5,
+      "position": 40.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 42,
       "measure": 41,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 2,
       "midi": 57,
       "pickStroke": "down"
@@ -4402,11 +4406,11 @@
     {
       "string": 4,
       "fret": 10,
-      "beat": 162.5,
-      "durationBeats": 0.5,
+      "position": 40.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 42,
       "measure": 41,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 2,
       "midi": 60,
       "pickStroke": "up"
@@ -4414,11 +4418,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 163.0,
-      "durationBeats": 0.5,
+      "position": 40.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 42,
       "measure": 41,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "down"
@@ -4426,11 +4430,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 163.5,
-      "durationBeats": 0.5,
+      "position": 40.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 42,
       "measure": 41,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "up"
@@ -4438,11 +4442,11 @@
     {
       "string": 3,
       "fret": 5,
-      "beat": 164.0,
-      "durationBeats": 0.5,
+      "position": 41.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 43,
       "measure": 42,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 3,
       "midi": 60,
       "pickStroke": "down"
@@ -4450,11 +4454,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 164.5,
-      "durationBeats": 0.5,
+      "position": 41.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 43,
       "measure": 42,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "up"
@@ -4462,11 +4466,11 @@
     {
       "string": 2,
       "fret": 5,
-      "beat": 165.0,
-      "durationBeats": 0.5,
+      "position": 41.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 43,
       "measure": 42,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 4,
       "midi": 64,
       "pickStroke": "down"
@@ -4474,11 +4478,11 @@
     {
       "string": 2,
       "fret": 8,
-      "beat": 165.5,
-      "durationBeats": 0.5,
+      "position": 41.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 43,
       "measure": 42,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 4,
       "midi": 67,
       "pickStroke": "up"
@@ -4486,11 +4490,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 166.0,
-      "durationBeats": 0.5,
+      "position": 41.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 43,
       "measure": 42,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "down"
@@ -4498,11 +4502,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 166.5,
-      "durationBeats": 0.5,
+      "position": 41.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 43,
       "measure": 42,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "up"
@@ -4510,11 +4514,11 @@
     {
       "string": 2,
       "fret": 8,
-      "beat": 167.0,
-      "durationBeats": 0.5,
+      "position": 41.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 43,
       "measure": 42,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 4,
       "midi": 67,
       "pickStroke": "down"
@@ -4522,11 +4526,11 @@
     {
       "string": 2,
       "fret": 10,
-      "beat": 167.5,
-      "durationBeats": 0.5,
+      "position": 41.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 43,
       "measure": 42,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 4,
       "midi": 69,
       "pickStroke": "up"
@@ -4534,11 +4538,11 @@
     {
       "string": 4,
       "fret": 5,
-      "beat": 168.0,
-      "durationBeats": 0.5,
+      "position": 42.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 44,
       "measure": 43,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 2,
       "midi": 55,
       "pickStroke": "down"
@@ -4546,11 +4550,11 @@
     {
       "string": 4,
       "fret": 7,
-      "beat": 168.5,
-      "durationBeats": 0.5,
+      "position": 42.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 44,
       "measure": 43,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 2,
       "midi": 57,
       "pickStroke": "up"
@@ -4558,11 +4562,11 @@
     {
       "string": 3,
       "fret": 5,
-      "beat": 169.0,
-      "durationBeats": 0.5,
+      "position": 42.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 44,
       "measure": 43,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 3,
       "midi": 60,
       "pickStroke": "down"
@@ -4570,11 +4574,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 169.5,
-      "durationBeats": 0.5,
+      "position": 42.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 44,
       "measure": 43,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "up"
@@ -4582,11 +4586,11 @@
     {
       "string": 4,
       "fret": 7,
-      "beat": 170.0,
-      "durationBeats": 0.5,
+      "position": 42.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 44,
       "measure": 43,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 2,
       "midi": 57,
       "pickStroke": "down"
@@ -4594,11 +4598,11 @@
     {
       "string": 4,
       "fret": 10,
-      "beat": 170.5,
-      "durationBeats": 0.5,
+      "position": 42.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 44,
       "measure": 43,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 2,
       "midi": 60,
       "pickStroke": "up"
@@ -4606,11 +4610,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 171.0,
-      "durationBeats": 0.5,
+      "position": 42.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 44,
       "measure": 43,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "down"
@@ -4618,11 +4622,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 171.5,
-      "durationBeats": 0.5,
+      "position": 42.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 44,
       "measure": 43,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "up"
@@ -4630,11 +4634,11 @@
     {
       "string": 3,
       "fret": 5,
-      "beat": 172.0,
-      "durationBeats": 0.5,
+      "position": 43.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 45,
       "measure": 44,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 3,
       "midi": 60,
       "pickStroke": "down"
@@ -4642,11 +4646,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 172.5,
-      "durationBeats": 0.5,
+      "position": 43.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 45,
       "measure": 44,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "up"
@@ -4654,11 +4658,11 @@
     {
       "string": 2,
       "fret": 5,
-      "beat": 173.0,
-      "durationBeats": 0.5,
+      "position": 43.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 45,
       "measure": 44,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 4,
       "midi": 64,
       "pickStroke": "down"
@@ -4666,11 +4670,11 @@
     {
       "string": 2,
       "fret": 8,
-      "beat": 173.5,
-      "durationBeats": 0.5,
+      "position": 43.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 45,
       "measure": 44,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 4,
       "midi": 67,
       "pickStroke": "up"
@@ -4678,11 +4682,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 174.0,
-      "durationBeats": 0.5,
+      "position": 43.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 45,
       "measure": 44,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "down"
@@ -4690,11 +4694,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 174.5,
-      "durationBeats": 0.5,
+      "position": 43.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 45,
       "measure": 44,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "up"
@@ -4702,11 +4706,11 @@
     {
       "string": 2,
       "fret": 8,
-      "beat": 175.0,
-      "durationBeats": 0.5,
+      "position": 43.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 45,
       "measure": 44,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 4,
       "midi": 67,
       "pickStroke": "down"
@@ -4714,11 +4718,11 @@
     {
       "string": 2,
       "fret": 10,
-      "beat": 175.5,
-      "durationBeats": 0.5,
+      "position": 43.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 45,
       "measure": 44,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 4,
       "midi": 69,
       "pickStroke": "up"
@@ -4726,11 +4730,11 @@
     {
       "string": 4,
       "fret": 5,
-      "beat": 176.0,
-      "durationBeats": 0.5,
+      "position": 44.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 46,
       "measure": 45,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 2,
       "midi": 55,
       "pickStroke": "down"
@@ -4738,11 +4742,11 @@
     {
       "string": 4,
       "fret": 7,
-      "beat": 176.5,
-      "durationBeats": 0.5,
+      "position": 44.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 46,
       "measure": 45,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 2,
       "midi": 57,
       "pickStroke": "up"
@@ -4750,11 +4754,11 @@
     {
       "string": 3,
       "fret": 5,
-      "beat": 177.0,
-      "durationBeats": 0.5,
+      "position": 44.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 46,
       "measure": 45,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 3,
       "midi": 60,
       "pickStroke": "down"
@@ -4762,11 +4766,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 177.5,
-      "durationBeats": 0.5,
+      "position": 44.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 46,
       "measure": 45,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "up"
@@ -4774,11 +4778,11 @@
     {
       "string": 2,
       "fret": 8,
-      "beat": 178.0,
-      "durationBeats": 0.5,
+      "position": 44.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 46,
       "measure": 45,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 4,
       "midi": 67,
       "pickStroke": "down"
@@ -4786,11 +4790,11 @@
     {
       "string": 2,
       "fret": 5,
-      "beat": 178.5,
-      "durationBeats": 0.5,
+      "position": 44.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 46,
       "measure": 45,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 4,
       "midi": 64,
       "pickStroke": "up"
@@ -4798,11 +4802,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 179.0,
-      "durationBeats": 0.5,
+      "position": 44.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 46,
       "measure": 45,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "down"
@@ -4810,11 +4814,11 @@
     {
       "string": 3,
       "fret": 5,
-      "beat": 179.5,
-      "durationBeats": 0.5,
+      "position": 44.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 46,
       "measure": 45,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 3,
       "midi": 60,
       "pickStroke": "up"
@@ -4822,11 +4826,11 @@
     {
       "string": 4,
       "fret": 7,
-      "beat": 180.0,
-      "durationBeats": 0.5,
+      "position": 45.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 47,
       "measure": 46,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 2,
       "midi": 57,
       "pickStroke": "down"
@@ -4834,11 +4838,11 @@
     {
       "string": 4,
       "fret": 10,
-      "beat": 180.5,
-      "durationBeats": 0.5,
+      "position": 45.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 47,
       "measure": 46,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 2,
       "midi": 60,
       "pickStroke": "up"
@@ -4846,11 +4850,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 181.0,
-      "durationBeats": 0.5,
+      "position": 45.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 47,
       "measure": 46,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "down"
@@ -4858,11 +4862,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 181.5,
-      "durationBeats": 0.5,
+      "position": 45.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 47,
       "measure": 46,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "up"
@@ -4870,11 +4874,11 @@
     {
       "string": 2,
       "fret": 10,
-      "beat": 182.0,
-      "durationBeats": 0.5,
+      "position": 45.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 47,
       "measure": 46,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 4,
       "midi": 69,
       "pickStroke": "down"
@@ -4882,11 +4886,11 @@
     {
       "string": 2,
       "fret": 8,
-      "beat": 182.5,
-      "durationBeats": 0.5,
+      "position": 45.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 47,
       "measure": 46,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 4,
       "midi": 67,
       "pickStroke": "up"
@@ -4894,11 +4898,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 183.0,
-      "durationBeats": 0.5,
+      "position": 45.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 47,
       "measure": 46,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "down"
@@ -4906,11 +4910,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 183.5,
-      "durationBeats": 0.5,
+      "position": 45.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 47,
       "measure": 46,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "up"
@@ -4918,11 +4922,11 @@
     {
       "string": 4,
       "fret": 5,
-      "beat": 184.0,
-      "durationBeats": 0.5,
+      "position": 46.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 48,
       "measure": 47,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 2,
       "midi": 55,
       "pickStroke": "down"
@@ -4930,11 +4934,11 @@
     {
       "string": 4,
       "fret": 7,
-      "beat": 184.5,
-      "durationBeats": 0.5,
+      "position": 46.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 48,
       "measure": 47,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 2,
       "midi": 57,
       "pickStroke": "up"
@@ -4942,11 +4946,11 @@
     {
       "string": 3,
       "fret": 5,
-      "beat": 185.0,
-      "durationBeats": 0.5,
+      "position": 46.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 48,
       "measure": 47,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 3,
       "midi": 60,
       "pickStroke": "down"
@@ -4954,11 +4958,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 185.5,
-      "durationBeats": 0.5,
+      "position": 46.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 48,
       "measure": 47,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "up"
@@ -4966,11 +4970,11 @@
     {
       "string": 2,
       "fret": 8,
-      "beat": 186.0,
-      "durationBeats": 0.5,
+      "position": 46.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 48,
       "measure": 47,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 4,
       "midi": 67,
       "pickStroke": "down"
@@ -4978,11 +4982,11 @@
     {
       "string": 2,
       "fret": 5,
-      "beat": 186.5,
-      "durationBeats": 0.5,
+      "position": 46.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 48,
       "measure": 47,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 4,
       "midi": 64,
       "pickStroke": "up"
@@ -4990,11 +4994,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 187.0,
-      "durationBeats": 0.5,
+      "position": 46.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 48,
       "measure": 47,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "down"
@@ -5002,11 +5006,11 @@
     {
       "string": 3,
       "fret": 5,
-      "beat": 187.5,
-      "durationBeats": 0.5,
+      "position": 46.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 48,
       "measure": 47,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 3,
       "midi": 60,
       "pickStroke": "up"
@@ -5014,11 +5018,11 @@
     {
       "string": 4,
       "fret": 7,
-      "beat": 188.0,
-      "durationBeats": 0.5,
+      "position": 47.0,
+      "durationUnits": 0.125,
       "sourceMeasure": 49,
       "measure": 48,
-      "beatInMeasure": 0.0,
+      "positionInMeasure": 0.0,
       "gpString": 2,
       "midi": 57,
       "pickStroke": "down"
@@ -5026,11 +5030,11 @@
     {
       "string": 4,
       "fret": 10,
-      "beat": 188.5,
-      "durationBeats": 0.5,
+      "position": 47.125,
+      "durationUnits": 0.125,
       "sourceMeasure": 49,
       "measure": 48,
-      "beatInMeasure": 0.5,
+      "positionInMeasure": 0.125,
       "gpString": 2,
       "midi": 60,
       "pickStroke": "up"
@@ -5038,11 +5042,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 189.0,
-      "durationBeats": 0.5,
+      "position": 47.25,
+      "durationUnits": 0.125,
       "sourceMeasure": 49,
       "measure": 48,
-      "beatInMeasure": 1.0,
+      "positionInMeasure": 0.25,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "down"
@@ -5050,11 +5054,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 189.5,
-      "durationBeats": 0.5,
+      "position": 47.375,
+      "durationUnits": 0.125,
       "sourceMeasure": 49,
       "measure": 48,
-      "beatInMeasure": 1.5,
+      "positionInMeasure": 0.375,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "up"
@@ -5062,11 +5066,11 @@
     {
       "string": 2,
       "fret": 10,
-      "beat": 190.0,
-      "durationBeats": 0.5,
+      "position": 47.5,
+      "durationUnits": 0.125,
       "sourceMeasure": 49,
       "measure": 48,
-      "beatInMeasure": 2.0,
+      "positionInMeasure": 0.5,
       "gpString": 4,
       "midi": 69,
       "pickStroke": "down"
@@ -5074,11 +5078,11 @@
     {
       "string": 2,
       "fret": 8,
-      "beat": 190.5,
-      "durationBeats": 0.5,
+      "position": 47.625,
+      "durationUnits": 0.125,
       "sourceMeasure": 49,
       "measure": 48,
-      "beatInMeasure": 2.5,
+      "positionInMeasure": 0.625,
       "gpString": 4,
       "midi": 67,
       "pickStroke": "up"
@@ -5086,11 +5090,11 @@
     {
       "string": 3,
       "fret": 9,
-      "beat": 191.0,
-      "durationBeats": 0.5,
+      "position": 47.75,
+      "durationUnits": 0.125,
       "sourceMeasure": 49,
       "measure": 48,
-      "beatInMeasure": 3.0,
+      "positionInMeasure": 0.75,
       "gpString": 3,
       "midi": 64,
       "pickStroke": "down"
@@ -5098,11 +5102,11 @@
     {
       "string": 3,
       "fret": 7,
-      "beat": 191.5,
-      "durationBeats": 0.5,
+      "position": 47.875,
+      "durationUnits": 0.125,
       "sourceMeasure": 49,
       "measure": 48,
-      "beatInMeasure": 3.5,
+      "positionInMeasure": 0.875,
       "gpString": 3,
       "midi": 62,
       "pickStroke": "up"
