@@ -1,7 +1,7 @@
 const fileInput = document.querySelector("#tabFile");
-const fileName = document.querySelector("#fileName");
+const sourceButtonText = document.querySelector("#sourceButtonText");
 const metronomeFile = document.querySelector("#metronomeFile");
-const metronomeName = document.querySelector("#metronomeName");
+const clickButtonText = document.querySelector("#clickButtonText");
 const playPause = document.querySelector("#playPause");
 const restart = document.querySelector("#restart");
 const tempo = document.querySelector("#tempo");
@@ -17,7 +17,6 @@ const debugHitNotes = document.querySelector("#debugHitNotes");
 const debugEventCounts = document.querySelector("#debugEventCounts");
 const debugEvents = document.querySelector("#debugEvents");
 const debugReport = document.querySelector("#debugReport");
-const sourceStatus = document.querySelector("#sourceStatus");
 const backingToggle = document.querySelector("#backingToggle");
 const mixSlider = document.querySelector("#mixSlider");
 const backingStatus = document.querySelector("#backingStatus");
@@ -42,6 +41,8 @@ const METRONOME_LOOKAHEAD_SECONDS = 0.08;
 const WHOLE_NOTE_HEIGHT = 184;
 const DEFAULT_GP_NOTES_URL = "./data/hand-sync-pt1-notes.json";
 const DEFAULT_MIX_POSITION = 50;
+const TEMPO_MIN = Number(tempo.min) || 40;
+const TEMPO_MAX = Number(tempo.max) || 180;
 const NOTE_VALUE_TO_UNITS = {
   Whole: WHOLE_NOTE_UNITS,
   Half: HALF_NOTE_UNITS,
@@ -154,6 +155,7 @@ let backingTrackSource = null;
 let backingTrackObjectUrl = null;
 let backingTrackLoadToken = 0;
 let lastBackingStart = null;
+let backingStatusError = "";
 let mixerState = {
   position: DEFAULT_MIX_POSITION / 100,
   metronomeGain: 1,
@@ -271,12 +273,12 @@ function noteMetadata(note, playhead, rawPosition, pos) {
 // Why this shape: reports need to describe the exact runtime state used for a capture.
 function runSettings() {
   return {
-    sourceFile: fileName.textContent,
+    sourceFile: sourceMetadata.file || "Fallback demo notes",
     sourceTitle: sourceMetadata.title,
-    bpm: Number(tempo.value),
+    bpm: activeTempo,
     timeSignature: sourceMetadata.timeSignature || "4/4",
     scoreTimingSource: sourceMetadata.scoreTimingSource || "GPIF notes",
-    metronomeSound: metronomeName.textContent,
+    metronomeSound: clickButtonText?.textContent || "Default Click",
     clickSource: metronomeBuffer ? "selected wav" : "built-in click",
     backingTrack: {
       available: Boolean(sourceMetadata.backingTrack?.available),
@@ -1057,11 +1059,26 @@ function parseGpifText(xmlText, fileLabel) {
   };
 }
 
-// Purpose: update the footer's input-source status text.
-// Warning: keep messages short because this slot is compact on smaller screens.
-// Why this shape: source truth belongs in the visible UI, not just console warnings.
-function setSourceStatus(message) {
-  if (sourceStatus) sourceStatus.textContent = message;
+// Purpose: update the source-picker button state without adding a second source label.
+// Warning: keep this to short control states only; filenames belong in reports, not the crowded header.
+// Why this shape: refactored from a separate file metadata block so the header has one source control.
+function setSourceButtonText(message) {
+  if (sourceButtonText) sourceButtonText.textContent = message;
+}
+
+// Purpose: keep the tempo range and editable BPM input in sync.
+// Warning: this clamps committed values to the supported range and preserves playback continuity when requested.
+// Why this shape: one setter prevents the slider and typed BPM field from drifting apart.
+function setTempoValue(nextTempo, { reanchor = false } = {}) {
+  const parsed = Number.parseInt(nextTempo, 10);
+  const clamped = Math.max(TEMPO_MIN, Math.min(TEMPO_MAX, Number.isFinite(parsed) ? parsed : activeTempo));
+  tempo.value = String(clamped);
+  tempoValue.value = String(clamped);
+  if (reanchor) reanchorPlaybackClockForTempoChange(clamped);
+  else activeTempo = clamped;
+  updateBackingPlaybackRate();
+  updateDebugPanel();
+  return clamped;
 }
 
 // Purpose: apply extracted note payloads to the live song state.
@@ -1102,13 +1119,10 @@ function applySongData(payload) {
     BAR_UNITS,
     Math.ceil(Math.max(...songNotes.map((note) => note.position + durationUnits(note))) / BAR_UNITS) * BAR_UNITS
   );
-  fileName.textContent = sourceMetadata.file || "Hand Sync pt1 + BT.gp";
+  setSourceButtonText("Loaded");
   if (sourceMetadata.tempo) {
-    tempo.value = sourceMetadata.tempo;
-    activeTempo = Number(tempo.value);
-    tempoValue.textContent = `${tempo.value} BPM`;
+    setTempoValue(sourceMetadata.tempo);
   }
-  setSourceStatus(sourceMetadata.file?.toLowerCase().endsWith(".gpif") ? "Parsed GPIF notes" : "Extracted Guitar Pro notes");
   loadBackingTrack(sourceMetadata.backingTrack);
   render(pausedAt);
   updateDebugPanel();
@@ -1123,8 +1137,7 @@ async function loadDefaultGpData() {
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     applySongData(await response.json());
   } catch (error) {
-    setSourceStatus("Default data failed - select source");
-    fileName.textContent = "Fallback demo notes";
+    setSourceButtonText("Select source");
     updateMixerState();
     console.warn("Using fallback note data because GP note JSON was not loaded.", error);
   }
@@ -1241,7 +1254,7 @@ function backingStartOffsetSeconds() {
 // Why this shape: it keeps backing, notes, and metronome on the same playhead clock without offline time-stretching.
 function backingPlaybackRate() {
   const nativeTempo = sourceMetadata.backingTrack?.nativeTempo || sourceMetadata.tempo || Number(tempo.value) || 120;
-  return Number(tempo.value) / nativeTempo;
+  return activeTempo / nativeTempo;
 }
 
 // Purpose: preserve the current playhead when the user changes tempo during playback.
@@ -1317,13 +1330,7 @@ function updateMixerState() {
     backingBus.gain.setTargetAtTime(gains.backingGain, context.currentTime, 0.01);
   }
 
-  if (backingStatus) {
-    backingStatus.textContent = !available || !loaded
-      ? "No backing track"
-      : enabled
-        ? "Backing loaded"
-        : "Backing off";
-  }
+  if (backingStatus) backingStatus.textContent = backingStatusError;
 }
 
 // Purpose: create the click and backing gain busses once per AudioContext.
@@ -1457,6 +1464,7 @@ function updateBackingPlaybackRate() {
 // Why this shape: default JSON URLs and selected GP package object URLs share one decode path.
 async function loadBackingTrack(backingTrack) {
   const token = ++backingTrackLoadToken;
+  backingStatusError = "";
   stopBackingTrack();
   backingTrackBuffer = null;
   updateMixerState();
@@ -1466,7 +1474,6 @@ async function loadBackingTrack(backingTrack) {
     return;
   }
 
-  if (backingStatus) backingStatus.textContent = "Backing loading";
   try {
     const response = await fetch(backingTrack.url, { cache: "no-store" });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
@@ -1480,6 +1487,7 @@ async function loadBackingTrack(backingTrack) {
   } catch (error) {
     if (token !== backingTrackLoadToken) return;
     console.warn("Backing track could not be loaded.", error);
+    backingStatusError = "Backing unavailable";
     backingTrackBuffer = null;
     updateMixerState();
   }
@@ -1595,9 +1603,9 @@ function playMetronomeClick(position, scheduledTime = ensureAudioContext().curre
     ...metricPosition,
     accent,
     scheduledAudioContextSeconds: Number(scheduledTime.toFixed(4)),
-    bpm: Number(tempo.value),
-    sourceFile: fileName.textContent,
-    metronomeSound: metronomeName.textContent,
+    bpm: activeTempo,
+    sourceFile: sourceMetadata.file || "Fallback demo notes",
+    metronomeSound: clickButtonText?.textContent || "Default Click",
     hitNotes,
     hitNoteMetadata,
   });
@@ -1652,24 +1660,21 @@ fileInput.addEventListener("change", async () => {
   const selected = fileInput.files?.[0];
   if (!selected) return;
   const lowerName = selected.name.toLowerCase();
-  fileName.textContent = selected.name;
+  setSourceButtonText("Loading...");
 
   try {
     if (lowerName.endsWith(".json")) {
       applySongData(JSON.parse(await selected.text()));
-      setSourceStatus("Loaded note JSON");
     } else if (lowerName.endsWith(".gpif") || lowerName.endsWith(".xml")) {
       applySongData(parseGpifText(await selected.text(), selected.name));
-      setSourceStatus("Parsed GPIF notes");
     } else if (lowerName.endsWith(".gp")) {
       applySongData(await parseGpPackage(selected));
-      setSourceStatus("Parsed GP package notes");
     } else if (lowerName.endsWith(".pdf")) {
-      setSourceStatus("PDF selected - note extraction needed");
+      setSourceButtonText("Loaded");
       console.warn("PDF input needs a notation/tab extraction step before the highway can render timed notes.");
     }
   } catch (error) {
-    setSourceStatus("Input did not parse");
+    setSourceButtonText("Select source");
     console.warn("Selected file could not be parsed into note data.", error);
   }
 
@@ -1683,14 +1688,14 @@ metronomeFile.addEventListener("change", async () => {
   const selected = metronomeFile.files?.[0];
   if (!selected) return;
   const context = ensureAudioContext();
-  metronomeName.textContent = "Loading...";
+  clickButtonText.textContent = "Loading...";
   try {
     const buffer = await selected.arrayBuffer();
     metronomeBuffer = await context.decodeAudioData(buffer);
-    metronomeName.textContent = selected.name;
+    clickButtonText.textContent = "User Click";
   } catch {
     metronomeBuffer = null;
-    metronomeName.textContent = "Built-in click";
+    clickButtonText.textContent = "Default Click";
   }
   updateDebugPanel();
 });
@@ -1748,10 +1753,38 @@ restart.addEventListener("click", () => {
 // Warning: changing tempo during playback affects future position math immediately.
 // Why this shape: the prototype treats tempo as the active playback clock value, not immutable song metadata.
 tempo.addEventListener("input", () => {
-  reanchorPlaybackClockForTempoChange(Number(tempo.value));
-  tempoValue.textContent = `${tempo.value} BPM`;
-  updateBackingPlaybackRate();
-  updateDebugPanel();
+  setTempoValue(tempo.value, { reanchor: true });
+});
+
+// Purpose: block non-numeric characters in the editable BPM control.
+// Warning: range clamping still happens on commit because partial typed values can be temporarily out of range.
+// Why this shape: it keeps typing natural while still enforcing a numeric tempo field.
+tempoValue.addEventListener("beforeinput", (event) => {
+  if (event.data && !/^\d+$/.test(event.data)) event.preventDefault();
+});
+
+// Purpose: apply typed BPM values once they are inside the supported tempo range.
+// Warning: incomplete values are allowed while typing and are clamped on blur or Enter.
+// Why this shape: typing "120" should not clamp after the first "1".
+tempoValue.addEventListener("input", () => {
+  const parsed = Number.parseInt(tempoValue.value, 10);
+  if (parsed >= TEMPO_MIN && parsed <= TEMPO_MAX) {
+    setTempoValue(parsed, { reanchor: true });
+  }
+});
+
+// Purpose: commit typed BPM values and clamp them into the supported range.
+// Warning: this can rewrite the field when the user leaves an empty or out-of-range value.
+// Why this shape: the app always returns to a valid tempo after editing.
+tempoValue.addEventListener("change", () => {
+  setTempoValue(tempoValue.value, { reanchor: true });
+});
+
+// Purpose: let Enter commit the editable BPM field immediately.
+// Warning: this intentionally blurs the field so the normal change handler performs clamping.
+// Why this shape: keyboard entry should feel like a compact numeric control, not a freeform text field.
+tempoValue.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") tempoValue.blur();
 });
 
 // Purpose: toggle backing playback without changing the user's crossfader position.
