@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tab Highway Prototype</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <section class="identity" aria-label="Project">
+          <p class="eyebrow">Modern Guitar Course</p>
+          <h1>Tab Highway</h1>
+        </section>
+
+        <section class="file-panel" aria-label="Guitar Pro source selection">
+          <label class="file-button">
+            <input id="tabFile" type="file" accept=".gp,.gpif,.json" />
+            <span class="file-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
+                <path d="M14 3v5h5" />
+                <path d="M9 13h6" />
+                <path d="M9 17h4" />
+              </svg>
+            </span>
+            <span>Select GP file</span>
+          </label>
+          <div class="file-meta">
+            <span class="meta-label">Loaded</span>
+            <strong id="fileName">Hand Sync pt1 + BT.gp</strong>
+          </div>
+        </section>
+
+        <section class="metronome-panel" aria-label="Metronome sound selection">
+          <label class="file-button compact">
+            <input id="metronomeFile" type="file" accept="audio/wav,.wav" />
+            <span class="file-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M6 9v6" />
+                <path d="M10 6v12" />
+                <path d="M14 9v6" />
+                <path d="M18 4v16" />
+              </svg>
+            </span>
+            <span>Metronome WAV</span>
+          </label>
+          <div class="file-meta">
+            <span class="meta-label">Click</span>
+            <strong id="metronomeName">Built-in click</strong>
+          </div>
+        </section>
+
+        <section class="transport" aria-label="Playback controls">
+          <button id="restart" class="icon-button" aria-label="Restart">
+            <svg viewBox="0 0 24 24" focusable="false">
+              <path d="M3 5v6h6" />
+              <path d="M4.5 10.5A8 8 0 1 0 7 6" />
+            </svg>
+          </button>
+          <button id="playPause" class="play-button" aria-label="Play">
+            <span class="play-glyph" aria-hidden="true"></span>
+          </button>
+          <div class="tempo-control">
+            <label for="tempo">Tempo</label>
+            <input id="tempo" type="range" min="40" max="180" value="92" />
+            <output id="tempoValue" for="tempo">92 BPM</output>
+          </div>
+        </section>
+      </header>
+
+      <section class="stage" aria-label="Animated guitar tab visualization">
+        <section class="highway-wrap">
+          <div class="highway" id="highway" aria-label="Six string note highway">
+            <div class="vanish-glow" aria-hidden="true"></div>
+            <div class="string string-1"><span>e</span></div>
+            <div class="string string-2"><span>B</span></div>
+            <div class="string string-3"><span>G</span></div>
+            <div class="string string-4"><span>D</span></div>
+            <div class="string string-5"><span>A</span></div>
+            <div class="string string-6"><span>E</span></div>
+            <div class="beat-lines" aria-hidden="true"></div>
+            <div class="notes-layer" id="notesLayer"></div>
+            <div class="strike-line" aria-hidden="true">
+              <strong>Hit zone</strong>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+
+          <div class="status-row">
+            <div>
+              <span class="meta-label">Now</span>
+              <strong id="nowPlaying">Count-in 1</strong>
+            </div>
+            <div>
+              <span class="meta-label">Mode</span>
+              <strong>Clean note read</strong>
+            </div>
+            <div>
+              <span class="meta-label">Input source</span>
+              <strong>Guitar Pro notes only</strong>
+            </div>
+            <div>
+              <span class="meta-label">Next step</span>
+              <strong>Map parsed notes to time</strong>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section class="sync-debug" aria-label="Sync debug">
+        <header class="sync-debug-header">
+          <div>
+            <span class="meta-label">Permanent sync debug</span>
+            <strong id="debugRunLabel">No run yet</strong>
+          </div>
+          <button id="generateReport" class="debug-button" type="button">Generate report</button>
+        </header>
+        <div class="debug-grid">
+          <div>
+            <span class="meta-label">Playhead</span>
+            <strong id="debugPlayhead">-</strong>
+          </div>
+          <div>
+            <span class="meta-label">Last tick</span>
+            <strong id="debugLastTick">-</strong>
+          </div>
+          <div>
+            <span class="meta-label">Hit zone</span>
+            <strong id="debugHitNotes">-</strong>
+          </div>
+          <div>
+            <span class="meta-label">Events</span>
+            <strong id="debugEventCounts">0 ticks / 0 hits</strong>
+          </div>
+        </div>
+        <div class="debug-events" id="debugEvents" aria-label="Recent sync events"></div>
+        <pre class="debug-report" id="debugReport" aria-label="Generated sync report"></pre>
+      </section>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>

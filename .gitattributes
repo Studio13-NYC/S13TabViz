@@ -1,0 +1,10 @@
+* text=auto
+
+*.pdf binary
+*.mp3 binary
+*.wav binary
+*.webm binary
+*.png binary
+*.gp binary
+*.gpif binary
+

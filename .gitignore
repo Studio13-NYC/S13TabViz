@@ -1,0 +1,11 @@
+# Runtime and test output
+Code/.playwright-cli/
+Code/output/
+Code/test-results/
+
+# Local OS/editor noise
+.DS_Store
+Thumbs.db
+*.tmp
+*.log
+
