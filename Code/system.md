@@ -4,8 +4,11 @@ This prototype turns Guitar Pro note data into a Rocksmith-style highway. The cu
 
 ## Current Source Truth
 
-- Source file: `..\Hand Sync pt1 + BT.gp`
-- Extracted runtime data: `data/hand-sync-pt1-notes.json`
+- Input source folder: `data/input/`
+- Default source file: `data/input/Hand Sync pt1 + BT.gp`
+- Extracted runtime data: `data/input/processed/hand-sync-pt1-notes.json`
+- Input manifest: `data/input/index.json`
+- Optional Azure config: `data/input/azure-config.json`
 - Extractor: `tools/extract_gp_notes.py`
 - App entry point: `index.html`
 - Runtime code: `app.js`
@@ -20,7 +23,7 @@ The current extraction confirms:
 - 8 note attacks per measure
 - duration value is always `0.125` whole-note units
 - every measure is `1.0` whole-note units of eighth notes
-- backing metadata points to `data/hand-sync-pt1-backing.mp3`
+- backing metadata points to `data/input/processed/hand-sync-pt1-backing.mp3`
 
 ## Data Pipeline
 
@@ -28,10 +31,11 @@ The current extraction confirms:
 2. It reads `Content/score.gpif`.
 3. It builds lookup tables for rhythms, notes, beats, voices, and bars.
 4. It converts GPIF strings to UI strings where `1` is high e and `6` is low E.
-5. It copies the embedded backing MP3 to `data/hand-sync-pt1-backing.mp3` when present.
-6. It writes `data/hand-sync-pt1-notes.json`.
+5. It copies the embedded backing MP3 to `data/input/processed/*-backing.mp3` when present.
+6. It writes prepared notes JSON to `data/input/processed/*-notes.json`.
 7. `app.js` loads that JSON from `DEFAULT_GP_NOTES_URL`. The browser file picker can also load extracted JSON, raw `.gpif` XML, or packaged GP8 `.gp` files.
 8. `applySongData()` replaces fallback notes with extracted GP notes and sets tempo/source/backing metadata.
+9. `loadSourceLibrary()` reads `data/input/index.json`, optionally merges Azure Blob Storage entries under `input/`, and populates the saved-source picker.
 9. `render()` draws the highway from `timelineNotes`.
 
 The JSON payload has:
@@ -108,13 +112,16 @@ Creates moving measure-line positions so bar boundaries scroll with notes and ar
 Applies extracted GP note JSON to the runtime. This is where fallback demo notes are replaced.
 
 `loadDefaultGpData()`
-Fetches `data/hand-sync-pt1-notes.json` on startup.
+Fetches `data/input/processed/hand-sync-pt1-notes.json` on startup and points the default backing URL at `data/input/processed/hand-sync-pt1-backing.mp3`.
 
 `parseGpifText(xmlText, fileLabel)`
 Parses raw GPIF XML selected in the browser into the same renderable payload shape as the Python extractor.
 
 `parseGpPackage(file)`, `extractZipEntry()`, `inflateZipEntry()`, and `findZipEndOfCentralDirectory()`
 Read a selected GP8 `.gp` package, extract `Content/score.gpif`, and pass the score XML through the normal GPIF parser. These helpers were added instead of a JSZip dependency so the static app can support `.gp` input without a build step.
+
+`loadSourceLibrary()`, `loadSourceEntry()`, `handleSelectedSourceFile()`, and `storeProcessedAssets()`
+Manage the saved-source picker, manual source uploads, prepared notes/backing assets, and optional Azure Blob Storage persistence. Browser uploads use scoped container SAS URLs when configured; source files are written under `input/` and prepared files under `input/processed/`.
 
 `activeNote(playhead)`
 Finds the nearest note for the status display.
@@ -346,6 +353,8 @@ PDF render artifacts from the earlier sheet inspection:
 ## Current Limitations
 
 - The app loads pre-extracted JSON, raw `.gpif` XML, and packaged GP8 `.gp` files in the browser. The package path extracts `Content/score.gpif` and the referenced backing MP3 when available.
+- Azure Blob Storage requires a container SAS URL with read/list/create/write permissions and CORS allowing the local and deployed app origins. The app deliberately does not store Azure account keys.
+- GP5 binary files are visible as unsupported if selected, but the browser parser currently supports GP8 `.gp` packages, GPIF/XML, and prepared JSON.
 - PDF selection is acknowledged, but timed note extraction from PDF tab/notation still needs a dedicated parser/OCR path before rendering.
 - The extractor currently targets GP8 package shape and the primary guitar track.
 - The UI is still a prototype and does not yet expose track selection or correction tools.

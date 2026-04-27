@@ -1,5 +1,8 @@
 const fileInput = document.querySelector("#tabFile");
 const sourceButtonText = document.querySelector("#sourceButtonText");
+const sourceLibrary = document.querySelector("#sourceLibrary");
+const refreshSources = document.querySelector("#refreshSources");
+const storageStatus = document.querySelector("#storageStatus");
 const metronomeFile = document.querySelector("#metronomeFile");
 const clickButtonText = document.querySelector("#clickButtonText");
 const playPause = document.querySelector("#playPause");
@@ -39,7 +42,13 @@ const HIT_ZONE_WINDOW_UNITS = QUARTER_NOTE_UNITS * 0.1;
 const STRIKE_SYNC_WINDOW_UNITS = QUARTER_NOTE_UNITS * 0.025;
 const METRONOME_LOOKAHEAD_SECONDS = 0.08;
 const WHOLE_NOTE_HEIGHT = 184;
-const DEFAULT_GP_NOTES_URL = "./data/hand-sync-pt1-notes.json";
+const DEFAULT_GP_NOTES_URL = "./data/input/processed/hand-sync-pt1-notes.json";
+const DEFAULT_GP_BACKING_URL = "./data/input/processed/hand-sync-pt1-backing.mp3";
+const INPUT_MANIFEST_URL = "./data/input/index.json";
+const AZURE_CONFIG_URL = "./data/input/azure-config.json";
+const AZURE_SAS_STORAGE_KEY = "s13tabviz.azureContainerSasUrl";
+const DEFAULT_INPUT_PREFIX = "input/";
+const DEFAULT_PROCESSED_PREFIX = "input/processed/";
 const DEFAULT_MIX_POSITION = 50;
 const BACKING_DRIFT_CORRECTION_SECONDS = 0.08;
 const TEMPO_MIN = Number(tempo.min) || 40;
@@ -159,6 +168,9 @@ let lastBackingStart = null;
 let backingStartTimer = 0;
 let backingDriftSeconds = null;
 let backingStatusError = "";
+let sourceLibraryEntries = [];
+let azureStorageConfig = null;
+let activeSourceKey = "";
 let mixerState = {
   position: DEFAULT_MIX_POSITION / 100,
   metronomeGain: 1,
@@ -903,7 +915,7 @@ function backingTrackFromGpif(doc, tempo) {
 }
 
 // Purpose: parse a selected packaged Guitar Pro file into the app payload.
-// Warning: score.gpif still drives timing; embedded MP3 bytes are decoded only as optional playback audio.
+// Warning: score.gpif still drives timing; embedded MP3 bytes are optional playback audio, not note data.
 // Why this shape: refactored from a status-only .gp branch to real in-browser GP package plus backing input.
 async function parseGpPackage(file) {
   const packageBytes = await file.arrayBuffer();
@@ -914,12 +926,16 @@ async function parseGpPackage(file) {
 
   if (embeddedPath) {
     const backingBytes = await extractZipEntry(packageBytes, embeddedPath);
+    const backingBlob = new Blob([backingBytes], { type: "audio/mpeg" });
     if (backingTrackObjectUrl) URL.revokeObjectURL(backingTrackObjectUrl);
-    backingTrackObjectUrl = URL.createObjectURL(new Blob([backingBytes], { type: "audio/mpeg" }));
+    backingTrackObjectUrl = URL.createObjectURL(backingBlob);
     payload.source.backingTrack = {
       ...payload.source.backingTrack,
       available: true,
       url: backingTrackObjectUrl,
+    };
+    payload.runtimeAssets = {
+      backingBlob,
     };
   }
 
@@ -1077,6 +1093,470 @@ function setSourceButtonText(message) {
   if (sourceButtonText) sourceButtonText.textContent = message;
 }
 
+// Purpose: show source-library and storage messages in one compact status line.
+// Warning: keep messages short because the control lives in the crowded header.
+// Why this shape: upload, Azure, and parser failures need visible feedback without adding a modal.
+function setStorageStatus(message = "", { error = false } = {}) {
+  if (!storageStatus) return;
+  storageStatus.textContent = message;
+  storageStatus.classList.toggle("is-error", error);
+}
+
+// Purpose: produce a stable id for local manifest and Azure source entries.
+// Warning: names can repeat across storage backends, so include the source kind/path.
+// Why this shape: the select can safely map back to a source object after refreshes.
+function sourceEntryKey(entry) {
+  return `${entry.storage || "local"}:${entry.blobName || entry.path || entry.name}`;
+}
+
+// Purpose: normalize file names into processed asset paths.
+// Warning: this is for storage keys only; visible source names keep their original spelling.
+// Why this shape: processed notes and backing files need deterministic names in input/processed.
+function sourceSlug(name) {
+  return name
+    .replace(/\.[^.]+$/, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "") || "source";
+}
+
+// Purpose: derive a source format from a file name.
+// Warning: only GP8 packages can be parsed into timed notes in-browser today.
+// Why this shape: GP5 files should be stored and listed honestly instead of pretending they are playable.
+function sourceFormat(name) {
+  const lower = name.toLowerCase();
+  if (lower.endsWith(".gp5")) return "gp5";
+  if (lower.endsWith(".gp")) return "gp";
+  if (lower.endsWith(".gpif") || lower.endsWith(".xml")) return "gpif";
+  if (lower.endsWith(".json")) return "json";
+  if (lower.endsWith(".pdf")) return "pdf";
+  return "unknown";
+}
+
+// Purpose: convert manifest entries into the app's source-library record shape.
+// Warning: manifest paths are app-relative URLs, not filesystem paths.
+// Why this shape: local and Azure records can share the same loading pipeline.
+function normalizeManifestSource(entry) {
+  const name = entry.name || entry.file || entry.path?.split("/").at(-1) || "Untitled source";
+  return {
+    name,
+    format: entry.format || sourceFormat(name),
+    path: entry.path,
+    processed: entry.processed || null,
+    storage: "manifest",
+  };
+}
+
+// Purpose: render the saved source select from the current library entries.
+// Warning: disabled options still appear so unsupported files are visible as stored input.
+// Why this shape: the user should be able to see existing input files even when processing is not supported yet.
+function renderSourceLibrary() {
+  if (!sourceLibrary) return;
+  sourceLibrary.innerHTML = "";
+  if (!sourceLibraryEntries.length) {
+    const option = document.createElement("option");
+    option.value = "";
+    option.textContent = "No saved sources";
+    sourceLibrary.append(option);
+    return;
+  }
+
+  for (const entry of sourceLibraryEntries) {
+    const option = document.createElement("option");
+    option.value = entry.key;
+    const suffix = entry.storage === "azure" ? "Azure" : entry.storage === "session" ? "Session" : "Input";
+    option.textContent = `${entry.name} (${suffix})`;
+    sourceLibrary.append(option);
+  }
+  if (activeSourceKey && sourceLibraryEntries.some((entry) => entry.key === activeSourceKey)) {
+    sourceLibrary.value = activeSourceKey;
+  }
+}
+
+// Purpose: read the optional Azure Blob Storage config for local and deployed static pages.
+// Warning: a browser app must use a SAS URL or an API-issued SAS; never commit an account key.
+// Why this shape: the same code path can list/upload in local dev and GitHub Pages when CORS/SAS are configured.
+async function loadAzureStorageConfig() {
+  const fallback = {
+    enabled: false,
+    containerSasUrl: "",
+    inputPrefix: DEFAULT_INPUT_PREFIX,
+    processedPrefix: DEFAULT_PROCESSED_PREFIX,
+  };
+
+  try {
+    const response = await fetch(AZURE_CONFIG_URL, { cache: "no-store" });
+    if (response.ok) fallback.enabled = false;
+    if (response.ok) Object.assign(fallback, await response.json());
+  } catch {
+    // Missing config is fine; the local manifest still works.
+  }
+
+  const storedSas = localStorage.getItem(AZURE_SAS_STORAGE_KEY);
+  if (storedSas) {
+    fallback.enabled = true;
+    fallback.containerSasUrl = storedSas;
+  }
+
+  fallback.inputPrefix ||= DEFAULT_INPUT_PREFIX;
+  fallback.processedPrefix ||= DEFAULT_PROCESSED_PREFIX;
+  azureStorageConfig = fallback;
+  return fallback;
+}
+
+// Purpose: split an Azure container SAS URL into a base URL and query string.
+// Warning: callers should treat parse failures as disabled Azure storage.
+// Why this shape: blob URLs and list-container URLs use the same SAS query with different paths/params.
+function azureContainerParts() {
+  if (!azureStorageConfig?.enabled || !azureStorageConfig.containerSasUrl) return null;
+  try {
+    const url = new URL(azureStorageConfig.containerSasUrl);
+    const sas = url.search.startsWith("?") ? url.search.slice(1) : url.search;
+    url.search = "";
+    return { baseUrl: url.href.replace(/\/$/, ""), sas };
+  } catch {
+    return null;
+  }
+}
+
+// Purpose: append SAS and operation params to an Azure Storage URL.
+// Warning: SAS params must remain exactly as issued by Azure.
+// Why this shape: direct REST calls avoid a bundler or client SDK in this static app.
+function azureUrlWithParams(baseUrl, params = {}) {
+  const parts = azureContainerParts();
+  if (!parts) return null;
+  const query = new URLSearchParams(parts.sas);
+  for (const [key, value] of Object.entries(params)) query.set(key, value);
+  return `${baseUrl}?${query.toString()}`;
+}
+
+// Purpose: build a direct blob URL for reading or writing a blob path.
+// Warning: each path segment must be encoded without encoding slashes.
+// Why this shape: Azure "folders" are blob-name prefixes such as input/processed/.
+function azureBlobUrl(blobName) {
+  const parts = azureContainerParts();
+  if (!parts) return null;
+  const encodedName = blobName.split("/").map(encodeURIComponent).join("/");
+  return azureUrlWithParams(`${parts.baseUrl}/${encodedName}`);
+}
+
+// Purpose: list source and processed blobs from Azure input prefixes.
+// Warning: requires a SAS with list/read permissions and matching CORS rules for the app origin.
+// Why this shape: users can pick existing uploaded files from the same static UI.
+async function listAzureSourceEntries() {
+  const parts = azureContainerParts();
+  if (!parts) return [];
+  const inputPrefix = azureStorageConfig.inputPrefix || DEFAULT_INPUT_PREFIX;
+  const processedPrefix = azureStorageConfig.processedPrefix || DEFAULT_PROCESSED_PREFIX;
+  const listUrl = azureUrlWithParams(parts.baseUrl, {
+    restype: "container",
+    comp: "list",
+    prefix: inputPrefix,
+  });
+  const response = await fetch(listUrl);
+  if (!response.ok) throw new Error(`Azure list failed: HTTP ${response.status}`);
+  const doc = new DOMParser().parseFromString(await response.text(), "application/xml");
+  const blobNames = [...doc.querySelectorAll("Blob > Name")].map((node) => node.textContent || "");
+  const processedNames = new Set(blobNames.filter((name) => name.startsWith(processedPrefix)));
+  return blobNames
+    .filter((blobName) => blobName.startsWith(inputPrefix))
+    .filter((blobName) => !blobName.startsWith(processedPrefix))
+    .filter((blobName) => /\.(gp|gp5|gpif|xml|json)$/i.test(blobName))
+    .map((blobName) => {
+      const name = blobName.split("/").at(-1);
+      const slug = sourceSlug(name);
+      const notesName = `${processedPrefix}${slug}-notes.json`;
+      const backingName = `${processedPrefix}${slug}-backing.mp3`;
+      return {
+        name,
+        format: sourceFormat(name),
+        path: azureBlobUrl(blobName),
+        blobName,
+        processed: processedNames.has(notesName)
+          ? {
+              notes: azureBlobUrl(notesName),
+              backing: processedNames.has(backingName) ? azureBlobUrl(backingName) : null,
+            }
+          : null,
+        storage: "azure",
+      };
+    });
+}
+
+// Purpose: load local manifest sources and optional Azure sources into the select.
+// Warning: Azure failures should not break the local test library.
+// Why this shape: local and deployed builds both get a deterministic input folder while Azure is available when configured.
+async function loadSourceLibrary() {
+  setStorageStatus("Loading sources...");
+  const entries = [];
+
+  try {
+    const response = await fetch(INPUT_MANIFEST_URL, { cache: "no-store" });
+    if (response.ok) {
+      const manifest = await response.json();
+      entries.push(...(manifest.sources || []).map(normalizeManifestSource));
+    }
+  } catch (error) {
+    console.warn("Input manifest could not be loaded.", error);
+  }
+
+  const config = await loadAzureStorageConfig();
+  if (config.enabled && config.containerSasUrl) {
+    try {
+      entries.push(...await listAzureSourceEntries());
+    } catch (error) {
+      console.warn("Azure input list could not be loaded.", error);
+      setStorageStatus("Azure unavailable; using local input", { error: true });
+    }
+  }
+
+  const seen = new Set();
+  sourceLibraryEntries = entries.map((entry) => ({ ...entry, key: sourceEntryKey(entry) })).filter((entry) => {
+    if (seen.has(entry.key)) return false;
+    seen.add(entry.key);
+    return true;
+  });
+
+  renderSourceLibrary();
+  if (sourceLibraryEntries.length && !activeSourceKey) {
+    activeSourceKey = sourceLibraryEntries[0].key;
+    sourceLibrary.value = activeSourceKey;
+  }
+
+  if (!storageStatus?.classList.contains("is-error")) {
+    const storageLabel = config.enabled && config.containerSasUrl ? "Azure + input" : "Input folder";
+    setStorageStatus(`${storageLabel}: ${sourceLibraryEntries.length} source${sourceLibraryEntries.length === 1 ? "" : "s"}`);
+  }
+}
+
+// Purpose: upload a blob to Azure Blob Storage through a SAS URL.
+// Warning: requires create/write permissions and CORS allowing PUT from the app origin.
+// Why this shape: static GitHub Pages can store uploads without a server when Azure issues a scoped SAS.
+async function uploadAzureBlob(blobName, body, contentType = "application/octet-stream") {
+  const url = azureBlobUrl(blobName);
+  if (!url) throw new Error("Azure Blob Storage is not configured.");
+  const response = await fetch(url, {
+    method: "PUT",
+    headers: {
+      "x-ms-blob-type": "BlockBlob",
+      "x-ms-version": "2023-11-03",
+      "Content-Type": contentType,
+    },
+    body,
+  });
+  if (!response.ok) throw new Error(`Azure upload failed: HTTP ${response.status}`);
+}
+
+// Purpose: fetch an app or Azure URL as a File-like object for the existing GP parser.
+// Warning: File construction is used only to preserve the selected source name in reports.
+// Why this shape: processed and raw library entries should exercise the same parser as manual uploads.
+async function fetchSourceFile(entry) {
+  const response = await fetch(entry.path, { cache: "no-store" });
+  if (!response.ok) throw new Error(`Source fetch failed: HTTP ${response.status}`);
+  const blob = await response.blob();
+  return new File([blob], entry.name, { type: blob.type || "application/octet-stream" });
+}
+
+// Purpose: apply a processed notes JSON payload and point its backing URL at the processed backing asset.
+// Warning: do not mutate cached payload objects from fetch callers.
+// Why this shape: prepared files under input/processed should be the fastest path for existing sources.
+async function loadProcessedEntry(entry) {
+  const response = await fetch(entry.processed.notes, { cache: "no-store" });
+  if (!response.ok) throw new Error(`Processed notes fetch failed: HTTP ${response.status}`);
+  const payload = await response.json();
+  const nextPayload = {
+    ...payload,
+    source: {
+      ...payload.source,
+      file: entry.name,
+      backingTrack: {
+        ...payload.source?.backingTrack,
+        url: entry.processed.backing || payload.source?.backingTrack?.url || null,
+        available: Boolean(entry.processed.backing || payload.source?.backingTrack?.available),
+      },
+    },
+  };
+  applySongData(nextPayload);
+}
+
+// Purpose: prepare a newly parsed GP8 package into JSON/backing blobs for input/processed storage.
+// Warning: GP5 is not parsed here; it needs a separate GP5 parser/converter before notes can render.
+// Why this shape: upload and on-demand library processing share the same output naming.
+function processedAssetNamesForSource(name) {
+  const slug = sourceSlug(name);
+  const processedPrefix = azureStorageConfig?.processedPrefix || DEFAULT_PROCESSED_PREFIX;
+  return {
+    notes: `${processedPrefix}${slug}-notes.json`,
+    backing: `${processedPrefix}${slug}-backing.mp3`,
+  };
+}
+
+// Purpose: store prepared GP8 notes/backing in Azure input/processed when Azure is configured.
+// Warning: local static files cannot be written by the browser; local processing uses object URLs for the current session.
+// Why this shape: deployed and local browser runs use the same Azure container when a SAS URL is present.
+async function storeProcessedAssets(fileName, payload) {
+  if (!azureStorageConfig?.enabled || !azureStorageConfig.containerSasUrl) return null;
+  const names = processedAssetNamesForSource(fileName);
+  const storagePayload = JSON.stringify(stripRuntimeProcessingAssets(payload), null, 2);
+  await uploadAzureBlob(names.notes, new Blob([storagePayload], { type: "application/json" }), "application/json");
+  if (payload.runtimeAssets?.backingBlob) {
+    await uploadAzureBlob(names.backing, payload.runtimeAssets.backingBlob, payload.runtimeAssets.backingBlob.type || "audio/mpeg");
+  }
+  return {
+    notes: azureBlobUrl(names.notes),
+    backing: payload.runtimeAssets?.backingBlob ? azureBlobUrl(names.backing) : null,
+  };
+}
+
+// Purpose: remove object URL/runtime-only blobs before persisting processed JSON.
+// Warning: object URLs are browser-session local and must never be written into durable processed JSON.
+// Why this shape: processed JSON should be portable between local and deployed app surfaces.
+function stripRuntimeProcessingAssets(payload) {
+  const clean = JSON.parse(JSON.stringify(payload));
+  delete clean.runtimeAssets;
+  if (clean.source?.backingTrack?.url?.startsWith("blob:")) {
+    clean.source.backingTrack.url = null;
+    clean.source.backingTrack.available = false;
+  }
+  return clean;
+}
+
+// Purpose: load one saved input source into the highway.
+// Warning: GP5 and PDF are stored/listed but not converted into timed notes by this browser parser.
+// Why this shape: selecting a source should either use prepared content or truthfully explain the missing processor.
+async function loadSourceEntry(entry) {
+  if (!entry) return;
+  activeSourceKey = entry.key;
+  setSourceButtonText("Loading...");
+  setStorageStatus(entry.name);
+
+  try {
+    if (entry.format === "gp5") {
+      setSourceButtonText("Select source");
+      setStorageStatus("GP5 stored; export GP8 .gp or GPIF to render notes", { error: true });
+      return;
+    }
+    if (entry.format === "pdf") {
+      setSourceButtonText("Select source");
+      setStorageStatus("PDF stored; timed-note extraction is not available", { error: true });
+      return;
+    }
+    if (entry.processed?.notes) {
+      await loadProcessedEntry(entry);
+      setStorageStatus(`Loaded processed: ${entry.name}`);
+      return;
+    }
+
+    const file = await fetchSourceFile(entry);
+    if (entry.format === "json") {
+      applySongData(JSON.parse(await file.text()));
+    } else if (entry.format === "gpif") {
+      applySongData(parseGpifText(await file.text(), entry.name));
+    } else if (entry.format === "gp") {
+      const payload = await parseGpPackage(file);
+      const stored = await storeProcessedAssets(entry.name, payload);
+      if (stored) {
+        payload.source.backingTrack.url = stored.backing || payload.source.backingTrack.url;
+        payload.source.backingTrack.available = Boolean(stored.backing || payload.source.backingTrack.available);
+      }
+      applySongData(payload);
+      setStorageStatus(stored ? `Processed to Azure: ${entry.name}` : `Processed session: ${entry.name}`);
+    }
+  } catch (error) {
+    console.warn("Source could not be loaded.", error);
+    setSourceButtonText("Select source");
+    setStorageStatus(error.message || "Source could not be loaded", { error: true });
+  }
+}
+
+// Purpose: add a newly uploaded/session source to the picker without duplicating existing records.
+// Warning: caller owns object URL lifetime for session-only uploads.
+// Why this shape: manual uploads should immediately become selectable like manifest/Azure sources.
+function addOrReplaceSourceEntry(entry) {
+  const nextEntry = { ...entry, key: sourceEntryKey(entry) };
+  sourceLibraryEntries = [
+    nextEntry,
+    ...sourceLibraryEntries.filter((candidate) => candidate.key !== nextEntry.key),
+  ];
+  activeSourceKey = nextEntry.key;
+  renderSourceLibrary();
+}
+
+// Purpose: store the original uploaded source file in Azure input/ when configured.
+// Warning: without Azure config, browser uploads are session-only because static pages cannot write local repo files.
+// Why this shape: local and deployed app surfaces share the same blob-backed input folder contract.
+async function storeUploadedSourceFile(file) {
+  if (!azureStorageConfig) await loadAzureStorageConfig();
+  if (!azureStorageConfig?.enabled || !azureStorageConfig.containerSasUrl) return null;
+  const inputPrefix = azureStorageConfig.inputPrefix || DEFAULT_INPUT_PREFIX;
+  const blobName = `${inputPrefix}${file.name}`;
+  await uploadAzureBlob(blobName, file, file.type || "application/octet-stream");
+  return {
+    blobName,
+    path: azureBlobUrl(blobName),
+    storage: "azure",
+  };
+}
+
+// Purpose: parse and optionally store a user-selected source file.
+// Warning: GP5/PDF uploads can be stored but are not converted into timed notes by this static parser.
+// Why this shape: the selected file's actual bytes drive the highway instead of falling back to the default JSON.
+async function handleSelectedSourceFile(selected) {
+  const format = sourceFormat(selected.name);
+  setSourceButtonText("Loading...");
+  setStorageStatus(`Preparing ${selected.name}`);
+
+  try {
+    const storedSource = await storeUploadedSourceFile(selected);
+    if (format === "gp5") {
+      setSourceButtonText("Select source");
+      setStorageStatus(
+        storedSource ? "GP5 stored in Azure; GP5 note extraction is not available" : "GP5 selected; GP5 note extraction is not available",
+        { error: true }
+      );
+      return;
+    }
+    if (format === "pdf") {
+      setSourceButtonText("Select source");
+      setStorageStatus("PDF input needs a timed-note extraction step", { error: true });
+      return;
+    }
+
+    let payload = null;
+    let processed = null;
+    if (format === "json") {
+      payload = JSON.parse(await selected.text());
+    } else if (format === "gpif") {
+      payload = parseGpifText(await selected.text(), selected.name);
+    } else if (format === "gp") {
+      payload = await parseGpPackage(selected);
+      processed = await storeProcessedAssets(selected.name, payload);
+      if (processed) {
+        payload.source.backingTrack.url = processed.backing || payload.source.backingTrack.url;
+        payload.source.backingTrack.available = Boolean(processed.backing || payload.source.backingTrack.available);
+      }
+    } else {
+      throw new Error("Unsupported source format.");
+    }
+
+    applySongData(payload);
+    const sessionUrl = storedSource?.path || URL.createObjectURL(selected);
+    addOrReplaceSourceEntry({
+      name: selected.name,
+      format,
+      path: sessionUrl,
+      processed,
+      storage: storedSource?.storage || "session",
+      blobName: storedSource?.blobName || null,
+    });
+    setStorageStatus(storedSource ? `Uploaded: ${selected.name}` : `Loaded session: ${selected.name}`);
+  } catch (error) {
+    console.warn("Selected file could not be parsed into note data.", error);
+    setSourceButtonText("Select source");
+    setStorageStatus(error.message || "Selected source could not be loaded", { error: true });
+  }
+}
+
 // Purpose: keep the tempo range and editable BPM input in sync.
 // Warning: this clamps committed values to the supported range and preserves playback continuity when requested.
 // Why this shape: one setter prevents the slider and typed BPM field from drifting apart.
@@ -1130,6 +1610,14 @@ function applySongData(payload) {
     BAR_UNITS,
     Math.ceil(Math.max(...songNotes.map((note) => note.position + durationUnits(note))) / BAR_UNITS) * BAR_UNITS
   );
+  window.__sourceSummary = {
+    file: sourceMetadata.file,
+    title: sourceMetadata.title,
+    tempo: sourceMetadata.tempo,
+    notes: songNotes.length,
+    songEndPosition,
+    backingAvailable: Boolean(sourceMetadata.backingTrack?.available),
+  };
   setSourceButtonText("Loaded");
   if (sourceMetadata.tempo) {
     setTempoValue(sourceMetadata.tempo);
@@ -1146,7 +1634,11 @@ async function loadDefaultGpData() {
   try {
     const response = await fetch(DEFAULT_GP_NOTES_URL, { cache: "no-store" });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    applySongData(await response.json());
+    const payload = await response.json();
+    if (payload.source?.backingTrack?.available) {
+      payload.source.backingTrack.url = DEFAULT_GP_BACKING_URL;
+    }
+    applySongData(payload);
   } catch (error) {
     setSourceButtonText("Select source");
     updateMixerState();
@@ -1625,7 +2117,11 @@ async function loadBackingTrack(backingTrack) {
   updateMixerState();
 
   if (!backingTrack?.available || !backingTrack.url) {
-    if (backingTrackAudio) backingTrackAudio.removeAttribute("src");
+    if (backingTrackAudio) {
+      backingTrackAudio.pause();
+      backingTrackAudio.removeAttribute("src");
+      backingTrackAudio.load();
+    }
     updateMixerState();
     return;
   }
@@ -1656,7 +2152,11 @@ async function loadBackingTrack(backingTrack) {
     if (token !== backingTrackLoadToken) return;
     console.warn("Backing track could not be loaded.", error);
     backingStatusError = "Backing unavailable";
-    if (backingTrackAudio) backingTrackAudio.removeAttribute("src");
+    if (backingTrackAudio) {
+      backingTrackAudio.pause();
+      backingTrackAudio.removeAttribute("src");
+      backingTrackAudio.load();
+    }
     updateMixerState();
   }
 }
@@ -1828,26 +2328,18 @@ function tick() {
 fileInput.addEventListener("change", async () => {
   const selected = fileInput.files?.[0];
   if (!selected) return;
-  const lowerName = selected.name.toLowerCase();
-  setSourceButtonText("Loading...");
-
-  try {
-    if (lowerName.endsWith(".json")) {
-      applySongData(JSON.parse(await selected.text()));
-    } else if (lowerName.endsWith(".gpif") || lowerName.endsWith(".xml")) {
-      applySongData(parseGpifText(await selected.text(), selected.name));
-    } else if (lowerName.endsWith(".gp")) {
-      applySongData(await parseGpPackage(selected));
-    } else if (lowerName.endsWith(".pdf")) {
-      setSourceButtonText("Loaded");
-      console.warn("PDF input needs a notation/tab extraction step before the highway can render timed notes.");
-    }
-  } catch (error) {
-    setSourceButtonText("Select source");
-    console.warn("Selected file could not be parsed into note data.", error);
-  }
-
+  await handleSelectedSourceFile(selected);
+  fileInput.value = "";
   updateDebugPanel();
+});
+
+sourceLibrary?.addEventListener("change", async () => {
+  const entry = sourceLibraryEntries.find((candidate) => candidate.key === sourceLibrary.value);
+  await loadSourceEntry(entry);
+});
+
+refreshSources?.addEventListener("click", async () => {
+  await loadSourceLibrary();
 });
 
 // Purpose: decode a selected WAV for use as the metronome click.
@@ -1987,3 +2479,4 @@ render();
 updateDebugPanel();
 updateMixerState();
 loadDefaultGpData();
+loadSourceLibrary();
