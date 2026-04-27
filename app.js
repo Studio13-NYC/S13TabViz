@@ -50,6 +50,7 @@ const INPUT_MANIFEST_URL = "./data/input/index.json";
 const AZURE_CONFIG_URL = "./data/input/azure-config.json";
 const AZURE_SAS_STORAGE_KEY = "s13tabviz.azureContainerSasUrl";
 const SOURCE_FILE_ACCEPT = ".gp,.gp5,.gpif,.xml,.json,.pdf,application/pdf,.mp3,audio/mpeg,.mpeg,.mpga,.ogg,.oga,audio/ogg,.wav,audio/wav,.m4a,audio/mp4,.mp4,.aac,audio/aac,audio/*";
+const GPIF_PARSER_SCHEMA_VERSION = 2;
 const DEFAULT_INPUT_PREFIX = "input/";
 const DEFAULT_PROCESSED_PREFIX = "input/processed/";
 const DEFAULT_MIX_POSITION = 50;
@@ -339,6 +340,7 @@ function runSettings() {
   return {
     sourceFile: sourceMetadata.file || "Fallback demo notes",
     sourceTitle: sourceMetadata.title,
+    highwayTrack: sourceMetadata.highwayTrack?.name || "Primary track",
     bpm: activeTempo,
     timeSignature: sourceMetadata.timeSignature || "4/4",
     scoreTimingSource: sourceMetadata.scoreTimingSource || "GPIF notes",
@@ -572,6 +574,7 @@ function buildSyncReport() {
     `- Started: ${run?.startedAtIso || "Not started"}`,
     `- Source: ${settings.sourceFile}`,
     `- Source title: ${settings.sourceTitle}`,
+    `- Highway track: ${settings.highwayTrack}`,
     `- BPM: ${settings.bpm}`,
     `- Time signature: ${settings.timeSignature}`,
     `- Score timing source: ${settings.scoreTimingSource}`,
@@ -1102,6 +1105,8 @@ function parseGpifText(xmlText, fileLabel) {
               positionInMeasure: Number(positionCursor.toFixed(6)),
               gpString: note.gpString,
               midi: note.midi,
+              trackIndex: track?.index ?? null,
+              trackName: track?.name || "Highway track",
               pickStroke: position.pickStroke,
             });
           }
@@ -1139,6 +1144,12 @@ function parseGpifText(xmlText, fileLabel) {
 
   const firstPlayableBarIndex = Math.max(0, bars.findIndex((bar) => bar.voiceIds.length));
   const hasMasterTrackBars = tracks.length > 1 && masterBars.length > 0;
+  const primaryTrack = tracks[0] || {
+    id: "0",
+    index: 0,
+    name: "Track 1",
+    shortName: "",
+  };
   const firstPlayableMasterIndex = hasMasterTrackBars
     ? Math.max(
         0,
@@ -1154,7 +1165,7 @@ function parseGpifText(xmlText, fileLabel) {
       const measure = relativeIndex + 1;
       const primaryBar = barById.get(masterBar.barIds[0]) || { voiceIds: [] };
       const primary = collectBarEvents(primaryBar, {
-        track: tracks[0],
+        track: primaryTrack,
         measure,
         sourceMeasure: masterBar.sourceMeasure,
         includeHighwayNotes: true,
@@ -1185,7 +1196,7 @@ function parseGpifText(xmlText, fileLabel) {
       const sourceMeasure = firstPlayableBarIndex + relativeIndex + 1;
       const measure = relativeIndex + 1;
       const primary = collectBarEvents(bar, {
-        track: tracks[0],
+        track: primaryTrack,
         measure,
         sourceMeasure,
         includeHighwayNotes: true,
@@ -1222,6 +1233,9 @@ function parseGpifText(xmlText, fileLabel) {
       subtitle: score ? childText(score, "Artist") : "",
       tempo,
       timeSignature: "4/4",
+      parserSchemaVersion: GPIF_PARSER_SCHEMA_VERSION,
+      tracks,
+      highwayTrack: primaryTrack,
       backingTrack,
       scoreBacking,
       scoreTimingSource: "GPIF notes",
@@ -1593,6 +1607,13 @@ async function loadProcessedEntry(entry) {
   const response = await fetch(entry.processed.notes, { cache: "no-store" });
   if (!response.ok) throw new Error(`Processed notes fetch failed: HTTP ${response.status}`);
   const payload = await response.json();
+  if (
+    entry.storage === "azure" &&
+    entry.format === "gp" &&
+    (payload.source?.parserSchemaVersion || 0) < GPIF_PARSER_SCHEMA_VERSION
+  ) {
+    return false;
+  }
   const nextPayload = {
     ...payload,
     source: {
@@ -1606,6 +1627,7 @@ async function loadProcessedEntry(entry) {
     },
   };
   applySongData(nextPayload);
+  return true;
 }
 
 // Purpose: prepare a newly parsed GP8 package into JSON/backing blobs for input/processed storage.
@@ -1687,9 +1709,12 @@ async function loadSourceEntry(entry) {
       return;
     }
     if (entry.processed?.notes) {
-      await loadProcessedEntry(entry);
-      setStorageStatus(`Loaded processed: ${entry.name}`);
-      return;
+      const loadedProcessed = await loadProcessedEntry(entry);
+      if (loadedProcessed) {
+        setStorageStatus(`Loaded processed: ${entry.name}`);
+        return;
+      }
+      setStorageStatus(`Refreshing processed source: ${entry.name}`);
     }
 
     const file = await fetchSourceFile(entry);
@@ -1894,6 +1919,8 @@ function applySongData(payload) {
       pickStroke: note.pickStroke,
       gpString: note.gpString,
       midi: note.midi,
+      trackIndex: note.trackIndex ?? payload.source?.highwayTrack?.index ?? null,
+      trackName: note.trackName || payload.source?.highwayTrack?.name || null,
     };
   });
   timelineNotes = [...countInNotes, ...songNotes];
@@ -1905,6 +1932,9 @@ function applySongData(payload) {
     file: sourceMetadata.file,
     title: sourceMetadata.title,
     tempo: sourceMetadata.tempo,
+    tracks: sourceMetadata.tracks || [],
+    highwayTrack: sourceMetadata.highwayTrack || null,
+    highwayNoteTracks: [...new Set(songNotes.map((note) => note.trackName).filter(Boolean))],
     notes: songNotes.length,
     songEndPosition,
     backingAvailable: mediaBackingAvailable() || scoreBackingAvailable(),
