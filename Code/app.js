@@ -41,6 +41,7 @@ const METRONOME_LOOKAHEAD_SECONDS = 0.08;
 const WHOLE_NOTE_HEIGHT = 184;
 const DEFAULT_GP_NOTES_URL = "./data/hand-sync-pt1-notes.json";
 const DEFAULT_MIX_POSITION = 50;
+const BACKING_DRIFT_CORRECTION_SECONDS = 0.08;
 const TEMPO_MIN = Number(tempo.min) || 40;
 const TEMPO_MAX = Number(tempo.max) || 180;
 const NOTE_VALUE_TO_UNITS = {
@@ -150,11 +151,13 @@ let debugAudioDestination = null;
 let syncAudioRecorder = null;
 let syncAudioChunks = [];
 let scheduledClickNodes = new Set();
-let backingTrackBuffer = null;
-let backingTrackSource = null;
+let backingTrackAudio = null;
+let backingMediaSource = null;
 let backingTrackObjectUrl = null;
 let backingTrackLoadToken = 0;
 let lastBackingStart = null;
+let backingStartTimer = 0;
+let backingDriftSeconds = null;
 let backingStatusError = "";
 let mixerState = {
   position: DEFAULT_MIX_POSITION / 100,
@@ -282,11 +285,16 @@ function runSettings() {
     clickSource: metronomeBuffer ? "selected wav" : "built-in click",
     backingTrack: {
       available: Boolean(sourceMetadata.backingTrack?.available),
-      loaded: Boolean(backingTrackBuffer),
+      loaded: Boolean(isBackingTrackLoaded()),
       enabled: Boolean(backingToggle?.checked),
       label: sourceMetadata.backingTrack?.label || "No backing track",
       nativeTempo: sourceMetadata.backingTrack?.nativeTempo || sourceMetadata.tempo || 120,
       startOffsetSeconds: Number(backingStartOffsetSeconds().toFixed(3)),
+      preservesPitch: backingTrackAudio ? backingPitchPreserveEnabled(backingTrackAudio) : false,
+      tempoRatio: Number(backingTempoRatio().toFixed(4)),
+      mediaCurrentTime: backingTrackAudio ? Number(backingTrackAudio.currentTime.toFixed(3)) : null,
+      expectedCurrentTime: expectedBackingMediaTime(currentPlayhead),
+      driftSeconds: backingDriftSeconds,
       mixerPosition: Number(mixerState.position.toFixed(2)),
       metronomeGain: Number(mixerState.metronomeGain.toFixed(3)),
       backingGain: Number(mixerState.backingGain.toFixed(3)),
@@ -468,6 +476,7 @@ function isQuarterAlignedHit(event) {
 function buildSyncReport() {
   const run = syncDebug.currentRun;
   const settings = run?.settings || runSettings();
+  const liveBacking = mixerState;
   const pairs = syncPairs().filter((pair) => pair.tick);
   const positionAlignedPairs = pairs.filter((pair) => isQuarterAlignedHit(pair.hit) && pair.positionDelta === 0);
   const offGridHits = syncDebug.noteHitEvents.filter((event) => !isQuarterAlignedHit(event));
@@ -505,6 +514,8 @@ function buildSyncReport() {
     `- Score timing source: ${settings.scoreTimingSource}`,
     `- Backing track: ${settings.backingTrack.available ? settings.backingTrack.label : "none"}`,
     `- Backing loaded/enabled: ${settings.backingTrack.loaded ? "yes" : "no"} / ${settings.backingTrack.enabled ? "yes" : "no"}`,
+    `- Backing pitch preserve / tempo ratio: ${liveBacking.backingPreservesPitch ? "yes" : "no"} / ${liveBacking.backingTempoRatio ?? settings.backingTrack.tempoRatio}`,
+    `- Backing media time / expected / drift: ${liveBacking.backingMediaCurrentTime ?? "n/a"} / ${liveBacking.backingExpectedCurrentTime ?? "n/a"} / ${liveBacking.backingDriftSeconds ?? "n/a"}`,
     `- Mixer gains: click ${settings.backingTrack.metronomeGain} / backing ${settings.backingTrack.backingGain}`,
     `- Count-in units: ${settings.countInUnits}`,
     `- Metronome sound: ${settings.metronomeSound}`,
@@ -1223,14 +1234,14 @@ function render(playhead = pausedAt, rawPosition = playhead) {
 }
 
 // Purpose: convert whole-note units into seconds at a backing track's native tempo.
-// Warning: pass native tempo, not the user's active tempo; playbackRate handles practice tempo changes.
+// Warning: pass native tempo, not the user's active tempo; the media element tempo ratio handles practice tempo changes.
 // Why this shape: both extracted metadata and runtime seeking need the same unit-to-audio conversion.
 function backingSecondsFromUnits(units, nativeTempo) {
   return (Math.max(0, units) / QUARTER_NOTE_UNITS) * (60 / nativeTempo);
 }
 
 // Purpose: convert a song position into seconds in the original backing-track file.
-// Warning: this uses the backing track's native tempo; playbackRate handles current tempo changes.
+// Warning: this uses the backing track's native tempo; the media element tempo ratio handles current tempo changes.
 // Why this shape: offset math stays stable even when the tempo slider changes during practice.
 function backingSecondsForPosition(position) {
   const nativeTempo = sourceMetadata.backingTrack?.nativeTempo || sourceMetadata.tempo || Number(tempo.value) || 120;
@@ -1249,12 +1260,117 @@ function backingStartOffsetSeconds() {
   return backingSecondsFromUnits(backing.startOffsetUnits || 0, nativeTempo);
 }
 
-// Purpose: compute backing playbackRate from current BPM and native backing tempo.
-// Warning: large tempo changes will pitch-shift the backing because this prototype uses playbackRate.
-// Why this shape: it keeps backing, notes, and metronome on the same playhead clock without offline time-stretching.
-function backingPlaybackRate() {
+// Purpose: compute the backing media tempo ratio from current BPM and native backing tempo.
+// Warning: the browser preserves pitch for this media-element playbackRate; do not use AudioBufferSourceNode for backing here.
+// Why this shape: it keeps backing, notes, and metronome on the same playhead clock without adding a DSP dependency.
+function backingTempoRatio() {
   const nativeTempo = sourceMetadata.backingTrack?.nativeTempo || sourceMetadata.tempo || Number(tempo.value) || 120;
   return activeTempo / nativeTempo;
+}
+
+// Purpose: detect whether the loaded media element has enough metadata to seek and play.
+// Warning: readyState can fall back during errors, so use this as live state rather than a permanent load flag.
+// Why this shape: media-element playback needs duration/currentTime instead of a decoded AudioBuffer.
+function isBackingTrackLoaded() {
+  return Boolean(backingTrackAudio && backingTrackAudio.readyState >= HTMLMediaElement.HAVE_METADATA);
+}
+
+// Purpose: enable the browser's pitch-preserving playback mode across current engine property names.
+// Warning: unsupported properties are harmless, but the standard preservesPitch flag is the one reports should prefer.
+// Why this shape: HTML media playback is the simplest static-app path for tempo changes without pitch shifting.
+function enableBackingPitchPreservation(audio) {
+  if ("preservesPitch" in audio) audio.preservesPitch = true;
+  if ("mozPreservesPitch" in audio) audio.mozPreservesPitch = true;
+  if ("webkitPreservesPitch" in audio) audio.webkitPreservesPitch = true;
+}
+
+// Purpose: report whether pitch preservation is enabled on the backing media element.
+// Warning: older browser aliases may exist without the standard property.
+// Why this shape: tests and sync reports need an explicit runtime fact, not just a code-path assumption.
+function backingPitchPreserveEnabled(audio = backingTrackAudio) {
+  if (!audio) return false;
+  if ("preservesPitch" in audio) return audio.preservesPitch;
+  if ("mozPreservesPitch" in audio) return audio.mozPreservesPitch;
+  if ("webkitPreservesPitch" in audio) return audio.webkitPreservesPitch;
+  return false;
+}
+
+// Purpose: create the reusable backing audio element and route it through the mixer bus.
+// Warning: createMediaElementSource can only be called once for a given media element.
+// Why this shape: one media element can change tempo with pitch preservation while still flowing through debug capture.
+function ensureBackingAudioElement() {
+  const context = ensureAudioContext();
+  if (!backingTrackAudio) {
+    backingTrackAudio = new Audio();
+    backingTrackAudio.preload = "auto";
+    backingTrackAudio.loop = false;
+    enableBackingPitchPreservation(backingTrackAudio);
+    backingTrackAudio.addEventListener("ended", () => {
+      if (isPlaying && backingToggle?.checked) {
+        startBackingTrack(0);
+      } else {
+        updateMixerState();
+      }
+    });
+    backingTrackAudio.addEventListener("error", () => {
+      backingStatusError = "Backing unavailable";
+      updateMixerState();
+    });
+  }
+
+  if (!backingMediaSource) {
+    backingMediaSource = context.createMediaElementSource(backingTrackAudio);
+    connectToOutputs(backingMediaSource, "backing");
+  }
+
+  return backingTrackAudio;
+}
+
+// Purpose: return the original-file loop window for the playable song section.
+// Warning: this depends on media metadata; callers should tolerate null before the backing is loaded.
+// Why this shape: the MP3 contains GP export pre-roll while the visual timeline starts at playable position zero.
+function backingLoopInfo() {
+  if (!isBackingTrackLoaded()) return null;
+  const preRollOffset = backingStartOffsetSeconds();
+  const mediaDuration = backingTrackAudio.duration;
+  const loopStart = Math.min(preRollOffset, Math.max(0, mediaDuration - 0.01));
+  const loopDuration = backingSecondsForPosition(songEndPosition);
+  const loopEnd = Math.min(mediaDuration, loopStart + loopDuration);
+  const loopLength = Math.max(0, loopEnd - loopStart);
+  return { loopStart, loopEnd, loopLength };
+}
+
+// Purpose: compute the backing media time that should align with a visual playhead position.
+// Warning: negative count-in space has no backing audio; return null until song position zero is reached.
+// Why this shape: drift checks compare media currentTime against the same native-tempo offset math used for starts.
+function expectedBackingMediaTime(position = currentPlayhead) {
+  const loop = backingLoopInfo();
+  if (!loop || position < 0) return null;
+  const songPosition = normalizePlaybackPosition(position);
+  let expected = loop.loopStart + backingSecondsForPosition(songPosition);
+  if (loop.loopLength > 0) expected = loop.loopStart + ((expected - loop.loopStart) % loop.loopLength);
+  return Number(expected.toFixed(4));
+}
+
+// Purpose: keep media-element backing playback aligned to the visual playhead.
+// Warning: normal frame jitter should not seek constantly; only correct meaningful drift or explicit tempo changes.
+// Why this shape: HTMLMediaElement playback is pitch-preserving but less sample-scheduled than AudioBufferSourceNode.
+function correctBackingDrift(force = false) {
+  if (!isPlaying || !backingTrackAudio || backingTrackAudio.paused || backingTrackAudio.seeking) return;
+  const expected = expectedBackingMediaTime(currentPlayhead);
+  const loop = backingLoopInfo();
+  if (expected === null || !loop) return;
+
+  if (loop.loopLength > 0 && backingTrackAudio.currentTime >= loop.loopEnd - 0.01) {
+    backingTrackAudio.currentTime = loop.loopStart;
+  }
+
+  const drift = backingTrackAudio.currentTime - expected;
+  backingDriftSeconds = Number(drift.toFixed(4));
+  if (force || Math.abs(drift) > BACKING_DRIFT_CORRECTION_SECONDS) {
+    backingTrackAudio.currentTime = expected;
+    backingDriftSeconds = 0;
+  }
 }
 
 // Purpose: preserve the current playhead when the user changes tempo during playback.
@@ -1284,7 +1400,7 @@ function reanchorPlaybackClockForTempoChange(nextTempo) {
 // Why this shape: a true crossfader feels natural when backing is active while the off toggle remains musically safe.
 function equalPowerMixerGains() {
   const position = (Number(mixSlider?.value ?? DEFAULT_MIX_POSITION) || 0) / 100;
-  if (!backingToggle?.checked || !backingTrackBuffer) {
+  if (!backingToggle?.checked || !isBackingTrackLoaded()) {
     return { position, metronomeGain: 1, backingGain: 0 };
   }
 
@@ -1303,8 +1419,9 @@ function updateMixerState() {
   const gains = equalPowerMixerGains();
   const context = audioContext;
   const available = Boolean(sourceMetadata.backingTrack?.available && sourceMetadata.backingTrack?.url);
-  const loaded = Boolean(backingTrackBuffer);
+  const loaded = isBackingTrackLoaded();
   const enabled = Boolean(backingToggle?.checked);
+  const expectedCurrentTime = expectedBackingMediaTime(currentPlayhead);
 
   mixerState = {
     position: gains.position,
@@ -1313,11 +1430,19 @@ function updateMixerState() {
     backingAvailable: available,
     backingEnabled: enabled,
     backingLoaded: loaded,
-    backingPlaying: Boolean(backingTrackSource),
-    backingPlaybackRate: Number(backingPlaybackRate().toFixed(4)),
-    backingSourcePlaybackRate: backingTrackSource
-      ? Number(backingTrackSource.playbackRate.value.toFixed(4))
+    backingPlaying: Boolean(backingTrackAudio && !backingTrackAudio.paused),
+    backingMuted: Boolean(backingTrackAudio?.muted),
+    backingPreservesPitch: backingTrackAudio ? backingPitchPreserveEnabled(backingTrackAudio) : false,
+    backingTempoRatio: Number(backingTempoRatio().toFixed(4)),
+    backingPlaybackRate: Number(backingTempoRatio().toFixed(4)),
+    backingSourcePlaybackRate: backingTrackAudio
+      ? Number(backingTrackAudio.playbackRate.toFixed(4))
       : null,
+    backingMediaCurrentTime: backingTrackAudio && loaded
+      ? Number(backingTrackAudio.currentTime.toFixed(4))
+      : null,
+    backingExpectedCurrentTime: expectedCurrentTime,
+    backingDriftSeconds,
     backingStartOffsetSeconds: Number(backingStartOffsetSeconds().toFixed(3)),
     lastBackingStart,
   };
@@ -1384,111 +1509,154 @@ function connectToOutputs(node, bus = "metronome") {
   node.connect(bus === "backing" ? backingBus : metronomeBus);
 }
 
-// Purpose: stop the currently scheduled or playing backing source.
-// Warning: AudioBufferSourceNode is one-shot; a fresh node is required for every resume.
-// Why this shape: pause/restart/toggle-off need deterministic silence without disturbing decoded audio.
+// Purpose: stop the currently scheduled or playing backing media element.
+// Warning: this pauses the reusable media element but keeps its mixer connection intact.
+// Why this shape: pause/restart/toggle-off need deterministic silence without rebuilding the audio graph.
 function stopBackingTrack() {
-  if (!backingTrackSource) return;
-  try {
-    backingTrackSource.stop();
-  } catch {
-    // Already-ended sources cannot be stopped again.
+  if (backingStartTimer) {
+    window.clearTimeout(backingStartTimer);
+    backingStartTimer = 0;
   }
-  backingTrackSource.disconnect();
-  backingTrackSource = null;
+  if (backingTrackAudio) {
+    backingTrackAudio.pause();
+    backingTrackAudio.muted = false;
+  }
+  updateMixerState();
+}
+
+// Purpose: start the backing media element and capture play() failures as visible mixer status.
+// Warning: this must run from a user-gesture-derived playback path or after an already-allowed media play.
+// Why this shape: HTMLMediaElement.play() is promise-based and can be rejected by autoplay policy.
+async function playBackingAudio(audio) {
+  try {
+    await audio.play();
+    backingStatusError = "";
+  } catch (error) {
+    console.warn("Backing track could not be played.", error);
+    backingStatusError = "Backing unavailable";
+  }
   updateMixerState();
 }
 
 // Purpose: start backing audio at the playhead-aligned song offset.
 // Warning: backing starts at song position 0 but skips exported GP pre-roll before the first playable source measure.
-// Why this shape: refactored from offset 0 playback so the MP3's measure-1 lead-in does not play after our visual count-in.
+// Why this shape: media-element playback preserves pitch while still following the same visual playhead tempo ratio.
 function startBackingTrack(position = currentPlayhead) {
-  if (!isPlaying || !backingToggle?.checked || !backingTrackBuffer) {
+  if (!isPlaying || !backingToggle?.checked || !isBackingTrackLoaded()) {
     updateMixerState();
     return;
   }
 
   stopBackingTrack();
   const context = ensureAudioContext();
-  const source = context.createBufferSource();
+  const audio = ensureBackingAudioElement();
   const songPosition = position < 0 ? 0 : normalizePlaybackPosition(position);
-  const preRollOffset = backingStartOffsetSeconds();
-  const loopStart = Math.min(preRollOffset, Math.max(0, backingTrackBuffer.duration - 0.01));
-  const loopDuration = backingSecondsForPosition(songEndPosition);
-  const loopEnd = Math.min(backingTrackBuffer.duration, loopStart + loopDuration);
-  const loopLength = Math.max(0, loopEnd - loopStart);
+  const loop = backingLoopInfo();
+  if (!loop) {
+    updateMixerState();
+    return;
+  }
+
+  const { loopStart, loopEnd, loopLength } = loop;
   let offsetSeconds = loopStart + backingSecondsForPosition(songPosition);
   if (loopLength > 0) offsetSeconds = loopStart + ((offsetSeconds - loopStart) % loopLength);
 
-  source.buffer = backingTrackBuffer;
-  source.playbackRate.value = backingPlaybackRate();
-  if (loopLength > 0) {
-    source.loop = true;
-    source.loopStart = loopStart;
-    source.loopEnd = loopEnd;
-  }
-  source.addEventListener("ended", () => {
-    if (backingTrackSource === source) {
-      backingTrackSource = null;
-      updateMixerState();
-    }
-  }, { once: true });
-  connectToOutputs(source, "backing");
+  enableBackingPitchPreservation(audio);
+  audio.playbackRate = backingTempoRatio();
+  audio.currentTime = offsetSeconds;
 
   const scheduledStart = position < 0
     ? scheduledAudioTimeForPosition(0)
     : context.currentTime + 0.005;
+  const startDelayMs = Math.max(0, (scheduledStart - context.currentTime) * 1000);
   lastBackingStart = {
     offsetSeconds: Number(offsetSeconds.toFixed(4)),
     loopStart: Number(loopStart.toFixed(4)),
     loopEnd: Number(loopEnd.toFixed(4)),
-    playbackRate: Number(source.playbackRate.value.toFixed(4)),
+    tempoRatio: Number(audio.playbackRate.toFixed(4)),
+    preservesPitch: backingPitchPreserveEnabled(audio),
     scheduledStart: Number(scheduledStart.toFixed(4)),
   };
-  source.start(Math.max(scheduledStart, context.currentTime + 0.005), offsetSeconds);
-  backingTrackSource = source;
+
+  if (startDelayMs > 0) {
+    audio.muted = true;
+    playBackingAudio(audio);
+    backingStartTimer = window.setTimeout(() => {
+      backingStartTimer = 0;
+      if (!isPlaying || !backingToggle?.checked || !isBackingTrackLoaded()) {
+        updateMixerState();
+        return;
+      }
+      audio.currentTime = offsetSeconds;
+      audio.muted = false;
+      if (audio.paused) playBackingAudio(audio);
+      else updateMixerState();
+    }, startDelayMs);
+  } else {
+    audio.muted = false;
+    playBackingAudio(audio);
+  }
   updateMixerState();
 }
 
-// Purpose: apply current tempo to an already running backing source.
-// Warning: playbackRate changes pitch; this is acceptable for the prototype but not final-quality time stretch.
-// Why this shape: the backing track follows the same active BPM control as the visual playhead.
+// Purpose: apply current tempo to the backing media element while preserving pitch.
+// Warning: live tempo changes can create small drift, so this also nudges currentTime back to the playhead-derived position.
+// Why this shape: browser media playback gives this static app tempo adjustment without pitch-shifting the backing track.
 function updateBackingPlaybackRate() {
-  if (!backingTrackSource || !audioContext) return;
-  backingTrackSource.playbackRate.setTargetAtTime(backingPlaybackRate(), audioContext.currentTime, 0.01);
+  if (!backingTrackAudio) return;
+  enableBackingPitchPreservation(backingTrackAudio);
+  backingTrackAudio.playbackRate = backingTempoRatio();
+  if (backingStartTimer && isPlaying && isBackingTrackLoaded()) {
+    startBackingTrack(currentPlayhead);
+    return;
+  }
+  correctBackingDrift(true);
   setTimeout(updateMixerState, 40);
 }
 
-// Purpose: fetch and decode the backing track for the active source payload.
+// Purpose: fetch the backing track metadata and prepare media-element playback for the active source payload.
 // Warning: raw GPIF XML may name an embedded asset without providing bytes; those cases report no loaded backing.
-// Why this shape: default JSON URLs and selected GP package object URLs share one decode path.
+// Why this shape: default JSON URLs and selected GP package object URLs share one pitch-preserving playback path.
 async function loadBackingTrack(backingTrack) {
   const token = ++backingTrackLoadToken;
   backingStatusError = "";
   stopBackingTrack();
-  backingTrackBuffer = null;
+  backingDriftSeconds = null;
   updateMixerState();
 
   if (!backingTrack?.available || !backingTrack.url) {
+    if (backingTrackAudio) backingTrackAudio.removeAttribute("src");
     updateMixerState();
     return;
   }
 
   try {
-    const response = await fetch(backingTrack.url, { cache: "no-store" });
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    const context = ensureAudioContext();
-    const backingBytes = await response.arrayBuffer();
-    const decoded = await context.decodeAudioData(backingBytes);
+    const audio = ensureBackingAudioElement();
+    audio.pause();
+    audio.src = backingTrack.url;
+    enableBackingPitchPreservation(audio);
+    audio.playbackRate = backingTempoRatio();
+    audio.load();
+    await new Promise((resolve, reject) => {
+      const onLoaded = () => cleanup(resolve);
+      const onError = () => cleanup(() => reject(new Error("Backing metadata could not be loaded.")));
+      const cleanup = (done) => {
+        audio.removeEventListener("loadedmetadata", onLoaded);
+        audio.removeEventListener("error", onError);
+        done();
+      };
+      audio.addEventListener("loadedmetadata", onLoaded, { once: true });
+      audio.addEventListener("error", onError, { once: true });
+      if (audio.readyState >= HTMLMediaElement.HAVE_METADATA) cleanup(resolve);
+    });
     if (token !== backingTrackLoadToken) return;
-    backingTrackBuffer = decoded;
     updateMixerState();
     if (isPlaying) startBackingTrack(currentPlayhead);
   } catch (error) {
     if (token !== backingTrackLoadToken) return;
     console.warn("Backing track could not be loaded.", error);
     backingStatusError = "Backing unavailable";
-    backingTrackBuffer = null;
+    if (backingTrackAudio) backingTrackAudio.removeAttribute("src");
     updateMixerState();
   }
 }
@@ -1648,6 +1816,7 @@ function tick() {
   const rawPosition = pausedAt + elapsedUnits;
   const playhead = normalizePlaybackPosition(rawPosition);
   currentPlayhead = playhead;
+  correctBackingDrift();
   render(currentPlayhead, rawPosition);
   updateMetronome(rawPosition);
   rafId = requestAnimationFrame(tick);

@@ -19,7 +19,8 @@ Core visual direction:
 - The metronome clicks immediately when play is pressed, then every quarter-note beat in 4/4, with beat 1 accented.
 - Note-hit animation and metronome clicks are driven from the same playhead clock.
 - A selected metronome WAV is decoded once and replayed on each beat for reliable repeated clicks.
-- The backing toggle enables/disables the decoded backing track, and the mixer slider crossfades between click and backing.
+- The backing toggle enables/disables the backing track, and the mixer slider crossfades between click and backing.
+- Backing-track tempo changes use browser media playback with pitch preservation enabled, so practice BPM changes should not transpose the track.
 - The default backing MP3 contains one exported GP source measure before the first playable measure, so playback skips that pre-roll when song position `0` starts.
 - The count-in is a single measure before the song starts, and the count blocks enter from the horizon.
 - Playback starts before Count 1 reaches the hit zone so the player hears clicks immediately and sees the blocks travel in.

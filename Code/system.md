@@ -132,7 +132,10 @@ Routes app-generated audio into the click or backing mixer bus and then to speak
 Maintain separate click/backing gain busses and apply the equal-power crossfade. If backing is unavailable or toggled off, click gain returns to `1`.
 
 `loadBackingTrack()`, `startBackingTrack()`, `stopBackingTrack()`, and `updateBackingPlaybackRate()`
-Decode optional backing audio, start it at song position `0` after count-in, skip the exported GP source-measure pre-roll, stop it on pause/restart/toggle-off, and keep playbackRate aligned to the active tempo.
+Prepare optional backing audio in a reusable `HTMLAudioElement`, enable browser pitch preservation, start it at song position `0` after count-in, skip the exported GP source-measure pre-roll, stop it on pause/restart/toggle-off, and keep the media tempo ratio aligned to the active tempo.
+
+`expectedBackingMediaTime()` and `correctBackingDrift()`
+Compare the backing media element's current time against the visual playhead's expected native-tempo media offset, then lightly seek back into alignment if drift becomes meaningful.
 
 `playBuiltInClick(accent, when)`
 Generates the built-in metronome click at a scheduled Web Audio time. The first quarter-note position of each bar is accented.
