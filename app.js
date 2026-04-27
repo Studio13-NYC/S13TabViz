@@ -49,10 +49,14 @@ const DEFAULT_GP_BACKING_URL = "./data/input/processed/hand-sync-pt1-backing.mp3
 const INPUT_MANIFEST_URL = "./data/input/index.json";
 const AZURE_CONFIG_URL = "./data/input/azure-config.json";
 const AZURE_SAS_STORAGE_KEY = "s13tabviz.azureContainerSasUrl";
+const SOURCE_FILE_ACCEPT = ".gp,.gp5,.gpif,.xml,.json,.pdf,application/pdf,.mp3,audio/mpeg,.mpeg,.mpga,.ogg,.oga,audio/ogg,.wav,audio/wav,.m4a,audio/mp4,.mp4,.aac,audio/aac,audio/*";
 const DEFAULT_INPUT_PREFIX = "input/";
 const DEFAULT_PROCESSED_PREFIX = "input/processed/";
 const DEFAULT_MIX_POSITION = 50;
 const BACKING_DRIFT_CORRECTION_SECONDS = 0.08;
+const SCORE_BACKING_GAIN = 0.14;
+const SCORE_BACKING_ATTACK_SECONDS = 0.008;
+const SCORE_BACKING_RELEASE_SECONDS = 0.07;
 const TEMPO_MIN = Number(tempo.min) || 40;
 const TEMPO_MAX = Number(tempo.max) || 180;
 const NOTE_VALUE_TO_UNITS = {
@@ -146,6 +150,11 @@ let sourceMetadata = {
     startOffsetUnits: 0,
     startOffsetSeconds: 0,
   },
+  scoreBacking: {
+    available: false,
+    tracks: [],
+    events: [],
+  },
   scoreTimingSource: "GPIF notes",
 };
 
@@ -166,6 +175,7 @@ let debugAudioDestination = null;
 let syncAudioRecorder = null;
 let syncAudioChunks = [];
 let scheduledClickNodes = new Set();
+let scheduledBackingNodes = new Set();
 let backingTrackAudio = null;
 let backingMediaSource = null;
 let backingTrackObjectUrl = null;
@@ -174,6 +184,8 @@ let lastBackingStart = null;
 let backingStartTimer = 0;
 let backingDriftSeconds = null;
 let backingStatusError = "";
+let scoreBackingEvents = [];
+let scoreBackingPlaying = false;
 let sourceLibraryEntries = [];
 let azureStorageConfig = null;
 let activeSourceKey = "";
@@ -197,9 +209,37 @@ const syncDebug = {
   latestReport: "",
 };
 
+if (fileInput) {
+  fileInput.multiple = true;
+  fileInput.accept = SOURCE_FILE_ACCEPT;
+}
+
 window.__syncDebug = syncDebug;
 window.__metronomeEvents = syncDebug.metronomeEvents;
 window.__mixerState = mixerState;
+
+function mediaBackingAvailable() {
+  return Boolean(sourceMetadata.backingTrack?.available && sourceMetadata.backingTrack?.url);
+}
+
+function scoreBackingAvailable() {
+  return Boolean(sourceMetadata.scoreBacking?.available && scoreBackingEvents.length);
+}
+
+function backingMode() {
+  if (mediaBackingAvailable()) return "media";
+  if (scoreBackingAvailable()) return "score";
+  return "none";
+}
+
+function backingLabel() {
+  if (mediaBackingAvailable()) return sourceMetadata.backingTrack?.label || "Backing track";
+  if (scoreBackingAvailable()) {
+    const tracks = sourceMetadata.scoreBacking?.tracks || [];
+    return tracks.length ? `Score backing: ${tracks.join(", ")}` : "Score backing";
+  }
+  return "No backing track";
+}
 
 // Purpose: fold song playback back to the start after the extracted notes end.
 // Warning: do not normalize negative count-in or lead-in space, because those units are a one-way pre-roll.
@@ -305,10 +345,12 @@ function runSettings() {
     metronomeSound: clickButtonText?.textContent || "Default Click",
     clickSource: metronomeBuffer ? "selected wav" : "built-in click",
     backingTrack: {
-      available: Boolean(sourceMetadata.backingTrack?.available),
-      loaded: Boolean(isBackingTrackLoaded()),
+      available: mediaBackingAvailable() || scoreBackingAvailable(),
+      mode: backingMode(),
+      scoreTracks: sourceMetadata.scoreBacking?.tracks || [],
+      loaded: Boolean(isBackingTrackLoaded() || scoreBackingAvailable()),
       enabled: Boolean(backingToggle?.checked),
-      label: sourceMetadata.backingTrack?.label || "No backing track",
+      label: backingLabel(),
       nativeTempo: sourceMetadata.backingTrack?.nativeTempo || sourceMetadata.tempo || 120,
       startOffsetSeconds: Number(backingStartOffsetSeconds().toFixed(3)),
       preservesPitch: backingTrackAudio ? backingPitchPreserveEnabled(backingTrackAudio) : false,
@@ -534,6 +576,7 @@ function buildSyncReport() {
     `- Time signature: ${settings.timeSignature}`,
     `- Score timing source: ${settings.scoreTimingSource}`,
     `- Backing track: ${settings.backingTrack.available ? settings.backingTrack.label : "none"}`,
+    `- Backing mode: ${settings.backingTrack.mode}`,
     `- Backing loaded/enabled: ${settings.backingTrack.loaded ? "yes" : "no"} / ${settings.backingTrack.enabled ? "yes" : "no"}`,
     `- Backing pitch preserve / tempo ratio: ${liveBacking.backingPreservesPitch ? "yes" : "no"} / ${liveBacking.backingTempoRatio ?? settings.backingTrack.tempoRatio}`,
     `- Backing media time / expected / drift: ${liveBacking.backingMediaCurrentTime ?? "n/a"} / ${liveBacking.backingExpectedCurrentTime ?? "n/a"} / ${liveBacking.backingDriftSeconds ?? "n/a"}`,
@@ -970,15 +1013,25 @@ function parseGpifText(xmlText, fileLabel) {
     ])
   );
 
+  const scoreTracksNode = [...doc.querySelectorAll("Tracks")].find((node) => directChild(node, "Track"));
+  const tracks = scoreTracksNode
+    ? directChildren(scoreTracksNode, "Track").map((track, index) => ({
+        id: track.getAttribute("id") || String(index),
+        index,
+        name: childText(track, "Name", `Track ${index + 1}`),
+        shortName: childText(track, "ShortName"),
+      }))
+    : [];
+
   const noteById = new Map();
   for (const note of doc.querySelectorAll("Notes > Note")) {
     const gpString = intProperty(note, "String", "String");
     const fret = intProperty(note, "Fret", "Fret");
     const midi = intProperty(note, "Midi", "Number");
-    if (gpString === null || fret === null) continue;
+    if ((gpString === null || fret === null) && midi === null) continue;
     noteById.set(note.getAttribute("id"), {
       gpString,
-      string: 6 - gpString,
+      string: gpString === null ? null : 6 - gpString,
       fret,
       midi,
     });
@@ -1007,63 +1060,160 @@ function parseGpifText(xmlText, fileLabel) {
     id: bar.getAttribute("id"),
     voiceIds: childText(bar, "Voices").split(/\s+/).filter((value) => value && value !== "-1"),
   }));
+  const barById = new Map(bars.map((bar) => [bar.id, bar]));
+  const masterBars = [...doc.querySelectorAll("MasterBars > MasterBar")].map((masterBar, index) => ({
+    sourceMeasure: index + 1,
+    barIds: childText(masterBar, "Bars").split(/\s+/).filter(Boolean),
+  }));
 
-  const firstPlayableBar = Math.max(0, bars.findIndex((bar) => bar.voiceIds.length));
   const notes = [];
   const measures = [];
   const sections = [];
+  const scoreBackingEvents = [];
 
-  bars.slice(firstPlayableBar).forEach((bar, relativeIndex) => {
+  function collectBarEvents(bar, { track, measure, sourceMeasure, includeHighwayNotes }) {
     let positionCursor = 0;
     let noteCount = 0;
     const durations = new Set();
-    const sourceMeasure = firstPlayableBar + relativeIndex + 1;
-    const measure = relativeIndex + 1;
+    const backingEvents = [];
 
     for (const voiceId of bar.voiceIds) {
       for (const positionId of voiceById.get(voiceId) || []) {
         const position = positionById.get(positionId);
         if (!position) continue;
+        const eventPosition = Number(((measure - 1) * BAR_UNITS + positionCursor).toFixed(6));
 
-        if (position.section) {
+        if (includeHighwayNotes && position.section) {
           sections.push({ measure, sourceMeasure, label: position.section });
         }
 
         for (const noteId of position.noteIds) {
           const note = noteById.get(noteId);
           if (!note) continue;
-          notes.push({
-            string: note.string,
-            fret: note.fret,
-            position: Number(((measure - 1) * BAR_UNITS + positionCursor).toFixed(6)),
-            durationUnits: position.durationUnits,
-            sourceMeasure,
-            measure,
-            positionInMeasure: Number(positionCursor.toFixed(6)),
-            gpString: note.gpString,
-            midi: note.midi,
-            pickStroke: position.pickStroke,
-          });
-          noteCount += 1;
-          durations.add(position.durationUnits);
+
+          if (includeHighwayNotes && note.string !== null && note.fret !== null) {
+            notes.push({
+              string: note.string,
+              fret: note.fret,
+              position: eventPosition,
+              durationUnits: position.durationUnits,
+              sourceMeasure,
+              measure,
+              positionInMeasure: Number(positionCursor.toFixed(6)),
+              gpString: note.gpString,
+              midi: note.midi,
+              pickStroke: position.pickStroke,
+            });
+          }
+
+          if (!includeHighwayNotes && note.midi !== null) {
+            backingEvents.push({
+              midi: note.midi,
+              position: eventPosition,
+              durationUnits: position.durationUnits,
+              sourceMeasure,
+              measure,
+              positionInMeasure: Number(positionCursor.toFixed(6)),
+              trackIndex: track?.index ?? null,
+              trackName: track?.name || "Backing track",
+            });
+          }
+
+          if (includeHighwayNotes || note.midi !== null) {
+            noteCount += 1;
+            durations.add(position.durationUnits);
+          }
         }
 
         positionCursor += position.durationUnits;
       }
     }
 
-    measures.push({
-      measure,
-      sourceMeasure,
+    return {
       noteCount,
       durationUnits: Number(positionCursor.toFixed(6)),
       durations: [...durations].sort((a, b) => a - b),
+      backingEvents,
+    };
+  }
+
+  const firstPlayableBarIndex = Math.max(0, bars.findIndex((bar) => bar.voiceIds.length));
+  const hasMasterTrackBars = tracks.length > 1 && masterBars.length > 0;
+  const firstPlayableMasterIndex = hasMasterTrackBars
+    ? Math.max(
+        0,
+        masterBars.findIndex((masterBar) => {
+          const primaryBar = barById.get(masterBar.barIds[0]);
+          return Boolean(primaryBar?.voiceIds.length);
+        })
+      )
+    : firstPlayableBarIndex;
+
+  if (hasMasterTrackBars) {
+    masterBars.slice(firstPlayableMasterIndex).forEach((masterBar, relativeIndex) => {
+      const measure = relativeIndex + 1;
+      const primaryBar = barById.get(masterBar.barIds[0]) || { voiceIds: [] };
+      const primary = collectBarEvents(primaryBar, {
+        track: tracks[0],
+        measure,
+        sourceMeasure: masterBar.sourceMeasure,
+        includeHighwayNotes: true,
+      });
+
+      masterBar.barIds.slice(1).forEach((barId, backingTrackOffset) => {
+        const backingBar = barById.get(barId);
+        if (!backingBar) return;
+        const backing = collectBarEvents(backingBar, {
+          track: tracks[backingTrackOffset + 1],
+          measure,
+          sourceMeasure: masterBar.sourceMeasure,
+          includeHighwayNotes: false,
+        });
+        scoreBackingEvents.push(...backing.backingEvents);
+      });
+
+      measures.push({
+        measure,
+        sourceMeasure: masterBar.sourceMeasure,
+        noteCount: primary.noteCount,
+        durationUnits: primary.durationUnits,
+        durations: primary.durations,
+      });
     });
-  });
+  } else {
+    bars.slice(firstPlayableBarIndex).forEach((bar, relativeIndex) => {
+      const sourceMeasure = firstPlayableBarIndex + relativeIndex + 1;
+      const measure = relativeIndex + 1;
+      const primary = collectBarEvents(bar, {
+        track: tracks[0],
+        measure,
+        sourceMeasure,
+        includeHighwayNotes: true,
+      });
+
+      measures.push({
+        measure,
+        sourceMeasure,
+        noteCount: primary.noteCount,
+        durationUnits: primary.durationUnits,
+        durations: primary.durations,
+      });
+    });
+  }
+
+  const backingTrackNames = [...new Set(scoreBackingEvents.map((event) => event.trackName).filter(Boolean))];
+  const scoreBacking = {
+    available: scoreBackingEvents.length > 0,
+    tracks: backingTrackNames,
+    events: scoreBackingEvents,
+  };
 
   const backingTrack = backingTrackFromGpif(doc, tempo);
-  backingTrack.startOffsetUnits = Number((firstPlayableBar * BAR_UNITS).toFixed(6));
+  backingTrack.startOffsetUnits = Number((firstPlayableMasterIndex * BAR_UNITS).toFixed(6));
   backingTrack.startOffsetSeconds = Number(backingSecondsFromUnits(backingTrack.startOffsetUnits, tempo).toFixed(6));
+  if (!backingTrack.available && scoreBacking.available) {
+    backingTrack.label = `Score backing: ${backingTrackNames.join(", ")}`;
+  }
 
   return {
     source: {
@@ -1073,12 +1223,13 @@ function parseGpifText(xmlText, fileLabel) {
       tempo,
       timeSignature: "4/4",
       backingTrack,
+      scoreBacking,
       scoreTimingSource: "GPIF notes",
     },
     summary: {
       measures: measures.length,
       notes: notes.length,
-      firstPlayableSourceMeasure: firstPlayableBar + 1,
+      firstPlayableSourceMeasure: firstPlayableMasterIndex + 1,
       durationValues: [...new Set(notes.map((note) => note.durationUnits))].sort((a, b) => a - b),
       allEighthNotes: notes.every((note) => Math.abs(note.durationUnits - EIGHTH_NOTE_UNITS) < 0.001),
       allMeasuresEightNotes: measures.every(
@@ -1141,6 +1292,17 @@ function audioMimeTypeForPath(path = "") {
   return "audio/mpeg";
 }
 
+function audioExtensionForPath(path = "", fallback = "mp3") {
+  const lower = path.toLowerCase();
+  if (lower.endsWith(".ogg") || lower.endsWith(".oga")) return "ogg";
+  if (lower.endsWith(".wav")) return "wav";
+  if (lower.endsWith(".m4a")) return "m4a";
+  if (lower.endsWith(".mp4")) return "mp4";
+  if (lower.endsWith(".aac")) return "aac";
+  if (lower.endsWith(".mp3")) return "mp3";
+  return fallback;
+}
+
 // Purpose: derive a source format from a file name.
 // Warning: only GP8 packages can be parsed into timed notes in-browser today.
 // Why this shape: GP5 files should be stored and listed honestly instead of pretending they are playable.
@@ -1151,7 +1313,12 @@ function sourceFormat(name) {
   if (lower.endsWith(".gpif") || lower.endsWith(".xml")) return "gpif";
   if (lower.endsWith(".json")) return "json";
   if (lower.endsWith(".pdf")) return "pdf";
+  if (/\.(mp3|ogg|oga|wav|m4a|mp4|aac)$/.test(lower)) return "audio";
   return "unknown";
+}
+
+function isAudioSourceFile(file) {
+  return sourceFormat(file.name) === "audio" || file.type?.startsWith("audio/");
 }
 
 // Purpose: convert manifest entries into the app's source-library record shape.
@@ -1287,7 +1454,9 @@ async function listAzureSourceEntries() {
       const name = blobName.split("/").at(-1);
       const slug = sourceSlug(name);
       const notesName = `${processedPrefix}${slug}-notes.json`;
-      const backingName = `${processedPrefix}${slug}-backing.mp3`;
+      const backingName = blobNames.find((candidate) =>
+        candidate.startsWith(`${processedPrefix}${slug}-backing.`) && sourceFormat(candidate) === "audio"
+      );
       return {
         name,
         format: sourceFormat(name),
@@ -1296,7 +1465,7 @@ async function listAzureSourceEntries() {
         processed: processedNames.has(notesName)
           ? {
               notes: azureBlobUrl(notesName),
-              backing: processedNames.has(backingName) ? azureBlobUrl(backingName) : null,
+              backing: backingName ? azureBlobUrl(backingName) : null,
             }
           : null,
         storage: "azure",
@@ -1378,6 +1547,45 @@ async function fetchSourceFile(entry) {
   return new File([blob], entry.name, { type: blob.type || "application/octet-stream" });
 }
 
+async function fetchPairedBackingFile(entry) {
+  if (!entry?.pairedAudio?.path) return null;
+  const response = await fetch(entry.pairedAudio.path, { cache: "no-store" });
+  if (!response.ok) throw new Error(`Backing audio fetch failed: HTTP ${response.status}`);
+  const blob = await response.blob();
+  return new File([blob], entry.pairedAudio.name || "Backing audio", {
+    type: blob.type || entry.pairedAudio.type || audioMimeTypeForPath(entry.pairedAudio.name || ""),
+  });
+}
+
+function attachBackingAudioFile(payload, audioFile) {
+  if (!payload || !audioFile) return payload;
+  if (backingTrackObjectUrl) URL.revokeObjectURL(backingTrackObjectUrl);
+  backingTrackObjectUrl = URL.createObjectURL(audioFile);
+  payload.source = {
+    ...payload.source,
+    backingTrack: {
+      available: true,
+      url: backingTrackObjectUrl,
+      embeddedPath: null,
+      externalFile: audioFile.name,
+      label: audioFile.name,
+      nativeTempo: payload.source?.tempo || sourceMetadata.tempo || 120,
+      startOffsetUnits: payload.source?.backingTrack?.startOffsetUnits || 0,
+      startOffsetSeconds: payload.source?.backingTrack?.startOffsetSeconds || 0,
+      ...payload.source?.backingTrack,
+      available: true,
+      url: backingTrackObjectUrl,
+      externalFile: audioFile.name,
+      label: audioFile.name,
+    },
+  };
+  payload.runtimeAssets = {
+    ...payload.runtimeAssets,
+    backingBlob: audioFile,
+  };
+  return payload;
+}
+
 // Purpose: apply a processed notes JSON payload and point its backing URL at the processed backing asset.
 // Warning: do not mutate cached payload objects from fetch callers.
 // Why this shape: prepared files under input/processed should be the fastest path for existing sources.
@@ -1403,13 +1611,22 @@ async function loadProcessedEntry(entry) {
 // Purpose: prepare a newly parsed GP8 package into JSON/backing blobs for input/processed storage.
 // Warning: GP5 is not parsed here; it needs a separate GP5 parser/converter before notes can render.
 // Why this shape: upload and on-demand library processing share the same output naming.
-function processedAssetNamesForSource(name) {
+function processedAssetNamesForSource(name, backingExtension = "mp3") {
   const slug = sourceSlug(name);
   const processedPrefix = azureStorageConfig?.processedPrefix || DEFAULT_PROCESSED_PREFIX;
   return {
     notes: `${processedPrefix}${slug}-notes.json`,
-    backing: `${processedPrefix}${slug}-backing.mp3`,
+    backing: `${processedPrefix}${slug}-backing.${backingExtension}`,
   };
+}
+
+function backingAssetExtension(payload) {
+  const sourcePath =
+    payload.source?.backingTrack?.embeddedPath ||
+    payload.source?.backingTrack?.externalFile ||
+    payload.runtimeAssets?.backingBlob?.name ||
+    "";
+  return audioExtensionForPath(sourcePath, "mp3");
 }
 
 // Purpose: store prepared GP8 notes/backing in Azure input/processed when Azure is configured.
@@ -1417,7 +1634,7 @@ function processedAssetNamesForSource(name) {
 // Why this shape: deployed and local browser runs use the same Azure container when a SAS URL is present.
 async function storeProcessedAssets(fileName, payload) {
   if (!azureStorageConfig?.enabled || !azureStorageConfig.containerSasUrl) return null;
-  const names = processedAssetNamesForSource(fileName);
+  const names = processedAssetNamesForSource(fileName, backingAssetExtension(payload));
   const storagePayload = JSON.stringify(stripRuntimeProcessingAssets(payload), null, 2);
   await uploadAzureBlob(names.notes, new Blob([storagePayload], { type: "application/json" }), "application/json");
   if (payload.runtimeAssets?.backingBlob) {
@@ -1435,10 +1652,10 @@ async function storeProcessedAssets(fileName, payload) {
 function stripRuntimeProcessingAssets(payload) {
   const clean = JSON.parse(JSON.stringify(payload));
   const sourceName = clean.source?.file || "source";
-  const backingPath = clean.source?.backingTrack?.embeddedPath || "";
+  const backingPath = clean.source?.backingTrack?.embeddedPath || clean.source?.backingTrack?.externalFile || "";
   delete clean.runtimeAssets;
   if (clean.source?.backingTrack?.url?.startsWith("blob:")) {
-    const extension = backingPath.split(".").pop() || "mp3";
+    const extension = audioExtensionForPath(backingPath, "mp3");
     clean.source.backingTrack.url = `${sourceSlug(sourceName)}-backing.${extension}`;
   }
   return clean;
@@ -1464,6 +1681,11 @@ async function loadSourceEntry(entry) {
       setStorageStatus("PDF stored; timed-note extraction is not available", { error: true });
       return;
     }
+    if (entry.format === "audio") {
+      setSourceButtonText("Select source");
+      setStorageStatus("Audio files must be paired with a GP, GPIF, or JSON source", { error: true });
+      return;
+    }
     if (entry.processed?.notes) {
       await loadProcessedEntry(entry);
       setStorageStatus(`Loaded processed: ${entry.name}`);
@@ -1471,12 +1693,16 @@ async function loadSourceEntry(entry) {
     }
 
     const file = await fetchSourceFile(entry);
+    const pairedAudio = await fetchPairedBackingFile(entry);
     if (entry.format === "json") {
-      applySongData(JSON.parse(await file.text()));
+      const payload = JSON.parse(await file.text());
+      applySongData(pairedAudio ? attachBackingAudioFile(payload, pairedAudio) : payload);
     } else if (entry.format === "gpif") {
-      applySongData(parseGpifText(await file.text(), entry.name));
+      const payload = parseGpifText(await file.text(), entry.name);
+      applySongData(pairedAudio ? attachBackingAudioFile(payload, pairedAudio) : payload);
     } else if (entry.format === "gp") {
       const payload = await parseGpPackage(file);
+      if (pairedAudio) attachBackingAudioFile(payload, pairedAudio);
       const stored = await storeProcessedAssets(entry.name, payload);
       if (stored) {
         payload.source.backingTrack.url = stored.backing || payload.source.backingTrack.url;
@@ -1521,16 +1747,33 @@ async function storeUploadedSourceFile(file) {
   };
 }
 
-// Purpose: parse and optionally store a user-selected source file.
-// Warning: GP5/PDF uploads can be stored but are not converted into timed notes by this static parser.
-// Why this shape: the selected file's actual bytes drive the highway instead of falling back to the default JSON.
-async function handleSelectedSourceFile(selected) {
+function supportedNotationFile(files) {
+  return files.find((file) => ["gp", "gpif", "json", "gp5", "pdf"].includes(sourceFormat(file.name))) || null;
+}
+
+// Purpose: parse and optionally store user-selected source files.
+// Warning: one notation source may be paired with one audio file; GP5/PDF uploads still cannot render notes.
+// Why this shape: users can pick Hard Rock.gp and Hard Rock.mp3 together and get one playable source.
+async function handleSelectedSourceFiles(fileList) {
+  const files = [...fileList];
+  const selected = supportedNotationFile(files);
+  const backingAudio = files.find((file) => file !== selected && isAudioSourceFile(file)) || null;
+  if (!selected) {
+    setSourceButtonText("Select source");
+    setStorageStatus(
+      backingAudio ? "Select a GP, GPIF, or JSON source with the audio file" : "Unsupported source format",
+      { error: true }
+    );
+    return;
+  }
+
   const format = sourceFormat(selected.name);
   setSourceButtonText("Loading...");
-  setStorageStatus(`Preparing ${selected.name}`);
+  setStorageStatus(backingAudio ? `Preparing ${selected.name} + ${backingAudio.name}` : `Preparing ${selected.name}`);
 
   try {
     const storedSource = await storeUploadedSourceFile(selected);
+    const storedAudio = backingAudio ? await storeUploadedSourceFile(backingAudio) : null;
     if (format === "gp5") {
       setSourceButtonText("Select source");
       setStorageStatus(
@@ -1553,26 +1796,43 @@ async function handleSelectedSourceFile(selected) {
       payload = parseGpifText(await selected.text(), selected.name);
     } else if (format === "gp") {
       payload = await parseGpPackage(selected);
-      processed = await storeProcessedAssets(selected.name, payload);
-      if (processed) {
-        payload.source.backingTrack.url = processed.backing || payload.source.backingTrack.url;
-        payload.source.backingTrack.available = Boolean(processed.backing || payload.source.backingTrack.available);
-      }
     } else {
       throw new Error("Unsupported source format.");
     }
 
+    if (backingAudio) attachBackingAudioFile(payload, backingAudio);
+
+    if (format === "gp" || backingAudio) {
+      processed = await storeProcessedAssets(selected.name, payload);
+      if (processed) {
+        payload.source.backingTrack.url = processed.backing || payload.source.backingTrack.url;
+        payload.source.backingTrack.available = Boolean(storedAudio || processed.backing || payload.source.backingTrack.available);
+      }
+    }
+
     applySongData(payload);
     const sessionUrl = storedSource?.path || URL.createObjectURL(selected);
+    const pairedAudio = backingAudio
+      ? {
+          name: backingAudio.name,
+          path: storedAudio?.path || URL.createObjectURL(backingAudio),
+          type: backingAudio.type || audioMimeTypeForPath(backingAudio.name),
+        }
+      : null;
     addOrReplaceSourceEntry({
       name: selected.name,
       format,
       path: sessionUrl,
       processed,
+      pairedAudio,
       storage: storedSource?.storage || "session",
       blobName: storedSource?.blobName || null,
     });
-    setStorageStatus(storedSource ? `Uploaded: ${selected.name}` : `Loaded session: ${selected.name}`);
+    setStorageStatus(
+      storedSource
+        ? `Uploaded: ${selected.name}${backingAudio ? ` + ${backingAudio.name}` : ""}`
+        : `Loaded session: ${selected.name}${backingAudio ? ` + ${backingAudio.name}` : ""}`
+    );
   } catch (error) {
     console.warn("Selected file could not be parsed into note data.", error);
     setSourceButtonText("Select source");
@@ -1613,7 +1873,15 @@ function applySongData(payload) {
       startOffsetSeconds: 0,
       ...payload.source?.backingTrack,
     },
+    scoreBacking: {
+      available: false,
+      tracks: [],
+      events: [],
+      ...payload.source?.scoreBacking,
+    },
   };
+  scoreBackingEvents = [...(sourceMetadata.scoreBacking?.events || [])];
+  sourceMetadata.scoreBacking.available = Boolean(scoreBackingEvents.length);
   songNotes = payload.notes.map((note) => {
     return {
       string: note.string,
@@ -1639,7 +1907,10 @@ function applySongData(payload) {
     tempo: sourceMetadata.tempo,
     notes: songNotes.length,
     songEndPosition,
-    backingAvailable: Boolean(sourceMetadata.backingTrack?.available),
+    backingAvailable: mediaBackingAvailable() || scoreBackingAvailable(),
+    backingMode: backingMode(),
+    scoreBackingTracks: sourceMetadata.scoreBacking?.tracks || [],
+    scoreBackingEvents: scoreBackingEvents.length,
   };
   setSourceButtonText("Loaded");
   if (sourceMetadata.tempo) {
@@ -1933,10 +2204,11 @@ function equalPowerMixerGains() {
 function updateMixerState() {
   const gains = equalPowerMixerGains();
   const context = audioContext;
-  const available = Boolean(sourceMetadata.backingTrack?.available && sourceMetadata.backingTrack?.url);
-  const loaded = isBackingTrackLoaded();
+  const mode = backingMode();
+  const available = mode !== "none";
+  const loaded = isBackingTrackLoaded() || scoreBackingAvailable();
   const enabled = Boolean(backingToggle?.checked);
-  const expectedCurrentTime = expectedBackingMediaTime(currentPlayhead);
+  const expectedCurrentTime = mediaBackingAvailable() ? expectedBackingMediaTime(currentPlayhead) : null;
   if (!available) backingStatusError = "No backing in source";
   else if (backingStatusError === "No backing in source") backingStatusError = "";
 
@@ -1947,12 +2219,16 @@ function updateMixerState() {
     backingAvailable: available,
     backingEnabled: enabled,
     backingLoaded: loaded,
-    backingPlaying: Boolean(backingTrackAudio && !backingTrackAudio.paused),
+    backingPlaying: Boolean((backingTrackAudio && !backingTrackAudio.paused) || scoreBackingPlaying),
+    backingMode: mode,
+    scoreBackingAvailable: scoreBackingAvailable(),
+    scoreBackingTracks: sourceMetadata.scoreBacking?.tracks || [],
+    scoreBackingEventCount: scoreBackingEvents.length,
     backingMuted: Boolean(backingTrackAudio?.muted),
-    backingPreservesPitch: available && backingTrackAudio ? backingPitchPreserveEnabled(backingTrackAudio) : false,
+    backingPreservesPitch: mediaBackingAvailable() && backingTrackAudio ? backingPitchPreserveEnabled(backingTrackAudio) : false,
     backingTempoRatio: Number(backingTempoRatio().toFixed(4)),
     backingPlaybackRate: Number(backingTempoRatio().toFixed(4)),
-    backingSourcePlaybackRate: available && backingTrackAudio
+    backingSourcePlaybackRate: mediaBackingAvailable() && backingTrackAudio
       ? Number(backingTrackAudio.playbackRate.toFixed(4))
       : null,
     backingMediaCurrentTime: backingTrackAudio && loaded
@@ -2026,6 +2302,84 @@ function connectToOutputs(node, bus = "metronome") {
   node.connect(bus === "backing" ? backingBus : metronomeBus);
 }
 
+function trackBackingNode(node) {
+  scheduledBackingNodes.add(node);
+  node.addEventListener("ended", () => scheduledBackingNodes.delete(node), { once: true });
+}
+
+function stopScheduledBackingNodes() {
+  for (const node of scheduledBackingNodes) {
+    try {
+      node.stop();
+    } catch {
+      // Already-ended backing nodes are fine; pause/restart only needs future nodes silenced.
+    }
+  }
+  scheduledBackingNodes.clear();
+  scoreBackingPlaying = false;
+}
+
+function midiFrequency(midi) {
+  return 440 * (2 ** ((midi - 69) / 12));
+}
+
+function scheduleScoreBackingEvent(event, when) {
+  const context = ensureAudioContext();
+  const isDrum = /drums?/i.test(event.trackName || "");
+  const oscillator = context.createOscillator();
+  const gain = context.createGain();
+  const durationSeconds = Math.max(
+    isDrum ? 0.045 : 0.06,
+    backingSecondsFromUnits(event.durationUnits || EIGHTH_NOTE_UNITS, activeTempo)
+  );
+  const stopAt = when + Math.min(durationSeconds, isDrum ? 0.12 : 1.25);
+  const peakGain = SCORE_BACKING_GAIN * (isDrum ? 0.7 : 1);
+
+  oscillator.type = isDrum ? "triangle" : /bass/i.test(event.trackName || "") ? "sine" : "sawtooth";
+  oscillator.frequency.setValueAtTime(
+    isDrum ? Math.max(70, Math.min(520, midiFrequency(event.midi || 45) / 4)) : midiFrequency(event.midi || 60),
+    when
+  );
+  gain.gain.setValueAtTime(0.0001, when);
+  gain.gain.linearRampToValueAtTime(peakGain, when + SCORE_BACKING_ATTACK_SECONDS);
+  gain.gain.exponentialRampToValueAtTime(0.001, Math.max(when + SCORE_BACKING_ATTACK_SECONDS, stopAt - SCORE_BACKING_RELEASE_SECONDS));
+  oscillator.connect(gain);
+  connectToOutputs(gain, "backing");
+  oscillator.start(when);
+  oscillator.stop(stopAt);
+  trackBackingNode(oscillator);
+}
+
+function startScoreBacking(position = currentPlayhead) {
+  if (!isPlaying || !backingToggle?.checked || !scoreBackingAvailable()) return false;
+  const context = ensureAudioContext();
+  stopScheduledBackingNodes();
+  const songPosition = position < 0 ? 0 : normalizePlaybackPosition(position);
+  const scheduleFloor = songPosition - 0.001;
+  let scheduledCount = 0;
+
+  for (const event of scoreBackingEvents) {
+    if (event.position < scheduleFloor || event.position >= songEndPosition) continue;
+    const when = position < 0
+      ? scheduledAudioTimeForPosition(event.position)
+      : Math.max(scheduledAudioTimeForPosition(event.position), context.currentTime + 0.005);
+    scheduleScoreBackingEvent(event, when);
+    scheduledCount += 1;
+  }
+
+  scoreBackingPlaying = scheduledCount > 0;
+  lastBackingStart = {
+    mode: "score",
+    scheduledEvents: scheduledCount,
+    scoreTracks: sourceMetadata.scoreBacking?.tracks || [],
+    tempoRatio: Number(backingTempoRatio().toFixed(4)),
+    scheduledStart: Number((position < 0 ? scheduledAudioTimeForPosition(0) : context.currentTime).toFixed(4)),
+  };
+  backingStatusError = "";
+  updateMixerState();
+  return scoreBackingPlaying;
+}
+
 // Purpose: stop the currently scheduled or playing backing media element.
 // Warning: this pauses the reusable media element but keeps its mixer connection intact.
 // Why this shape: pause/restart/toggle-off need deterministic silence without rebuilding the audio graph.
@@ -2038,6 +2392,7 @@ function stopBackingTrack() {
     backingTrackAudio.pause();
     backingTrackAudio.muted = false;
   }
+  stopScheduledBackingNodes();
   updateMixerState();
 }
 
@@ -2059,8 +2414,13 @@ async function playBackingAudio(audio) {
 // Warning: backing starts at song position 0 but skips exported GP pre-roll before the first playable source measure.
 // Why this shape: media-element playback preserves pitch while still following the same visual playhead tempo ratio.
 function startBackingTrack(position = currentPlayhead) {
-  if (!isPlaying || !backingToggle?.checked || !isBackingTrackLoaded()) {
+  if (!isPlaying || !backingToggle?.checked) {
     updateMixerState();
+    return;
+  }
+
+  if (!isBackingTrackLoaded()) {
+    if (!startScoreBacking(position)) updateMixerState();
     return;
   }
 
@@ -2120,7 +2480,10 @@ function startBackingTrack(position = currentPlayhead) {
 // Warning: live tempo changes can create small drift, so this also nudges currentTime back to the playhead-derived position.
 // Why this shape: browser media playback gives this static app tempo adjustment without pitch-shifting the backing track.
 function updateBackingPlaybackRate() {
-  if (!backingTrackAudio) return;
+  if (!backingTrackAudio) {
+    if (scoreBackingPlaying && isPlaying) startBackingTrack(currentPlayhead);
+    return;
+  }
   enableBackingPitchPreservation(backingTrackAudio);
   backingTrackAudio.playbackRate = backingTempoRatio();
   if (backingStartTimer && isPlaying && isBackingTrackLoaded()) {
@@ -2353,9 +2716,8 @@ function tick() {
 // Warning: PDF selections are acknowledged but not converted into timed notes in-browser.
 // Why this shape: refactored from a misleading accept list to real JSON/GPIF/GP parsing plus honest PDF status.
 fileInput.addEventListener("change", async () => {
-  const selected = fileInput.files?.[0];
-  if (!selected) return;
-  await handleSelectedSourceFile(selected);
+  if (!fileInput.files?.length) return;
+  await handleSelectedSourceFiles(fileInput.files);
   fileInput.value = "";
   updateDebugPanel();
 });
