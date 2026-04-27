@@ -4,12 +4,12 @@ This is a first-screen visual prototype for a Guitar Pro-to-tab animation engine
 
 Open `index.html` in a browser and press play. The current build defaults to note timing extracted from `data/input/Hand Sync pt1 + BT.gp`; prepared files live in `data/input/processed/`, but GPIF notes remain the timing source.
 
-Put source `.gp` files in `data/input/` and prepared runtime assets in `data/input/processed/`. Run `python tools/extract_gp_notes.py --source data\input\Your Song.gp --out data\input\processed\your-song-notes.json` when you want to pre-process a GP8 package for the picker. Browser uploads can also process GP8 `.gp` packages from their actual file contents; if Azure Blob Storage is configured in `data/input/azure-config.json` or `localStorage`, uploaded source files go to `input/` and prepared JSON/backing assets go to `input/processed/`.
+Put source `.gp` files in `data/input/` and prepared runtime assets in `data/input/processed/`. Run `python tools/extract_gp_notes.py --source data\input\Your Song.gp --out data\input\processed\your-song-notes.json` when you want to pre-process a GP8 package for the picker. Browser uploads can also process GP8 `.gp` packages from their actual file contents; users may select a notation source and a backing audio file together, such as `Hard Rock.gp` plus `Hard Rock.mp3`. If Azure Blob Storage is configured in `data/input/azure-config.json` or `localStorage`, uploaded source/audio files go to `input/` and prepared JSON/backing assets go to `input/processed/`.
 
 Core visual direction:
 
 - A clean six-string vertical highway inspired by note-lane rhythm games.
-- Guitar Pro/GPIF note data is the timing source; backing-track audio is optional playback only.
+- Guitar Pro/GPIF note data is the timing source; backing-track audio is optional playback only. A separate `.mp3`, `.ogg`, `.wav`, or `.m4a` can be paired with a source during upload.
 - Colored string lanes and large fret-number blocks for fast reading.
 - Notes fall down their assigned string toward a clearly marked hit zone.
 - Note block height is proportional to duration in whole-note units: whole `1`, half `.5`, quarter `.25`, eighth `.125`, and eighth-note triplet `1/12`.
@@ -27,4 +27,4 @@ Core visual direction:
 - Count-in notes scroll through the transparent hit-zone outlines, then disappear after the song starts.
 - The visualization uses the main workspace width so the note highway stays dominant.
 - Permanent sync debug captures run settings, metronome ticks, hit-zone note entries, and a generated proof report for timing checks.
-- The browser can pick saved sources from `data/input/index.json`, load extracted note JSON, load raw `.gpif` XML, and process packaged GP8 `.gp` files. PDF selections are accepted but require a notation/tab extraction step before timed notes can render.
+- The browser can pick saved sources from `data/input/index.json`, load extracted note JSON, load raw `.gpif` XML, and process packaged GP8 `.gp` files. The upload picker accepts a source file and one audio file at the same time for paired backing playback. PDF selections are accepted but require a notation/tab extraction step before timed notes can render.

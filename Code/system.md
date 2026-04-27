@@ -1,6 +1,6 @@
 # Lukas+S13 System
 
-This prototype turns Guitar Pro note data into a Rocksmith-style highway. The current default source is `Hand Sync pt1 + BT.gp`; GPIF score data drives the note highway, and the embedded backing-track MP3 is optional playback audio.
+This prototype turns Guitar Pro note data into a Rocksmith-style highway. The current default source is `Hand Sync pt1 + BT.gp`; GPIF score data drives the note highway, and embedded or paired backing audio is optional playback audio.
 
 ## Current Source Truth
 
@@ -14,7 +14,7 @@ This prototype turns Guitar Pro note data into a Rocksmith-style highway. The cu
 - Runtime code: `app.js`
 - Styling: `styles.css`
 
-The GP file is a GP8 zip package. The extractor reads `Content/score.gpif` for note timing and copies the referenced `Content/Assets/*.mp3` backing track into `data/` for optional mixer playback.
+The GP file is a GP8 zip package. The extractor reads `Content/score.gpif` for note timing and copies the referenced `Content/Assets/*` backing track into `data/` for optional mixer playback. Browser uploads can also pair a separate audio file with the notation source.
 
 The current extraction confirms:
 
@@ -31,9 +31,9 @@ The current extraction confirms:
 2. It reads `Content/score.gpif`.
 3. It builds lookup tables for rhythms, notes, beats, voices, and bars.
 4. It converts GPIF strings to UI strings where `1` is high e and `6` is low E.
-5. It copies the embedded backing MP3 to `data/input/processed/*-backing.mp3` when present.
+5. It copies the embedded backing audio to `data/input/processed/*-backing.*` when present.
 6. It writes prepared notes JSON to `data/input/processed/*-notes.json`.
-7. `app.js` loads that JSON from `DEFAULT_GP_NOTES_URL`. The browser file picker can also load extracted JSON, raw `.gpif` XML, or packaged GP8 `.gp` files.
+7. `app.js` loads that JSON from `DEFAULT_GP_NOTES_URL`. The browser file picker can also load extracted JSON, raw `.gpif` XML, or packaged GP8 `.gp` files, and it can pair one source file with one `.mp3`, `.ogg`, `.wav`, or `.m4a` backing audio file selected at the same time.
 8. `applySongData()` replaces fallback notes with extracted GP notes and sets tempo/source/backing metadata.
 9. `loadSourceLibrary()` reads `data/input/index.json`, optionally merges Azure Blob Storage entries under `input/`, and populates the saved-source picker.
 9. `render()` draws the highway from `timelineNotes`.
@@ -120,8 +120,8 @@ Parses raw GPIF XML selected in the browser into the same renderable payload sha
 `parseGpPackage(file)`, `extractZipEntry()`, `inflateZipEntry()`, and `findZipEndOfCentralDirectory()`
 Read a selected GP8 `.gp` package, extract `Content/score.gpif`, and pass the score XML through the normal GPIF parser. These helpers were added instead of a JSZip dependency so the static app can support `.gp` input without a build step.
 
-`loadSourceLibrary()`, `loadSourceEntry()`, `handleSelectedSourceFile()`, and `storeProcessedAssets()`
-Manage the saved-source picker, manual source uploads, prepared notes/backing assets, and optional Azure Blob Storage persistence. Browser uploads use scoped container SAS URLs when configured; source files are written under `input/` and prepared files under `input/processed/`.
+`loadSourceLibrary()`, `loadSourceEntry()`, `handleSelectedSourceFiles()`, and `storeProcessedAssets()`
+Manage the saved-source picker, manual source uploads, paired audio uploads, prepared notes/backing assets, and optional Azure Blob Storage persistence. Browser uploads use scoped container SAS URLs when configured; source and audio files are written under `input/` and prepared files under `input/processed/`.
 
 `activeNote(playhead)`
 Finds the nearest note for the status display.
@@ -352,7 +352,7 @@ PDF render artifacts from the earlier sheet inspection:
 
 ## Current Limitations
 
-- The app loads pre-extracted JSON, raw `.gpif` XML, and packaged GP8 `.gp` files in the browser. The package path extracts `Content/score.gpif` and the referenced backing MP3 when available.
+- The app loads pre-extracted JSON, raw `.gpif` XML, and packaged GP8 `.gp` files in the browser. The package path extracts `Content/score.gpif` and referenced embedded audio when available. A separate audio file can be selected with the source file during upload and is used as the backing track.
 - Azure Blob Storage requires a container SAS URL with read/list/create/write permissions and CORS allowing the local and deployed app origins. The app deliberately does not store Azure account keys.
 - GP5 binary files are visible as unsupported if selected, but the browser parser currently supports GP8 `.gp` packages, GPIF/XML, and prepared JSON.
 - PDF selection is acknowledged, but timed note extraction from PDF tab/notation still needs a dedicated parser/OCR path before rendering.
