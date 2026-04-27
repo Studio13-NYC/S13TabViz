@@ -1,0 +1,29 @@
+{
+  "sources": [
+    {
+      "name": "Hand Sync pt1 + BT.gp",
+      "path": "./data/input/Hand Sync pt1 + BT.gp",
+      "format": "gp",
+      "processed": {
+        "notes": "./data/input/processed/hand-sync-pt1-notes.json",
+        "backing": "./data/input/processed/hand-sync-pt1-backing.mp3"
+      }
+    },
+    {
+      "name": "Am Pentatonic Exercises.gp",
+      "path": "./data/input/Am Pentatonic Exercises.gp",
+      "format": "gp",
+      "processed": {
+        "notes": "./data/input/processed/am-pentatonic-exercises-notes.json"
+      }
+    },
+    {
+      "name": "Em Pentatonic Exercises.gp",
+      "path": "./data/input/Em Pentatonic Exercises.gp",
+      "format": "gp",
+      "processed": {
+        "notes": "./data/input/processed/em-pentatonic-exercises-notes.json"
+      }
+    }
+  ]
+}

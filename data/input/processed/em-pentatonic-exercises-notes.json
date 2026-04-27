@@ -1,0 +1,6832 @@
+{
+  "source": {
+    "file": "Em Pentatonic Exercises.gp",
+    "title": "Em Pentatonic Exercises",
+    "subtitle": "Lukas Kocka",
+    "tempo": 140,
+    "timeSignature": "4/4",
+    "backingTrack": {
+      "available": false,
+      "url": null,
+      "embeddedPath": null,
+      "label": "Backing track",
+      "nativeTempo": 140,
+      "startOffsetUnits": 2,
+      "startOffsetSeconds": 3.428571
+    },
+    "scoreTimingSource": "GPIF notes"
+  },
+  "summary": {
+    "measures": 108,
+    "notes": 480,
+    "firstPlayableSourceMeasure": 3,
+    "durationValues": [
+      0.125,
+      0.25
+    ],
+    "allEighthNotes": false,
+    "allMeasuresEightNotes": false
+  },
+  "sections": [
+    {
+      "measure": 1,
+      "sourceMeasure": 3,
+      "label": "#1 Pentatonic Shape"
+    },
+    {
+      "measure": 9,
+      "sourceMeasure": 11,
+      "label": "#2 Pentatonic Shape"
+    },
+    {
+      "measure": 17,
+      "sourceMeasure": 19,
+      "label": "#3 Pentatonic Shape"
+    },
+    {
+      "measure": 25,
+      "sourceMeasure": 27,
+      "label": "#4 Pentatonic Shape"
+    },
+    {
+      "measure": 33,
+      "sourceMeasure": 35,
+      "label": "#5 Pentatonic Shape"
+    },
+    {
+      "measure": 43,
+      "sourceMeasure": 45,
+      "label": "#1 Shape -> #2 Shape"
+    },
+    {
+      "measure": 47,
+      "sourceMeasure": 49,
+      "label": "#2 Shape  -> #1 Shape"
+    },
+    {
+      "measure": 51,
+      "sourceMeasure": 53,
+      "label": "#2 Shape -> #3 Shape"
+    },
+    {
+      "measure": 55,
+      "sourceMeasure": 57,
+      "label": "#3 Shape -> #2 Shape"
+    },
+    {
+      "measure": 59,
+      "sourceMeasure": 61,
+      "label": "#3 Shape -> #4 Shape"
+    },
+    {
+      "measure": 63,
+      "sourceMeasure": 65,
+      "label": "#4 Shape -> #3 Shape"
+    },
+    {
+      "measure": 67,
+      "sourceMeasure": 69,
+      "label": "#4 Shape -> #5 Shape"
+    },
+    {
+      "measure": 71,
+      "sourceMeasure": 73,
+      "label": "#5 Shape -> #4 Shape"
+    },
+    {
+      "measure": 75,
+      "sourceMeasure": 77,
+      "label": "#5 Shape -> #1 Shape"
+    },
+    {
+      "measure": 79,
+      "sourceMeasure": 81,
+      "label": "#1 Shape -> #5 Shape"
+    },
+    {
+      "measure": 86,
+      "sourceMeasure": 88,
+      "label": "#1 Group across Octaves"
+    },
+    {
+      "measure": 90,
+      "sourceMeasure": 92,
+      "label": "#2 Group across Octaves"
+    },
+    {
+      "measure": 94,
+      "sourceMeasure": 96,
+      "label": "#3 Group across Octaves"
+    },
+    {
+      "measure": 98,
+      "sourceMeasure": 100,
+      "label": "#4 Group across Octaves"
+    },
+    {
+      "measure": 102,
+      "sourceMeasure": 104,
+      "label": "#5 Group across Octaves"
+    }
+  ],
+  "measures": [
+    {
+      "measure": 1,
+      "sourceMeasure": 3,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.25
+      ]
+    },
+    {
+      "measure": 2,
+      "sourceMeasure": 4,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.25
+      ]
+    },
+    {
+      "measure": 3,
+      "sourceMeasure": 5,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.25
+      ]
+    },
+    {
+      "measure": 4,
+      "sourceMeasure": 6,
+      "noteCount": 0,
+      "durationUnits": 0.0,
+      "durations": []
+    },
+    {
+      "measure": 5,
+      "sourceMeasure": 7,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.25
+      ]
+    },
+    {
+      "measure": 6,
+      "sourceMeasure": 8,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.25
+      ]
+    },
+    {
+      "measure": 7,
+      "sourceMeasure": 9,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.25
+      ]
+    },
+    {
+      "measure": 8,
+      "sourceMeasure": 10,
+      "noteCount": 0,
+      "durationUnits": 0.0,
+      "durations": []
+    },
+    {
+      "measure": 9,
+      "sourceMeasure": 11,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.25
+      ]
+    },
+    {
+      "measure": 10,
+      "sourceMeasure": 12,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.25
+      ]
+    },
+    {
+      "measure": 11,
+      "sourceMeasure": 13,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.25
+      ]
+    },
+    {
+      "measure": 12,
+      "sourceMeasure": 14,
+      "noteCount": 0,
+      "durationUnits": 0.0,
+      "durations": []
+    },
+    {
+      "measure": 13,
+      "sourceMeasure": 15,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.25
+      ]
+    },
+    {
+      "measure": 14,
+      "sourceMeasure": 16,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.25
+      ]
+    },
+    {
+      "measure": 15,
+      "sourceMeasure": 17,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.25
+      ]
+    },
+    {
+      "measure": 16,
+      "sourceMeasure": 18,
+      "noteCount": 0,
+      "durationUnits": 0.0,
+      "durations": []
+    },
+    {
+      "measure": 17,
+      "sourceMeasure": 19,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.25
+      ]
+    },
+    {
+      "measure": 18,
+      "sourceMeasure": 20,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.25
+      ]
+    },
+    {
+      "measure": 19,
+      "sourceMeasure": 21,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.25
+      ]
+    },
+    {
+      "measure": 20,
+      "sourceMeasure": 22,
+      "noteCount": 0,
+      "durationUnits": 0.0,
+      "durations": []
+    },
+    {
+      "measure": 21,
+      "sourceMeasure": 23,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.25
+      ]
+    },
+    {
+      "measure": 22,
+      "sourceMeasure": 24,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.25
+      ]
+    },
+    {
+      "measure": 23,
+      "sourceMeasure": 25,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.25
+      ]
+    },
+    {
+      "measure": 24,
+      "sourceMeasure": 26,
+      "noteCount": 0,
+      "durationUnits": 0.0,
+      "durations": []
+    },
+    {
+      "measure": 25,
+      "sourceMeasure": 27,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.25
+      ]
+    },
+    {
+      "measure": 26,
+      "sourceMeasure": 28,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.25
+      ]
+    },
+    {
+      "measure": 27,
+      "sourceMeasure": 29,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.25
+      ]
+    },
+    {
+      "measure": 28,
+      "sourceMeasure": 30,
+      "noteCount": 0,
+      "durationUnits": 0.0,
+      "durations": []
+    },
+    {
+      "measure": 29,
+      "sourceMeasure": 31,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.25
+      ]
+    },
+    {
+      "measure": 30,
+      "sourceMeasure": 32,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.25
+      ]
+    },
+    {
+      "measure": 31,
+      "sourceMeasure": 33,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.25
+      ]
+    },
+    {
+      "measure": 32,
+      "sourceMeasure": 34,
+      "noteCount": 0,
+      "durationUnits": 0.0,
+      "durations": []
+    },
+    {
+      "measure": 33,
+      "sourceMeasure": 35,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.25
+      ]
+    },
+    {
+      "measure": 34,
+      "sourceMeasure": 36,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.25
+      ]
+    },
+    {
+      "measure": 35,
+      "sourceMeasure": 37,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.25
+      ]
+    },
+    {
+      "measure": 36,
+      "sourceMeasure": 38,
+      "noteCount": 0,
+      "durationUnits": 0.0,
+      "durations": []
+    },
+    {
+      "measure": 37,
+      "sourceMeasure": 39,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.25
+      ]
+    },
+    {
+      "measure": 38,
+      "sourceMeasure": 40,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.25
+      ]
+    },
+    {
+      "measure": 39,
+      "sourceMeasure": 41,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.25
+      ]
+    },
+    {
+      "measure": 40,
+      "sourceMeasure": 42,
+      "noteCount": 0,
+      "durationUnits": 0.0,
+      "durations": []
+    },
+    {
+      "measure": 41,
+      "sourceMeasure": 43,
+      "noteCount": 0,
+      "durationUnits": 0.0,
+      "durations": []
+    },
+    {
+      "measure": 42,
+      "sourceMeasure": 44,
+      "noteCount": 0,
+      "durationUnits": 0.0,
+      "durations": []
+    },
+    {
+      "measure": 43,
+      "sourceMeasure": 45,
+      "noteCount": 8,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 44,
+      "sourceMeasure": 46,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 45,
+      "sourceMeasure": 47,
+      "noteCount": 8,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 46,
+      "sourceMeasure": 48,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 47,
+      "sourceMeasure": 49,
+      "noteCount": 8,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 48,
+      "sourceMeasure": 50,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 49,
+      "sourceMeasure": 51,
+      "noteCount": 8,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 50,
+      "sourceMeasure": 52,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 51,
+      "sourceMeasure": 53,
+      "noteCount": 8,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 52,
+      "sourceMeasure": 54,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 53,
+      "sourceMeasure": 55,
+      "noteCount": 8,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 54,
+      "sourceMeasure": 56,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 55,
+      "sourceMeasure": 57,
+      "noteCount": 8,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 56,
+      "sourceMeasure": 58,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 57,
+      "sourceMeasure": 59,
+      "noteCount": 8,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 58,
+      "sourceMeasure": 60,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 59,
+      "sourceMeasure": 61,
+      "noteCount": 8,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 60,
+      "sourceMeasure": 62,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 61,
+      "sourceMeasure": 63,
+      "noteCount": 8,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 62,
+      "sourceMeasure": 64,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 63,
+      "sourceMeasure": 65,
+      "noteCount": 8,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 64,
+      "sourceMeasure": 66,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 65,
+      "sourceMeasure": 67,
+      "noteCount": 8,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 66,
+      "sourceMeasure": 68,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 67,
+      "sourceMeasure": 69,
+      "noteCount": 8,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 68,
+      "sourceMeasure": 70,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 69,
+      "sourceMeasure": 71,
+      "noteCount": 8,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 70,
+      "sourceMeasure": 72,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 71,
+      "sourceMeasure": 73,
+      "noteCount": 8,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 72,
+      "sourceMeasure": 74,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 73,
+      "sourceMeasure": 75,
+      "noteCount": 8,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 74,
+      "sourceMeasure": 76,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 75,
+      "sourceMeasure": 77,
+      "noteCount": 8,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 76,
+      "sourceMeasure": 78,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 77,
+      "sourceMeasure": 79,
+      "noteCount": 8,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 78,
+      "sourceMeasure": 80,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 79,
+      "sourceMeasure": 81,
+      "noteCount": 8,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 80,
+      "sourceMeasure": 82,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 81,
+      "sourceMeasure": 83,
+      "noteCount": 8,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 82,
+      "sourceMeasure": 84,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 83,
+      "sourceMeasure": 85,
+      "noteCount": 0,
+      "durationUnits": 0.0,
+      "durations": []
+    },
+    {
+      "measure": 84,
+      "sourceMeasure": 86,
+      "noteCount": 0,
+      "durationUnits": 0.0,
+      "durations": []
+    },
+    {
+      "measure": 85,
+      "sourceMeasure": 87,
+      "noteCount": 0,
+      "durationUnits": 0.0,
+      "durations": []
+    },
+    {
+      "measure": 86,
+      "sourceMeasure": 88,
+      "noteCount": 8,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 87,
+      "sourceMeasure": 89,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 88,
+      "sourceMeasure": 90,
+      "noteCount": 8,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 89,
+      "sourceMeasure": 91,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 90,
+      "sourceMeasure": 92,
+      "noteCount": 8,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 91,
+      "sourceMeasure": 93,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 92,
+      "sourceMeasure": 94,
+      "noteCount": 8,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 93,
+      "sourceMeasure": 95,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 94,
+      "sourceMeasure": 96,
+      "noteCount": 8,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 95,
+      "sourceMeasure": 97,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 96,
+      "sourceMeasure": 98,
+      "noteCount": 8,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 97,
+      "sourceMeasure": 99,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 98,
+      "sourceMeasure": 100,
+      "noteCount": 8,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 99,
+      "sourceMeasure": 101,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 100,
+      "sourceMeasure": 102,
+      "noteCount": 8,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 101,
+      "sourceMeasure": 103,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 102,
+      "sourceMeasure": 104,
+      "noteCount": 8,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 103,
+      "sourceMeasure": 105,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 104,
+      "sourceMeasure": 106,
+      "noteCount": 8,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 105,
+      "sourceMeasure": 107,
+      "noteCount": 4,
+      "durationUnits": 1.0,
+      "durations": [
+        0.125
+      ]
+    },
+    {
+      "measure": 106,
+      "sourceMeasure": 108,
+      "noteCount": 0,
+      "durationUnits": 0.0,
+      "durations": []
+    },
+    {
+      "measure": 107,
+      "sourceMeasure": 109,
+      "noteCount": 0,
+      "durationUnits": 0.0,
+      "durations": []
+    },
+    {
+      "measure": 108,
+      "sourceMeasure": 110,
+      "noteCount": 0,
+      "durationUnits": 0.0,
+      "durations": []
+    }
+  ],
+  "notes": [
+    {
+      "string": 6,
+      "fret": 0,
+      "position": 0.0,
+      "durationUnits": 0.25,
+      "sourceMeasure": 3,
+      "measure": 1,
+      "positionInMeasure": 0.0,
+      "gpString": 0,
+      "midi": 40,
+      "pickStroke": "down"
+    },
+    {
+      "string": 6,
+      "fret": 3,
+      "position": 0.25,
+      "durationUnits": 0.25,
+      "sourceMeasure": 3,
+      "measure": 1,
+      "positionInMeasure": 0.25,
+      "gpString": 0,
+      "midi": 43,
+      "pickStroke": "up"
+    },
+    {
+      "string": 5,
+      "fret": 0,
+      "position": 0.5,
+      "durationUnits": 0.25,
+      "sourceMeasure": 3,
+      "measure": 1,
+      "positionInMeasure": 0.5,
+      "gpString": 1,
+      "midi": 45,
+      "pickStroke": "down"
+    },
+    {
+      "string": 5,
+      "fret": 2,
+      "position": 0.75,
+      "durationUnits": 0.25,
+      "sourceMeasure": 3,
+      "measure": 1,
+      "positionInMeasure": 0.75,
+      "gpString": 1,
+      "midi": 47,
+      "pickStroke": "up"
+    },
+    {
+      "string": 4,
+      "fret": 0,
+      "position": 1.0,
+      "durationUnits": 0.25,
+      "sourceMeasure": 4,
+      "measure": 2,
+      "positionInMeasure": 0.0,
+      "gpString": 2,
+      "midi": 50,
+      "pickStroke": "down"
+    },
+    {
+      "string": 4,
+      "fret": 2,
+      "position": 1.25,
+      "durationUnits": 0.25,
+      "sourceMeasure": 4,
+      "measure": 2,
+      "positionInMeasure": 0.25,
+      "gpString": 2,
+      "midi": 52,
+      "pickStroke": "up"
+    },
+    {
+      "string": 3,
+      "fret": 0,
+      "position": 1.5,
+      "durationUnits": 0.25,
+      "sourceMeasure": 4,
+      "measure": 2,
+      "positionInMeasure": 0.5,
+      "gpString": 3,
+      "midi": 55,
+      "pickStroke": "down"
+    },
+    {
+      "string": 3,
+      "fret": 2,
+      "position": 1.75,
+      "durationUnits": 0.25,
+      "sourceMeasure": 4,
+      "measure": 2,
+      "positionInMeasure": 0.75,
+      "gpString": 3,
+      "midi": 57,
+      "pickStroke": "up"
+    },
+    {
+      "string": 2,
+      "fret": 0,
+      "position": 2.0,
+      "durationUnits": 0.25,
+      "sourceMeasure": 5,
+      "measure": 3,
+      "positionInMeasure": 0.0,
+      "gpString": 4,
+      "midi": 59,
+      "pickStroke": "down"
+    },
+    {
+      "string": 2,
+      "fret": 3,
+      "position": 2.25,
+      "durationUnits": 0.25,
+      "sourceMeasure": 5,
+      "measure": 3,
+      "positionInMeasure": 0.25,
+      "gpString": 4,
+      "midi": 62,
+      "pickStroke": "up"
+    },
+    {
+      "string": 1,
+      "fret": 0,
+      "position": 2.5,
+      "durationUnits": 0.25,
+      "sourceMeasure": 5,
+      "measure": 3,
+      "positionInMeasure": 0.5,
+      "gpString": 5,
+      "midi": 64,
+      "pickStroke": "down"
+    },
+    {
+      "string": 1,
+      "fret": 3,
+      "position": 2.75,
+      "durationUnits": 0.25,
+      "sourceMeasure": 5,
+      "measure": 3,
+      "positionInMeasure": 0.75,
+      "gpString": 5,
+      "midi": 67,
+      "pickStroke": "up"
+    },
+    {
+      "string": 1,
+      "fret": 3,
+      "position": 4.0,
+      "durationUnits": 0.25,
+      "sourceMeasure": 7,
+      "measure": 5,
+      "positionInMeasure": 0.0,
+      "gpString": 5,
+      "midi": 67,
+      "pickStroke": "down"
+    },
+    {
+      "string": 1,
+      "fret": 0,
+      "position": 4.25,
+      "durationUnits": 0.25,
+      "sourceMeasure": 7,
+      "measure": 5,
+      "positionInMeasure": 0.25,
+      "gpString": 5,
+      "midi": 64,
+      "pickStroke": "up"
+    },
+    {
+      "string": 2,
+      "fret": 3,
+      "position": 4.5,
+      "durationUnits": 0.25,
+      "sourceMeasure": 7,
+      "measure": 5,
+      "positionInMeasure": 0.5,
+      "gpString": 4,
+      "midi": 62,
+      "pickStroke": "down"
+    },
+    {
+      "string": 2,
+      "fret": 0,
+      "position": 4.75,
+      "durationUnits": 0.25,
+      "sourceMeasure": 7,
+      "measure": 5,
+      "positionInMeasure": 0.75,
+      "gpString": 4,
+      "midi": 59,
+      "pickStroke": "up"
+    },
+    {
+      "string": 3,
+      "fret": 2,
+      "position": 5.0,
+      "durationUnits": 0.25,
+      "sourceMeasure": 8,
+      "measure": 6,
+      "positionInMeasure": 0.0,
+      "gpString": 3,
+      "midi": 57,
+      "pickStroke": "down"
+    },
+    {
+      "string": 3,
+      "fret": 0,
+      "position": 5.25,
+      "durationUnits": 0.25,
+      "sourceMeasure": 8,
+      "measure": 6,
+      "positionInMeasure": 0.25,
+      "gpString": 3,
+      "midi": 55,
+      "pickStroke": "up"
+    },
+    {
+      "string": 4,
+      "fret": 2,
+      "position": 5.5,
+      "durationUnits": 0.25,
+      "sourceMeasure": 8,
+      "measure": 6,
+      "positionInMeasure": 0.5,
+      "gpString": 2,
+      "midi": 52,
+      "pickStroke": "down"
+    },
+    {
+      "string": 4,
+      "fret": 0,
+      "position": 5.75,
+      "durationUnits": 0.25,
+      "sourceMeasure": 8,
+      "measure": 6,
+      "positionInMeasure": 0.75,
+      "gpString": 2,
+      "midi": 50,
+      "pickStroke": "up"
+    },
+    {
+      "string": 5,
+      "fret": 2,
+      "position": 6.0,
+      "durationUnits": 0.25,
+      "sourceMeasure": 9,
+      "measure": 7,
+      "positionInMeasure": 0.0,
+      "gpString": 1,
+      "midi": 47,
+      "pickStroke": "down"
+    },
+    {
+      "string": 5,
+      "fret": 0,
+      "position": 6.25,
+      "durationUnits": 0.25,
+      "sourceMeasure": 9,
+      "measure": 7,
+      "positionInMeasure": 0.25,
+      "gpString": 1,
+      "midi": 45,
+      "pickStroke": "up"
+    },
+    {
+      "string": 6,
+      "fret": 3,
+      "position": 6.5,
+      "durationUnits": 0.25,
+      "sourceMeasure": 9,
+      "measure": 7,
+      "positionInMeasure": 0.5,
+      "gpString": 0,
+      "midi": 43,
+      "pickStroke": "down"
+    },
+    {
+      "string": 6,
+      "fret": 0,
+      "position": 6.75,
+      "durationUnits": 0.25,
+      "sourceMeasure": 9,
+      "measure": 7,
+      "positionInMeasure": 0.75,
+      "gpString": 0,
+      "midi": 40,
+      "pickStroke": "up"
+    },
+    {
+      "string": 6,
+      "fret": 3,
+      "position": 8.0,
+      "durationUnits": 0.25,
+      "sourceMeasure": 11,
+      "measure": 9,
+      "positionInMeasure": 0.0,
+      "gpString": 0,
+      "midi": 43,
+      "pickStroke": "down"
+    },
+    {
+      "string": 6,
+      "fret": 5,
+      "position": 8.25,
+      "durationUnits": 0.25,
+      "sourceMeasure": 11,
+      "measure": 9,
+      "positionInMeasure": 0.25,
+      "gpString": 0,
+      "midi": 45,
+      "pickStroke": "up"
+    },
+    {
+      "string": 5,
+      "fret": 2,
+      "position": 8.5,
+      "durationUnits": 0.25,
+      "sourceMeasure": 11,
+      "measure": 9,
+      "positionInMeasure": 0.5,
+      "gpString": 1,
+      "midi": 47,
+      "pickStroke": "down"
+    },
+    {
+      "string": 5,
+      "fret": 5,
+      "position": 8.75,
+      "durationUnits": 0.25,
+      "sourceMeasure": 11,
+      "measure": 9,
+      "positionInMeasure": 0.75,
+      "gpString": 1,
+      "midi": 50,
+      "pickStroke": "up"
+    },
+    {
+      "string": 4,
+      "fret": 2,
+      "position": 9.0,
+      "durationUnits": 0.25,
+      "sourceMeasure": 12,
+      "measure": 10,
+      "positionInMeasure": 0.0,
+      "gpString": 2,
+      "midi": 52,
+      "pickStroke": "down"
+    },
+    {
+      "string": 4,
+      "fret": 5,
+      "position": 9.25,
+      "durationUnits": 0.25,
+      "sourceMeasure": 12,
+      "measure": 10,
+      "positionInMeasure": 0.25,
+      "gpString": 2,
+      "midi": 55,
+      "pickStroke": "up"
+    },
+    {
+      "string": 3,
+      "fret": 2,
+      "position": 9.5,
+      "durationUnits": 0.25,
+      "sourceMeasure": 12,
+      "measure": 10,
+      "positionInMeasure": 0.5,
+      "gpString": 3,
+      "midi": 57,
+      "pickStroke": "down"
+    },
+    {
+      "string": 3,
+      "fret": 4,
+      "position": 9.75,
+      "durationUnits": 0.25,
+      "sourceMeasure": 12,
+      "measure": 10,
+      "positionInMeasure": 0.75,
+      "gpString": 3,
+      "midi": 59,
+      "pickStroke": "up"
+    },
+    {
+      "string": 2,
+      "fret": 3,
+      "position": 10.0,
+      "durationUnits": 0.25,
+      "sourceMeasure": 13,
+      "measure": 11,
+      "positionInMeasure": 0.0,
+      "gpString": 4,
+      "midi": 62,
+      "pickStroke": "down"
+    },
+    {
+      "string": 2,
+      "fret": 5,
+      "position": 10.25,
+      "durationUnits": 0.25,
+      "sourceMeasure": 13,
+      "measure": 11,
+      "positionInMeasure": 0.25,
+      "gpString": 4,
+      "midi": 64,
+      "pickStroke": "up"
+    },
+    {
+      "string": 1,
+      "fret": 3,
+      "position": 10.5,
+      "durationUnits": 0.25,
+      "sourceMeasure": 13,
+      "measure": 11,
+      "positionInMeasure": 0.5,
+      "gpString": 5,
+      "midi": 67,
+      "pickStroke": "down"
+    },
+    {
+      "string": 1,
+      "fret": 5,
+      "position": 10.75,
+      "durationUnits": 0.25,
+      "sourceMeasure": 13,
+      "measure": 11,
+      "positionInMeasure": 0.75,
+      "gpString": 5,
+      "midi": 69,
+      "pickStroke": "up"
+    },
+    {
+      "string": 1,
+      "fret": 5,
+      "position": 12.0,
+      "durationUnits": 0.25,
+      "sourceMeasure": 15,
+      "measure": 13,
+      "positionInMeasure": 0.0,
+      "gpString": 5,
+      "midi": 69,
+      "pickStroke": "down"
+    },
+    {
+      "string": 1,
+      "fret": 3,
+      "position": 12.25,
+      "durationUnits": 0.25,
+      "sourceMeasure": 15,
+      "measure": 13,
+      "positionInMeasure": 0.25,
+      "gpString": 5,
+      "midi": 67,
+      "pickStroke": "up"
+    },
+    {
+      "string": 2,
+      "fret": 5,
+      "position": 12.5,
+      "durationUnits": 0.25,
+      "sourceMeasure": 15,
+      "measure": 13,
+      "positionInMeasure": 0.5,
+      "gpString": 4,
+      "midi": 64,
+      "pickStroke": "down"
+    },
+    {
+      "string": 2,
+      "fret": 3,
+      "position": 12.75,
+      "durationUnits": 0.25,
+      "sourceMeasure": 15,
+      "measure": 13,
+      "positionInMeasure": 0.75,
+      "gpString": 4,
+      "midi": 62,
+      "pickStroke": "up"
+    },
+    {
+      "string": 3,
+      "fret": 4,
+      "position": 13.0,
+      "durationUnits": 0.25,
+      "sourceMeasure": 16,
+      "measure": 14,
+      "positionInMeasure": 0.0,
+      "gpString": 3,
+      "midi": 59,
+      "pickStroke": "down"
+    },
+    {
+      "string": 3,
+      "fret": 2,
+      "position": 13.25,
+      "durationUnits": 0.25,
+      "sourceMeasure": 16,
+      "measure": 14,
+      "positionInMeasure": 0.25,
+      "gpString": 3,
+      "midi": 57,
+      "pickStroke": "up"
+    },
+    {
+      "string": 4,
+      "fret": 5,
+      "position": 13.5,
+      "durationUnits": 0.25,
+      "sourceMeasure": 16,
+      "measure": 14,
+      "positionInMeasure": 0.5,
+      "gpString": 2,
+      "midi": 55,
+      "pickStroke": "down"
+    },
+    {
+      "string": 4,
+      "fret": 2,
+      "position": 13.75,
+      "durationUnits": 0.25,
+      "sourceMeasure": 16,
+      "measure": 14,
+      "positionInMeasure": 0.75,
+      "gpString": 2,
+      "midi": 52,
+      "pickStroke": "up"
+    },
+    {
+      "string": 5,
+      "fret": 5,
+      "position": 14.0,
+      "durationUnits": 0.25,
+      "sourceMeasure": 17,
+      "measure": 15,
+      "positionInMeasure": 0.0,
+      "gpString": 1,
+      "midi": 50,
+      "pickStroke": "down"
+    },
+    {
+      "string": 5,
+      "fret": 2,
+      "position": 14.25,
+      "durationUnits": 0.25,
+      "sourceMeasure": 17,
+      "measure": 15,
+      "positionInMeasure": 0.25,
+      "gpString": 1,
+      "midi": 47,
+      "pickStroke": "up"
+    },
+    {
+      "string": 6,
+      "fret": 5,
+      "position": 14.5,
+      "durationUnits": 0.25,
+      "sourceMeasure": 17,
+      "measure": 15,
+      "positionInMeasure": 0.5,
+      "gpString": 0,
+      "midi": 45,
+      "pickStroke": "down"
+    },
+    {
+      "string": 6,
+      "fret": 3,
+      "position": 14.75,
+      "durationUnits": 0.25,
+      "sourceMeasure": 17,
+      "measure": 15,
+      "positionInMeasure": 0.75,
+      "gpString": 0,
+      "midi": 43,
+      "pickStroke": "up"
+    },
+    {
+      "string": 6,
+      "fret": 5,
+      "position": 16.0,
+      "durationUnits": 0.25,
+      "sourceMeasure": 19,
+      "measure": 17,
+      "positionInMeasure": 0.0,
+      "gpString": 0,
+      "midi": 45,
+      "pickStroke": "down"
+    },
+    {
+      "string": 6,
+      "fret": 7,
+      "position": 16.25,
+      "durationUnits": 0.25,
+      "sourceMeasure": 19,
+      "measure": 17,
+      "positionInMeasure": 0.25,
+      "gpString": 0,
+      "midi": 47,
+      "pickStroke": "up"
+    },
+    {
+      "string": 5,
+      "fret": 5,
+      "position": 16.5,
+      "durationUnits": 0.25,
+      "sourceMeasure": 19,
+      "measure": 17,
+      "positionInMeasure": 0.5,
+      "gpString": 1,
+      "midi": 50,
+      "pickStroke": "down"
+    },
+    {
+      "string": 5,
+      "fret": 7,
+      "position": 16.75,
+      "durationUnits": 0.25,
+      "sourceMeasure": 19,
+      "measure": 17,
+      "positionInMeasure": 0.75,
+      "gpString": 1,
+      "midi": 52,
+      "pickStroke": "up"
+    },
+    {
+      "string": 4,
+      "fret": 5,
+      "position": 17.0,
+      "durationUnits": 0.25,
+      "sourceMeasure": 20,
+      "measure": 18,
+      "positionInMeasure": 0.0,
+      "gpString": 2,
+      "midi": 55,
+      "pickStroke": "down"
+    },
+    {
+      "string": 4,
+      "fret": 7,
+      "position": 17.25,
+      "durationUnits": 0.25,
+      "sourceMeasure": 20,
+      "measure": 18,
+      "positionInMeasure": 0.25,
+      "gpString": 2,
+      "midi": 57,
+      "pickStroke": "up"
+    },
+    {
+      "string": 3,
+      "fret": 4,
+      "position": 17.5,
+      "durationUnits": 0.25,
+      "sourceMeasure": 20,
+      "measure": 18,
+      "positionInMeasure": 0.5,
+      "gpString": 3,
+      "midi": 59,
+      "pickStroke": "down"
+    },
+    {
+      "string": 3,
+      "fret": 7,
+      "position": 17.75,
+      "durationUnits": 0.25,
+      "sourceMeasure": 20,
+      "measure": 18,
+      "positionInMeasure": 0.75,
+      "gpString": 3,
+      "midi": 62,
+      "pickStroke": "up"
+    },
+    {
+      "string": 2,
+      "fret": 5,
+      "position": 18.0,
+      "durationUnits": 0.25,
+      "sourceMeasure": 21,
+      "measure": 19,
+      "positionInMeasure": 0.0,
+      "gpString": 4,
+      "midi": 64,
+      "pickStroke": "down"
+    },
+    {
+      "string": 2,
+      "fret": 8,
+      "position": 18.25,
+      "durationUnits": 0.25,
+      "sourceMeasure": 21,
+      "measure": 19,
+      "positionInMeasure": 0.25,
+      "gpString": 4,
+      "midi": 67,
+      "pickStroke": "up"
+    },
+    {
+      "string": 1,
+      "fret": 5,
+      "position": 18.5,
+      "durationUnits": 0.25,
+      "sourceMeasure": 21,
+      "measure": 19,
+      "positionInMeasure": 0.5,
+      "gpString": 5,
+      "midi": 69,
+      "pickStroke": "down"
+    },
+    {
+      "string": 1,
+      "fret": 7,
+      "position": 18.75,
+      "durationUnits": 0.25,
+      "sourceMeasure": 21,
+      "measure": 19,
+      "positionInMeasure": 0.75,
+      "gpString": 5,
+      "midi": 71,
+      "pickStroke": "up"
+    },
+    {
+      "string": 1,
+      "fret": 7,
+      "position": 20.0,
+      "durationUnits": 0.25,
+      "sourceMeasure": 23,
+      "measure": 21,
+      "positionInMeasure": 0.0,
+      "gpString": 5,
+      "midi": 71,
+      "pickStroke": "down"
+    },
+    {
+      "string": 1,
+      "fret": 5,
+      "position": 20.25,
+      "durationUnits": 0.25,
+      "sourceMeasure": 23,
+      "measure": 21,
+      "positionInMeasure": 0.25,
+      "gpString": 5,
+      "midi": 69,
+      "pickStroke": "up"
+    },
+    {
+      "string": 2,
+      "fret": 8,
+      "position": 20.5,
+      "durationUnits": 0.25,
+      "sourceMeasure": 23,
+      "measure": 21,
+      "positionInMeasure": 0.5,
+      "gpString": 4,
+      "midi": 67,
+      "pickStroke": "down"
+    },
+    {
+      "string": 2,
+      "fret": 5,
+      "position": 20.75,
+      "durationUnits": 0.25,
+      "sourceMeasure": 23,
+      "measure": 21,
+      "positionInMeasure": 0.75,
+      "gpString": 4,
+      "midi": 64,
+      "pickStroke": "up"
+    },
+    {
+      "string": 3,
+      "fret": 7,
+      "position": 21.0,
+      "durationUnits": 0.25,
+      "sourceMeasure": 24,
+      "measure": 22,
+      "positionInMeasure": 0.0,
+      "gpString": 3,
+      "midi": 62,
+      "pickStroke": "down"
+    },
+    {
+      "string": 3,
+      "fret": 4,
+      "position": 21.25,
+      "durationUnits": 0.25,
+      "sourceMeasure": 24,
+      "measure": 22,
+      "positionInMeasure": 0.25,
+      "gpString": 3,
+      "midi": 59,
+      "pickStroke": "up"
+    },
+    {
+      "string": 4,
+      "fret": 7,
+      "position": 21.5,
+      "durationUnits": 0.25,
+      "sourceMeasure": 24,
+      "measure": 22,
+      "positionInMeasure": 0.5,
+      "gpString": 2,
+      "midi": 57,
+      "pickStroke": "down"
+    },
+    {
+      "string": 4,
+      "fret": 5,
+      "position": 21.75,
+      "durationUnits": 0.25,
+      "sourceMeasure": 24,
+      "measure": 22,
+      "positionInMeasure": 0.75,
+      "gpString": 2,
+      "midi": 55,
+      "pickStroke": "up"
+    },
+    {
+      "string": 5,
+      "fret": 7,
+      "position": 22.0,
+      "durationUnits": 0.25,
+      "sourceMeasure": 25,
+      "measure": 23,
+      "positionInMeasure": 0.0,
+      "gpString": 1,
+      "midi": 52,
+      "pickStroke": "down"
+    },
+    {
+      "string": 5,
+      "fret": 5,
+      "position": 22.25,
+      "durationUnits": 0.25,
+      "sourceMeasure": 25,
+      "measure": 23,
+      "positionInMeasure": 0.25,
+      "gpString": 1,
+      "midi": 50,
+      "pickStroke": "up"
+    },
+    {
+      "string": 6,
+      "fret": 7,
+      "position": 22.5,
+      "durationUnits": 0.25,
+      "sourceMeasure": 25,
+      "measure": 23,
+      "positionInMeasure": 0.5,
+      "gpString": 0,
+      "midi": 47,
+      "pickStroke": "down"
+    },
+    {
+      "string": 6,
+      "fret": 5,
+      "position": 22.75,
+      "durationUnits": 0.25,
+      "sourceMeasure": 25,
+      "measure": 23,
+      "positionInMeasure": 0.75,
+      "gpString": 0,
+      "midi": 45,
+      "pickStroke": "up"
+    },
+    {
+      "string": 6,
+      "fret": 7,
+      "position": 24.0,
+      "durationUnits": 0.25,
+      "sourceMeasure": 27,
+      "measure": 25,
+      "positionInMeasure": 0.0,
+      "gpString": 0,
+      "midi": 47,
+      "pickStroke": "down"
+    },
+    {
+      "string": 6,
+      "fret": 10,
+      "position": 24.25,
+      "durationUnits": 0.25,
+      "sourceMeasure": 27,
+      "measure": 25,
+      "positionInMeasure": 0.25,
+      "gpString": 0,
+      "midi": 50,
+      "pickStroke": "up"
+    },
+    {
+      "string": 5,
+      "fret": 7,
+      "position": 24.5,
+      "durationUnits": 0.25,
+      "sourceMeasure": 27,
+      "measure": 25,
+      "positionInMeasure": 0.5,
+      "gpString": 1,
+      "midi": 52,
+      "pickStroke": "down"
+    },
+    {
+      "string": 5,
+      "fret": 10,
+      "position": 24.75,
+      "durationUnits": 0.25,
+      "sourceMeasure": 27,
+      "measure": 25,
+      "positionInMeasure": 0.75,
+      "gpString": 1,
+      "midi": 55,
+      "pickStroke": "up"
+    },
+    {
+      "string": 4,
+      "fret": 7,
+      "position": 25.0,
+      "durationUnits": 0.25,
+      "sourceMeasure": 28,
+      "measure": 26,
+      "positionInMeasure": 0.0,
+      "gpString": 2,
+      "midi": 57,
+      "pickStroke": "down"
+    },
+    {
+      "string": 4,
+      "fret": 9,
+      "position": 25.25,
+      "durationUnits": 0.25,
+      "sourceMeasure": 28,
+      "measure": 26,
+      "positionInMeasure": 0.25,
+      "gpString": 2,
+      "midi": 59,
+      "pickStroke": "up"
+    },
+    {
+      "string": 3,
+      "fret": 7,
+      "position": 25.5,
+      "durationUnits": 0.25,
+      "sourceMeasure": 28,
+      "measure": 26,
+      "positionInMeasure": 0.5,
+      "gpString": 3,
+      "midi": 62,
+      "pickStroke": "down"
+    },
+    {
+      "string": 3,
+      "fret": 9,
+      "position": 25.75,
+      "durationUnits": 0.25,
+      "sourceMeasure": 28,
+      "measure": 26,
+      "positionInMeasure": 0.75,
+      "gpString": 3,
+      "midi": 64,
+      "pickStroke": "up"
+    },
+    {
+      "string": 2,
+      "fret": 8,
+      "position": 26.0,
+      "durationUnits": 0.25,
+      "sourceMeasure": 29,
+      "measure": 27,
+      "positionInMeasure": 0.0,
+      "gpString": 4,
+      "midi": 67,
+      "pickStroke": "down"
+    },
+    {
+      "string": 2,
+      "fret": 10,
+      "position": 26.25,
+      "durationUnits": 0.25,
+      "sourceMeasure": 29,
+      "measure": 27,
+      "positionInMeasure": 0.25,
+      "gpString": 4,
+      "midi": 69,
+      "pickStroke": "up"
+    },
+    {
+      "string": 1,
+      "fret": 7,
+      "position": 26.5,
+      "durationUnits": 0.25,
+      "sourceMeasure": 29,
+      "measure": 27,
+      "positionInMeasure": 0.5,
+      "gpString": 5,
+      "midi": 71,
+      "pickStroke": "down"
+    },
+    {
+      "string": 1,
+      "fret": 10,
+      "position": 26.75,
+      "durationUnits": 0.25,
+      "sourceMeasure": 29,
+      "measure": 27,
+      "positionInMeasure": 0.75,
+      "gpString": 5,
+      "midi": 74,
+      "pickStroke": "up"
+    },
+    {
+      "string": 1,
+      "fret": 10,
+      "position": 28.0,
+      "durationUnits": 0.25,
+      "sourceMeasure": 31,
+      "measure": 29,
+      "positionInMeasure": 0.0,
+      "gpString": 5,
+      "midi": 74,
+      "pickStroke": "down"
+    },
+    {
+      "string": 1,
+      "fret": 7,
+      "position": 28.25,
+      "durationUnits": 0.25,
+      "sourceMeasure": 31,
+      "measure": 29,
+      "positionInMeasure": 0.25,
+      "gpString": 5,
+      "midi": 71,
+      "pickStroke": "up"
+    },
+    {
+      "string": 2,
+      "fret": 10,
+      "position": 28.5,
+      "durationUnits": 0.25,
+      "sourceMeasure": 31,
+      "measure": 29,
+      "positionInMeasure": 0.5,
+      "gpString": 4,
+      "midi": 69,
+      "pickStroke": "down"
+    },
+    {
+      "string": 2,
+      "fret": 8,
+      "position": 28.75,
+      "durationUnits": 0.25,
+      "sourceMeasure": 31,
+      "measure": 29,
+      "positionInMeasure": 0.75,
+      "gpString": 4,
+      "midi": 67,
+      "pickStroke": "up"
+    },
+    {
+      "string": 3,
+      "fret": 9,
+      "position": 29.0,
+      "durationUnits": 0.25,
+      "sourceMeasure": 32,
+      "measure": 30,
+      "positionInMeasure": 0.0,
+      "gpString": 3,
+      "midi": 64,
+      "pickStroke": "down"
+    },
+    {
+      "string": 3,
+      "fret": 7,
+      "position": 29.25,
+      "durationUnits": 0.25,
+      "sourceMeasure": 32,
+      "measure": 30,
+      "positionInMeasure": 0.25,
+      "gpString": 3,
+      "midi": 62,
+      "pickStroke": "up"
+    },
+    {
+      "string": 4,
+      "fret": 9,
+      "position": 29.5,
+      "durationUnits": 0.25,
+      "sourceMeasure": 32,
+      "measure": 30,
+      "positionInMeasure": 0.5,
+      "gpString": 2,
+      "midi": 59,
+      "pickStroke": "down"
+    },
+    {
+      "string": 4,
+      "fret": 7,
+      "position": 29.75,
+      "durationUnits": 0.25,
+      "sourceMeasure": 32,
+      "measure": 30,
+      "positionInMeasure": 0.75,
+      "gpString": 2,
+      "midi": 57,
+      "pickStroke": "up"
+    },
+    {
+      "string": 5,
+      "fret": 10,
+      "position": 30.0,
+      "durationUnits": 0.25,
+      "sourceMeasure": 33,
+      "measure": 31,
+      "positionInMeasure": 0.0,
+      "gpString": 1,
+      "midi": 55,
+      "pickStroke": "down"
+    },
+    {
+      "string": 5,
+      "fret": 7,
+      "position": 30.25,
+      "durationUnits": 0.25,
+      "sourceMeasure": 33,
+      "measure": 31,
+      "positionInMeasure": 0.25,
+      "gpString": 1,
+      "midi": 52,
+      "pickStroke": "up"
+    },
+    {
+      "string": 6,
+      "fret": 10,
+      "position": 30.5,
+      "durationUnits": 0.25,
+      "sourceMeasure": 33,
+      "measure": 31,
+      "positionInMeasure": 0.5,
+      "gpString": 0,
+      "midi": 50,
+      "pickStroke": "down"
+    },
+    {
+      "string": 6,
+      "fret": 7,
+      "position": 30.75,
+      "durationUnits": 0.25,
+      "sourceMeasure": 33,
+      "measure": 31,
+      "positionInMeasure": 0.75,
+      "gpString": 0,
+      "midi": 47,
+      "pickStroke": "up"
+    },
+    {
+      "string": 6,
+      "fret": 10,
+      "position": 32.0,
+      "durationUnits": 0.25,
+      "sourceMeasure": 35,
+      "measure": 33,
+      "positionInMeasure": 0.0,
+      "gpString": 0,
+      "midi": 50,
+      "pickStroke": "down"
+    },
+    {
+      "string": 6,
+      "fret": 12,
+      "position": 32.25,
+      "durationUnits": 0.25,
+      "sourceMeasure": 35,
+      "measure": 33,
+      "positionInMeasure": 0.25,
+      "gpString": 0,
+      "midi": 52,
+      "pickStroke": "up"
+    },
+    {
+      "string": 5,
+      "fret": 10,
+      "position": 32.5,
+      "durationUnits": 0.25,
+      "sourceMeasure": 35,
+      "measure": 33,
+      "positionInMeasure": 0.5,
+      "gpString": 1,
+      "midi": 55,
+      "pickStroke": "down"
+    },
+    {
+      "string": 5,
+      "fret": 12,
+      "position": 32.75,
+      "durationUnits": 0.25,
+      "sourceMeasure": 35,
+      "measure": 33,
+      "positionInMeasure": 0.75,
+      "gpString": 1,
+      "midi": 57,
+      "pickStroke": "up"
+    },
+    {
+      "string": 4,
+      "fret": 9,
+      "position": 33.0,
+      "durationUnits": 0.25,
+      "sourceMeasure": 36,
+      "measure": 34,
+      "positionInMeasure": 0.0,
+      "gpString": 2,
+      "midi": 59,
+      "pickStroke": "down"
+    },
+    {
+      "string": 4,
+      "fret": 12,
+      "position": 33.25,
+      "durationUnits": 0.25,
+      "sourceMeasure": 36,
+      "measure": 34,
+      "positionInMeasure": 0.25,
+      "gpString": 2,
+      "midi": 62,
+      "pickStroke": "up"
+    },
+    {
+      "string": 3,
+      "fret": 9,
+      "position": 33.5,
+      "durationUnits": 0.25,
+      "sourceMeasure": 36,
+      "measure": 34,
+      "positionInMeasure": 0.5,
+      "gpString": 3,
+      "midi": 64,
+      "pickStroke": "down"
+    },
+    {
+      "string": 3,
+      "fret": 12,
+      "position": 33.75,
+      "durationUnits": 0.25,
+      "sourceMeasure": 36,
+      "measure": 34,
+      "positionInMeasure": 0.75,
+      "gpString": 3,
+      "midi": 67,
+      "pickStroke": "up"
+    },
+    {
+      "string": 2,
+      "fret": 10,
+      "position": 34.0,
+      "durationUnits": 0.25,
+      "sourceMeasure": 37,
+      "measure": 35,
+      "positionInMeasure": 0.0,
+      "gpString": 4,
+      "midi": 69,
+      "pickStroke": "down"
+    },
+    {
+      "string": 2,
+      "fret": 12,
+      "position": 34.25,
+      "durationUnits": 0.25,
+      "sourceMeasure": 37,
+      "measure": 35,
+      "positionInMeasure": 0.25,
+      "gpString": 4,
+      "midi": 71,
+      "pickStroke": "up"
+    },
+    {
+      "string": 1,
+      "fret": 10,
+      "position": 34.5,
+      "durationUnits": 0.25,
+      "sourceMeasure": 37,
+      "measure": 35,
+      "positionInMeasure": 0.5,
+      "gpString": 5,
+      "midi": 74,
+      "pickStroke": "down"
+    },
+    {
+      "string": 1,
+      "fret": 12,
+      "position": 34.75,
+      "durationUnits": 0.25,
+      "sourceMeasure": 37,
+      "measure": 35,
+      "positionInMeasure": 0.75,
+      "gpString": 5,
+      "midi": 76,
+      "pickStroke": "up"
+    },
+    {
+      "string": 1,
+      "fret": 12,
+      "position": 36.0,
+      "durationUnits": 0.25,
+      "sourceMeasure": 39,
+      "measure": 37,
+      "positionInMeasure": 0.0,
+      "gpString": 5,
+      "midi": 76,
+      "pickStroke": "down"
+    },
+    {
+      "string": 1,
+      "fret": 10,
+      "position": 36.25,
+      "durationUnits": 0.25,
+      "sourceMeasure": 39,
+      "measure": 37,
+      "positionInMeasure": 0.25,
+      "gpString": 5,
+      "midi": 74,
+      "pickStroke": "up"
+    },
+    {
+      "string": 2,
+      "fret": 12,
+      "position": 36.5,
+      "durationUnits": 0.25,
+      "sourceMeasure": 39,
+      "measure": 37,
+      "positionInMeasure": 0.5,
+      "gpString": 4,
+      "midi": 71,
+      "pickStroke": "down"
+    },
+    {
+      "string": 2,
+      "fret": 10,
+      "position": 36.75,
+      "durationUnits": 0.25,
+      "sourceMeasure": 39,
+      "measure": 37,
+      "positionInMeasure": 0.75,
+      "gpString": 4,
+      "midi": 69,
+      "pickStroke": "up"
+    },
+    {
+      "string": 3,
+      "fret": 12,
+      "position": 37.0,
+      "durationUnits": 0.25,
+      "sourceMeasure": 40,
+      "measure": 38,
+      "positionInMeasure": 0.0,
+      "gpString": 3,
+      "midi": 67,
+      "pickStroke": "down"
+    },
+    {
+      "string": 3,
+      "fret": 9,
+      "position": 37.25,
+      "durationUnits": 0.25,
+      "sourceMeasure": 40,
+      "measure": 38,
+      "positionInMeasure": 0.25,
+      "gpString": 3,
+      "midi": 64,
+      "pickStroke": "up"
+    },
+    {
+      "string": 4,
+      "fret": 12,
+      "position": 37.5,
+      "durationUnits": 0.25,
+      "sourceMeasure": 40,
+      "measure": 38,
+      "positionInMeasure": 0.5,
+      "gpString": 2,
+      "midi": 62,
+      "pickStroke": "down"
+    },
+    {
+      "string": 4,
+      "fret": 9,
+      "position": 37.75,
+      "durationUnits": 0.25,
+      "sourceMeasure": 40,
+      "measure": 38,
+      "positionInMeasure": 0.75,
+      "gpString": 2,
+      "midi": 59,
+      "pickStroke": "up"
+    },
+    {
+      "string": 5,
+      "fret": 12,
+      "position": 38.0,
+      "durationUnits": 0.25,
+      "sourceMeasure": 41,
+      "measure": 39,
+      "positionInMeasure": 0.0,
+      "gpString": 1,
+      "midi": 57,
+      "pickStroke": "down"
+    },
+    {
+      "string": 5,
+      "fret": 10,
+      "position": 38.25,
+      "durationUnits": 0.25,
+      "sourceMeasure": 41,
+      "measure": 39,
+      "positionInMeasure": 0.25,
+      "gpString": 1,
+      "midi": 55,
+      "pickStroke": "up"
+    },
+    {
+      "string": 6,
+      "fret": 12,
+      "position": 38.5,
+      "durationUnits": 0.25,
+      "sourceMeasure": 41,
+      "measure": 39,
+      "positionInMeasure": 0.5,
+      "gpString": 0,
+      "midi": 52,
+      "pickStroke": "down"
+    },
+    {
+      "string": 6,
+      "fret": 10,
+      "position": 38.75,
+      "durationUnits": 0.25,
+      "sourceMeasure": 41,
+      "measure": 39,
+      "positionInMeasure": 0.75,
+      "gpString": 0,
+      "midi": 50,
+      "pickStroke": "up"
+    },
+    {
+      "string": 6,
+      "fret": 0,
+      "position": 42.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 45,
+      "measure": 43,
+      "positionInMeasure": 0.0,
+      "gpString": 0,
+      "midi": 40,
+      "pickStroke": "down"
+    },
+    {
+      "string": 6,
+      "fret": 3,
+      "position": 42.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 45,
+      "measure": 43,
+      "positionInMeasure": 0.125,
+      "gpString": 0,
+      "midi": 43,
+      "pickStroke": "up"
+    },
+    {
+      "string": 5,
+      "fret": 0,
+      "position": 42.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 45,
+      "measure": 43,
+      "positionInMeasure": 0.25,
+      "gpString": 1,
+      "midi": 45,
+      "pickStroke": "down"
+    },
+    {
+      "string": 5,
+      "fret": 2,
+      "position": 42.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 45,
+      "measure": 43,
+      "positionInMeasure": 0.375,
+      "gpString": 1,
+      "midi": 47,
+      "pickStroke": "up"
+    },
+    {
+      "string": 4,
+      "fret": 0,
+      "position": 42.5,
+      "durationUnits": 0.125,
+      "sourceMeasure": 45,
+      "measure": 43,
+      "positionInMeasure": 0.5,
+      "gpString": 2,
+      "midi": 50,
+      "pickStroke": "down"
+    },
+    {
+      "string": 4,
+      "fret": 2,
+      "position": 42.625,
+      "durationUnits": 0.125,
+      "sourceMeasure": 45,
+      "measure": 43,
+      "positionInMeasure": 0.625,
+      "gpString": 2,
+      "midi": 52,
+      "pickStroke": "up"
+    },
+    {
+      "string": 3,
+      "fret": 0,
+      "position": 42.75,
+      "durationUnits": 0.125,
+      "sourceMeasure": 45,
+      "measure": 43,
+      "positionInMeasure": 0.75,
+      "gpString": 3,
+      "midi": 55,
+      "pickStroke": "down"
+    },
+    {
+      "string": 3,
+      "fret": 2,
+      "position": 42.875,
+      "durationUnits": 0.125,
+      "sourceMeasure": 45,
+      "measure": 43,
+      "positionInMeasure": 0.875,
+      "gpString": 3,
+      "midi": 57,
+      "pickStroke": "up"
+    },
+    {
+      "string": 2,
+      "fret": 0,
+      "position": 43.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 46,
+      "measure": 44,
+      "positionInMeasure": 0.0,
+      "gpString": 4,
+      "midi": 59,
+      "pickStroke": "down"
+    },
+    {
+      "string": 2,
+      "fret": 3,
+      "position": 43.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 46,
+      "measure": 44,
+      "positionInMeasure": 0.125,
+      "gpString": 4,
+      "midi": 62,
+      "pickStroke": "up"
+    },
+    {
+      "string": 1,
+      "fret": 0,
+      "position": 43.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 46,
+      "measure": 44,
+      "positionInMeasure": 0.25,
+      "gpString": 5,
+      "midi": 64,
+      "pickStroke": "down"
+    },
+    {
+      "string": 1,
+      "fret": 3,
+      "position": 43.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 46,
+      "measure": 44,
+      "positionInMeasure": 0.375,
+      "gpString": 5,
+      "midi": 67,
+      "pickStroke": "up"
+    },
+    {
+      "string": 1,
+      "fret": 5,
+      "position": 44.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 47,
+      "measure": 45,
+      "positionInMeasure": 0.0,
+      "gpString": 5,
+      "midi": 69,
+      "pickStroke": "down"
+    },
+    {
+      "string": 1,
+      "fret": 3,
+      "position": 44.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 47,
+      "measure": 45,
+      "positionInMeasure": 0.125,
+      "gpString": 5,
+      "midi": 67,
+      "pickStroke": "up"
+    },
+    {
+      "string": 2,
+      "fret": 5,
+      "position": 44.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 47,
+      "measure": 45,
+      "positionInMeasure": 0.25,
+      "gpString": 4,
+      "midi": 64,
+      "pickStroke": "down"
+    },
+    {
+      "string": 2,
+      "fret": 3,
+      "position": 44.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 47,
+      "measure": 45,
+      "positionInMeasure": 0.375,
+      "gpString": 4,
+      "midi": 62,
+      "pickStroke": "up"
+    },
+    {
+      "string": 3,
+      "fret": 4,
+      "position": 44.5,
+      "durationUnits": 0.125,
+      "sourceMeasure": 47,
+      "measure": 45,
+      "positionInMeasure": 0.5,
+      "gpString": 3,
+      "midi": 59,
+      "pickStroke": "down"
+    },
+    {
+      "string": 3,
+      "fret": 2,
+      "position": 44.625,
+      "durationUnits": 0.125,
+      "sourceMeasure": 47,
+      "measure": 45,
+      "positionInMeasure": 0.625,
+      "gpString": 3,
+      "midi": 57,
+      "pickStroke": "up"
+    },
+    {
+      "string": 4,
+      "fret": 5,
+      "position": 44.75,
+      "durationUnits": 0.125,
+      "sourceMeasure": 47,
+      "measure": 45,
+      "positionInMeasure": 0.75,
+      "gpString": 2,
+      "midi": 55,
+      "pickStroke": "down"
+    },
+    {
+      "string": 4,
+      "fret": 2,
+      "position": 44.875,
+      "durationUnits": 0.125,
+      "sourceMeasure": 47,
+      "measure": 45,
+      "positionInMeasure": 0.875,
+      "gpString": 2,
+      "midi": 52,
+      "pickStroke": "up"
+    },
+    {
+      "string": 5,
+      "fret": 5,
+      "position": 45.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 48,
+      "measure": 46,
+      "positionInMeasure": 0.0,
+      "gpString": 1,
+      "midi": 50,
+      "pickStroke": "down"
+    },
+    {
+      "string": 5,
+      "fret": 2,
+      "position": 45.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 48,
+      "measure": 46,
+      "positionInMeasure": 0.125,
+      "gpString": 1,
+      "midi": 47,
+      "pickStroke": "up"
+    },
+    {
+      "string": 6,
+      "fret": 5,
+      "position": 45.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 48,
+      "measure": 46,
+      "positionInMeasure": 0.25,
+      "gpString": 0,
+      "midi": 45,
+      "pickStroke": "down"
+    },
+    {
+      "string": 6,
+      "fret": 3,
+      "position": 45.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 48,
+      "measure": 46,
+      "positionInMeasure": 0.375,
+      "gpString": 0,
+      "midi": 43,
+      "pickStroke": "up"
+    },
+    {
+      "string": 6,
+      "fret": 3,
+      "position": 46.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 49,
+      "measure": 47,
+      "positionInMeasure": 0.0,
+      "gpString": 0,
+      "midi": 43,
+      "pickStroke": "down"
+    },
+    {
+      "string": 6,
+      "fret": 5,
+      "position": 46.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 49,
+      "measure": 47,
+      "positionInMeasure": 0.125,
+      "gpString": 0,
+      "midi": 45,
+      "pickStroke": "up"
+    },
+    {
+      "string": 5,
+      "fret": 2,
+      "position": 46.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 49,
+      "measure": 47,
+      "positionInMeasure": 0.25,
+      "gpString": 1,
+      "midi": 47,
+      "pickStroke": "down"
+    },
+    {
+      "string": 5,
+      "fret": 5,
+      "position": 46.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 49,
+      "measure": 47,
+      "positionInMeasure": 0.375,
+      "gpString": 1,
+      "midi": 50,
+      "pickStroke": "up"
+    },
+    {
+      "string": 4,
+      "fret": 2,
+      "position": 46.5,
+      "durationUnits": 0.125,
+      "sourceMeasure": 49,
+      "measure": 47,
+      "positionInMeasure": 0.5,
+      "gpString": 2,
+      "midi": 52,
+      "pickStroke": "down"
+    },
+    {
+      "string": 4,
+      "fret": 5,
+      "position": 46.625,
+      "durationUnits": 0.125,
+      "sourceMeasure": 49,
+      "measure": 47,
+      "positionInMeasure": 0.625,
+      "gpString": 2,
+      "midi": 55,
+      "pickStroke": "up"
+    },
+    {
+      "string": 3,
+      "fret": 2,
+      "position": 46.75,
+      "durationUnits": 0.125,
+      "sourceMeasure": 49,
+      "measure": 47,
+      "positionInMeasure": 0.75,
+      "gpString": 3,
+      "midi": 57,
+      "pickStroke": "down"
+    },
+    {
+      "string": 3,
+      "fret": 4,
+      "position": 46.875,
+      "durationUnits": 0.125,
+      "sourceMeasure": 49,
+      "measure": 47,
+      "positionInMeasure": 0.875,
+      "gpString": 3,
+      "midi": 59,
+      "pickStroke": "up"
+    },
+    {
+      "string": 2,
+      "fret": 3,
+      "position": 47.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 50,
+      "measure": 48,
+      "positionInMeasure": 0.0,
+      "gpString": 4,
+      "midi": 62,
+      "pickStroke": "down"
+    },
+    {
+      "string": 2,
+      "fret": 5,
+      "position": 47.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 50,
+      "measure": 48,
+      "positionInMeasure": 0.125,
+      "gpString": 4,
+      "midi": 64,
+      "pickStroke": "up"
+    },
+    {
+      "string": 1,
+      "fret": 3,
+      "position": 47.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 50,
+      "measure": 48,
+      "positionInMeasure": 0.25,
+      "gpString": 5,
+      "midi": 67,
+      "pickStroke": "down"
+    },
+    {
+      "string": 1,
+      "fret": 5,
+      "position": 47.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 50,
+      "measure": 48,
+      "positionInMeasure": 0.375,
+      "gpString": 5,
+      "midi": 69,
+      "pickStroke": "up"
+    },
+    {
+      "string": 1,
+      "fret": 3,
+      "position": 48.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 51,
+      "measure": 49,
+      "positionInMeasure": 0.0,
+      "gpString": 5,
+      "midi": 67,
+      "pickStroke": "down"
+    },
+    {
+      "string": 1,
+      "fret": 0,
+      "position": 48.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 51,
+      "measure": 49,
+      "positionInMeasure": 0.125,
+      "gpString": 5,
+      "midi": 64,
+      "pickStroke": "up"
+    },
+    {
+      "string": 2,
+      "fret": 3,
+      "position": 48.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 51,
+      "measure": 49,
+      "positionInMeasure": 0.25,
+      "gpString": 4,
+      "midi": 62,
+      "pickStroke": "down"
+    },
+    {
+      "string": 2,
+      "fret": 0,
+      "position": 48.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 51,
+      "measure": 49,
+      "positionInMeasure": 0.375,
+      "gpString": 4,
+      "midi": 59,
+      "pickStroke": "up"
+    },
+    {
+      "string": 3,
+      "fret": 2,
+      "position": 48.5,
+      "durationUnits": 0.125,
+      "sourceMeasure": 51,
+      "measure": 49,
+      "positionInMeasure": 0.5,
+      "gpString": 3,
+      "midi": 57,
+      "pickStroke": "down"
+    },
+    {
+      "string": 3,
+      "fret": 0,
+      "position": 48.625,
+      "durationUnits": 0.125,
+      "sourceMeasure": 51,
+      "measure": 49,
+      "positionInMeasure": 0.625,
+      "gpString": 3,
+      "midi": 55,
+      "pickStroke": "up"
+    },
+    {
+      "string": 4,
+      "fret": 2,
+      "position": 48.75,
+      "durationUnits": 0.125,
+      "sourceMeasure": 51,
+      "measure": 49,
+      "positionInMeasure": 0.75,
+      "gpString": 2,
+      "midi": 52,
+      "pickStroke": "down"
+    },
+    {
+      "string": 4,
+      "fret": 0,
+      "position": 48.875,
+      "durationUnits": 0.125,
+      "sourceMeasure": 51,
+      "measure": 49,
+      "positionInMeasure": 0.875,
+      "gpString": 2,
+      "midi": 50,
+      "pickStroke": "up"
+    },
+    {
+      "string": 5,
+      "fret": 2,
+      "position": 49.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 52,
+      "measure": 50,
+      "positionInMeasure": 0.0,
+      "gpString": 1,
+      "midi": 47,
+      "pickStroke": "down"
+    },
+    {
+      "string": 5,
+      "fret": 0,
+      "position": 49.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 52,
+      "measure": 50,
+      "positionInMeasure": 0.125,
+      "gpString": 1,
+      "midi": 45,
+      "pickStroke": "up"
+    },
+    {
+      "string": 6,
+      "fret": 3,
+      "position": 49.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 52,
+      "measure": 50,
+      "positionInMeasure": 0.25,
+      "gpString": 0,
+      "midi": 43,
+      "pickStroke": "down"
+    },
+    {
+      "string": 6,
+      "fret": 0,
+      "position": 49.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 52,
+      "measure": 50,
+      "positionInMeasure": 0.375,
+      "gpString": 0,
+      "midi": 40,
+      "pickStroke": "up"
+    },
+    {
+      "string": 6,
+      "fret": 3,
+      "position": 50.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 53,
+      "measure": 51,
+      "positionInMeasure": 0.0,
+      "gpString": 0,
+      "midi": 43,
+      "pickStroke": "down"
+    },
+    {
+      "string": 6,
+      "fret": 5,
+      "position": 50.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 53,
+      "measure": 51,
+      "positionInMeasure": 0.125,
+      "gpString": 0,
+      "midi": 45,
+      "pickStroke": "up"
+    },
+    {
+      "string": 5,
+      "fret": 2,
+      "position": 50.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 53,
+      "measure": 51,
+      "positionInMeasure": 0.25,
+      "gpString": 1,
+      "midi": 47,
+      "pickStroke": "down"
+    },
+    {
+      "string": 5,
+      "fret": 5,
+      "position": 50.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 53,
+      "measure": 51,
+      "positionInMeasure": 0.375,
+      "gpString": 1,
+      "midi": 50,
+      "pickStroke": "up"
+    },
+    {
+      "string": 4,
+      "fret": 2,
+      "position": 50.5,
+      "durationUnits": 0.125,
+      "sourceMeasure": 53,
+      "measure": 51,
+      "positionInMeasure": 0.5,
+      "gpString": 2,
+      "midi": 52,
+      "pickStroke": "down"
+    },
+    {
+      "string": 4,
+      "fret": 5,
+      "position": 50.625,
+      "durationUnits": 0.125,
+      "sourceMeasure": 53,
+      "measure": 51,
+      "positionInMeasure": 0.625,
+      "gpString": 2,
+      "midi": 55,
+      "pickStroke": "up"
+    },
+    {
+      "string": 3,
+      "fret": 2,
+      "position": 50.75,
+      "durationUnits": 0.125,
+      "sourceMeasure": 53,
+      "measure": 51,
+      "positionInMeasure": 0.75,
+      "gpString": 3,
+      "midi": 57,
+      "pickStroke": "down"
+    },
+    {
+      "string": 3,
+      "fret": 4,
+      "position": 50.875,
+      "durationUnits": 0.125,
+      "sourceMeasure": 53,
+      "measure": 51,
+      "positionInMeasure": 0.875,
+      "gpString": 3,
+      "midi": 59,
+      "pickStroke": "up"
+    },
+    {
+      "string": 2,
+      "fret": 3,
+      "position": 51.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 54,
+      "measure": 52,
+      "positionInMeasure": 0.0,
+      "gpString": 4,
+      "midi": 62,
+      "pickStroke": "down"
+    },
+    {
+      "string": 2,
+      "fret": 5,
+      "position": 51.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 54,
+      "measure": 52,
+      "positionInMeasure": 0.125,
+      "gpString": 4,
+      "midi": 64,
+      "pickStroke": "up"
+    },
+    {
+      "string": 1,
+      "fret": 3,
+      "position": 51.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 54,
+      "measure": 52,
+      "positionInMeasure": 0.25,
+      "gpString": 5,
+      "midi": 67,
+      "pickStroke": "down"
+    },
+    {
+      "string": 1,
+      "fret": 5,
+      "position": 51.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 54,
+      "measure": 52,
+      "positionInMeasure": 0.375,
+      "gpString": 5,
+      "midi": 69,
+      "pickStroke": "up"
+    },
+    {
+      "string": 1,
+      "fret": 7,
+      "position": 52.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 55,
+      "measure": 53,
+      "positionInMeasure": 0.0,
+      "gpString": 5,
+      "midi": 71,
+      "pickStroke": "down"
+    },
+    {
+      "string": 1,
+      "fret": 5,
+      "position": 52.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 55,
+      "measure": 53,
+      "positionInMeasure": 0.125,
+      "gpString": 5,
+      "midi": 69,
+      "pickStroke": "up"
+    },
+    {
+      "string": 2,
+      "fret": 8,
+      "position": 52.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 55,
+      "measure": 53,
+      "positionInMeasure": 0.25,
+      "gpString": 4,
+      "midi": 67,
+      "pickStroke": "down"
+    },
+    {
+      "string": 2,
+      "fret": 5,
+      "position": 52.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 55,
+      "measure": 53,
+      "positionInMeasure": 0.375,
+      "gpString": 4,
+      "midi": 64,
+      "pickStroke": "up"
+    },
+    {
+      "string": 3,
+      "fret": 7,
+      "position": 52.5,
+      "durationUnits": 0.125,
+      "sourceMeasure": 55,
+      "measure": 53,
+      "positionInMeasure": 0.5,
+      "gpString": 3,
+      "midi": 62,
+      "pickStroke": "down"
+    },
+    {
+      "string": 3,
+      "fret": 4,
+      "position": 52.625,
+      "durationUnits": 0.125,
+      "sourceMeasure": 55,
+      "measure": 53,
+      "positionInMeasure": 0.625,
+      "gpString": 3,
+      "midi": 59,
+      "pickStroke": "up"
+    },
+    {
+      "string": 4,
+      "fret": 7,
+      "position": 52.75,
+      "durationUnits": 0.125,
+      "sourceMeasure": 55,
+      "measure": 53,
+      "positionInMeasure": 0.75,
+      "gpString": 2,
+      "midi": 57,
+      "pickStroke": "down"
+    },
+    {
+      "string": 4,
+      "fret": 5,
+      "position": 52.875,
+      "durationUnits": 0.125,
+      "sourceMeasure": 55,
+      "measure": 53,
+      "positionInMeasure": 0.875,
+      "gpString": 2,
+      "midi": 55,
+      "pickStroke": "up"
+    },
+    {
+      "string": 5,
+      "fret": 7,
+      "position": 53.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 56,
+      "measure": 54,
+      "positionInMeasure": 0.0,
+      "gpString": 1,
+      "midi": 52,
+      "pickStroke": "down"
+    },
+    {
+      "string": 5,
+      "fret": 5,
+      "position": 53.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 56,
+      "measure": 54,
+      "positionInMeasure": 0.125,
+      "gpString": 1,
+      "midi": 50,
+      "pickStroke": "up"
+    },
+    {
+      "string": 6,
+      "fret": 7,
+      "position": 53.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 56,
+      "measure": 54,
+      "positionInMeasure": 0.25,
+      "gpString": 0,
+      "midi": 47,
+      "pickStroke": "down"
+    },
+    {
+      "string": 6,
+      "fret": 5,
+      "position": 53.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 56,
+      "measure": 54,
+      "positionInMeasure": 0.375,
+      "gpString": 0,
+      "midi": 45,
+      "pickStroke": "up"
+    },
+    {
+      "string": 6,
+      "fret": 5,
+      "position": 54.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 57,
+      "measure": 55,
+      "positionInMeasure": 0.0,
+      "gpString": 0,
+      "midi": 45,
+      "pickStroke": "down"
+    },
+    {
+      "string": 6,
+      "fret": 7,
+      "position": 54.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 57,
+      "measure": 55,
+      "positionInMeasure": 0.125,
+      "gpString": 0,
+      "midi": 47,
+      "pickStroke": "up"
+    },
+    {
+      "string": 5,
+      "fret": 5,
+      "position": 54.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 57,
+      "measure": 55,
+      "positionInMeasure": 0.25,
+      "gpString": 1,
+      "midi": 50,
+      "pickStroke": "down"
+    },
+    {
+      "string": 5,
+      "fret": 7,
+      "position": 54.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 57,
+      "measure": 55,
+      "positionInMeasure": 0.375,
+      "gpString": 1,
+      "midi": 52,
+      "pickStroke": "up"
+    },
+    {
+      "string": 4,
+      "fret": 5,
+      "position": 54.5,
+      "durationUnits": 0.125,
+      "sourceMeasure": 57,
+      "measure": 55,
+      "positionInMeasure": 0.5,
+      "gpString": 2,
+      "midi": 55,
+      "pickStroke": "down"
+    },
+    {
+      "string": 4,
+      "fret": 7,
+      "position": 54.625,
+      "durationUnits": 0.125,
+      "sourceMeasure": 57,
+      "measure": 55,
+      "positionInMeasure": 0.625,
+      "gpString": 2,
+      "midi": 57,
+      "pickStroke": "up"
+    },
+    {
+      "string": 3,
+      "fret": 4,
+      "position": 54.75,
+      "durationUnits": 0.125,
+      "sourceMeasure": 57,
+      "measure": 55,
+      "positionInMeasure": 0.75,
+      "gpString": 3,
+      "midi": 59,
+      "pickStroke": "down"
+    },
+    {
+      "string": 3,
+      "fret": 7,
+      "position": 54.875,
+      "durationUnits": 0.125,
+      "sourceMeasure": 57,
+      "measure": 55,
+      "positionInMeasure": 0.875,
+      "gpString": 3,
+      "midi": 62,
+      "pickStroke": "up"
+    },
+    {
+      "string": 2,
+      "fret": 5,
+      "position": 55.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 58,
+      "measure": 56,
+      "positionInMeasure": 0.0,
+      "gpString": 4,
+      "midi": 64,
+      "pickStroke": "down"
+    },
+    {
+      "string": 2,
+      "fret": 8,
+      "position": 55.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 58,
+      "measure": 56,
+      "positionInMeasure": 0.125,
+      "gpString": 4,
+      "midi": 67,
+      "pickStroke": "up"
+    },
+    {
+      "string": 1,
+      "fret": 5,
+      "position": 55.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 58,
+      "measure": 56,
+      "positionInMeasure": 0.25,
+      "gpString": 5,
+      "midi": 69,
+      "pickStroke": "down"
+    },
+    {
+      "string": 1,
+      "fret": 7,
+      "position": 55.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 58,
+      "measure": 56,
+      "positionInMeasure": 0.375,
+      "gpString": 5,
+      "midi": 71,
+      "pickStroke": "up"
+    },
+    {
+      "string": 1,
+      "fret": 5,
+      "position": 56.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 59,
+      "measure": 57,
+      "positionInMeasure": 0.0,
+      "gpString": 5,
+      "midi": 69,
+      "pickStroke": "down"
+    },
+    {
+      "string": 1,
+      "fret": 3,
+      "position": 56.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 59,
+      "measure": 57,
+      "positionInMeasure": 0.125,
+      "gpString": 5,
+      "midi": 67,
+      "pickStroke": "up"
+    },
+    {
+      "string": 2,
+      "fret": 5,
+      "position": 56.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 59,
+      "measure": 57,
+      "positionInMeasure": 0.25,
+      "gpString": 4,
+      "midi": 64,
+      "pickStroke": "down"
+    },
+    {
+      "string": 2,
+      "fret": 3,
+      "position": 56.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 59,
+      "measure": 57,
+      "positionInMeasure": 0.375,
+      "gpString": 4,
+      "midi": 62,
+      "pickStroke": "up"
+    },
+    {
+      "string": 3,
+      "fret": 4,
+      "position": 56.5,
+      "durationUnits": 0.125,
+      "sourceMeasure": 59,
+      "measure": 57,
+      "positionInMeasure": 0.5,
+      "gpString": 3,
+      "midi": 59,
+      "pickStroke": "down"
+    },
+    {
+      "string": 3,
+      "fret": 2,
+      "position": 56.625,
+      "durationUnits": 0.125,
+      "sourceMeasure": 59,
+      "measure": 57,
+      "positionInMeasure": 0.625,
+      "gpString": 3,
+      "midi": 57,
+      "pickStroke": "up"
+    },
+    {
+      "string": 4,
+      "fret": 5,
+      "position": 56.75,
+      "durationUnits": 0.125,
+      "sourceMeasure": 59,
+      "measure": 57,
+      "positionInMeasure": 0.75,
+      "gpString": 2,
+      "midi": 55,
+      "pickStroke": "down"
+    },
+    {
+      "string": 4,
+      "fret": 2,
+      "position": 56.875,
+      "durationUnits": 0.125,
+      "sourceMeasure": 59,
+      "measure": 57,
+      "positionInMeasure": 0.875,
+      "gpString": 2,
+      "midi": 52,
+      "pickStroke": "up"
+    },
+    {
+      "string": 5,
+      "fret": 5,
+      "position": 57.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 60,
+      "measure": 58,
+      "positionInMeasure": 0.0,
+      "gpString": 1,
+      "midi": 50,
+      "pickStroke": "down"
+    },
+    {
+      "string": 5,
+      "fret": 2,
+      "position": 57.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 60,
+      "measure": 58,
+      "positionInMeasure": 0.125,
+      "gpString": 1,
+      "midi": 47,
+      "pickStroke": "up"
+    },
+    {
+      "string": 6,
+      "fret": 5,
+      "position": 57.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 60,
+      "measure": 58,
+      "positionInMeasure": 0.25,
+      "gpString": 0,
+      "midi": 45,
+      "pickStroke": "down"
+    },
+    {
+      "string": 6,
+      "fret": 3,
+      "position": 57.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 60,
+      "measure": 58,
+      "positionInMeasure": 0.375,
+      "gpString": 0,
+      "midi": 43,
+      "pickStroke": "up"
+    },
+    {
+      "string": 6,
+      "fret": 5,
+      "position": 58.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 61,
+      "measure": 59,
+      "positionInMeasure": 0.0,
+      "gpString": 0,
+      "midi": 45,
+      "pickStroke": "down"
+    },
+    {
+      "string": 6,
+      "fret": 7,
+      "position": 58.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 61,
+      "measure": 59,
+      "positionInMeasure": 0.125,
+      "gpString": 0,
+      "midi": 47,
+      "pickStroke": "up"
+    },
+    {
+      "string": 5,
+      "fret": 5,
+      "position": 58.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 61,
+      "measure": 59,
+      "positionInMeasure": 0.25,
+      "gpString": 1,
+      "midi": 50,
+      "pickStroke": "down"
+    },
+    {
+      "string": 5,
+      "fret": 7,
+      "position": 58.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 61,
+      "measure": 59,
+      "positionInMeasure": 0.375,
+      "gpString": 1,
+      "midi": 52,
+      "pickStroke": "up"
+    },
+    {
+      "string": 4,
+      "fret": 5,
+      "position": 58.5,
+      "durationUnits": 0.125,
+      "sourceMeasure": 61,
+      "measure": 59,
+      "positionInMeasure": 0.5,
+      "gpString": 2,
+      "midi": 55,
+      "pickStroke": "down"
+    },
+    {
+      "string": 4,
+      "fret": 7,
+      "position": 58.625,
+      "durationUnits": 0.125,
+      "sourceMeasure": 61,
+      "measure": 59,
+      "positionInMeasure": 0.625,
+      "gpString": 2,
+      "midi": 57,
+      "pickStroke": "up"
+    },
+    {
+      "string": 3,
+      "fret": 4,
+      "position": 58.75,
+      "durationUnits": 0.125,
+      "sourceMeasure": 61,
+      "measure": 59,
+      "positionInMeasure": 0.75,
+      "gpString": 3,
+      "midi": 59,
+      "pickStroke": "down"
+    },
+    {
+      "string": 3,
+      "fret": 7,
+      "position": 58.875,
+      "durationUnits": 0.125,
+      "sourceMeasure": 61,
+      "measure": 59,
+      "positionInMeasure": 0.875,
+      "gpString": 3,
+      "midi": 62,
+      "pickStroke": "up"
+    },
+    {
+      "string": 2,
+      "fret": 5,
+      "position": 59.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 62,
+      "measure": 60,
+      "positionInMeasure": 0.0,
+      "gpString": 4,
+      "midi": 64,
+      "pickStroke": "down"
+    },
+    {
+      "string": 2,
+      "fret": 8,
+      "position": 59.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 62,
+      "measure": 60,
+      "positionInMeasure": 0.125,
+      "gpString": 4,
+      "midi": 67,
+      "pickStroke": "up"
+    },
+    {
+      "string": 1,
+      "fret": 5,
+      "position": 59.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 62,
+      "measure": 60,
+      "positionInMeasure": 0.25,
+      "gpString": 5,
+      "midi": 69,
+      "pickStroke": "down"
+    },
+    {
+      "string": 1,
+      "fret": 7,
+      "position": 59.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 62,
+      "measure": 60,
+      "positionInMeasure": 0.375,
+      "gpString": 5,
+      "midi": 71,
+      "pickStroke": "up"
+    },
+    {
+      "string": 1,
+      "fret": 10,
+      "position": 60.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 63,
+      "measure": 61,
+      "positionInMeasure": 0.0,
+      "gpString": 5,
+      "midi": 74,
+      "pickStroke": "down"
+    },
+    {
+      "string": 1,
+      "fret": 7,
+      "position": 60.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 63,
+      "measure": 61,
+      "positionInMeasure": 0.125,
+      "gpString": 5,
+      "midi": 71,
+      "pickStroke": "up"
+    },
+    {
+      "string": 2,
+      "fret": 10,
+      "position": 60.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 63,
+      "measure": 61,
+      "positionInMeasure": 0.25,
+      "gpString": 4,
+      "midi": 69,
+      "pickStroke": "down"
+    },
+    {
+      "string": 2,
+      "fret": 8,
+      "position": 60.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 63,
+      "measure": 61,
+      "positionInMeasure": 0.375,
+      "gpString": 4,
+      "midi": 67,
+      "pickStroke": "up"
+    },
+    {
+      "string": 3,
+      "fret": 9,
+      "position": 60.5,
+      "durationUnits": 0.125,
+      "sourceMeasure": 63,
+      "measure": 61,
+      "positionInMeasure": 0.5,
+      "gpString": 3,
+      "midi": 64,
+      "pickStroke": "down"
+    },
+    {
+      "string": 3,
+      "fret": 7,
+      "position": 60.625,
+      "durationUnits": 0.125,
+      "sourceMeasure": 63,
+      "measure": 61,
+      "positionInMeasure": 0.625,
+      "gpString": 3,
+      "midi": 62,
+      "pickStroke": "up"
+    },
+    {
+      "string": 4,
+      "fret": 9,
+      "position": 60.75,
+      "durationUnits": 0.125,
+      "sourceMeasure": 63,
+      "measure": 61,
+      "positionInMeasure": 0.75,
+      "gpString": 2,
+      "midi": 59,
+      "pickStroke": "down"
+    },
+    {
+      "string": 4,
+      "fret": 7,
+      "position": 60.875,
+      "durationUnits": 0.125,
+      "sourceMeasure": 63,
+      "measure": 61,
+      "positionInMeasure": 0.875,
+      "gpString": 2,
+      "midi": 57,
+      "pickStroke": "up"
+    },
+    {
+      "string": 5,
+      "fret": 10,
+      "position": 61.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 64,
+      "measure": 62,
+      "positionInMeasure": 0.0,
+      "gpString": 1,
+      "midi": 55,
+      "pickStroke": "down"
+    },
+    {
+      "string": 5,
+      "fret": 7,
+      "position": 61.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 64,
+      "measure": 62,
+      "positionInMeasure": 0.125,
+      "gpString": 1,
+      "midi": 52,
+      "pickStroke": "up"
+    },
+    {
+      "string": 6,
+      "fret": 10,
+      "position": 61.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 64,
+      "measure": 62,
+      "positionInMeasure": 0.25,
+      "gpString": 0,
+      "midi": 50,
+      "pickStroke": "down"
+    },
+    {
+      "string": 6,
+      "fret": 7,
+      "position": 61.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 64,
+      "measure": 62,
+      "positionInMeasure": 0.375,
+      "gpString": 0,
+      "midi": 47,
+      "pickStroke": "up"
+    },
+    {
+      "string": 6,
+      "fret": 7,
+      "position": 62.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 65,
+      "measure": 63,
+      "positionInMeasure": 0.0,
+      "gpString": 0,
+      "midi": 47,
+      "pickStroke": "down"
+    },
+    {
+      "string": 6,
+      "fret": 10,
+      "position": 62.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 65,
+      "measure": 63,
+      "positionInMeasure": 0.125,
+      "gpString": 0,
+      "midi": 50,
+      "pickStroke": "up"
+    },
+    {
+      "string": 5,
+      "fret": 7,
+      "position": 62.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 65,
+      "measure": 63,
+      "positionInMeasure": 0.25,
+      "gpString": 1,
+      "midi": 52,
+      "pickStroke": "down"
+    },
+    {
+      "string": 5,
+      "fret": 10,
+      "position": 62.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 65,
+      "measure": 63,
+      "positionInMeasure": 0.375,
+      "gpString": 1,
+      "midi": 55,
+      "pickStroke": "up"
+    },
+    {
+      "string": 4,
+      "fret": 7,
+      "position": 62.5,
+      "durationUnits": 0.125,
+      "sourceMeasure": 65,
+      "measure": 63,
+      "positionInMeasure": 0.5,
+      "gpString": 2,
+      "midi": 57,
+      "pickStroke": "down"
+    },
+    {
+      "string": 4,
+      "fret": 9,
+      "position": 62.625,
+      "durationUnits": 0.125,
+      "sourceMeasure": 65,
+      "measure": 63,
+      "positionInMeasure": 0.625,
+      "gpString": 2,
+      "midi": 59,
+      "pickStroke": "up"
+    },
+    {
+      "string": 3,
+      "fret": 7,
+      "position": 62.75,
+      "durationUnits": 0.125,
+      "sourceMeasure": 65,
+      "measure": 63,
+      "positionInMeasure": 0.75,
+      "gpString": 3,
+      "midi": 62,
+      "pickStroke": "down"
+    },
+    {
+      "string": 3,
+      "fret": 9,
+      "position": 62.875,
+      "durationUnits": 0.125,
+      "sourceMeasure": 65,
+      "measure": 63,
+      "positionInMeasure": 0.875,
+      "gpString": 3,
+      "midi": 64,
+      "pickStroke": "up"
+    },
+    {
+      "string": 2,
+      "fret": 8,
+      "position": 63.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 66,
+      "measure": 64,
+      "positionInMeasure": 0.0,
+      "gpString": 4,
+      "midi": 67,
+      "pickStroke": "down"
+    },
+    {
+      "string": 2,
+      "fret": 10,
+      "position": 63.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 66,
+      "measure": 64,
+      "positionInMeasure": 0.125,
+      "gpString": 4,
+      "midi": 69,
+      "pickStroke": "up"
+    },
+    {
+      "string": 1,
+      "fret": 7,
+      "position": 63.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 66,
+      "measure": 64,
+      "positionInMeasure": 0.25,
+      "gpString": 5,
+      "midi": 71,
+      "pickStroke": "down"
+    },
+    {
+      "string": 1,
+      "fret": 10,
+      "position": 63.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 66,
+      "measure": 64,
+      "positionInMeasure": 0.375,
+      "gpString": 5,
+      "midi": 74,
+      "pickStroke": "up"
+    },
+    {
+      "string": 1,
+      "fret": 7,
+      "position": 64.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 67,
+      "measure": 65,
+      "positionInMeasure": 0.0,
+      "gpString": 5,
+      "midi": 71,
+      "pickStroke": "down"
+    },
+    {
+      "string": 1,
+      "fret": 5,
+      "position": 64.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 67,
+      "measure": 65,
+      "positionInMeasure": 0.125,
+      "gpString": 5,
+      "midi": 69,
+      "pickStroke": "up"
+    },
+    {
+      "string": 2,
+      "fret": 8,
+      "position": 64.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 67,
+      "measure": 65,
+      "positionInMeasure": 0.25,
+      "gpString": 4,
+      "midi": 67,
+      "pickStroke": "down"
+    },
+    {
+      "string": 2,
+      "fret": 5,
+      "position": 64.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 67,
+      "measure": 65,
+      "positionInMeasure": 0.375,
+      "gpString": 4,
+      "midi": 64,
+      "pickStroke": "up"
+    },
+    {
+      "string": 3,
+      "fret": 7,
+      "position": 64.5,
+      "durationUnits": 0.125,
+      "sourceMeasure": 67,
+      "measure": 65,
+      "positionInMeasure": 0.5,
+      "gpString": 3,
+      "midi": 62,
+      "pickStroke": "down"
+    },
+    {
+      "string": 3,
+      "fret": 4,
+      "position": 64.625,
+      "durationUnits": 0.125,
+      "sourceMeasure": 67,
+      "measure": 65,
+      "positionInMeasure": 0.625,
+      "gpString": 3,
+      "midi": 59,
+      "pickStroke": "up"
+    },
+    {
+      "string": 4,
+      "fret": 7,
+      "position": 64.75,
+      "durationUnits": 0.125,
+      "sourceMeasure": 67,
+      "measure": 65,
+      "positionInMeasure": 0.75,
+      "gpString": 2,
+      "midi": 57,
+      "pickStroke": "down"
+    },
+    {
+      "string": 4,
+      "fret": 5,
+      "position": 64.875,
+      "durationUnits": 0.125,
+      "sourceMeasure": 67,
+      "measure": 65,
+      "positionInMeasure": 0.875,
+      "gpString": 2,
+      "midi": 55,
+      "pickStroke": "up"
+    },
+    {
+      "string": 5,
+      "fret": 7,
+      "position": 65.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 68,
+      "measure": 66,
+      "positionInMeasure": 0.0,
+      "gpString": 1,
+      "midi": 52,
+      "pickStroke": "down"
+    },
+    {
+      "string": 5,
+      "fret": 5,
+      "position": 65.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 68,
+      "measure": 66,
+      "positionInMeasure": 0.125,
+      "gpString": 1,
+      "midi": 50,
+      "pickStroke": "up"
+    },
+    {
+      "string": 6,
+      "fret": 7,
+      "position": 65.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 68,
+      "measure": 66,
+      "positionInMeasure": 0.25,
+      "gpString": 0,
+      "midi": 47,
+      "pickStroke": "down"
+    },
+    {
+      "string": 6,
+      "fret": 5,
+      "position": 65.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 68,
+      "measure": 66,
+      "positionInMeasure": 0.375,
+      "gpString": 0,
+      "midi": 45,
+      "pickStroke": "up"
+    },
+    {
+      "string": 6,
+      "fret": 7,
+      "position": 66.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 69,
+      "measure": 67,
+      "positionInMeasure": 0.0,
+      "gpString": 0,
+      "midi": 47,
+      "pickStroke": "down"
+    },
+    {
+      "string": 6,
+      "fret": 10,
+      "position": 66.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 69,
+      "measure": 67,
+      "positionInMeasure": 0.125,
+      "gpString": 0,
+      "midi": 50,
+      "pickStroke": "up"
+    },
+    {
+      "string": 5,
+      "fret": 7,
+      "position": 66.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 69,
+      "measure": 67,
+      "positionInMeasure": 0.25,
+      "gpString": 1,
+      "midi": 52,
+      "pickStroke": "down"
+    },
+    {
+      "string": 5,
+      "fret": 10,
+      "position": 66.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 69,
+      "measure": 67,
+      "positionInMeasure": 0.375,
+      "gpString": 1,
+      "midi": 55,
+      "pickStroke": "up"
+    },
+    {
+      "string": 4,
+      "fret": 7,
+      "position": 66.5,
+      "durationUnits": 0.125,
+      "sourceMeasure": 69,
+      "measure": 67,
+      "positionInMeasure": 0.5,
+      "gpString": 2,
+      "midi": 57,
+      "pickStroke": "down"
+    },
+    {
+      "string": 4,
+      "fret": 9,
+      "position": 66.625,
+      "durationUnits": 0.125,
+      "sourceMeasure": 69,
+      "measure": 67,
+      "positionInMeasure": 0.625,
+      "gpString": 2,
+      "midi": 59,
+      "pickStroke": "up"
+    },
+    {
+      "string": 3,
+      "fret": 7,
+      "position": 66.75,
+      "durationUnits": 0.125,
+      "sourceMeasure": 69,
+      "measure": 67,
+      "positionInMeasure": 0.75,
+      "gpString": 3,
+      "midi": 62,
+      "pickStroke": "down"
+    },
+    {
+      "string": 3,
+      "fret": 9,
+      "position": 66.875,
+      "durationUnits": 0.125,
+      "sourceMeasure": 69,
+      "measure": 67,
+      "positionInMeasure": 0.875,
+      "gpString": 3,
+      "midi": 64,
+      "pickStroke": "up"
+    },
+    {
+      "string": 2,
+      "fret": 8,
+      "position": 67.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 70,
+      "measure": 68,
+      "positionInMeasure": 0.0,
+      "gpString": 4,
+      "midi": 67,
+      "pickStroke": "down"
+    },
+    {
+      "string": 2,
+      "fret": 10,
+      "position": 67.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 70,
+      "measure": 68,
+      "positionInMeasure": 0.125,
+      "gpString": 4,
+      "midi": 69,
+      "pickStroke": "up"
+    },
+    {
+      "string": 1,
+      "fret": 7,
+      "position": 67.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 70,
+      "measure": 68,
+      "positionInMeasure": 0.25,
+      "gpString": 5,
+      "midi": 71,
+      "pickStroke": "down"
+    },
+    {
+      "string": 1,
+      "fret": 10,
+      "position": 67.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 70,
+      "measure": 68,
+      "positionInMeasure": 0.375,
+      "gpString": 5,
+      "midi": 74,
+      "pickStroke": "up"
+    },
+    {
+      "string": 1,
+      "fret": 12,
+      "position": 68.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 71,
+      "measure": 69,
+      "positionInMeasure": 0.0,
+      "gpString": 5,
+      "midi": 76,
+      "pickStroke": "down"
+    },
+    {
+      "string": 1,
+      "fret": 10,
+      "position": 68.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 71,
+      "measure": 69,
+      "positionInMeasure": 0.125,
+      "gpString": 5,
+      "midi": 74,
+      "pickStroke": "up"
+    },
+    {
+      "string": 2,
+      "fret": 12,
+      "position": 68.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 71,
+      "measure": 69,
+      "positionInMeasure": 0.25,
+      "gpString": 4,
+      "midi": 71,
+      "pickStroke": "down"
+    },
+    {
+      "string": 2,
+      "fret": 10,
+      "position": 68.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 71,
+      "measure": 69,
+      "positionInMeasure": 0.375,
+      "gpString": 4,
+      "midi": 69,
+      "pickStroke": "up"
+    },
+    {
+      "string": 3,
+      "fret": 12,
+      "position": 68.5,
+      "durationUnits": 0.125,
+      "sourceMeasure": 71,
+      "measure": 69,
+      "positionInMeasure": 0.5,
+      "gpString": 3,
+      "midi": 67,
+      "pickStroke": "down"
+    },
+    {
+      "string": 3,
+      "fret": 9,
+      "position": 68.625,
+      "durationUnits": 0.125,
+      "sourceMeasure": 71,
+      "measure": 69,
+      "positionInMeasure": 0.625,
+      "gpString": 3,
+      "midi": 64,
+      "pickStroke": "up"
+    },
+    {
+      "string": 4,
+      "fret": 12,
+      "position": 68.75,
+      "durationUnits": 0.125,
+      "sourceMeasure": 71,
+      "measure": 69,
+      "positionInMeasure": 0.75,
+      "gpString": 2,
+      "midi": 62,
+      "pickStroke": "down"
+    },
+    {
+      "string": 4,
+      "fret": 9,
+      "position": 68.875,
+      "durationUnits": 0.125,
+      "sourceMeasure": 71,
+      "measure": 69,
+      "positionInMeasure": 0.875,
+      "gpString": 2,
+      "midi": 59,
+      "pickStroke": "up"
+    },
+    {
+      "string": 5,
+      "fret": 12,
+      "position": 69.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 72,
+      "measure": 70,
+      "positionInMeasure": 0.0,
+      "gpString": 1,
+      "midi": 57,
+      "pickStroke": "down"
+    },
+    {
+      "string": 5,
+      "fret": 10,
+      "position": 69.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 72,
+      "measure": 70,
+      "positionInMeasure": 0.125,
+      "gpString": 1,
+      "midi": 55,
+      "pickStroke": "up"
+    },
+    {
+      "string": 6,
+      "fret": 12,
+      "position": 69.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 72,
+      "measure": 70,
+      "positionInMeasure": 0.25,
+      "gpString": 0,
+      "midi": 52,
+      "pickStroke": "down"
+    },
+    {
+      "string": 6,
+      "fret": 10,
+      "position": 69.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 72,
+      "measure": 70,
+      "positionInMeasure": 0.375,
+      "gpString": 0,
+      "midi": 50,
+      "pickStroke": "up"
+    },
+    {
+      "string": 6,
+      "fret": 10,
+      "position": 70.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 73,
+      "measure": 71,
+      "positionInMeasure": 0.0,
+      "gpString": 0,
+      "midi": 50,
+      "pickStroke": "down"
+    },
+    {
+      "string": 6,
+      "fret": 12,
+      "position": 70.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 73,
+      "measure": 71,
+      "positionInMeasure": 0.125,
+      "gpString": 0,
+      "midi": 52,
+      "pickStroke": "up"
+    },
+    {
+      "string": 5,
+      "fret": 10,
+      "position": 70.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 73,
+      "measure": 71,
+      "positionInMeasure": 0.25,
+      "gpString": 1,
+      "midi": 55,
+      "pickStroke": "down"
+    },
+    {
+      "string": 5,
+      "fret": 12,
+      "position": 70.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 73,
+      "measure": 71,
+      "positionInMeasure": 0.375,
+      "gpString": 1,
+      "midi": 57,
+      "pickStroke": "up"
+    },
+    {
+      "string": 4,
+      "fret": 9,
+      "position": 70.5,
+      "durationUnits": 0.125,
+      "sourceMeasure": 73,
+      "measure": 71,
+      "positionInMeasure": 0.5,
+      "gpString": 2,
+      "midi": 59,
+      "pickStroke": "down"
+    },
+    {
+      "string": 4,
+      "fret": 12,
+      "position": 70.625,
+      "durationUnits": 0.125,
+      "sourceMeasure": 73,
+      "measure": 71,
+      "positionInMeasure": 0.625,
+      "gpString": 2,
+      "midi": 62,
+      "pickStroke": "up"
+    },
+    {
+      "string": 3,
+      "fret": 9,
+      "position": 70.75,
+      "durationUnits": 0.125,
+      "sourceMeasure": 73,
+      "measure": 71,
+      "positionInMeasure": 0.75,
+      "gpString": 3,
+      "midi": 64,
+      "pickStroke": "down"
+    },
+    {
+      "string": 3,
+      "fret": 12,
+      "position": 70.875,
+      "durationUnits": 0.125,
+      "sourceMeasure": 73,
+      "measure": 71,
+      "positionInMeasure": 0.875,
+      "gpString": 3,
+      "midi": 67,
+      "pickStroke": "up"
+    },
+    {
+      "string": 2,
+      "fret": 10,
+      "position": 71.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 74,
+      "measure": 72,
+      "positionInMeasure": 0.0,
+      "gpString": 4,
+      "midi": 69,
+      "pickStroke": "down"
+    },
+    {
+      "string": 2,
+      "fret": 12,
+      "position": 71.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 74,
+      "measure": 72,
+      "positionInMeasure": 0.125,
+      "gpString": 4,
+      "midi": 71,
+      "pickStroke": "up"
+    },
+    {
+      "string": 1,
+      "fret": 10,
+      "position": 71.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 74,
+      "measure": 72,
+      "positionInMeasure": 0.25,
+      "gpString": 5,
+      "midi": 74,
+      "pickStroke": "down"
+    },
+    {
+      "string": 1,
+      "fret": 12,
+      "position": 71.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 74,
+      "measure": 72,
+      "positionInMeasure": 0.375,
+      "gpString": 5,
+      "midi": 76,
+      "pickStroke": "up"
+    },
+    {
+      "string": 1,
+      "fret": 10,
+      "position": 72.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 75,
+      "measure": 73,
+      "positionInMeasure": 0.0,
+      "gpString": 5,
+      "midi": 74,
+      "pickStroke": "down"
+    },
+    {
+      "string": 1,
+      "fret": 7,
+      "position": 72.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 75,
+      "measure": 73,
+      "positionInMeasure": 0.125,
+      "gpString": 5,
+      "midi": 71,
+      "pickStroke": "up"
+    },
+    {
+      "string": 2,
+      "fret": 10,
+      "position": 72.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 75,
+      "measure": 73,
+      "positionInMeasure": 0.25,
+      "gpString": 4,
+      "midi": 69,
+      "pickStroke": "down"
+    },
+    {
+      "string": 2,
+      "fret": 8,
+      "position": 72.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 75,
+      "measure": 73,
+      "positionInMeasure": 0.375,
+      "gpString": 4,
+      "midi": 67,
+      "pickStroke": "up"
+    },
+    {
+      "string": 3,
+      "fret": 9,
+      "position": 72.5,
+      "durationUnits": 0.125,
+      "sourceMeasure": 75,
+      "measure": 73,
+      "positionInMeasure": 0.5,
+      "gpString": 3,
+      "midi": 64,
+      "pickStroke": "down"
+    },
+    {
+      "string": 3,
+      "fret": 7,
+      "position": 72.625,
+      "durationUnits": 0.125,
+      "sourceMeasure": 75,
+      "measure": 73,
+      "positionInMeasure": 0.625,
+      "gpString": 3,
+      "midi": 62,
+      "pickStroke": "up"
+    },
+    {
+      "string": 4,
+      "fret": 9,
+      "position": 72.75,
+      "durationUnits": 0.125,
+      "sourceMeasure": 75,
+      "measure": 73,
+      "positionInMeasure": 0.75,
+      "gpString": 2,
+      "midi": 59,
+      "pickStroke": "down"
+    },
+    {
+      "string": 4,
+      "fret": 7,
+      "position": 72.875,
+      "durationUnits": 0.125,
+      "sourceMeasure": 75,
+      "measure": 73,
+      "positionInMeasure": 0.875,
+      "gpString": 2,
+      "midi": 57,
+      "pickStroke": "up"
+    },
+    {
+      "string": 5,
+      "fret": 10,
+      "position": 73.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 76,
+      "measure": 74,
+      "positionInMeasure": 0.0,
+      "gpString": 1,
+      "midi": 55,
+      "pickStroke": "down"
+    },
+    {
+      "string": 5,
+      "fret": 7,
+      "position": 73.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 76,
+      "measure": 74,
+      "positionInMeasure": 0.125,
+      "gpString": 1,
+      "midi": 52,
+      "pickStroke": "up"
+    },
+    {
+      "string": 6,
+      "fret": 10,
+      "position": 73.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 76,
+      "measure": 74,
+      "positionInMeasure": 0.25,
+      "gpString": 0,
+      "midi": 50,
+      "pickStroke": "down"
+    },
+    {
+      "string": 6,
+      "fret": 7,
+      "position": 73.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 76,
+      "measure": 74,
+      "positionInMeasure": 0.375,
+      "gpString": 0,
+      "midi": 47,
+      "pickStroke": "up"
+    },
+    {
+      "string": 6,
+      "fret": 10,
+      "position": 74.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 77,
+      "measure": 75,
+      "positionInMeasure": 0.0,
+      "gpString": 0,
+      "midi": 50,
+      "pickStroke": "down"
+    },
+    {
+      "string": 6,
+      "fret": 12,
+      "position": 74.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 77,
+      "measure": 75,
+      "positionInMeasure": 0.125,
+      "gpString": 0,
+      "midi": 52,
+      "pickStroke": "up"
+    },
+    {
+      "string": 5,
+      "fret": 10,
+      "position": 74.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 77,
+      "measure": 75,
+      "positionInMeasure": 0.25,
+      "gpString": 1,
+      "midi": 55,
+      "pickStroke": "down"
+    },
+    {
+      "string": 5,
+      "fret": 12,
+      "position": 74.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 77,
+      "measure": 75,
+      "positionInMeasure": 0.375,
+      "gpString": 1,
+      "midi": 57,
+      "pickStroke": "up"
+    },
+    {
+      "string": 4,
+      "fret": 9,
+      "position": 74.5,
+      "durationUnits": 0.125,
+      "sourceMeasure": 77,
+      "measure": 75,
+      "positionInMeasure": 0.5,
+      "gpString": 2,
+      "midi": 59,
+      "pickStroke": "down"
+    },
+    {
+      "string": 4,
+      "fret": 12,
+      "position": 74.625,
+      "durationUnits": 0.125,
+      "sourceMeasure": 77,
+      "measure": 75,
+      "positionInMeasure": 0.625,
+      "gpString": 2,
+      "midi": 62,
+      "pickStroke": "up"
+    },
+    {
+      "string": 3,
+      "fret": 9,
+      "position": 74.75,
+      "durationUnits": 0.125,
+      "sourceMeasure": 77,
+      "measure": 75,
+      "positionInMeasure": 0.75,
+      "gpString": 3,
+      "midi": 64,
+      "pickStroke": "down"
+    },
+    {
+      "string": 3,
+      "fret": 12,
+      "position": 74.875,
+      "durationUnits": 0.125,
+      "sourceMeasure": 77,
+      "measure": 75,
+      "positionInMeasure": 0.875,
+      "gpString": 3,
+      "midi": 67,
+      "pickStroke": "up"
+    },
+    {
+      "string": 2,
+      "fret": 10,
+      "position": 75.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 78,
+      "measure": 76,
+      "positionInMeasure": 0.0,
+      "gpString": 4,
+      "midi": 69,
+      "pickStroke": "down"
+    },
+    {
+      "string": 2,
+      "fret": 12,
+      "position": 75.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 78,
+      "measure": 76,
+      "positionInMeasure": 0.125,
+      "gpString": 4,
+      "midi": 71,
+      "pickStroke": "up"
+    },
+    {
+      "string": 1,
+      "fret": 10,
+      "position": 75.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 78,
+      "measure": 76,
+      "positionInMeasure": 0.25,
+      "gpString": 5,
+      "midi": 74,
+      "pickStroke": "down"
+    },
+    {
+      "string": 1,
+      "fret": 12,
+      "position": 75.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 78,
+      "measure": 76,
+      "positionInMeasure": 0.375,
+      "gpString": 5,
+      "midi": 76,
+      "pickStroke": "up"
+    },
+    {
+      "string": 1,
+      "fret": 15,
+      "position": 76.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 79,
+      "measure": 77,
+      "positionInMeasure": 0.0,
+      "gpString": 5,
+      "midi": 79,
+      "pickStroke": "down"
+    },
+    {
+      "string": 1,
+      "fret": 12,
+      "position": 76.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 79,
+      "measure": 77,
+      "positionInMeasure": 0.125,
+      "gpString": 5,
+      "midi": 76,
+      "pickStroke": "up"
+    },
+    {
+      "string": 2,
+      "fret": 15,
+      "position": 76.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 79,
+      "measure": 77,
+      "positionInMeasure": 0.25,
+      "gpString": 4,
+      "midi": 74,
+      "pickStroke": "down"
+    },
+    {
+      "string": 2,
+      "fret": 12,
+      "position": 76.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 79,
+      "measure": 77,
+      "positionInMeasure": 0.375,
+      "gpString": 4,
+      "midi": 71,
+      "pickStroke": "up"
+    },
+    {
+      "string": 3,
+      "fret": 14,
+      "position": 76.5,
+      "durationUnits": 0.125,
+      "sourceMeasure": 79,
+      "measure": 77,
+      "positionInMeasure": 0.5,
+      "gpString": 3,
+      "midi": 69,
+      "pickStroke": "down"
+    },
+    {
+      "string": 3,
+      "fret": 12,
+      "position": 76.625,
+      "durationUnits": 0.125,
+      "sourceMeasure": 79,
+      "measure": 77,
+      "positionInMeasure": 0.625,
+      "gpString": 3,
+      "midi": 67,
+      "pickStroke": "up"
+    },
+    {
+      "string": 4,
+      "fret": 14,
+      "position": 76.75,
+      "durationUnits": 0.125,
+      "sourceMeasure": 79,
+      "measure": 77,
+      "positionInMeasure": 0.75,
+      "gpString": 2,
+      "midi": 64,
+      "pickStroke": "down"
+    },
+    {
+      "string": 4,
+      "fret": 12,
+      "position": 76.875,
+      "durationUnits": 0.125,
+      "sourceMeasure": 79,
+      "measure": 77,
+      "positionInMeasure": 0.875,
+      "gpString": 2,
+      "midi": 62,
+      "pickStroke": "up"
+    },
+    {
+      "string": 5,
+      "fret": 14,
+      "position": 77.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 80,
+      "measure": 78,
+      "positionInMeasure": 0.0,
+      "gpString": 1,
+      "midi": 59,
+      "pickStroke": "down"
+    },
+    {
+      "string": 5,
+      "fret": 12,
+      "position": 77.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 80,
+      "measure": 78,
+      "positionInMeasure": 0.125,
+      "gpString": 1,
+      "midi": 57,
+      "pickStroke": "up"
+    },
+    {
+      "string": 6,
+      "fret": 15,
+      "position": 77.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 80,
+      "measure": 78,
+      "positionInMeasure": 0.25,
+      "gpString": 0,
+      "midi": 55,
+      "pickStroke": "down"
+    },
+    {
+      "string": 6,
+      "fret": 12,
+      "position": 77.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 80,
+      "measure": 78,
+      "positionInMeasure": 0.375,
+      "gpString": 0,
+      "midi": 52,
+      "pickStroke": "up"
+    },
+    {
+      "string": 6,
+      "fret": 12,
+      "position": 78.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 81,
+      "measure": 79,
+      "positionInMeasure": 0.0,
+      "gpString": 0,
+      "midi": 52,
+      "pickStroke": "down"
+    },
+    {
+      "string": 6,
+      "fret": 15,
+      "position": 78.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 81,
+      "measure": 79,
+      "positionInMeasure": 0.125,
+      "gpString": 0,
+      "midi": 55,
+      "pickStroke": "up"
+    },
+    {
+      "string": 5,
+      "fret": 12,
+      "position": 78.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 81,
+      "measure": 79,
+      "positionInMeasure": 0.25,
+      "gpString": 1,
+      "midi": 57,
+      "pickStroke": "down"
+    },
+    {
+      "string": 5,
+      "fret": 14,
+      "position": 78.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 81,
+      "measure": 79,
+      "positionInMeasure": 0.375,
+      "gpString": 1,
+      "midi": 59,
+      "pickStroke": "up"
+    },
+    {
+      "string": 4,
+      "fret": 12,
+      "position": 78.5,
+      "durationUnits": 0.125,
+      "sourceMeasure": 81,
+      "measure": 79,
+      "positionInMeasure": 0.5,
+      "gpString": 2,
+      "midi": 62,
+      "pickStroke": "down"
+    },
+    {
+      "string": 4,
+      "fret": 14,
+      "position": 78.625,
+      "durationUnits": 0.125,
+      "sourceMeasure": 81,
+      "measure": 79,
+      "positionInMeasure": 0.625,
+      "gpString": 2,
+      "midi": 64,
+      "pickStroke": "up"
+    },
+    {
+      "string": 3,
+      "fret": 12,
+      "position": 78.75,
+      "durationUnits": 0.125,
+      "sourceMeasure": 81,
+      "measure": 79,
+      "positionInMeasure": 0.75,
+      "gpString": 3,
+      "midi": 67,
+      "pickStroke": "down"
+    },
+    {
+      "string": 3,
+      "fret": 14,
+      "position": 78.875,
+      "durationUnits": 0.125,
+      "sourceMeasure": 81,
+      "measure": 79,
+      "positionInMeasure": 0.875,
+      "gpString": 3,
+      "midi": 69,
+      "pickStroke": "up"
+    },
+    {
+      "string": 2,
+      "fret": 12,
+      "position": 79.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 82,
+      "measure": 80,
+      "positionInMeasure": 0.0,
+      "gpString": 4,
+      "midi": 71,
+      "pickStroke": "down"
+    },
+    {
+      "string": 2,
+      "fret": 15,
+      "position": 79.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 82,
+      "measure": 80,
+      "positionInMeasure": 0.125,
+      "gpString": 4,
+      "midi": 74,
+      "pickStroke": "up"
+    },
+    {
+      "string": 1,
+      "fret": 12,
+      "position": 79.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 82,
+      "measure": 80,
+      "positionInMeasure": 0.25,
+      "gpString": 5,
+      "midi": 76,
+      "pickStroke": "down"
+    },
+    {
+      "string": 1,
+      "fret": 15,
+      "position": 79.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 82,
+      "measure": 80,
+      "positionInMeasure": 0.375,
+      "gpString": 5,
+      "midi": 79,
+      "pickStroke": "up"
+    },
+    {
+      "string": 1,
+      "fret": 12,
+      "position": 80.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 83,
+      "measure": 81,
+      "positionInMeasure": 0.0,
+      "gpString": 5,
+      "midi": 76,
+      "pickStroke": "down"
+    },
+    {
+      "string": 1,
+      "fret": 10,
+      "position": 80.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 83,
+      "measure": 81,
+      "positionInMeasure": 0.125,
+      "gpString": 5,
+      "midi": 74,
+      "pickStroke": "up"
+    },
+    {
+      "string": 2,
+      "fret": 12,
+      "position": 80.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 83,
+      "measure": 81,
+      "positionInMeasure": 0.25,
+      "gpString": 4,
+      "midi": 71,
+      "pickStroke": "down"
+    },
+    {
+      "string": 2,
+      "fret": 10,
+      "position": 80.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 83,
+      "measure": 81,
+      "positionInMeasure": 0.375,
+      "gpString": 4,
+      "midi": 69,
+      "pickStroke": "up"
+    },
+    {
+      "string": 3,
+      "fret": 12,
+      "position": 80.5,
+      "durationUnits": 0.125,
+      "sourceMeasure": 83,
+      "measure": 81,
+      "positionInMeasure": 0.5,
+      "gpString": 3,
+      "midi": 67,
+      "pickStroke": "down"
+    },
+    {
+      "string": 3,
+      "fret": 9,
+      "position": 80.625,
+      "durationUnits": 0.125,
+      "sourceMeasure": 83,
+      "measure": 81,
+      "positionInMeasure": 0.625,
+      "gpString": 3,
+      "midi": 64,
+      "pickStroke": "up"
+    },
+    {
+      "string": 4,
+      "fret": 12,
+      "position": 80.75,
+      "durationUnits": 0.125,
+      "sourceMeasure": 83,
+      "measure": 81,
+      "positionInMeasure": 0.75,
+      "gpString": 2,
+      "midi": 62,
+      "pickStroke": "down"
+    },
+    {
+      "string": 4,
+      "fret": 9,
+      "position": 80.875,
+      "durationUnits": 0.125,
+      "sourceMeasure": 83,
+      "measure": 81,
+      "positionInMeasure": 0.875,
+      "gpString": 2,
+      "midi": 59,
+      "pickStroke": "up"
+    },
+    {
+      "string": 5,
+      "fret": 12,
+      "position": 81.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 84,
+      "measure": 82,
+      "positionInMeasure": 0.0,
+      "gpString": 1,
+      "midi": 57,
+      "pickStroke": "down"
+    },
+    {
+      "string": 5,
+      "fret": 10,
+      "position": 81.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 84,
+      "measure": 82,
+      "positionInMeasure": 0.125,
+      "gpString": 1,
+      "midi": 55,
+      "pickStroke": "up"
+    },
+    {
+      "string": 6,
+      "fret": 12,
+      "position": 81.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 84,
+      "measure": 82,
+      "positionInMeasure": 0.25,
+      "gpString": 0,
+      "midi": 52,
+      "pickStroke": "down"
+    },
+    {
+      "string": 6,
+      "fret": 10,
+      "position": 81.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 84,
+      "measure": 82,
+      "positionInMeasure": 0.375,
+      "gpString": 0,
+      "midi": 50,
+      "pickStroke": "up"
+    },
+    {
+      "string": 6,
+      "fret": 0,
+      "position": 85.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 88,
+      "measure": 86,
+      "positionInMeasure": 0.0,
+      "gpString": 0,
+      "midi": 40,
+      "pickStroke": "down"
+    },
+    {
+      "string": 6,
+      "fret": 3,
+      "position": 85.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 88,
+      "measure": 86,
+      "positionInMeasure": 0.125,
+      "gpString": 0,
+      "midi": 43,
+      "pickStroke": "up"
+    },
+    {
+      "string": 5,
+      "fret": 0,
+      "position": 85.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 88,
+      "measure": 86,
+      "positionInMeasure": 0.25,
+      "gpString": 1,
+      "midi": 45,
+      "pickStroke": "down"
+    },
+    {
+      "string": 5,
+      "fret": 2,
+      "position": 85.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 88,
+      "measure": 86,
+      "positionInMeasure": 0.375,
+      "gpString": 1,
+      "midi": 47,
+      "pickStroke": "up"
+    },
+    {
+      "string": 4,
+      "fret": 2,
+      "position": 85.5,
+      "durationUnits": 0.125,
+      "sourceMeasure": 88,
+      "measure": 86,
+      "positionInMeasure": 0.5,
+      "gpString": 2,
+      "midi": 52,
+      "pickStroke": "down"
+    },
+    {
+      "string": 4,
+      "fret": 5,
+      "position": 85.625,
+      "durationUnits": 0.125,
+      "sourceMeasure": 88,
+      "measure": 86,
+      "positionInMeasure": 0.625,
+      "gpString": 2,
+      "midi": 55,
+      "pickStroke": "up"
+    },
+    {
+      "string": 3,
+      "fret": 2,
+      "position": 85.75,
+      "durationUnits": 0.125,
+      "sourceMeasure": 88,
+      "measure": 86,
+      "positionInMeasure": 0.75,
+      "gpString": 3,
+      "midi": 57,
+      "pickStroke": "down"
+    },
+    {
+      "string": 3,
+      "fret": 4,
+      "position": 85.875,
+      "durationUnits": 0.125,
+      "sourceMeasure": 88,
+      "measure": 86,
+      "positionInMeasure": 0.875,
+      "gpString": 3,
+      "midi": 59,
+      "pickStroke": "up"
+    },
+    {
+      "string": 2,
+      "fret": 5,
+      "position": 86.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 89,
+      "measure": 87,
+      "positionInMeasure": 0.0,
+      "gpString": 4,
+      "midi": 64,
+      "pickStroke": "down"
+    },
+    {
+      "string": 2,
+      "fret": 8,
+      "position": 86.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 89,
+      "measure": 87,
+      "positionInMeasure": 0.125,
+      "gpString": 4,
+      "midi": 67,
+      "pickStroke": "up"
+    },
+    {
+      "string": 1,
+      "fret": 5,
+      "position": 86.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 89,
+      "measure": 87,
+      "positionInMeasure": 0.25,
+      "gpString": 5,
+      "midi": 69,
+      "pickStroke": "down"
+    },
+    {
+      "string": 1,
+      "fret": 7,
+      "position": 86.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 89,
+      "measure": 87,
+      "positionInMeasure": 0.375,
+      "gpString": 5,
+      "midi": 71,
+      "pickStroke": "up"
+    },
+    {
+      "string": 1,
+      "fret": 7,
+      "position": 87.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 90,
+      "measure": 88,
+      "positionInMeasure": 0.0,
+      "gpString": 5,
+      "midi": 71,
+      "pickStroke": "down"
+    },
+    {
+      "string": 1,
+      "fret": 5,
+      "position": 87.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 90,
+      "measure": 88,
+      "positionInMeasure": 0.125,
+      "gpString": 5,
+      "midi": 69,
+      "pickStroke": "up"
+    },
+    {
+      "string": 2,
+      "fret": 8,
+      "position": 87.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 90,
+      "measure": 88,
+      "positionInMeasure": 0.25,
+      "gpString": 4,
+      "midi": 67,
+      "pickStroke": "down"
+    },
+    {
+      "string": 2,
+      "fret": 5,
+      "position": 87.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 90,
+      "measure": 88,
+      "positionInMeasure": 0.375,
+      "gpString": 4,
+      "midi": 64,
+      "pickStroke": "up"
+    },
+    {
+      "string": 3,
+      "fret": 4,
+      "position": 87.5,
+      "durationUnits": 0.125,
+      "sourceMeasure": 90,
+      "measure": 88,
+      "positionInMeasure": 0.5,
+      "gpString": 3,
+      "midi": 59,
+      "pickStroke": "down"
+    },
+    {
+      "string": 3,
+      "fret": 2,
+      "position": 87.625,
+      "durationUnits": 0.125,
+      "sourceMeasure": 90,
+      "measure": 88,
+      "positionInMeasure": 0.625,
+      "gpString": 3,
+      "midi": 57,
+      "pickStroke": "up"
+    },
+    {
+      "string": 4,
+      "fret": 5,
+      "position": 87.75,
+      "durationUnits": 0.125,
+      "sourceMeasure": 90,
+      "measure": 88,
+      "positionInMeasure": 0.75,
+      "gpString": 2,
+      "midi": 55,
+      "pickStroke": "down"
+    },
+    {
+      "string": 4,
+      "fret": 2,
+      "position": 87.875,
+      "durationUnits": 0.125,
+      "sourceMeasure": 90,
+      "measure": 88,
+      "positionInMeasure": 0.875,
+      "gpString": 2,
+      "midi": 52,
+      "pickStroke": "up"
+    },
+    {
+      "string": 5,
+      "fret": 2,
+      "position": 88.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 91,
+      "measure": 89,
+      "positionInMeasure": 0.0,
+      "gpString": 1,
+      "midi": 47,
+      "pickStroke": "down"
+    },
+    {
+      "string": 5,
+      "fret": 0,
+      "position": 88.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 91,
+      "measure": 89,
+      "positionInMeasure": 0.125,
+      "gpString": 1,
+      "midi": 45,
+      "pickStroke": "up"
+    },
+    {
+      "string": 6,
+      "fret": 3,
+      "position": 88.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 91,
+      "measure": 89,
+      "positionInMeasure": 0.25,
+      "gpString": 0,
+      "midi": 43,
+      "pickStroke": "down"
+    },
+    {
+      "string": 6,
+      "fret": 0,
+      "position": 88.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 91,
+      "measure": 89,
+      "positionInMeasure": 0.375,
+      "gpString": 0,
+      "midi": 40,
+      "pickStroke": "up"
+    },
+    {
+      "string": 6,
+      "fret": 3,
+      "position": 89.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 92,
+      "measure": 90,
+      "positionInMeasure": 0.0,
+      "gpString": 0,
+      "midi": 43,
+      "pickStroke": "down"
+    },
+    {
+      "string": 6,
+      "fret": 5,
+      "position": 89.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 92,
+      "measure": 90,
+      "positionInMeasure": 0.125,
+      "gpString": 0,
+      "midi": 45,
+      "pickStroke": "up"
+    },
+    {
+      "string": 5,
+      "fret": 2,
+      "position": 89.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 92,
+      "measure": 90,
+      "positionInMeasure": 0.25,
+      "gpString": 1,
+      "midi": 47,
+      "pickStroke": "down"
+    },
+    {
+      "string": 5,
+      "fret": 5,
+      "position": 89.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 92,
+      "measure": 90,
+      "positionInMeasure": 0.375,
+      "gpString": 1,
+      "midi": 50,
+      "pickStroke": "up"
+    },
+    {
+      "string": 4,
+      "fret": 5,
+      "position": 89.5,
+      "durationUnits": 0.125,
+      "sourceMeasure": 92,
+      "measure": 90,
+      "positionInMeasure": 0.5,
+      "gpString": 2,
+      "midi": 55,
+      "pickStroke": "down"
+    },
+    {
+      "string": 4,
+      "fret": 7,
+      "position": 89.625,
+      "durationUnits": 0.125,
+      "sourceMeasure": 92,
+      "measure": 90,
+      "positionInMeasure": 0.625,
+      "gpString": 2,
+      "midi": 57,
+      "pickStroke": "up"
+    },
+    {
+      "string": 3,
+      "fret": 4,
+      "position": 89.75,
+      "durationUnits": 0.125,
+      "sourceMeasure": 92,
+      "measure": 90,
+      "positionInMeasure": 0.75,
+      "gpString": 3,
+      "midi": 59,
+      "pickStroke": "down"
+    },
+    {
+      "string": 3,
+      "fret": 7,
+      "position": 89.875,
+      "durationUnits": 0.125,
+      "sourceMeasure": 92,
+      "measure": 90,
+      "positionInMeasure": 0.875,
+      "gpString": 3,
+      "midi": 62,
+      "pickStroke": "up"
+    },
+    {
+      "string": 2,
+      "fret": 8,
+      "position": 90.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 93,
+      "measure": 91,
+      "positionInMeasure": 0.0,
+      "gpString": 4,
+      "midi": 67,
+      "pickStroke": "down"
+    },
+    {
+      "string": 2,
+      "fret": 10,
+      "position": 90.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 93,
+      "measure": 91,
+      "positionInMeasure": 0.125,
+      "gpString": 4,
+      "midi": 69,
+      "pickStroke": "up"
+    },
+    {
+      "string": 1,
+      "fret": 7,
+      "position": 90.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 93,
+      "measure": 91,
+      "positionInMeasure": 0.25,
+      "gpString": 5,
+      "midi": 71,
+      "pickStroke": "down"
+    },
+    {
+      "string": 1,
+      "fret": 10,
+      "position": 90.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 93,
+      "measure": 91,
+      "positionInMeasure": 0.375,
+      "gpString": 5,
+      "midi": 74,
+      "pickStroke": "up"
+    },
+    {
+      "string": 1,
+      "fret": 10,
+      "position": 91.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 94,
+      "measure": 92,
+      "positionInMeasure": 0.0,
+      "gpString": 5,
+      "midi": 74,
+      "pickStroke": "down"
+    },
+    {
+      "string": 1,
+      "fret": 7,
+      "position": 91.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 94,
+      "measure": 92,
+      "positionInMeasure": 0.125,
+      "gpString": 5,
+      "midi": 71,
+      "pickStroke": "up"
+    },
+    {
+      "string": 2,
+      "fret": 10,
+      "position": 91.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 94,
+      "measure": 92,
+      "positionInMeasure": 0.25,
+      "gpString": 4,
+      "midi": 69,
+      "pickStroke": "down"
+    },
+    {
+      "string": 2,
+      "fret": 8,
+      "position": 91.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 94,
+      "measure": 92,
+      "positionInMeasure": 0.375,
+      "gpString": 4,
+      "midi": 67,
+      "pickStroke": "up"
+    },
+    {
+      "string": 3,
+      "fret": 7,
+      "position": 91.5,
+      "durationUnits": 0.125,
+      "sourceMeasure": 94,
+      "measure": 92,
+      "positionInMeasure": 0.5,
+      "gpString": 3,
+      "midi": 62,
+      "pickStroke": "down"
+    },
+    {
+      "string": 3,
+      "fret": 4,
+      "position": 91.625,
+      "durationUnits": 0.125,
+      "sourceMeasure": 94,
+      "measure": 92,
+      "positionInMeasure": 0.625,
+      "gpString": 3,
+      "midi": 59,
+      "pickStroke": "up"
+    },
+    {
+      "string": 4,
+      "fret": 7,
+      "position": 91.75,
+      "durationUnits": 0.125,
+      "sourceMeasure": 94,
+      "measure": 92,
+      "positionInMeasure": 0.75,
+      "gpString": 2,
+      "midi": 57,
+      "pickStroke": "down"
+    },
+    {
+      "string": 4,
+      "fret": 5,
+      "position": 91.875,
+      "durationUnits": 0.125,
+      "sourceMeasure": 94,
+      "measure": 92,
+      "positionInMeasure": 0.875,
+      "gpString": 2,
+      "midi": 55,
+      "pickStroke": "up"
+    },
+    {
+      "string": 5,
+      "fret": 5,
+      "position": 92.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 95,
+      "measure": 93,
+      "positionInMeasure": 0.0,
+      "gpString": 1,
+      "midi": 50,
+      "pickStroke": "down"
+    },
+    {
+      "string": 5,
+      "fret": 2,
+      "position": 92.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 95,
+      "measure": 93,
+      "positionInMeasure": 0.125,
+      "gpString": 1,
+      "midi": 47,
+      "pickStroke": "up"
+    },
+    {
+      "string": 6,
+      "fret": 5,
+      "position": 92.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 95,
+      "measure": 93,
+      "positionInMeasure": 0.25,
+      "gpString": 0,
+      "midi": 45,
+      "pickStroke": "down"
+    },
+    {
+      "string": 6,
+      "fret": 3,
+      "position": 92.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 95,
+      "measure": 93,
+      "positionInMeasure": 0.375,
+      "gpString": 0,
+      "midi": 43,
+      "pickStroke": "up"
+    },
+    {
+      "string": 6,
+      "fret": 5,
+      "position": 93.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 96,
+      "measure": 94,
+      "positionInMeasure": 0.0,
+      "gpString": 0,
+      "midi": 45,
+      "pickStroke": "down"
+    },
+    {
+      "string": 6,
+      "fret": 7,
+      "position": 93.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 96,
+      "measure": 94,
+      "positionInMeasure": 0.125,
+      "gpString": 0,
+      "midi": 47,
+      "pickStroke": "up"
+    },
+    {
+      "string": 5,
+      "fret": 5,
+      "position": 93.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 96,
+      "measure": 94,
+      "positionInMeasure": 0.25,
+      "gpString": 1,
+      "midi": 50,
+      "pickStroke": "down"
+    },
+    {
+      "string": 5,
+      "fret": 7,
+      "position": 93.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 96,
+      "measure": 94,
+      "positionInMeasure": 0.375,
+      "gpString": 1,
+      "midi": 52,
+      "pickStroke": "up"
+    },
+    {
+      "string": 4,
+      "fret": 7,
+      "position": 93.5,
+      "durationUnits": 0.125,
+      "sourceMeasure": 96,
+      "measure": 94,
+      "positionInMeasure": 0.5,
+      "gpString": 2,
+      "midi": 57,
+      "pickStroke": "down"
+    },
+    {
+      "string": 4,
+      "fret": 9,
+      "position": 93.625,
+      "durationUnits": 0.125,
+      "sourceMeasure": 96,
+      "measure": 94,
+      "positionInMeasure": 0.625,
+      "gpString": 2,
+      "midi": 59,
+      "pickStroke": "up"
+    },
+    {
+      "string": 3,
+      "fret": 7,
+      "position": 93.75,
+      "durationUnits": 0.125,
+      "sourceMeasure": 96,
+      "measure": 94,
+      "positionInMeasure": 0.75,
+      "gpString": 3,
+      "midi": 62,
+      "pickStroke": "down"
+    },
+    {
+      "string": 3,
+      "fret": 9,
+      "position": 93.875,
+      "durationUnits": 0.125,
+      "sourceMeasure": 96,
+      "measure": 94,
+      "positionInMeasure": 0.875,
+      "gpString": 3,
+      "midi": 64,
+      "pickStroke": "up"
+    },
+    {
+      "string": 2,
+      "fret": 10,
+      "position": 94.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 97,
+      "measure": 95,
+      "positionInMeasure": 0.0,
+      "gpString": 4,
+      "midi": 69,
+      "pickStroke": "down"
+    },
+    {
+      "string": 2,
+      "fret": 12,
+      "position": 94.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 97,
+      "measure": 95,
+      "positionInMeasure": 0.125,
+      "gpString": 4,
+      "midi": 71,
+      "pickStroke": "up"
+    },
+    {
+      "string": 1,
+      "fret": 10,
+      "position": 94.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 97,
+      "measure": 95,
+      "positionInMeasure": 0.25,
+      "gpString": 5,
+      "midi": 74,
+      "pickStroke": "down"
+    },
+    {
+      "string": 1,
+      "fret": 12,
+      "position": 94.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 97,
+      "measure": 95,
+      "positionInMeasure": 0.375,
+      "gpString": 5,
+      "midi": 76,
+      "pickStroke": "up"
+    },
+    {
+      "string": 1,
+      "fret": 12,
+      "position": 95.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 98,
+      "measure": 96,
+      "positionInMeasure": 0.0,
+      "gpString": 5,
+      "midi": 76,
+      "pickStroke": "down"
+    },
+    {
+      "string": 1,
+      "fret": 10,
+      "position": 95.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 98,
+      "measure": 96,
+      "positionInMeasure": 0.125,
+      "gpString": 5,
+      "midi": 74,
+      "pickStroke": "up"
+    },
+    {
+      "string": 2,
+      "fret": 12,
+      "position": 95.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 98,
+      "measure": 96,
+      "positionInMeasure": 0.25,
+      "gpString": 4,
+      "midi": 71,
+      "pickStroke": "down"
+    },
+    {
+      "string": 2,
+      "fret": 10,
+      "position": 95.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 98,
+      "measure": 96,
+      "positionInMeasure": 0.375,
+      "gpString": 4,
+      "midi": 69,
+      "pickStroke": "up"
+    },
+    {
+      "string": 3,
+      "fret": 9,
+      "position": 95.5,
+      "durationUnits": 0.125,
+      "sourceMeasure": 98,
+      "measure": 96,
+      "positionInMeasure": 0.5,
+      "gpString": 3,
+      "midi": 64,
+      "pickStroke": "down"
+    },
+    {
+      "string": 3,
+      "fret": 7,
+      "position": 95.625,
+      "durationUnits": 0.125,
+      "sourceMeasure": 98,
+      "measure": 96,
+      "positionInMeasure": 0.625,
+      "gpString": 3,
+      "midi": 62,
+      "pickStroke": "up"
+    },
+    {
+      "string": 4,
+      "fret": 9,
+      "position": 95.75,
+      "durationUnits": 0.125,
+      "sourceMeasure": 98,
+      "measure": 96,
+      "positionInMeasure": 0.75,
+      "gpString": 2,
+      "midi": 59,
+      "pickStroke": "down"
+    },
+    {
+      "string": 4,
+      "fret": 7,
+      "position": 95.875,
+      "durationUnits": 0.125,
+      "sourceMeasure": 98,
+      "measure": 96,
+      "positionInMeasure": 0.875,
+      "gpString": 2,
+      "midi": 57,
+      "pickStroke": "up"
+    },
+    {
+      "string": 5,
+      "fret": 7,
+      "position": 96.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 99,
+      "measure": 97,
+      "positionInMeasure": 0.0,
+      "gpString": 1,
+      "midi": 52,
+      "pickStroke": "down"
+    },
+    {
+      "string": 5,
+      "fret": 5,
+      "position": 96.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 99,
+      "measure": 97,
+      "positionInMeasure": 0.125,
+      "gpString": 1,
+      "midi": 50,
+      "pickStroke": "up"
+    },
+    {
+      "string": 6,
+      "fret": 7,
+      "position": 96.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 99,
+      "measure": 97,
+      "positionInMeasure": 0.25,
+      "gpString": 0,
+      "midi": 47,
+      "pickStroke": "down"
+    },
+    {
+      "string": 6,
+      "fret": 5,
+      "position": 96.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 99,
+      "measure": 97,
+      "positionInMeasure": 0.375,
+      "gpString": 0,
+      "midi": 45,
+      "pickStroke": "up"
+    },
+    {
+      "string": 6,
+      "fret": 7,
+      "position": 97.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 100,
+      "measure": 98,
+      "positionInMeasure": 0.0,
+      "gpString": 0,
+      "midi": 47,
+      "pickStroke": "down"
+    },
+    {
+      "string": 6,
+      "fret": 10,
+      "position": 97.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 100,
+      "measure": 98,
+      "positionInMeasure": 0.125,
+      "gpString": 0,
+      "midi": 50,
+      "pickStroke": "up"
+    },
+    {
+      "string": 5,
+      "fret": 7,
+      "position": 97.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 100,
+      "measure": 98,
+      "positionInMeasure": 0.25,
+      "gpString": 1,
+      "midi": 52,
+      "pickStroke": "down"
+    },
+    {
+      "string": 5,
+      "fret": 10,
+      "position": 97.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 100,
+      "measure": 98,
+      "positionInMeasure": 0.375,
+      "gpString": 1,
+      "midi": 55,
+      "pickStroke": "up"
+    },
+    {
+      "string": 4,
+      "fret": 9,
+      "position": 97.5,
+      "durationUnits": 0.125,
+      "sourceMeasure": 100,
+      "measure": 98,
+      "positionInMeasure": 0.5,
+      "gpString": 2,
+      "midi": 59,
+      "pickStroke": "down"
+    },
+    {
+      "string": 4,
+      "fret": 12,
+      "position": 97.625,
+      "durationUnits": 0.125,
+      "sourceMeasure": 100,
+      "measure": 98,
+      "positionInMeasure": 0.625,
+      "gpString": 2,
+      "midi": 62,
+      "pickStroke": "up"
+    },
+    {
+      "string": 3,
+      "fret": 9,
+      "position": 97.75,
+      "durationUnits": 0.125,
+      "sourceMeasure": 100,
+      "measure": 98,
+      "positionInMeasure": 0.75,
+      "gpString": 3,
+      "midi": 64,
+      "pickStroke": "down"
+    },
+    {
+      "string": 3,
+      "fret": 12,
+      "position": 97.875,
+      "durationUnits": 0.125,
+      "sourceMeasure": 100,
+      "measure": 98,
+      "positionInMeasure": 0.875,
+      "gpString": 3,
+      "midi": 67,
+      "pickStroke": "up"
+    },
+    {
+      "string": 2,
+      "fret": 12,
+      "position": 98.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 101,
+      "measure": 99,
+      "positionInMeasure": 0.0,
+      "gpString": 4,
+      "midi": 71,
+      "pickStroke": "down"
+    },
+    {
+      "string": 2,
+      "fret": 15,
+      "position": 98.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 101,
+      "measure": 99,
+      "positionInMeasure": 0.125,
+      "gpString": 4,
+      "midi": 74,
+      "pickStroke": "up"
+    },
+    {
+      "string": 1,
+      "fret": 12,
+      "position": 98.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 101,
+      "measure": 99,
+      "positionInMeasure": 0.25,
+      "gpString": 5,
+      "midi": 76,
+      "pickStroke": "down"
+    },
+    {
+      "string": 1,
+      "fret": 15,
+      "position": 98.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 101,
+      "measure": 99,
+      "positionInMeasure": 0.375,
+      "gpString": 5,
+      "midi": 79,
+      "pickStroke": "up"
+    },
+    {
+      "string": 1,
+      "fret": 15,
+      "position": 99.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 102,
+      "measure": 100,
+      "positionInMeasure": 0.0,
+      "gpString": 5,
+      "midi": 79,
+      "pickStroke": "down"
+    },
+    {
+      "string": 1,
+      "fret": 12,
+      "position": 99.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 102,
+      "measure": 100,
+      "positionInMeasure": 0.125,
+      "gpString": 5,
+      "midi": 76,
+      "pickStroke": "up"
+    },
+    {
+      "string": 2,
+      "fret": 15,
+      "position": 99.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 102,
+      "measure": 100,
+      "positionInMeasure": 0.25,
+      "gpString": 4,
+      "midi": 74,
+      "pickStroke": "down"
+    },
+    {
+      "string": 2,
+      "fret": 12,
+      "position": 99.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 102,
+      "measure": 100,
+      "positionInMeasure": 0.375,
+      "gpString": 4,
+      "midi": 71,
+      "pickStroke": "up"
+    },
+    {
+      "string": 3,
+      "fret": 12,
+      "position": 99.5,
+      "durationUnits": 0.125,
+      "sourceMeasure": 102,
+      "measure": 100,
+      "positionInMeasure": 0.5,
+      "gpString": 3,
+      "midi": 67,
+      "pickStroke": "down"
+    },
+    {
+      "string": 3,
+      "fret": 9,
+      "position": 99.625,
+      "durationUnits": 0.125,
+      "sourceMeasure": 102,
+      "measure": 100,
+      "positionInMeasure": 0.625,
+      "gpString": 3,
+      "midi": 64,
+      "pickStroke": "up"
+    },
+    {
+      "string": 4,
+      "fret": 12,
+      "position": 99.75,
+      "durationUnits": 0.125,
+      "sourceMeasure": 102,
+      "measure": 100,
+      "positionInMeasure": 0.75,
+      "gpString": 2,
+      "midi": 62,
+      "pickStroke": "down"
+    },
+    {
+      "string": 4,
+      "fret": 9,
+      "position": 99.875,
+      "durationUnits": 0.125,
+      "sourceMeasure": 102,
+      "measure": 100,
+      "positionInMeasure": 0.875,
+      "gpString": 2,
+      "midi": 59,
+      "pickStroke": "up"
+    },
+    {
+      "string": 5,
+      "fret": 10,
+      "position": 100.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 103,
+      "measure": 101,
+      "positionInMeasure": 0.0,
+      "gpString": 1,
+      "midi": 55,
+      "pickStroke": "down"
+    },
+    {
+      "string": 5,
+      "fret": 7,
+      "position": 100.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 103,
+      "measure": 101,
+      "positionInMeasure": 0.125,
+      "gpString": 1,
+      "midi": 52,
+      "pickStroke": "up"
+    },
+    {
+      "string": 6,
+      "fret": 10,
+      "position": 100.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 103,
+      "measure": 101,
+      "positionInMeasure": 0.25,
+      "gpString": 0,
+      "midi": 50,
+      "pickStroke": "down"
+    },
+    {
+      "string": 6,
+      "fret": 7,
+      "position": 100.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 103,
+      "measure": 101,
+      "positionInMeasure": 0.375,
+      "gpString": 0,
+      "midi": 47,
+      "pickStroke": "up"
+    },
+    {
+      "string": 6,
+      "fret": 10,
+      "position": 101.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 104,
+      "measure": 102,
+      "positionInMeasure": 0.0,
+      "gpString": 0,
+      "midi": 50,
+      "pickStroke": "down"
+    },
+    {
+      "string": 6,
+      "fret": 12,
+      "position": 101.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 104,
+      "measure": 102,
+      "positionInMeasure": 0.125,
+      "gpString": 0,
+      "midi": 52,
+      "pickStroke": "up"
+    },
+    {
+      "string": 5,
+      "fret": 10,
+      "position": 101.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 104,
+      "measure": 102,
+      "positionInMeasure": 0.25,
+      "gpString": 1,
+      "midi": 55,
+      "pickStroke": "down"
+    },
+    {
+      "string": 5,
+      "fret": 12,
+      "position": 101.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 104,
+      "measure": 102,
+      "positionInMeasure": 0.375,
+      "gpString": 1,
+      "midi": 57,
+      "pickStroke": "up"
+    },
+    {
+      "string": 4,
+      "fret": 12,
+      "position": 101.5,
+      "durationUnits": 0.125,
+      "sourceMeasure": 104,
+      "measure": 102,
+      "positionInMeasure": 0.5,
+      "gpString": 2,
+      "midi": 62,
+      "pickStroke": "down"
+    },
+    {
+      "string": 4,
+      "fret": 14,
+      "position": 101.625,
+      "durationUnits": 0.125,
+      "sourceMeasure": 104,
+      "measure": 102,
+      "positionInMeasure": 0.625,
+      "gpString": 2,
+      "midi": 64,
+      "pickStroke": "up"
+    },
+    {
+      "string": 3,
+      "fret": 12,
+      "position": 101.75,
+      "durationUnits": 0.125,
+      "sourceMeasure": 104,
+      "measure": 102,
+      "positionInMeasure": 0.75,
+      "gpString": 3,
+      "midi": 67,
+      "pickStroke": "down"
+    },
+    {
+      "string": 3,
+      "fret": 14,
+      "position": 101.875,
+      "durationUnits": 0.125,
+      "sourceMeasure": 104,
+      "measure": 102,
+      "positionInMeasure": 0.875,
+      "gpString": 3,
+      "midi": 69,
+      "pickStroke": "up"
+    },
+    {
+      "string": 2,
+      "fret": 15,
+      "position": 102.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 105,
+      "measure": 103,
+      "positionInMeasure": 0.0,
+      "gpString": 4,
+      "midi": 74,
+      "pickStroke": "down"
+    },
+    {
+      "string": 2,
+      "fret": 17,
+      "position": 102.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 105,
+      "measure": 103,
+      "positionInMeasure": 0.125,
+      "gpString": 4,
+      "midi": 76,
+      "pickStroke": "up"
+    },
+    {
+      "string": 1,
+      "fret": 15,
+      "position": 102.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 105,
+      "measure": 103,
+      "positionInMeasure": 0.25,
+      "gpString": 5,
+      "midi": 79,
+      "pickStroke": "down"
+    },
+    {
+      "string": 1,
+      "fret": 17,
+      "position": 102.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 105,
+      "measure": 103,
+      "positionInMeasure": 0.375,
+      "gpString": 5,
+      "midi": 81,
+      "pickStroke": "up"
+    },
+    {
+      "string": 1,
+      "fret": 17,
+      "position": 103.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 106,
+      "measure": 104,
+      "positionInMeasure": 0.0,
+      "gpString": 5,
+      "midi": 81,
+      "pickStroke": "down"
+    },
+    {
+      "string": 1,
+      "fret": 15,
+      "position": 103.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 106,
+      "measure": 104,
+      "positionInMeasure": 0.125,
+      "gpString": 5,
+      "midi": 79,
+      "pickStroke": "up"
+    },
+    {
+      "string": 2,
+      "fret": 17,
+      "position": 103.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 106,
+      "measure": 104,
+      "positionInMeasure": 0.25,
+      "gpString": 4,
+      "midi": 76,
+      "pickStroke": "down"
+    },
+    {
+      "string": 2,
+      "fret": 15,
+      "position": 103.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 106,
+      "measure": 104,
+      "positionInMeasure": 0.375,
+      "gpString": 4,
+      "midi": 74,
+      "pickStroke": "up"
+    },
+    {
+      "string": 3,
+      "fret": 14,
+      "position": 103.5,
+      "durationUnits": 0.125,
+      "sourceMeasure": 106,
+      "measure": 104,
+      "positionInMeasure": 0.5,
+      "gpString": 3,
+      "midi": 69,
+      "pickStroke": "down"
+    },
+    {
+      "string": 3,
+      "fret": 12,
+      "position": 103.625,
+      "durationUnits": 0.125,
+      "sourceMeasure": 106,
+      "measure": 104,
+      "positionInMeasure": 0.625,
+      "gpString": 3,
+      "midi": 67,
+      "pickStroke": "up"
+    },
+    {
+      "string": 4,
+      "fret": 14,
+      "position": 103.75,
+      "durationUnits": 0.125,
+      "sourceMeasure": 106,
+      "measure": 104,
+      "positionInMeasure": 0.75,
+      "gpString": 2,
+      "midi": 64,
+      "pickStroke": "down"
+    },
+    {
+      "string": 4,
+      "fret": 12,
+      "position": 103.875,
+      "durationUnits": 0.125,
+      "sourceMeasure": 106,
+      "measure": 104,
+      "positionInMeasure": 0.875,
+      "gpString": 2,
+      "midi": 62,
+      "pickStroke": "up"
+    },
+    {
+      "string": 5,
+      "fret": 12,
+      "position": 104.0,
+      "durationUnits": 0.125,
+      "sourceMeasure": 107,
+      "measure": 105,
+      "positionInMeasure": 0.0,
+      "gpString": 1,
+      "midi": 57,
+      "pickStroke": "down"
+    },
+    {
+      "string": 5,
+      "fret": 10,
+      "position": 104.125,
+      "durationUnits": 0.125,
+      "sourceMeasure": 107,
+      "measure": 105,
+      "positionInMeasure": 0.125,
+      "gpString": 1,
+      "midi": 55,
+      "pickStroke": "up"
+    },
+    {
+      "string": 6,
+      "fret": 12,
+      "position": 104.25,
+      "durationUnits": 0.125,
+      "sourceMeasure": 107,
+      "measure": 105,
+      "positionInMeasure": 0.25,
+      "gpString": 0,
+      "midi": 52,
+      "pickStroke": "down"
+    },
+    {
+      "string": 6,
+      "fret": 10,
+      "position": 104.375,
+      "durationUnits": 0.125,
+      "sourceMeasure": 107,
+      "measure": 105,
+      "positionInMeasure": 0.375,
+      "gpString": 0,
+      "midi": 50,
+      "pickStroke": "up"
+    }
+  ]
+}
