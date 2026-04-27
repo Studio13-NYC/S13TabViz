@@ -31,6 +31,8 @@ const TRIPLET_EIGHTH_UNITS = 1 / 12;
 const HALF_NOTE_UNITS = 0.5;
 const WHOLE_NOTE_UNITS = 1;
 const SIXTEENTH_NOTE_UNITS = 0.0625;
+const THIRTY_SECOND_NOTE_UNITS = 0.03125;
+const SIXTY_FOURTH_NOTE_UNITS = 0.015625;
 const START_POSITION = -BAR_UNITS;
 const HORIZON_UNITS = BAR_UNITS;
 const EMPTY_RUNWAY_UNITS = 0;
@@ -60,6 +62,10 @@ const NOTE_VALUE_TO_UNITS = {
   Eighth: EIGHTH_NOTE_UNITS,
   "16th": SIXTEENTH_NOTE_UNITS,
   Sixteenth: SIXTEENTH_NOTE_UNITS,
+  "32nd": THIRTY_SECOND_NOTE_UNITS,
+  ThirtySecond: THIRTY_SECOND_NOTE_UNITS,
+  "64th": SIXTY_FOURTH_NOTE_UNITS,
+  SixtyFourth: SIXTY_FOURTH_NOTE_UNITS,
 };
 
 // Visual lane mapping uses user-facing guitar strings: 1 is high e, 6 is low E.
@@ -245,6 +251,9 @@ function durationLabel(note) {
   if (Math.abs(units - QUARTER_NOTE_UNITS) < 0.001) return "quarter";
   if (Math.abs(units - EIGHTH_NOTE_UNITS) < 0.001) return "eighth";
   if (Math.abs(units - TRIPLET_EIGHTH_UNITS) < 0.001) return "eighth-triplet";
+  if (Math.abs(units - SIXTEENTH_NOTE_UNITS) < 0.001) return "sixteenth";
+  if (Math.abs(units - THIRTY_SECOND_NOTE_UNITS) < 0.001) return "thirty-second";
+  if (Math.abs(units - SIXTY_FOURTH_NOTE_UNITS) < 0.001) return "sixty-fourth";
   return `${Number(units.toFixed(3))} units`;
 }
 
@@ -926,7 +935,7 @@ async function parseGpPackage(file) {
 
   if (embeddedPath) {
     const backingBytes = await extractZipEntry(packageBytes, embeddedPath);
-    const backingBlob = new Blob([backingBytes], { type: "audio/mpeg" });
+    const backingBlob = new Blob([backingBytes], { type: audioMimeTypeForPath(embeddedPath) });
     if (backingTrackObjectUrl) URL.revokeObjectURL(backingTrackObjectUrl);
     backingTrackObjectUrl = URL.createObjectURL(backingBlob);
     payload.source.backingTrack = {
@@ -1118,6 +1127,18 @@ function sourceSlug(name) {
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "") || "source";
+}
+
+// Purpose: infer a browser media MIME type from an embedded backing asset path.
+// Warning: this labels common audio formats; actual playback support still depends on the browser.
+// Why this shape: Guitar Pro packages can embed OGG as well as MP3, and mislabeled blobs can fail playback.
+function audioMimeTypeForPath(path = "") {
+  const lower = path.toLowerCase();
+  if (lower.endsWith(".ogg") || lower.endsWith(".oga")) return "audio/ogg";
+  if (lower.endsWith(".wav")) return "audio/wav";
+  if (lower.endsWith(".m4a") || lower.endsWith(".mp4")) return "audio/mp4";
+  if (lower.endsWith(".aac")) return "audio/aac";
+  return "audio/mpeg";
 }
 
 // Purpose: derive a source format from a file name.
@@ -1413,10 +1434,12 @@ async function storeProcessedAssets(fileName, payload) {
 // Why this shape: processed JSON should be portable between local and deployed app surfaces.
 function stripRuntimeProcessingAssets(payload) {
   const clean = JSON.parse(JSON.stringify(payload));
+  const sourceName = clean.source?.file || "source";
+  const backingPath = clean.source?.backingTrack?.embeddedPath || "";
   delete clean.runtimeAssets;
   if (clean.source?.backingTrack?.url?.startsWith("blob:")) {
-    clean.source.backingTrack.url = null;
-    clean.source.backingTrack.available = false;
+    const extension = backingPath.split(".").pop() || "mp3";
+    clean.source.backingTrack.url = `${sourceSlug(sourceName)}-backing.${extension}`;
   }
   return clean;
 }
@@ -1914,6 +1937,8 @@ function updateMixerState() {
   const loaded = isBackingTrackLoaded();
   const enabled = Boolean(backingToggle?.checked);
   const expectedCurrentTime = expectedBackingMediaTime(currentPlayhead);
+  if (!available) backingStatusError = "No backing in source";
+  else if (backingStatusError === "No backing in source") backingStatusError = "";
 
   mixerState = {
     position: gains.position,
@@ -1924,10 +1949,10 @@ function updateMixerState() {
     backingLoaded: loaded,
     backingPlaying: Boolean(backingTrackAudio && !backingTrackAudio.paused),
     backingMuted: Boolean(backingTrackAudio?.muted),
-    backingPreservesPitch: backingTrackAudio ? backingPitchPreserveEnabled(backingTrackAudio) : false,
+    backingPreservesPitch: available && backingTrackAudio ? backingPitchPreserveEnabled(backingTrackAudio) : false,
     backingTempoRatio: Number(backingTempoRatio().toFixed(4)),
     backingPlaybackRate: Number(backingTempoRatio().toFixed(4)),
-    backingSourcePlaybackRate: backingTrackAudio
+    backingSourcePlaybackRate: available && backingTrackAudio
       ? Number(backingTrackAudio.playbackRate.toFixed(4))
       : null,
     backingMediaCurrentTime: backingTrackAudio && loaded
@@ -2117,6 +2142,8 @@ async function loadBackingTrack(backingTrack) {
   updateMixerState();
 
   if (!backingTrack?.available || !backingTrack.url) {
+    lastBackingStart = null;
+    backingDriftSeconds = null;
     if (backingTrackAudio) {
       backingTrackAudio.pause();
       backingTrackAudio.removeAttribute("src");
