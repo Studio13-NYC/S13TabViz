@@ -19,6 +19,10 @@ NOTE_VALUE_TO_UNITS = {
     "Eighth": 0.125,
     "16th": 0.0625,
     "Sixteenth": 0.0625,
+    "32nd": 0.03125,
+    "ThirtySecond": 0.03125,
+    "64th": 0.015625,
+    "SixtyFourth": 0.015625,
 }
 
 

@@ -10,6 +10,15 @@
       }
     },
     {
+      "name": "Adelita (Tarrega).gp",
+      "path": "./data/input/Adelita (Tarrega).gp",
+      "format": "gp",
+      "processed": {
+        "notes": "./data/input/processed/adelita-tarrega-notes.json",
+        "backing": "./data/input/processed/adelita-tarrega-backing.ogg"
+      }
+    },
+    {
       "name": "Am Pentatonic Exercises.gp",
       "path": "./data/input/Am Pentatonic Exercises.gp",
       "format": "gp",
