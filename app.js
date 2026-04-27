@@ -1,7 +1,7 @@
 const fileInput = document.querySelector("#tabFile");
-const fileName = document.querySelector("#fileName");
+const sourceButtonText = document.querySelector("#sourceButtonText");
 const metronomeFile = document.querySelector("#metronomeFile");
-const metronomeName = document.querySelector("#metronomeName");
+const clickButtonText = document.querySelector("#clickButtonText");
 const playPause = document.querySelector("#playPause");
 const restart = document.querySelector("#restart");
 const tempo = document.querySelector("#tempo");
@@ -17,7 +17,6 @@ const debugHitNotes = document.querySelector("#debugHitNotes");
 const debugEventCounts = document.querySelector("#debugEventCounts");
 const debugEvents = document.querySelector("#debugEvents");
 const debugReport = document.querySelector("#debugReport");
-const sourceStatus = document.querySelector("#sourceStatus");
 const backingToggle = document.querySelector("#backingToggle");
 const mixSlider = document.querySelector("#mixSlider");
 const backingStatus = document.querySelector("#backingStatus");
@@ -42,6 +41,9 @@ const METRONOME_LOOKAHEAD_SECONDS = 0.08;
 const WHOLE_NOTE_HEIGHT = 184;
 const DEFAULT_GP_NOTES_URL = "./data/hand-sync-pt1-notes.json";
 const DEFAULT_MIX_POSITION = 50;
+const BACKING_DRIFT_CORRECTION_SECONDS = 0.08;
+const TEMPO_MIN = Number(tempo.min) || 40;
+const TEMPO_MAX = Number(tempo.max) || 180;
 const NOTE_VALUE_TO_UNITS = {
   Whole: WHOLE_NOTE_UNITS,
   Half: HALF_NOTE_UNITS,
@@ -149,11 +151,14 @@ let debugAudioDestination = null;
 let syncAudioRecorder = null;
 let syncAudioChunks = [];
 let scheduledClickNodes = new Set();
-let backingTrackBuffer = null;
-let backingTrackSource = null;
+let backingTrackAudio = null;
+let backingMediaSource = null;
 let backingTrackObjectUrl = null;
 let backingTrackLoadToken = 0;
 let lastBackingStart = null;
+let backingStartTimer = 0;
+let backingDriftSeconds = null;
+let backingStatusError = "";
 let mixerState = {
   position: DEFAULT_MIX_POSITION / 100,
   metronomeGain: 1,
@@ -271,20 +276,25 @@ function noteMetadata(note, playhead, rawPosition, pos) {
 // Why this shape: reports need to describe the exact runtime state used for a capture.
 function runSettings() {
   return {
-    sourceFile: fileName.textContent,
+    sourceFile: sourceMetadata.file || "Fallback demo notes",
     sourceTitle: sourceMetadata.title,
-    bpm: Number(tempo.value),
+    bpm: activeTempo,
     timeSignature: sourceMetadata.timeSignature || "4/4",
     scoreTimingSource: sourceMetadata.scoreTimingSource || "GPIF notes",
-    metronomeSound: metronomeName.textContent,
+    metronomeSound: clickButtonText?.textContent || "Default Click",
     clickSource: metronomeBuffer ? "selected wav" : "built-in click",
     backingTrack: {
       available: Boolean(sourceMetadata.backingTrack?.available),
-      loaded: Boolean(backingTrackBuffer),
+      loaded: Boolean(isBackingTrackLoaded()),
       enabled: Boolean(backingToggle?.checked),
       label: sourceMetadata.backingTrack?.label || "No backing track",
       nativeTempo: sourceMetadata.backingTrack?.nativeTempo || sourceMetadata.tempo || 120,
       startOffsetSeconds: Number(backingStartOffsetSeconds().toFixed(3)),
+      preservesPitch: backingTrackAudio ? backingPitchPreserveEnabled(backingTrackAudio) : false,
+      tempoRatio: Number(backingTempoRatio().toFixed(4)),
+      mediaCurrentTime: backingTrackAudio ? Number(backingTrackAudio.currentTime.toFixed(3)) : null,
+      expectedCurrentTime: expectedBackingMediaTime(currentPlayhead),
+      driftSeconds: backingDriftSeconds,
       mixerPosition: Number(mixerState.position.toFixed(2)),
       metronomeGain: Number(mixerState.metronomeGain.toFixed(3)),
       backingGain: Number(mixerState.backingGain.toFixed(3)),
@@ -466,6 +476,7 @@ function isQuarterAlignedHit(event) {
 function buildSyncReport() {
   const run = syncDebug.currentRun;
   const settings = run?.settings || runSettings();
+  const liveBacking = mixerState;
   const pairs = syncPairs().filter((pair) => pair.tick);
   const positionAlignedPairs = pairs.filter((pair) => isQuarterAlignedHit(pair.hit) && pair.positionDelta === 0);
   const offGridHits = syncDebug.noteHitEvents.filter((event) => !isQuarterAlignedHit(event));
@@ -503,6 +514,8 @@ function buildSyncReport() {
     `- Score timing source: ${settings.scoreTimingSource}`,
     `- Backing track: ${settings.backingTrack.available ? settings.backingTrack.label : "none"}`,
     `- Backing loaded/enabled: ${settings.backingTrack.loaded ? "yes" : "no"} / ${settings.backingTrack.enabled ? "yes" : "no"}`,
+    `- Backing pitch preserve / tempo ratio: ${liveBacking.backingPreservesPitch ? "yes" : "no"} / ${liveBacking.backingTempoRatio ?? settings.backingTrack.tempoRatio}`,
+    `- Backing media time / expected / drift: ${liveBacking.backingMediaCurrentTime ?? "n/a"} / ${liveBacking.backingExpectedCurrentTime ?? "n/a"} / ${liveBacking.backingDriftSeconds ?? "n/a"}`,
     `- Mixer gains: click ${settings.backingTrack.metronomeGain} / backing ${settings.backingTrack.backingGain}`,
     `- Count-in units: ${settings.countInUnits}`,
     `- Metronome sound: ${settings.metronomeSound}`,
@@ -1057,11 +1070,26 @@ function parseGpifText(xmlText, fileLabel) {
   };
 }
 
-// Purpose: update the footer's input-source status text.
-// Warning: keep messages short because this slot is compact on smaller screens.
-// Why this shape: source truth belongs in the visible UI, not just console warnings.
-function setSourceStatus(message) {
-  if (sourceStatus) sourceStatus.textContent = message;
+// Purpose: update the source-picker button state without adding a second source label.
+// Warning: keep this to short control states only; filenames belong in reports, not the crowded header.
+// Why this shape: refactored from a separate file metadata block so the header has one source control.
+function setSourceButtonText(message) {
+  if (sourceButtonText) sourceButtonText.textContent = message;
+}
+
+// Purpose: keep the tempo range and editable BPM input in sync.
+// Warning: this clamps committed values to the supported range and preserves playback continuity when requested.
+// Why this shape: one setter prevents the slider and typed BPM field from drifting apart.
+function setTempoValue(nextTempo, { reanchor = false } = {}) {
+  const parsed = Number.parseInt(nextTempo, 10);
+  const clamped = Math.max(TEMPO_MIN, Math.min(TEMPO_MAX, Number.isFinite(parsed) ? parsed : activeTempo));
+  tempo.value = String(clamped);
+  tempoValue.value = String(clamped);
+  if (reanchor) reanchorPlaybackClockForTempoChange(clamped);
+  else activeTempo = clamped;
+  updateBackingPlaybackRate();
+  updateDebugPanel();
+  return clamped;
 }
 
 // Purpose: apply extracted note payloads to the live song state.
@@ -1102,13 +1130,10 @@ function applySongData(payload) {
     BAR_UNITS,
     Math.ceil(Math.max(...songNotes.map((note) => note.position + durationUnits(note))) / BAR_UNITS) * BAR_UNITS
   );
-  fileName.textContent = sourceMetadata.file || "Hand Sync pt1 + BT.gp";
+  setSourceButtonText("Loaded");
   if (sourceMetadata.tempo) {
-    tempo.value = sourceMetadata.tempo;
-    activeTempo = Number(tempo.value);
-    tempoValue.textContent = `${tempo.value} BPM`;
+    setTempoValue(sourceMetadata.tempo);
   }
-  setSourceStatus(sourceMetadata.file?.toLowerCase().endsWith(".gpif") ? "Parsed GPIF notes" : "Extracted Guitar Pro notes");
   loadBackingTrack(sourceMetadata.backingTrack);
   render(pausedAt);
   updateDebugPanel();
@@ -1123,8 +1148,7 @@ async function loadDefaultGpData() {
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     applySongData(await response.json());
   } catch (error) {
-    setSourceStatus("Default data failed - select source");
-    fileName.textContent = "Fallback demo notes";
+    setSourceButtonText("Select source");
     updateMixerState();
     console.warn("Using fallback note data because GP note JSON was not loaded.", error);
   }
@@ -1210,14 +1234,14 @@ function render(playhead = pausedAt, rawPosition = playhead) {
 }
 
 // Purpose: convert whole-note units into seconds at a backing track's native tempo.
-// Warning: pass native tempo, not the user's active tempo; playbackRate handles practice tempo changes.
+// Warning: pass native tempo, not the user's active tempo; the media element tempo ratio handles practice tempo changes.
 // Why this shape: both extracted metadata and runtime seeking need the same unit-to-audio conversion.
 function backingSecondsFromUnits(units, nativeTempo) {
   return (Math.max(0, units) / QUARTER_NOTE_UNITS) * (60 / nativeTempo);
 }
 
 // Purpose: convert a song position into seconds in the original backing-track file.
-// Warning: this uses the backing track's native tempo; playbackRate handles current tempo changes.
+// Warning: this uses the backing track's native tempo; the media element tempo ratio handles current tempo changes.
 // Why this shape: offset math stays stable even when the tempo slider changes during practice.
 function backingSecondsForPosition(position) {
   const nativeTempo = sourceMetadata.backingTrack?.nativeTempo || sourceMetadata.tempo || Number(tempo.value) || 120;
@@ -1236,12 +1260,117 @@ function backingStartOffsetSeconds() {
   return backingSecondsFromUnits(backing.startOffsetUnits || 0, nativeTempo);
 }
 
-// Purpose: compute backing playbackRate from current BPM and native backing tempo.
-// Warning: large tempo changes will pitch-shift the backing because this prototype uses playbackRate.
-// Why this shape: it keeps backing, notes, and metronome on the same playhead clock without offline time-stretching.
-function backingPlaybackRate() {
+// Purpose: compute the backing media tempo ratio from current BPM and native backing tempo.
+// Warning: the browser preserves pitch for this media-element playbackRate; do not use AudioBufferSourceNode for backing here.
+// Why this shape: it keeps backing, notes, and metronome on the same playhead clock without adding a DSP dependency.
+function backingTempoRatio() {
   const nativeTempo = sourceMetadata.backingTrack?.nativeTempo || sourceMetadata.tempo || Number(tempo.value) || 120;
-  return Number(tempo.value) / nativeTempo;
+  return activeTempo / nativeTempo;
+}
+
+// Purpose: detect whether the loaded media element has enough metadata to seek and play.
+// Warning: readyState can fall back during errors, so use this as live state rather than a permanent load flag.
+// Why this shape: media-element playback needs duration/currentTime instead of a decoded AudioBuffer.
+function isBackingTrackLoaded() {
+  return Boolean(backingTrackAudio && backingTrackAudio.readyState >= HTMLMediaElement.HAVE_METADATA);
+}
+
+// Purpose: enable the browser's pitch-preserving playback mode across current engine property names.
+// Warning: unsupported properties are harmless, but the standard preservesPitch flag is the one reports should prefer.
+// Why this shape: HTML media playback is the simplest static-app path for tempo changes without pitch shifting.
+function enableBackingPitchPreservation(audio) {
+  if ("preservesPitch" in audio) audio.preservesPitch = true;
+  if ("mozPreservesPitch" in audio) audio.mozPreservesPitch = true;
+  if ("webkitPreservesPitch" in audio) audio.webkitPreservesPitch = true;
+}
+
+// Purpose: report whether pitch preservation is enabled on the backing media element.
+// Warning: older browser aliases may exist without the standard property.
+// Why this shape: tests and sync reports need an explicit runtime fact, not just a code-path assumption.
+function backingPitchPreserveEnabled(audio = backingTrackAudio) {
+  if (!audio) return false;
+  if ("preservesPitch" in audio) return audio.preservesPitch;
+  if ("mozPreservesPitch" in audio) return audio.mozPreservesPitch;
+  if ("webkitPreservesPitch" in audio) return audio.webkitPreservesPitch;
+  return false;
+}
+
+// Purpose: create the reusable backing audio element and route it through the mixer bus.
+// Warning: createMediaElementSource can only be called once for a given media element.
+// Why this shape: one media element can change tempo with pitch preservation while still flowing through debug capture.
+function ensureBackingAudioElement() {
+  const context = ensureAudioContext();
+  if (!backingTrackAudio) {
+    backingTrackAudio = new Audio();
+    backingTrackAudio.preload = "auto";
+    backingTrackAudio.loop = false;
+    enableBackingPitchPreservation(backingTrackAudio);
+    backingTrackAudio.addEventListener("ended", () => {
+      if (isPlaying && backingToggle?.checked) {
+        startBackingTrack(0);
+      } else {
+        updateMixerState();
+      }
+    });
+    backingTrackAudio.addEventListener("error", () => {
+      backingStatusError = "Backing unavailable";
+      updateMixerState();
+    });
+  }
+
+  if (!backingMediaSource) {
+    backingMediaSource = context.createMediaElementSource(backingTrackAudio);
+    connectToOutputs(backingMediaSource, "backing");
+  }
+
+  return backingTrackAudio;
+}
+
+// Purpose: return the original-file loop window for the playable song section.
+// Warning: this depends on media metadata; callers should tolerate null before the backing is loaded.
+// Why this shape: the MP3 contains GP export pre-roll while the visual timeline starts at playable position zero.
+function backingLoopInfo() {
+  if (!isBackingTrackLoaded()) return null;
+  const preRollOffset = backingStartOffsetSeconds();
+  const mediaDuration = backingTrackAudio.duration;
+  const loopStart = Math.min(preRollOffset, Math.max(0, mediaDuration - 0.01));
+  const loopDuration = backingSecondsForPosition(songEndPosition);
+  const loopEnd = Math.min(mediaDuration, loopStart + loopDuration);
+  const loopLength = Math.max(0, loopEnd - loopStart);
+  return { loopStart, loopEnd, loopLength };
+}
+
+// Purpose: compute the backing media time that should align with a visual playhead position.
+// Warning: negative count-in space has no backing audio; return null until song position zero is reached.
+// Why this shape: drift checks compare media currentTime against the same native-tempo offset math used for starts.
+function expectedBackingMediaTime(position = currentPlayhead) {
+  const loop = backingLoopInfo();
+  if (!loop || position < 0) return null;
+  const songPosition = normalizePlaybackPosition(position);
+  let expected = loop.loopStart + backingSecondsForPosition(songPosition);
+  if (loop.loopLength > 0) expected = loop.loopStart + ((expected - loop.loopStart) % loop.loopLength);
+  return Number(expected.toFixed(4));
+}
+
+// Purpose: keep media-element backing playback aligned to the visual playhead.
+// Warning: normal frame jitter should not seek constantly; only correct meaningful drift or explicit tempo changes.
+// Why this shape: HTMLMediaElement playback is pitch-preserving but less sample-scheduled than AudioBufferSourceNode.
+function correctBackingDrift(force = false) {
+  if (!isPlaying || !backingTrackAudio || backingTrackAudio.paused || backingTrackAudio.seeking) return;
+  const expected = expectedBackingMediaTime(currentPlayhead);
+  const loop = backingLoopInfo();
+  if (expected === null || !loop) return;
+
+  if (loop.loopLength > 0 && backingTrackAudio.currentTime >= loop.loopEnd - 0.01) {
+    backingTrackAudio.currentTime = loop.loopStart;
+  }
+
+  const drift = backingTrackAudio.currentTime - expected;
+  backingDriftSeconds = Number(drift.toFixed(4));
+  if (force || Math.abs(drift) > BACKING_DRIFT_CORRECTION_SECONDS) {
+    backingTrackAudio.currentTime = expected;
+    backingDriftSeconds = 0;
+  }
 }
 
 // Purpose: preserve the current playhead when the user changes tempo during playback.
@@ -1271,7 +1400,7 @@ function reanchorPlaybackClockForTempoChange(nextTempo) {
 // Why this shape: a true crossfader feels natural when backing is active while the off toggle remains musically safe.
 function equalPowerMixerGains() {
   const position = (Number(mixSlider?.value ?? DEFAULT_MIX_POSITION) || 0) / 100;
-  if (!backingToggle?.checked || !backingTrackBuffer) {
+  if (!backingToggle?.checked || !isBackingTrackLoaded()) {
     return { position, metronomeGain: 1, backingGain: 0 };
   }
 
@@ -1290,8 +1419,9 @@ function updateMixerState() {
   const gains = equalPowerMixerGains();
   const context = audioContext;
   const available = Boolean(sourceMetadata.backingTrack?.available && sourceMetadata.backingTrack?.url);
-  const loaded = Boolean(backingTrackBuffer);
+  const loaded = isBackingTrackLoaded();
   const enabled = Boolean(backingToggle?.checked);
+  const expectedCurrentTime = expectedBackingMediaTime(currentPlayhead);
 
   mixerState = {
     position: gains.position,
@@ -1300,11 +1430,19 @@ function updateMixerState() {
     backingAvailable: available,
     backingEnabled: enabled,
     backingLoaded: loaded,
-    backingPlaying: Boolean(backingTrackSource),
-    backingPlaybackRate: Number(backingPlaybackRate().toFixed(4)),
-    backingSourcePlaybackRate: backingTrackSource
-      ? Number(backingTrackSource.playbackRate.value.toFixed(4))
+    backingPlaying: Boolean(backingTrackAudio && !backingTrackAudio.paused),
+    backingMuted: Boolean(backingTrackAudio?.muted),
+    backingPreservesPitch: backingTrackAudio ? backingPitchPreserveEnabled(backingTrackAudio) : false,
+    backingTempoRatio: Number(backingTempoRatio().toFixed(4)),
+    backingPlaybackRate: Number(backingTempoRatio().toFixed(4)),
+    backingSourcePlaybackRate: backingTrackAudio
+      ? Number(backingTrackAudio.playbackRate.toFixed(4))
       : null,
+    backingMediaCurrentTime: backingTrackAudio && loaded
+      ? Number(backingTrackAudio.currentTime.toFixed(4))
+      : null,
+    backingExpectedCurrentTime: expectedCurrentTime,
+    backingDriftSeconds,
     backingStartOffsetSeconds: Number(backingStartOffsetSeconds().toFixed(3)),
     lastBackingStart,
   };
@@ -1317,13 +1455,7 @@ function updateMixerState() {
     backingBus.gain.setTargetAtTime(gains.backingGain, context.currentTime, 0.01);
   }
 
-  if (backingStatus) {
-    backingStatus.textContent = !available || !loaded
-      ? "No backing track"
-      : enabled
-        ? "Backing loaded"
-        : "Backing off";
-  }
+  if (backingStatus) backingStatus.textContent = backingStatusError;
 }
 
 // Purpose: create the click and backing gain busses once per AudioContext.
@@ -1377,110 +1509,154 @@ function connectToOutputs(node, bus = "metronome") {
   node.connect(bus === "backing" ? backingBus : metronomeBus);
 }
 
-// Purpose: stop the currently scheduled or playing backing source.
-// Warning: AudioBufferSourceNode is one-shot; a fresh node is required for every resume.
-// Why this shape: pause/restart/toggle-off need deterministic silence without disturbing decoded audio.
+// Purpose: stop the currently scheduled or playing backing media element.
+// Warning: this pauses the reusable media element but keeps its mixer connection intact.
+// Why this shape: pause/restart/toggle-off need deterministic silence without rebuilding the audio graph.
 function stopBackingTrack() {
-  if (!backingTrackSource) return;
-  try {
-    backingTrackSource.stop();
-  } catch {
-    // Already-ended sources cannot be stopped again.
+  if (backingStartTimer) {
+    window.clearTimeout(backingStartTimer);
+    backingStartTimer = 0;
   }
-  backingTrackSource.disconnect();
-  backingTrackSource = null;
+  if (backingTrackAudio) {
+    backingTrackAudio.pause();
+    backingTrackAudio.muted = false;
+  }
+  updateMixerState();
+}
+
+// Purpose: start the backing media element and capture play() failures as visible mixer status.
+// Warning: this must run from a user-gesture-derived playback path or after an already-allowed media play.
+// Why this shape: HTMLMediaElement.play() is promise-based and can be rejected by autoplay policy.
+async function playBackingAudio(audio) {
+  try {
+    await audio.play();
+    backingStatusError = "";
+  } catch (error) {
+    console.warn("Backing track could not be played.", error);
+    backingStatusError = "Backing unavailable";
+  }
   updateMixerState();
 }
 
 // Purpose: start backing audio at the playhead-aligned song offset.
 // Warning: backing starts at song position 0 but skips exported GP pre-roll before the first playable source measure.
-// Why this shape: refactored from offset 0 playback so the MP3's measure-1 lead-in does not play after our visual count-in.
+// Why this shape: media-element playback preserves pitch while still following the same visual playhead tempo ratio.
 function startBackingTrack(position = currentPlayhead) {
-  if (!isPlaying || !backingToggle?.checked || !backingTrackBuffer) {
+  if (!isPlaying || !backingToggle?.checked || !isBackingTrackLoaded()) {
     updateMixerState();
     return;
   }
 
   stopBackingTrack();
   const context = ensureAudioContext();
-  const source = context.createBufferSource();
+  const audio = ensureBackingAudioElement();
   const songPosition = position < 0 ? 0 : normalizePlaybackPosition(position);
-  const preRollOffset = backingStartOffsetSeconds();
-  const loopStart = Math.min(preRollOffset, Math.max(0, backingTrackBuffer.duration - 0.01));
-  const loopDuration = backingSecondsForPosition(songEndPosition);
-  const loopEnd = Math.min(backingTrackBuffer.duration, loopStart + loopDuration);
-  const loopLength = Math.max(0, loopEnd - loopStart);
-  let offsetSeconds = loopStart + backingSecondsForPosition(songPosition);
-  if (loopLength > 0) offsetSeconds = loopStart + ((offsetSeconds - loopStart) % loopLength);
-
-  source.buffer = backingTrackBuffer;
-  source.playbackRate.value = backingPlaybackRate();
-  if (loopLength > 0) {
-    source.loop = true;
-    source.loopStart = loopStart;
-    source.loopEnd = loopEnd;
-  }
-  source.addEventListener("ended", () => {
-    if (backingTrackSource === source) {
-      backingTrackSource = null;
-      updateMixerState();
-    }
-  }, { once: true });
-  connectToOutputs(source, "backing");
-
-  const scheduledStart = position < 0
-    ? scheduledAudioTimeForPosition(0)
-    : context.currentTime + 0.005;
-  lastBackingStart = {
-    offsetSeconds: Number(offsetSeconds.toFixed(4)),
-    loopStart: Number(loopStart.toFixed(4)),
-    loopEnd: Number(loopEnd.toFixed(4)),
-    playbackRate: Number(source.playbackRate.value.toFixed(4)),
-    scheduledStart: Number(scheduledStart.toFixed(4)),
-  };
-  source.start(Math.max(scheduledStart, context.currentTime + 0.005), offsetSeconds);
-  backingTrackSource = source;
-  updateMixerState();
-}
-
-// Purpose: apply current tempo to an already running backing source.
-// Warning: playbackRate changes pitch; this is acceptable for the prototype but not final-quality time stretch.
-// Why this shape: the backing track follows the same active BPM control as the visual playhead.
-function updateBackingPlaybackRate() {
-  if (!backingTrackSource || !audioContext) return;
-  backingTrackSource.playbackRate.setTargetAtTime(backingPlaybackRate(), audioContext.currentTime, 0.01);
-  setTimeout(updateMixerState, 40);
-}
-
-// Purpose: fetch and decode the backing track for the active source payload.
-// Warning: raw GPIF XML may name an embedded asset without providing bytes; those cases report no loaded backing.
-// Why this shape: default JSON URLs and selected GP package object URLs share one decode path.
-async function loadBackingTrack(backingTrack) {
-  const token = ++backingTrackLoadToken;
-  stopBackingTrack();
-  backingTrackBuffer = null;
-  updateMixerState();
-
-  if (!backingTrack?.available || !backingTrack.url) {
+  const loop = backingLoopInfo();
+  if (!loop) {
     updateMixerState();
     return;
   }
 
-  if (backingStatus) backingStatus.textContent = "Backing loading";
+  const { loopStart, loopEnd, loopLength } = loop;
+  let offsetSeconds = loopStart + backingSecondsForPosition(songPosition);
+  if (loopLength > 0) offsetSeconds = loopStart + ((offsetSeconds - loopStart) % loopLength);
+
+  enableBackingPitchPreservation(audio);
+  audio.playbackRate = backingTempoRatio();
+  audio.currentTime = offsetSeconds;
+
+  const scheduledStart = position < 0
+    ? scheduledAudioTimeForPosition(0)
+    : context.currentTime + 0.005;
+  const startDelayMs = Math.max(0, (scheduledStart - context.currentTime) * 1000);
+  lastBackingStart = {
+    offsetSeconds: Number(offsetSeconds.toFixed(4)),
+    loopStart: Number(loopStart.toFixed(4)),
+    loopEnd: Number(loopEnd.toFixed(4)),
+    tempoRatio: Number(audio.playbackRate.toFixed(4)),
+    preservesPitch: backingPitchPreserveEnabled(audio),
+    scheduledStart: Number(scheduledStart.toFixed(4)),
+  };
+
+  if (startDelayMs > 0) {
+    audio.muted = true;
+    playBackingAudio(audio);
+    backingStartTimer = window.setTimeout(() => {
+      backingStartTimer = 0;
+      if (!isPlaying || !backingToggle?.checked || !isBackingTrackLoaded()) {
+        updateMixerState();
+        return;
+      }
+      audio.currentTime = offsetSeconds;
+      audio.muted = false;
+      if (audio.paused) playBackingAudio(audio);
+      else updateMixerState();
+    }, startDelayMs);
+  } else {
+    audio.muted = false;
+    playBackingAudio(audio);
+  }
+  updateMixerState();
+}
+
+// Purpose: apply current tempo to the backing media element while preserving pitch.
+// Warning: live tempo changes can create small drift, so this also nudges currentTime back to the playhead-derived position.
+// Why this shape: browser media playback gives this static app tempo adjustment without pitch-shifting the backing track.
+function updateBackingPlaybackRate() {
+  if (!backingTrackAudio) return;
+  enableBackingPitchPreservation(backingTrackAudio);
+  backingTrackAudio.playbackRate = backingTempoRatio();
+  if (backingStartTimer && isPlaying && isBackingTrackLoaded()) {
+    startBackingTrack(currentPlayhead);
+    return;
+  }
+  correctBackingDrift(true);
+  setTimeout(updateMixerState, 40);
+}
+
+// Purpose: fetch the backing track metadata and prepare media-element playback for the active source payload.
+// Warning: raw GPIF XML may name an embedded asset without providing bytes; those cases report no loaded backing.
+// Why this shape: default JSON URLs and selected GP package object URLs share one pitch-preserving playback path.
+async function loadBackingTrack(backingTrack) {
+  const token = ++backingTrackLoadToken;
+  backingStatusError = "";
+  stopBackingTrack();
+  backingDriftSeconds = null;
+  updateMixerState();
+
+  if (!backingTrack?.available || !backingTrack.url) {
+    if (backingTrackAudio) backingTrackAudio.removeAttribute("src");
+    updateMixerState();
+    return;
+  }
+
   try {
-    const response = await fetch(backingTrack.url, { cache: "no-store" });
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    const context = ensureAudioContext();
-    const backingBytes = await response.arrayBuffer();
-    const decoded = await context.decodeAudioData(backingBytes);
+    const audio = ensureBackingAudioElement();
+    audio.pause();
+    audio.src = backingTrack.url;
+    enableBackingPitchPreservation(audio);
+    audio.playbackRate = backingTempoRatio();
+    audio.load();
+    await new Promise((resolve, reject) => {
+      const onLoaded = () => cleanup(resolve);
+      const onError = () => cleanup(() => reject(new Error("Backing metadata could not be loaded.")));
+      const cleanup = (done) => {
+        audio.removeEventListener("loadedmetadata", onLoaded);
+        audio.removeEventListener("error", onError);
+        done();
+      };
+      audio.addEventListener("loadedmetadata", onLoaded, { once: true });
+      audio.addEventListener("error", onError, { once: true });
+      if (audio.readyState >= HTMLMediaElement.HAVE_METADATA) cleanup(resolve);
+    });
     if (token !== backingTrackLoadToken) return;
-    backingTrackBuffer = decoded;
     updateMixerState();
     if (isPlaying) startBackingTrack(currentPlayhead);
   } catch (error) {
     if (token !== backingTrackLoadToken) return;
     console.warn("Backing track could not be loaded.", error);
-    backingTrackBuffer = null;
+    backingStatusError = "Backing unavailable";
+    if (backingTrackAudio) backingTrackAudio.removeAttribute("src");
     updateMixerState();
   }
 }
@@ -1595,9 +1771,9 @@ function playMetronomeClick(position, scheduledTime = ensureAudioContext().curre
     ...metricPosition,
     accent,
     scheduledAudioContextSeconds: Number(scheduledTime.toFixed(4)),
-    bpm: Number(tempo.value),
-    sourceFile: fileName.textContent,
-    metronomeSound: metronomeName.textContent,
+    bpm: activeTempo,
+    sourceFile: sourceMetadata.file || "Fallback demo notes",
+    metronomeSound: clickButtonText?.textContent || "Default Click",
     hitNotes,
     hitNoteMetadata,
   });
@@ -1640,6 +1816,7 @@ function tick() {
   const rawPosition = pausedAt + elapsedUnits;
   const playhead = normalizePlaybackPosition(rawPosition);
   currentPlayhead = playhead;
+  correctBackingDrift();
   render(currentPlayhead, rawPosition);
   updateMetronome(rawPosition);
   rafId = requestAnimationFrame(tick);
@@ -1652,24 +1829,21 @@ fileInput.addEventListener("change", async () => {
   const selected = fileInput.files?.[0];
   if (!selected) return;
   const lowerName = selected.name.toLowerCase();
-  fileName.textContent = selected.name;
+  setSourceButtonText("Loading...");
 
   try {
     if (lowerName.endsWith(".json")) {
       applySongData(JSON.parse(await selected.text()));
-      setSourceStatus("Loaded note JSON");
     } else if (lowerName.endsWith(".gpif") || lowerName.endsWith(".xml")) {
       applySongData(parseGpifText(await selected.text(), selected.name));
-      setSourceStatus("Parsed GPIF notes");
     } else if (lowerName.endsWith(".gp")) {
       applySongData(await parseGpPackage(selected));
-      setSourceStatus("Parsed GP package notes");
     } else if (lowerName.endsWith(".pdf")) {
-      setSourceStatus("PDF selected - note extraction needed");
+      setSourceButtonText("Loaded");
       console.warn("PDF input needs a notation/tab extraction step before the highway can render timed notes.");
     }
   } catch (error) {
-    setSourceStatus("Input did not parse");
+    setSourceButtonText("Select source");
     console.warn("Selected file could not be parsed into note data.", error);
   }
 
@@ -1683,14 +1857,14 @@ metronomeFile.addEventListener("change", async () => {
   const selected = metronomeFile.files?.[0];
   if (!selected) return;
   const context = ensureAudioContext();
-  metronomeName.textContent = "Loading...";
+  clickButtonText.textContent = "Loading...";
   try {
     const buffer = await selected.arrayBuffer();
     metronomeBuffer = await context.decodeAudioData(buffer);
-    metronomeName.textContent = selected.name;
+    clickButtonText.textContent = "User Click";
   } catch {
     metronomeBuffer = null;
-    metronomeName.textContent = "Built-in click";
+    clickButtonText.textContent = "Default Click";
   }
   updateDebugPanel();
 });
@@ -1748,10 +1922,38 @@ restart.addEventListener("click", () => {
 // Warning: changing tempo during playback affects future position math immediately.
 // Why this shape: the prototype treats tempo as the active playback clock value, not immutable song metadata.
 tempo.addEventListener("input", () => {
-  reanchorPlaybackClockForTempoChange(Number(tempo.value));
-  tempoValue.textContent = `${tempo.value} BPM`;
-  updateBackingPlaybackRate();
-  updateDebugPanel();
+  setTempoValue(tempo.value, { reanchor: true });
+});
+
+// Purpose: block non-numeric characters in the editable BPM control.
+// Warning: range clamping still happens on commit because partial typed values can be temporarily out of range.
+// Why this shape: it keeps typing natural while still enforcing a numeric tempo field.
+tempoValue.addEventListener("beforeinput", (event) => {
+  if (event.data && !/^\d+$/.test(event.data)) event.preventDefault();
+});
+
+// Purpose: apply typed BPM values once they are inside the supported tempo range.
+// Warning: incomplete values are allowed while typing and are clamped on blur or Enter.
+// Why this shape: typing "120" should not clamp after the first "1".
+tempoValue.addEventListener("input", () => {
+  const parsed = Number.parseInt(tempoValue.value, 10);
+  if (parsed >= TEMPO_MIN && parsed <= TEMPO_MAX) {
+    setTempoValue(parsed, { reanchor: true });
+  }
+});
+
+// Purpose: commit typed BPM values and clamp them into the supported range.
+// Warning: this can rewrite the field when the user leaves an empty or out-of-range value.
+// Why this shape: the app always returns to a valid tempo after editing.
+tempoValue.addEventListener("change", () => {
+  setTempoValue(tempoValue.value, { reanchor: true });
+});
+
+// Purpose: let Enter commit the editable BPM field immediately.
+// Warning: this intentionally blurs the field so the normal change handler performs clamping.
+// Why this shape: keyboard entry should feel like a compact numeric control, not a freeform text field.
+tempoValue.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") tempoValue.blur();
 });
 
 // Purpose: toggle backing playback without changing the user's crossfader position.

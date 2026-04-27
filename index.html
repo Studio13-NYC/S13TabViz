@@ -26,12 +26,8 @@
                 <path d="M9 17h4" />
               </svg>
             </span>
-            <span>Select source</span>
+            <span id="sourceButtonText">Select source</span>
           </label>
-          <div class="file-meta">
-            <span class="meta-label">Loaded</span>
-            <strong id="fileName">Hand Sync pt1 + BT.gp</strong>
-          </div>
         </section>
 
         <section class="metronome-panel" aria-label="Metronome sound selection">
@@ -45,12 +41,8 @@
                 <path d="M18 4v16" />
               </svg>
             </span>
-            <span>Metronome WAV</span>
+            <span id="clickButtonText">Default Click</span>
           </label>
-          <div class="file-meta">
-            <span class="meta-label">Click</span>
-            <strong id="metronomeName">Built-in click</strong>
-          </div>
         </section>
 
         <section class="mixer-panel" aria-label="Audio mixer">
@@ -59,11 +51,24 @@
             <span>Backing</span>
           </label>
           <div class="mix-control">
-            <span>Click</span>
+            <span class="mix-icon" role="img" aria-label="Metronome" title="Metronome">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M6 9v6" />
+                <path d="M10 6v12" />
+                <path d="M14 9v6" />
+                <path d="M18 4v16" />
+              </svg>
+            </span>
             <input id="mixSlider" type="range" min="0" max="100" value="50" />
-            <span>Backing</span>
+            <span class="mix-icon" role="img" aria-label="Backing track" title="Backing track">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M4 10v4h4l5 4V6l-5 4H4z" />
+                <path d="M17 9a4 4 0 0 1 0 6" />
+                <path d="M19.5 6.5a7.5 7.5 0 0 1 0 11" />
+              </svg>
+            </span>
           </div>
-          <strong id="backingStatus">No backing track</strong>
+          <strong id="backingStatus" class="status-message" aria-live="polite"></strong>
         </section>
 
         <section class="transport" aria-label="Playback controls">
@@ -77,9 +82,11 @@
             <span class="play-glyph" aria-hidden="true"></span>
           </button>
           <div class="tempo-control">
-            <label for="tempo">Tempo</label>
             <input id="tempo" type="range" min="40" max="180" value="92" />
-            <output id="tempoValue" for="tempo">92 BPM</output>
+            <label class="bpm-entry">
+              <input id="tempoValue" type="number" min="40" max="180" step="1" inputmode="numeric" value="92" aria-label="Tempo BPM" />
+              <span>BPM</span>
+            </label>
           </div>
         </section>
       </header>

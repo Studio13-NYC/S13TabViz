@@ -72,6 +72,7 @@ input {
 
 .brand-link {
   display: inline-block;
+  opacity: 0.68;
   text-decoration: none;
 }
 
@@ -82,7 +83,7 @@ input {
 
 .identity h1 {
   margin: 2px 0 0;
-  font-size: clamp(26px, 2.7vw, 38px);
+  font-size: clamp(20px, 1.9vw, 28px);
   line-height: 1;
   letter-spacing: 0;
 }
@@ -99,7 +100,7 @@ input {
 .file-panel {
   min-height: 58px;
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto;
   align-items: center;
   gap: 14px;
   padding: 10px;
@@ -108,17 +109,17 @@ input {
 .metronome-panel {
   min-height: 58px;
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto;
   align-items: center;
   gap: 14px;
   padding: 10px;
 }
 
 .mixer-panel {
+  position: relative;
   min-height: 58px;
   display: grid;
   grid-template-columns: auto 1fr;
-  grid-template-rows: auto auto;
   align-items: center;
   gap: 6px 12px;
   padding: 8px 10px;
@@ -142,13 +143,10 @@ input {
 
 .mix-control {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 22px 1fr 22px;
   align-items: center;
   gap: 8px;
   color: var(--muted);
-  font-size: 11px;
-  font-weight: 800;
-  text-transform: uppercase;
 }
 
 .mix-control input {
@@ -156,14 +154,33 @@ input {
   accent-color: var(--accent);
 }
 
-.mixer-panel strong {
-  grid-column: 1 / -1;
+.mix-icon {
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+}
+
+.mix-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.status-message {
+  position: absolute;
+  left: 10px;
+  bottom: 4px;
+  max-width: calc(100% - 20px);
   overflow: hidden;
-  color: var(--text);
-  font-size: 14px;
+  color: var(--red);
+  font-size: 11px;
+  font-weight: 800;
   line-height: 1.15;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.status-message:empty {
+  display: none;
 }
 
 .file-button {
@@ -203,11 +220,6 @@ svg {
   stroke-linejoin: round;
 }
 
-.file-meta {
-  min-width: 0;
-}
-
-.file-meta strong,
 .reading-card strong {
   display: block;
   overflow: hidden;
@@ -270,7 +282,7 @@ svg {
 
 .tempo-control {
   display: grid;
-  grid-template-columns: auto 1fr 64px;
+  grid-template-columns: 1fr auto;
   align-items: center;
   gap: 10px;
   color: var(--muted);
@@ -282,10 +294,29 @@ svg {
   accent-color: var(--accent);
 }
 
-.tempo-control output {
+.bpm-entry {
+  display: inline-grid;
+  grid-template-columns: 58px auto;
+  align-items: center;
+  gap: 5px;
   color: var(--text);
   font-variant-numeric: tabular-nums;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.bpm-entry input {
+  width: 58px;
+  padding: 4px 6px;
+  border: 1px solid rgba(231, 196, 105, 0.38);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.04);
   text-align: right;
+  accent-color: var(--accent);
+}
+
+.bpm-entry span {
+  color: var(--text);
 }
 
 .stage {
