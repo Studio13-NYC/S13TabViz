@@ -261,7 +261,7 @@ svg {
 .transport {
   min-height: 58px;
   display: grid;
-  grid-template-columns: 44px 56px 1fr;
+  grid-template-columns: 44px 56px auto 1fr;
   align-items: center;
   gap: 12px;
   padding: 7px 10px;
@@ -293,6 +293,23 @@ svg {
   border-color: rgba(231, 196, 105, 0.6);
   background: var(--accent);
   color: #17130b;
+}
+
+.loop-button {
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid rgba(231, 196, 105, 0.42);
+  color: var(--text);
+  background: rgba(231, 196, 105, 0.08);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.loop-button[aria-pressed="true"] {
+  border-color: rgba(231, 196, 105, 0.72);
+  background: rgba(231, 196, 105, 0.16);
 }
 
 .play-glyph {
@@ -797,7 +814,7 @@ svg {
   }
 
   .transport {
-    grid-template-columns: 44px 56px minmax(180px, 1fr);
+    grid-template-columns: 44px 56px auto minmax(180px, 1fr);
   }
 
   .highway {
@@ -817,7 +834,8 @@ svg {
 
   .file-button,
   .icon-button,
-  .play-button {
+  .play-button,
+  .loop-button {
     width: 100%;
   }
 

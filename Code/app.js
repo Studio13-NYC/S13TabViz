@@ -7,6 +7,7 @@ const metronomeFile = document.querySelector("#metronomeFile");
 const clickButtonText = document.querySelector("#clickButtonText");
 const playPause = document.querySelector("#playPause");
 const restart = document.querySelector("#restart");
+const loopControl = document.querySelector("#loopControl");
 const tempo = document.querySelector("#tempo");
 const tempoValue = document.querySelector("#tempoValue");
 const notesLayer = document.querySelector("#notesLayer");
@@ -190,6 +191,11 @@ let scoreBackingPlaying = false;
 let sourceLibraryEntries = [];
 let azureStorageConfig = null;
 let activeSourceKey = "";
+let loopState = {
+  phase: "unset",
+  start: null,
+  end: null,
+};
 let mixerState = {
   position: DEFAULT_MIX_POSITION / 100,
   metronomeGain: 1,
@@ -365,6 +371,11 @@ function runSettings() {
       backingGain: Number(mixerState.backingGain.toFixed(3)),
     },
     countInUnits: BAR_UNITS,
+    loop: {
+      phase: loopState.phase,
+      start: loopState.start,
+      end: loopState.end,
+    },
     startPosition: START_POSITION,
     playStartPosition: PLAY_START_POSITION,
     horizonUnits: HORIZON_UNITS,
@@ -2211,6 +2222,94 @@ function reanchorPlaybackClockForTempoChange(nextTempo) {
   render(currentPlayhead, currentPlayhead);
 }
 
+// Purpose: constrain loop points to playable song space rather than count-in lead-in.
+// Warning: the loop feature is for song practice, so negative count-in positions collapse to song start.
+// Why this shape: users can arm a loop before playback and reliably get a start point at the beginning.
+function playableLoopPosition(position) {
+  return Math.max(0, Math.min(songEndPosition, Number(position) || 0));
+}
+
+// Purpose: return true when a complete loop range is ready to control playback.
+// Warning: both points must be finite and end must be after start to avoid zero-length loop stalls.
+// Why this shape: the button can hold an open start point without changing playback until the range is closed.
+function loopRangeActive() {
+  return (
+    loopState.phase === "closed" &&
+    Number.isFinite(loopState.start) &&
+    Number.isFinite(loopState.end) &&
+    loopState.end > loopState.start
+  );
+}
+
+// Purpose: update the loop button label and expose loop state for browser verification.
+// Warning: visual label is the source of user state, but playback reads loopState directly.
+// Why this shape: a three-label control keeps loop setup compact in the transport.
+function updateLoopControl() {
+  if (loopControl) {
+    loopControl.textContent =
+      loopState.phase === "open"
+        ? "Close Loop"
+        : loopState.phase === "closed"
+          ? "Clear Loop"
+          : "Set Loop";
+    loopControl.setAttribute("aria-pressed", loopState.phase !== "unset" ? "true" : "false");
+  }
+  window.__loopState = { ...loopState };
+}
+
+// Purpose: clear any configured loop range and restore the transport control to its initial state.
+// Warning: this does not move the playhead; it only removes future loop wrapping.
+// Why this shape: Clear Loop should be safe during playback and should not interrupt practice.
+function clearLoopRange() {
+  loopState = { phase: "unset", start: null, end: null };
+  updateLoopControl();
+}
+
+// Purpose: set the loop start, close the loop end, or clear the loop based on current button state.
+// Warning: closing before the playhead passes the start falls back to song end to avoid an unusable range.
+// Why this shape: one button follows the requested Set Loop -> Close Loop -> Clear Loop workflow.
+function cycleLoopControl() {
+  if (loopState.phase === "unset") {
+    loopState = {
+      phase: "open",
+      start: isPlaying ? playableLoopPosition(currentPlayhead) : 0,
+      end: null,
+    };
+  } else if (loopState.phase === "open") {
+    const start = loopState.start ?? 0;
+    const candidateEnd = playableLoopPosition(currentPlayhead);
+    loopState = {
+      phase: "closed",
+      start,
+      end: candidateEnd > start ? candidateEnd : songEndPosition,
+    };
+  } else {
+    clearLoopRange();
+    return;
+  }
+  updateLoopControl();
+  updateDebugPanel();
+}
+
+// Purpose: restart the active audio/visual clock from a loop boundary without stopping playback.
+// Warning: scheduled click nodes must be cleared or pre-loop lookahead clicks can leak past the wrap.
+// Why this shape: loop wrapping should feel like a seek while preserving the existing play/pause state.
+function seekPlaybackPosition(position) {
+  const nextPosition = playableLoopPosition(position);
+  pausedAt = nextPosition;
+  currentPlayhead = nextPosition;
+  startedAtAudio = ensureAudioContext().currentTime;
+  lastMetronomeTickIndex = Math.floor(nextPosition / QUARTER_NOTE_UNITS + 0.0001) - 1;
+  stopScheduledClicks();
+  stopBackingTrack();
+  if (syncDebug.currentRun) {
+    syncDebug.currentRun.startedAtPosition = nextPosition;
+  }
+  render(nextPosition, nextPosition);
+  updateMetronome(nextPosition);
+  if (isPlaying) startBackingTrack(nextPosition);
+}
+
 // Purpose: compute equal-power click/backing gains from the one mixer slider.
 // Warning: when backing is off or unavailable, click gain returns to 1 so the metronome never disappears.
 // Why this shape: a true crossfader feels natural when backing is active while the off toggle remains musically safe.
@@ -2426,14 +2525,18 @@ function stopBackingTrack() {
   updateMixerState();
 }
 
-// Purpose: start the backing media element and capture play() failures as visible mixer status.
-// Warning: this must run from a user-gesture-derived playback path or after an already-allowed media play.
+// Purpose: start the backing media element and capture real play() failures as visible mixer status.
+// Warning: expected AbortError interruptions from pause/seek/restart are ignored because they are normal control flow.
 // Why this shape: HTMLMediaElement.play() is promise-based and can be rejected by autoplay policy.
 async function playBackingAudio(audio) {
   try {
     await audio.play();
     backingStatusError = "";
   } catch (error) {
+    if (error?.name === "AbortError") {
+      updateMixerState();
+      return;
+    }
     console.warn("Backing track could not be played.", error);
     backingStatusError = "Backing unavailable";
   }
@@ -2734,6 +2837,11 @@ function tick() {
   const context = ensureAudioContext();
   const elapsedUnits = (context.currentTime - startedAtAudio) * (bpm / 60) * QUARTER_NOTE_UNITS;
   const rawPosition = pausedAt + elapsedUnits;
+  if (loopRangeActive() && rawPosition >= loopState.end) {
+    seekPlaybackPosition(loopState.start);
+    rafId = requestAnimationFrame(tick);
+    return;
+  }
   const playhead = normalizePlaybackPosition(rawPosition);
   currentPlayhead = playhead;
   correctBackingDrift();
@@ -2759,6 +2867,10 @@ sourceLibrary?.addEventListener("change", async () => {
 
 refreshSources?.addEventListener("click", async () => {
   await loadSourceLibrary();
+});
+
+loopControl?.addEventListener("click", () => {
+  cycleLoopControl();
 });
 
 // Purpose: decode a selected WAV for use as the metronome click.
@@ -2793,6 +2905,10 @@ playPause.addEventListener("click", async () => {
     if (rafId) cancelAnimationFrame(rafId);
     stopScheduledClicks();
     activeTempo = Number(tempo.value);
+    if (loopRangeActive() && pausedAt < loopState.start) {
+      pausedAt = loopState.start;
+      currentPlayhead = pausedAt;
+    }
     startSyncRun();
     startedAtAudio = context.currentTime;
     lastMetronomeTickIndex = null;
@@ -2815,7 +2931,7 @@ playPause.addEventListener("click", async () => {
 // Warning: restart also stops scheduled clicks so old audio cannot leak into the new run.
 // Why this shape: a single reset path keeps currentPlayhead, pausedAt, and audio schedule aligned.
 restart.addEventListener("click", () => {
-  pausedAt = PLAY_START_POSITION;
+  pausedAt = loopRangeActive() ? loopState.start : PLAY_START_POSITION;
   currentPlayhead = pausedAt;
   stopScheduledClicks();
   stopBackingTrack();
@@ -2897,5 +3013,6 @@ generateReport.addEventListener("click", () => {
 render();
 updateDebugPanel();
 updateMixerState();
+updateLoopControl();
 loadDefaultGpData();
 loadSourceLibrary();
